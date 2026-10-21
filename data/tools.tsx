@@ -1,0 +1,441 @@
+import { ToolItem, CategoryInfo } from "@/types/tools";
+
+export const CATEGORIES: CategoryInfo[] = [
+  { id: "all", name: "All Tools", count: 32, iconName: "grid" },
+  { id: "pdf", name: "PDF Tools", count: 8, iconName: "document" },
+  { id: "image", name: "Image Tools", count: 7, iconName: "photograph" },
+  { id: "video-audio", name: "Video & Audio", count: 6, iconName: "film" },
+  { id: "downloaders", name: "Downloaders", count: 4, iconName: "download" },
+  { id: "edit-convert", name: "Edit & Convert", count: 5, iconName: "pencil" },
+  { id: "more", name: "More Tools", count: 2, iconName: "squares-plus" },
+];
+
+export const RADIAL_TOOLS: ToolItem[] = [
+  {
+    id: "pdf-to-word",
+    title: "PDF to Word",
+    category: "pdf",
+    description: "Convert PDF documents into editable Microsoft Word (.docx) files seamlessly.",
+    clayColor: "clay-red",
+    iconType: "pdf-word",
+    isFeaturedRadial: true,
+    radialPosition: "top",
+    badge: "PDF",
+    quickBadge: { bg: "bg-rose-100", text: "text-rose-500" },
+    acceptedFormats: ".pdf",
+    actionText: "Convert to Word",
+    handwrittenNote: {
+      line1: "PDF to Word",
+      rotationClass: "rotate-[-4deg]",
+      positionClass: "absolute -top-7",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 inline-block -rotate-12 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "compress-image",
+    title: "Compress Image",
+    category: "image",
+    description: "Drastically reduce image file sizes without compromising visual quality.",
+    clayColor: "clay-green",
+    iconType: "image",
+    isFeaturedRadial: true,
+    radialPosition: "top-right",
+    quickBadge: { bg: "bg-emerald-100", text: "text-emerald-600" },
+    acceptedFormats: ".jpg,.jpeg,.png,.webp",
+    actionText: "Compress Images",
+    handwrittenNote: {
+      line1: "Smaller size",
+      line2: "Same quality",
+      rotationClass: "rotate-6",
+      positionClass: "absolute -top-8 -right-8",
+      arrowSvg: (
+        <svg className="w-6 h-4 text-slate-500 inline-block rotate-[80deg] -ml-1 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "pdf-merge",
+    title: "PDF Merge",
+    category: "pdf",
+    description: "Combine multiple PDF documents into a single, organized file in seconds.",
+    clayColor: "clay-blue",
+    iconType: "merge",
+    isFeaturedRadial: true,
+    radialPosition: "right",
+    quickBadge: { bg: "bg-sky-100", text: "text-sky-500" },
+    acceptedFormats: ".pdf",
+    actionText: "Merge PDFs",
+    handwrittenNote: {
+      line1: "Combine",
+      line2: "PDF files",
+      rotationClass: "rotate-[-5deg]",
+      positionClass: "absolute -top-7 -right-14",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 inline-block rotate-90 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "pdf-to-jpg",
+    title: "PDF to JPG",
+    category: "pdf",
+    description: "Extract and convert high-resolution image pages from any PDF document.",
+    clayColor: "clay-pink",
+    iconType: "zoom-in",
+    isFeaturedRadial: true,
+    radialPosition: "bottom-right",
+    quickBadge: { bg: "bg-pink-100", text: "text-pink-500" },
+    acceptedFormats: ".pdf",
+    actionText: "Extract Images",
+    handwrittenNote: {
+      line1: "Convert",
+      line2: "pages to images",
+      rotationClass: "rotate-6",
+      positionClass: "absolute -top-3 -right-20",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 block rotate-180 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "remove-bg",
+    title: "Remove Background",
+    category: "image",
+    description: "Cut out subjects automatically with client-side AI image processing.",
+    clayColor: "clay-cyan",
+    iconType: "cutout",
+    isFeaturedRadial: true,
+    radialPosition: "bottom",
+    quickBadge: { bg: "bg-cyan-100", text: "text-cyan-600" },
+    acceptedFormats: ".png,.jpg,.jpeg,.webp",
+    actionText: "Remove Background",
+    handwrittenNote: {
+      line1: "AI powered",
+      line2: "Cutout",
+      rotationClass: "rotate-[-4deg]",
+      positionClass: "absolute top-1 -right-24",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 inline-block -rotate-90 mr-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "youtube-downloader",
+    title: "YouTube Downloader",
+    category: "downloaders",
+    description: "Save YouTube videos directly in 1080p, 720p, or high-definition MP3 format.",
+    clayColor: "clay-yellow",
+    iconType: "play-down",
+    isFeaturedRadial: true,
+    radialPosition: "bottom-left",
+    quickBadge: { bg: "bg-amber-100", text: "text-amber-500" },
+    actionText: "Download Video",
+    handwrittenNote: {
+      line1: "Download",
+      line2: "videos",
+      rotationClass: "rotate-[-12deg]",
+      positionClass: "absolute -top-7 -left-12",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 block rotate-12 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "video-to-mp3",
+    title: "Video to MP3",
+    category: "video-audio",
+    description: "Extract crystal clear audio tracks from MP4, MKV, MOV and web videos.",
+    clayColor: "clay-purple",
+    iconType: "play",
+    isFeaturedRadial: true,
+    radialPosition: "left",
+    quickBadge: { bg: "bg-purple-100", text: "text-purple-600" },
+    acceptedFormats: ".mp4,.mkv,.mov,.webm",
+    actionText: "Extract MP3 Audio",
+    handwrittenNote: {
+      line1: "Extract",
+      line2: "audio",
+      rotationClass: "rotate-[-10deg]",
+      positionClass: "absolute -top-8 -left-12",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 inline-block -rotate-45 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+  {
+    id: "image-to-pdf",
+    title: "Image to PDF",
+    category: "pdf",
+    description: "Convert photos, scans, PNG and JPG images into clean PDF documents.",
+    clayColor: "clay-orange",
+    iconType: "photo",
+    isFeaturedRadial: true,
+    radialPosition: "top-left",
+    quickBadge: { bg: "bg-orange-100", text: "text-orange-500" },
+    acceptedFormats: ".jpg,.jpeg,.png,.webp",
+    actionText: "Generate PDF",
+    handwrittenNote: {
+      line1: "Turn images",
+      line2: "into PDF",
+      rotationClass: "rotate-[-10deg]",
+      positionClass: "absolute -top-7 -left-10",
+      arrowSvg: (
+        <svg className="w-5 h-4 text-slate-500 inline-block rotate-45 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+        </svg>
+      ),
+    },
+  },
+];
+
+export const QUICK_TOOLS: ToolItem[] = [
+  RADIAL_TOOLS[7], // Image to PDF
+  RADIAL_TOOLS[0], // PDF to Word
+  RADIAL_TOOLS[1], // Compress Image
+  RADIAL_TOOLS[2], // PDF Merge
+  RADIAL_TOOLS[6], // Video to MP3
+  RADIAL_TOOLS[5], // YouTube Downloader
+  RADIAL_TOOLS[4], // Remove Background
+  RADIAL_TOOLS[3], // PDF to JPG
+];
+
+export const ALL_TOOLS: ToolItem[] = [
+  ...RADIAL_TOOLS,
+  // Additional PDF Tools
+  {
+    id: "compress-pdf",
+    title: "Compress PDF",
+    category: "pdf",
+    description: "Optimize PDF filesize while preserving document and font clarity.",
+    clayColor: "clay-red",
+    iconType: "compress",
+    quickBadge: { bg: "bg-red-100", text: "text-red-500" },
+    acceptedFormats: ".pdf",
+  },
+  {
+    id: "split-pdf",
+    title: "Split PDF",
+    category: "pdf",
+    description: "Separate specific page ranges or extract individual pages into new PDFs.",
+    clayColor: "clay-blue",
+    iconType: "scissors",
+    quickBadge: { bg: "bg-sky-100", text: "text-sky-500" },
+    acceptedFormats: ".pdf",
+  },
+  {
+    id: "protect-pdf",
+    title: "Protect PDF",
+    category: "pdf",
+    description: "Add high-grade AES password encryption to sensitive PDF documents.",
+    clayColor: "clay-yellow",
+    iconType: "lock",
+    quickBadge: { bg: "bg-amber-100", text: "text-amber-500" },
+    acceptedFormats: ".pdf",
+  },
+  {
+    id: "organize-pdf",
+    title: "Organize PDF Pages",
+    category: "pdf",
+    description: "Rotate, reorder, delete, and duplicate pages inside your PDF.",
+    clayColor: "clay-purple",
+    iconType: "layers",
+    quickBadge: { bg: "bg-purple-100", text: "text-purple-500" },
+    acceptedFormats: ".pdf",
+  },
+  // Additional Image Tools
+  {
+    id: "jpg-to-png",
+    title: "JPG to PNG",
+    category: "image",
+    description: "Convert JPG photos to lossless transparent PNG format.",
+    clayColor: "clay-green",
+    iconType: "image",
+    quickBadge: { bg: "bg-emerald-100", text: "text-emerald-500" },
+    acceptedFormats: ".jpg,.jpeg",
+  },
+  {
+    id: "resize-image",
+    title: "Resize Image",
+    category: "image",
+    description: "Scale image pixel dimensions and aspect ratios for web, print or socials.",
+    clayColor: "clay-blue",
+    iconType: "aspect-ratio",
+    quickBadge: { bg: "bg-blue-100", text: "text-blue-500" },
+    acceptedFormats: ".png,.jpg,.jpeg,.webp",
+  },
+  {
+    id: "convert-webp",
+    title: "Convert to WebP",
+    category: "image",
+    description: "Next-gen lightweight web image conversion with superior compression.",
+    clayColor: "clay-cyan",
+    iconType: "sparkles",
+    quickBadge: { bg: "bg-cyan-100", text: "text-cyan-500" },
+    acceptedFormats: ".png,.jpg,.jpeg",
+  },
+  {
+    id: "watermark-image",
+    title: "Watermark Image",
+    category: "image",
+    description: "Stamp customized copyright text or logo images onto your pictures.",
+    clayColor: "clay-orange",
+    iconType: "stamp",
+    quickBadge: { bg: "bg-orange-100", text: "text-orange-500" },
+    acceptedFormats: ".png,.jpg,.jpeg,.webp",
+  },
+  {
+    id: "crop-image",
+    title: "Crop Image",
+    category: "image",
+    description: "Trim unwanted borders or crop to exact rectangular ratios.",
+    clayColor: "clay-pink",
+    iconType: "crop",
+    quickBadge: { bg: "bg-pink-100", text: "text-pink-500" },
+    acceptedFormats: ".png,.jpg,.jpeg,.webp",
+  },
+  // Additional Video & Audio Tools
+  {
+    id: "trim-video",
+    title: "Trim Video",
+    category: "video-audio",
+    description: "Cut out exact timestamps and trim video clips without re-encoding delays.",
+    clayColor: "clay-purple",
+    iconType: "cut",
+    quickBadge: { bg: "bg-purple-100", text: "text-purple-500" },
+    acceptedFormats: ".mp4,.mov,.webm",
+  },
+  {
+    id: "volume-booster",
+    title: "Audio Booster",
+    category: "video-audio",
+    description: "Amplify quiet audio and video tracks up to 300% with equalizer smoothing.",
+    clayColor: "clay-yellow",
+    iconType: "volume",
+    quickBadge: { bg: "bg-yellow-100", text: "text-yellow-600" },
+    acceptedFormats: ".mp3,.wav,.mp4",
+  },
+  {
+    id: "convert-audio",
+    title: "Audio Converter",
+    category: "video-audio",
+    description: "Transcode between WAV, FLAC, AAC, OGG and MP3 formats.",
+    clayColor: "clay-blue",
+    iconType: "music",
+    quickBadge: { bg: "bg-sky-100", text: "text-sky-500" },
+    acceptedFormats: ".wav,.flac,.aac,.ogg,.mp3",
+  },
+  {
+    id: "mute-video",
+    title: "Mute Video",
+    category: "video-audio",
+    description: "Strip audio tracks from video files cleanly in pure browser memory.",
+    clayColor: "clay-red",
+    iconType: "volume-x",
+    quickBadge: { bg: "bg-rose-100", text: "text-rose-500" },
+    acceptedFormats: ".mp4,.mov,.webm",
+  },
+  // Additional Downloaders
+  {
+    id: "insta-reels",
+    title: "Instagram Reels Downloader",
+    category: "downloaders",
+    description: "Download full HD Instagram Reels and public video clips easily.",
+    clayColor: "clay-pink",
+    iconType: "camera",
+    quickBadge: { bg: "bg-pink-100", text: "text-pink-500" },
+  },
+  {
+    id: "tiktok-saver",
+    title: "TikTok Saver No Watermark",
+    category: "downloaders",
+    description: "Save high quality TikTok videos without platform watermarks.",
+    clayColor: "clay-cyan",
+    iconType: "music",
+    quickBadge: { bg: "bg-cyan-100", text: "text-cyan-500" },
+  },
+  {
+    id: "twitter-media",
+    title: "Twitter / X Video Downloader",
+    category: "downloaders",
+    description: "Grab MP4 videos and GIFs directly from Twitter / X status URLs.",
+    clayColor: "clay-blue",
+    iconType: "share",
+    quickBadge: { bg: "bg-blue-100", text: "text-blue-500" },
+  },
+  // Additional Edit & Convert Tools
+  {
+    id: "word-to-pdf",
+    title: "Word to PDF",
+    category: "edit-convert",
+    description: "Convert Word documents (.docx) to standard, print-ready PDF files.",
+    clayColor: "clay-blue",
+    iconType: "document-text",
+    quickBadge: { bg: "bg-blue-100", text: "text-blue-500" },
+    acceptedFormats: ".doc,.docx",
+  },
+  {
+    id: "excel-to-pdf",
+    title: "Excel to PDF",
+    category: "edit-convert",
+    description: "Export spreadsheets, tables, and Excel sheets (.xlsx) directly to PDF format.",
+    clayColor: "clay-green",
+    iconType: "table",
+    quickBadge: { bg: "bg-emerald-100", text: "text-emerald-500" },
+    acceptedFormats: ".xls,.xlsx,.csv",
+  },
+  {
+    id: "ocr-scanner",
+    title: "OCR Text Extractor",
+    category: "edit-convert",
+    description: "Optical Character Recognition: extract searchable text from scans & images.",
+    clayColor: "clay-yellow",
+    iconType: "scan",
+    quickBadge: { bg: "bg-amber-100", text: "text-amber-500" },
+    acceptedFormats: ".png,.jpg,.jpeg,.pdf",
+  },
+  {
+    id: "epub-to-pdf",
+    title: "ePub to PDF",
+    category: "edit-convert",
+    description: "Transform eBook ePub files into readable and printable PDF books.",
+    clayColor: "clay-purple",
+    iconType: "book",
+    quickBadge: { bg: "bg-purple-100", text: "text-purple-500" },
+    acceptedFormats: ".epub",
+  },
+  // More Tools
+  {
+    id: "qr-generator",
+    title: "QR Code Generator",
+    category: "more",
+    description: "Generate customized high-resolution QR codes for URLs, WiFi and contacts.",
+    clayColor: "clay-cyan",
+    iconType: "qr",
+    quickBadge: { bg: "bg-cyan-100", text: "text-cyan-500" },
+  },
+  {
+    id: "barcode-scanner",
+    title: "Barcode Scanner & Maker",
+    category: "more",
+    description: "Scan camera barcodes or generate UPC/EAN retail barcodes instantly.",
+    clayColor: "clay-orange",
+    iconType: "barcode",
+    quickBadge: { bg: "bg-orange-100", text: "text-orange-500" },
+  },
+];
