@@ -78,7 +78,7 @@ export default function SearchModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 sm:pt-20 px-3 sm:px-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-150">
       {/* Backdrop */}
       <div className="fixed inset-0" onClick={onClose} />
 
@@ -87,12 +87,12 @@ export default function SearchModal({
         role="dialog"
         aria-modal="true"
         aria-label="Search tools"
-        className="relative z-10 w-full max-w-2xl bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/80 overflow-hidden flex flex-col"
+        className="relative z-10 w-full max-w-2xl max-h-[85vh] bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/80 overflow-hidden flex flex-col"
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-100">
+        <div className="flex items-center px-3.5 sm:px-4 py-3 sm:py-3.5 border-b border-slate-100 flex-shrink-0">
           <svg
-            className="w-5 h-5 text-slate-400 mr-3 flex-shrink-0"
+            className="w-5 h-5 text-slate-400 mr-2.5 sm:mr-3 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -113,20 +113,20 @@ export default function SearchModal({
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Search all 32 tools (e.g. compress, merge, pdf to word, mp3...)"
-            className="w-full bg-transparent border-none text-slate-800 placeholder-slate-400 text-sm focus:outline-none"
+            placeholder="Search tools (e.g. compress, merge, pdf to word, mp3...)"
+            className="w-full bg-transparent border-none text-slate-800 placeholder-slate-400 text-xs sm:text-sm focus:outline-none"
           />
           <button
             type="button"
             onClick={onClose}
-            className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200"
+            className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex-shrink-0"
           >
             ESC
           </button>
         </div>
 
         {/* Category Pills */}
-        <div className="flex items-center gap-1.5 px-4 py-2 bg-slate-50/80 border-b border-slate-100 overflow-x-auto text-xs no-scrollbar">
+        <div className="flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-slate-50/80 border-b border-slate-100 overflow-x-auto text-xs no-scrollbar flex-shrink-0 select-none">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
@@ -135,7 +135,7 @@ export default function SearchModal({
                 setActiveCategory(cat.id);
                 setSelectedIndex(0);
               }}
-              className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap transition-all ${
+              className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap transition-all flex-shrink-0 ${
                 activeCategory === cat.id
                   ? "bg-slate-800 text-white shadow-xs"
                   : "bg-white text-slate-600 hover:bg-slate-200/70 border border-slate-200/60"
@@ -147,7 +147,7 @@ export default function SearchModal({
         </div>
 
         {/* Search Results List */}
-        <div className="max-h-[380px] overflow-y-auto p-2 divide-y divide-slate-100">
+        <div className="max-h-[55vh] sm:max-h-[380px] overflow-y-auto p-2 divide-y divide-slate-100">
           {filteredTools.length > 0 ? (
             filteredTools.map((tool, idx) => {
               const isSelected = idx === selectedIndex;
@@ -202,7 +202,7 @@ export default function SearchModal({
         {/* Footer info */}
         <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
           <span>Navigate with ↑ ↓ and press Enter</span>
-          <span>32 Tools Available</span>
+          <span>33 Tools Available</span>
         </div>
       </div>
     </div>

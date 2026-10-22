@@ -151,3 +151,21 @@ body {
 .font-serif {
   font-family: var(--font-playfair), "Playfair Display", Georgia, serif;
 }
+
+/* Hide scrollbar for Chrome, Safari, and modern browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch device active feedback */
+@media (hover: none) {
+  .clay-btn:active {
+    transform: scale(0.95);
+  }
+}

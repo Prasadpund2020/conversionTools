@@ -6,8 +6,8 @@ export default function DesktopProps() {
       {/* Ambient lighting overlay */}
       <div className="fixed inset-0 desk-vignette z-0 pointer-events-none" />
 
-      {/* Bottom Left: Potted Green Foliage / Succulent */}
-      <div className="fixed bottom-0 left-0 pointer-events-none z-10 w-44 h-44 overflow-hidden select-none">
+      {/* Bottom Left: Potted Green Foliage / Succulent (desktop only) */}
+      <div className="hidden xl:block fixed bottom-0 left-0 pointer-events-none z-10 w-44 h-44 overflow-hidden select-none">
         <svg
           className="w-full h-full transform translate-y-6 -translate-x-6 filter drop-shadow-xl"
           fill="none"
@@ -37,8 +37,8 @@ export default function DesktopProps() {
         </svg>
       </div>
 
-      {/* Bottom Right: Leather Desk Pad, Luxury Ballpoint Pen, and Yellow Post-It Note */}
-      <div className="fixed -bottom-6 -right-6 w-80 h-48 pointer-events-none z-20 select-none">
+      {/* Bottom Right: Leather Desk Pad, Luxury Ballpoint Pen, and Yellow Post-It Note (desktop only) */}
+      <div className="hidden lg:block fixed -bottom-6 -right-6 w-80 h-48 pointer-events-none z-20 select-none">
         {/* Leather Desk Mat / Black Notebook Edge */}
         <div className="leather-pad absolute right-0 bottom-0 w-72 h-40 rounded-tl-3xl" />
 
@@ -61,6 +61,7 @@ export default function DesktopProps() {
           <div className="w-16 h-0.5 bg-stone-500/30 rounded mt-1" />
         </div>
       </div>
+
     </>
   );
 }

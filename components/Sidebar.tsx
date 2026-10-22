@@ -1,16 +1,18 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ToolCategory } from "@/types/tools";
 import { CATEGORIES } from "@/data/tools";
+import { getCategoryUrl } from "@/lib/tools";
 
 interface SidebarProps {
-  activeCategory: ToolCategory;
-  onSelectCategory: (category: ToolCategory) => void;
+  activeCategory?: ToolCategory;
+  onSelectCategory?: (category: ToolCategory) => void;
 }
 
 export default function Sidebar({
-  activeCategory,
+  activeCategory = "all",
   onSelectCategory,
 }: SidebarProps) {
   const getCategoryIcon = (id: ToolCategory) => {
@@ -62,52 +64,91 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="w-56 bg-white/70 backdrop-blur-md rounded-2xl p-3 shadow-lg border border-white/60 flex flex-col justify-between self-start mt-2 select-none">
-      {/* Categories Navigation List */}
-      <div className="space-y-1">
+    <>
+      {/* Mobile & Tablet Horizontal Category Pills Strip (lg:hidden) */}
+      <nav 
+        className="lg:hidden w-full overflow-x-auto no-scrollbar flex items-center gap-1.5 py-1 px-0.5 select-none"
+        aria-label="Filter categories"
+      >
         {CATEGORIES.map((cat) => {
           const isActive = activeCategory === cat.id;
+          const href = getCategoryUrl(cat.id);
           return (
-            <button
+            <Link
               key={cat.id}
-              type="button"
-              onClick={() => onSelectCategory(cat.id)}
-              className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all ${
+              href={href}
+              onClick={() => onSelectCategory?.(cat.id)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex-shrink-0 no-underline ${
                 isActive
-                  ? "bg-blue-100/70 text-blue-700 font-semibold shadow-xs"
-                  : "text-slate-600 hover:bg-slate-100/60 font-medium"
+                  ? "bg-blue-600 text-white shadow-xs"
+                  : "bg-white/80 text-slate-700 hover:bg-white hover:text-slate-900 border border-slate-200/60"
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                <span className={isActive ? "text-blue-600" : "text-slate-400"}>
-                  {getCategoryIcon(cat.id)}
-                </span>
-                <span>{cat.name}</span>
-              </div>
+              <span className={isActive ? "text-white" : "text-slate-400"}>
+                {getCategoryIcon(cat.id)}
+              </span>
+              <span>{cat.name}</span>
               <span
-                className={`text-[11px] ${
-                  isActive ? "text-blue-600 font-bold" : "text-slate-400"
+                className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                  isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"
                 }`}
               >
                 {cat.count}
               </span>
-            </button>
+            </Link>
           );
         })}
-      </div>
+      </nav>
 
-      {/* Privacy Badge */}
-      <div className="mt-8 pt-3 bg-amber-50/50 rounded-xl p-2.5 border border-amber-100/80">
-        <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs mb-1">
-          <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-          </svg>
-          <span>Private & Safe</span>
+      {/* Desktop Glass Vertical Sidebar (hidden lg:flex) */}
+      <aside className="hidden lg:flex w-56 bg-white/70 backdrop-blur-md rounded-2xl p-3 shadow-lg border border-white/60 flex-col justify-between self-start mt-2 select-none flex-shrink-0">
+        {/* Categories Navigation List */}
+        <div className="space-y-1">
+          {CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            const href = getCategoryUrl(cat.id);
+            return (
+              <Link
+                key={cat.id}
+                href={href}
+                onClick={() => onSelectCategory?.(cat.id)}
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all no-underline ${
+                  isActive
+                    ? "bg-blue-100/70 text-blue-700 font-semibold shadow-xs"
+                    : "text-slate-600 hover:bg-slate-100/60 hover:text-slate-900 font-medium"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className={isActive ? "text-blue-600" : "text-slate-400"}>
+                    {getCategoryIcon(cat.id)}
+                  </span>
+                  <span>{cat.name}</span>
+                </div>
+                <span
+                  className={`text-[11px] ${
+                    isActive ? "text-blue-600 font-bold" : "text-slate-400"
+                  }`}
+                >
+                  {cat.count}
+                </span>
+              </Link>
+            );
+          })}
         </div>
-        <p className="text-[10px] leading-tight text-slate-500 font-normal">
-          All files are processed in your browser. Nothing is uploaded.
-        </p>
-      </div>
-    </aside>
+
+        {/* Privacy Badge */}
+        <div className="mt-8 pt-3 bg-amber-50/50 rounded-xl p-2.5 border border-amber-100/80">
+          <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs mb-1">
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+            </svg>
+            <span>Private & Safe</span>
+          </div>
+          <p className="text-[10px] leading-tight text-slate-500 font-normal">
+            All files are processed in your browser. Nothing is uploaded.
+          </p>
+        </div>
+      </aside>
+    </>
   );
 }

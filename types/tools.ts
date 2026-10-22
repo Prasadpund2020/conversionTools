@@ -52,6 +52,10 @@ export interface ToolItem {
   };
   acceptedFormats?: string;
   actionText?: string;
+  badgeText?: string;
+  badgeColor?: string;
+  squircleColor?: string;
+  isPrimaryAction?: boolean;
 }
 
 export interface CategoryInfo {
