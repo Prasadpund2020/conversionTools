@@ -192,6 +192,7 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-orange-100", text: "text-orange-500" },
     acceptedFormats: ".jpg,.jpeg,.png,.webp",
     actionText: "Generate PDF",
+    isPrimaryAction: true,
     handwrittenNote: {
       line1: "Turn images",
       line2: "into PDF",
