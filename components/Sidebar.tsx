@@ -77,7 +77,6 @@ export default function Sidebar({
             <Link
               key={cat.id}
               href={href}
-              onClick={() => onSelectCategory?.(cat.id)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex-shrink-0 no-underline ${
                 isActive
                   ? "bg-blue-600 text-white shadow-xs"
@@ -111,7 +110,6 @@ export default function Sidebar({
               <Link
                 key={cat.id}
                 href={href}
-                onClick={() => onSelectCategory?.(cat.id)}
                 className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all no-underline ${
                   isActive
                     ? "bg-blue-100/70 text-blue-700 font-semibold shadow-xs"

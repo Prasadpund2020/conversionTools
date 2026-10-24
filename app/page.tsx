@@ -8,19 +8,16 @@ import QuickToolsClipboard from "@/components/QuickToolsClipboard";
 import DesktopProps from "@/components/DesktopProps";
 import ToolModal from "@/components/ToolModal";
 import SearchModal from "@/components/SearchModal";
-import AllToolsGrid from "@/components/AllToolsGrid";
 import RecentModal from "@/components/RecentModal";
 import SettingsModal from "@/components/SettingsModal";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ToolCategory, ToolItem } from "@/types/tools";
+import { ToolItem } from "@/types/tools";
 import { RADIAL_TOOLS, ALL_TOOLS } from "@/data/tools";
 import { getToolUrl } from "@/lib/tools";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [activeView, setActiveView] = useState<"workspace" | "all-tools">("workspace");
-  const [activeCategory, setActiveCategory] = useState<ToolCategory>("all");
   const [selectedTool, setSelectedTool] = useState<ToolItem | null>(null);
   const [initialFile, setInitialFile] = useState<File | null>(null);
 
@@ -91,13 +88,6 @@ export default function Home() {
     router.push(getToolUrl(targetTool));
   };
 
-  const handleCategorySelect = (cat: ToolCategory) => {
-    setActiveCategory(cat);
-    if (activeView === "workspace" && cat !== "all") {
-      setActiveView("all-tools");
-    }
-  };
-
   return (
     <>
       {/* Main Viewport Container */}
@@ -107,42 +97,22 @@ export default function Home() {
           onOpenSearch={() => setIsSearchOpen(true)}
           onOpenRecent={() => setIsRecentOpen(true)}
           onOpenSettings={() => setIsSettingsOpen(true)}
-          onToggleAllTools={() =>
-            setActiveView((prev) => (prev === "workspace" ? "all-tools" : "workspace"))
-          }
-          activeView={activeView}
         />
 
-        {/* Workspace Center Stage or All Tools Grid */}
-        {activeView === "workspace" ? (
-          <main className="relative w-full flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4 lg:gap-6 my-1 sm:my-2">
-            {/* Left Glass Sidebar (Desktop) / Category Pills Strip (Mobile/Tablet) */}
-            <Sidebar
-              activeCategory={activeCategory}
-              onSelectCategory={handleCategorySelect}
-            />
+        {/* Workspace Center Stage: Always Desk on Home Page */}
+        <main className="relative w-full flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4 lg:gap-6 my-1 sm:my-2">
+          {/* Left Glass Sidebar (Desktop) / Category Pills Strip (Mobile/Tablet) */}
+          <Sidebar activeCategory="all" />
 
-            {/* Center Stage: Touch Hub on Mobile / Radial Hub on Desktop */}
-            <RadialHub
-              onSelectTool={handleSelectTool}
-              onFileDrop={handleFileDrop}
-            />
-
-            {/* Right Skeuomorphic Clipboard (Desktop) / Mobile Quick Tools Card */}
-            <QuickToolsClipboard onSelectTool={handleSelectTool} />
-          </main>
-        ) : (
-          <AllToolsGrid
-            activeCategory={activeCategory}
-            onSelectCategory={setActiveCategory}
+          {/* Center Stage: Touch Hub on Mobile / Radial Hub on Desktop */}
+          <RadialHub
             onSelectTool={handleSelectTool}
-            onBackToDesk={() => setActiveView("workspace")}
-            onFileDrop={(file, tool) => {
-              setInitialFile(file);
-              setSelectedTool(tool);
-            }}
+            onFileDrop={handleFileDrop}
           />
-        )}
+
+          {/* Right Skeuomorphic Clipboard (Desktop) / Mobile Quick Tools Card */}
+          <QuickToolsClipboard onSelectTool={handleSelectTool} />
+        </main>
 
         {/* Desktop Props & Foliage Accessories (Desktop only) */}
         <DesktopProps />
@@ -159,29 +129,20 @@ export default function Home() {
         aria-label="Mobile Navigation"
       >
         {/* Desk View Tab */}
-        <button
-          type="button"
-          onClick={() => setActiveView("workspace")}
-          className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all ${
-            activeView === "workspace"
-              ? "bg-slate-800 text-white shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
+        <Link
+          href="/"
+          className="flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all bg-slate-800 text-white shadow-xs no-underline"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
           </svg>
           <span className="text-[10px] font-bold mt-0.5">Desk</span>
-        </button>
+        </Link>
 
         {/* All Tools View Tab */}
         <Link
           href="/all-tools"
-          className={`flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all no-underline ${
-            activeView === "all-tools"
-              ? "bg-blue-600 text-white shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
+          className="flex flex-col items-center justify-center py-1 px-3 rounded-xl transition-all no-underline text-slate-500 hover:text-slate-800"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />

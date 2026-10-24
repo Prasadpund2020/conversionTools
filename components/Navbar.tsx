@@ -2,40 +2,36 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   onOpenSearch: () => void;
   onOpenRecent: () => void;
   onOpenSettings: () => void;
-  onToggleAllTools: () => void;
-  activeView: "workspace" | "all-tools";
 }
 
 export default function Navbar({
   onOpenSearch,
   onOpenRecent,
   onOpenSettings,
-  onToggleAllTools,
-  activeView,
 }: NavbarProps) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isAllTools = pathname.startsWith("/all-tools");
+
   return (
     <header className="w-full flex items-center justify-between gap-2 sm:gap-4 mb-3 sm:mb-5 select-none">
-      {/* Brand Logo Section */}
-      <div 
-        className="flex flex-col cursor-pointer group flex-shrink-0"
-        onClick={() => {
-          if (activeView !== "workspace") onToggleAllTools();
-        }}
-      >
+      {/* Brand Logo Section - Always links directly to Home Desk */}
+      <Link href="/" className="flex flex-col cursor-pointer group flex-shrink-0 no-underline">
         <div className="flex items-center text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 group-hover:opacity-95 transition-opacity">
           <span>File</span>
           <span className="text-blue-600">Lab</span>
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-500 ml-0.5 inline-block group-hover:scale-125 transition-transform"></span>
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-500 ml-0.5 inline-block group-hover:scale-125 transition-transform" />
         </div>
         <span className="hidden xs:block text-[8px] sm:text-[9px] font-semibold tracking-wider sm:tracking-widest text-slate-400 mt-0.5 uppercase">
           Convert • Compress • Download
         </span>
-      </div>
+      </Link>
 
       {/* Desktop Search Bar with Ctrl+K */}
       <div className="hidden md:block w-full max-w-md lg:max-w-xl mx-2 lg:mx-4">
@@ -71,15 +67,12 @@ export default function Navbar({
           <span>Recent</span>
         </button>
 
-        {/* Tools Active Capsule / Switcher */}
-        <button
-          type="button"
-          onClick={() => {
-            if (activeView !== "workspace") onToggleAllTools();
-          }}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm transition-all ${
-            activeView === "workspace"
-              ? "bg-slate-800 text-white hover:bg-slate-900"
+        {/* Home Desk Link */}
+        <Link
+          href="/"
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-xs transition-all no-underline ${
+            isHome
+              ? "bg-slate-800 text-white hover:bg-slate-900 shadow-xs"
               : "bg-white/70 text-slate-600 hover:text-slate-900 hover:bg-white border border-slate-200/80"
           }`}
         >
@@ -87,15 +80,15 @@ export default function Navbar({
             <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
           </svg>
           <span>Desk</span>
-        </button>
+        </Link>
 
         {/* All Tools Link */}
         <Link
           href="/all-tools"
           className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-all no-underline ${
-            activeView === "all-tools"
-              ? "bg-blue-600 text-white shadow-sm"
-              : "text-slate-600 hover:text-slate-900 hover:bg-white/50 border border-transparent"
+            isAllTools
+              ? "bg-blue-600 text-white shadow-xs"
+              : "text-slate-600 hover:text-slate-900 hover:bg-white/80 border border-slate-200/80 bg-white/50"
           }`}
         >
           All Tools (33)
@@ -116,7 +109,7 @@ export default function Navbar({
         </button>
       </nav>
 
-      {/* Mobile Top Actions (Search, View Toggle, Settings) */}
+      {/* Mobile Top Actions (Search, Direct Links, Settings) */}
       <div className="flex md:hidden items-center gap-1.5">
         {/* Mobile Search Button */}
         <button
@@ -133,23 +126,20 @@ export default function Navbar({
 
         {/* Mobile View Switcher Pill */}
         <div className="flex items-center bg-white/80 border border-slate-200/80 p-0.5 rounded-full shadow-xs">
-          <button
-            type="button"
-            onClick={() => {
-              if (activeView !== "workspace") onToggleAllTools();
-            }}
-            className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all ${
-              activeView === "workspace"
+          <Link
+            href="/"
+            className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all no-underline ${
+              isHome
                 ? "bg-slate-800 text-white shadow-xs"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Desk
-          </button>
+          </Link>
           <Link
             href="/all-tools"
             className={`px-2.5 py-1 rounded-full text-[11px] font-bold transition-all no-underline ${
-              activeView === "all-tools"
+              isAllTools
                 ? "bg-blue-600 text-white shadow-xs"
                 : "text-slate-600 hover:text-slate-900"
             }`}
@@ -175,4 +165,3 @@ export default function Navbar({
     </header>
   );
 }
-
