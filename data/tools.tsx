@@ -25,6 +25,7 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-rose-100", text: "text-rose-500" },
     acceptedFormats: ".pdf",
     actionText: "Convert to Doc",
+    isPrimaryAction: true,
     handwrittenNote: {
       line1: "PDF to Word",
       rotationClass: "rotate-[-4deg]",

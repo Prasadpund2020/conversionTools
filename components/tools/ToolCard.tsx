@@ -12,9 +12,11 @@ interface ToolCardProps {
 
 // Visual color configuration helper matching the sleek modern atelier cards
 function getCardStyling(tool: ToolItem) {
-  // 1. Squircle Icon Color
+  // 1. Squircle Icon Color, Badge Color, and Button Background Color
   let squircleBg = "bg-slate-800";
   let badgeColor = "bg-slate-100 text-slate-700";
+  let btnBg = "bg-[#1e293b] group-hover:bg-[#2e3e56]";
+  let titleHover = "group-hover:text-slate-900";
 
   switch (tool.id) {
     case "sign-pdf":
@@ -24,6 +26,8 @@ function getCardStyling(tool: ToolItem) {
     case "excel-to-pdf":
       squircleBg = "bg-[#10b981]";
       badgeColor = "bg-emerald-50 text-emerald-700";
+      btnBg = "bg-[#0d3b32] group-hover:bg-[#134d41]";
+      titleHover = "group-hover:text-emerald-700";
       break;
 
     case "protect-pdf":
@@ -33,6 +37,8 @@ function getCardStyling(tool: ToolItem) {
     case "trim-video":
       squircleBg = "bg-[#a855f7]";
       badgeColor = "bg-purple-50 text-purple-700";
+      btnBg = "bg-[#331548] group-hover:bg-[#441d60]";
+      titleHover = "group-hover:text-purple-700";
       break;
 
     case "redact-pdf":
@@ -41,6 +47,8 @@ function getCardStyling(tool: ToolItem) {
     case "mute-video":
       squircleBg = "bg-[#ef4444]";
       badgeColor = "bg-rose-50 text-rose-700";
+      btnBg = "bg-[#451218] group-hover:bg-[#5a1820]";
+      titleHover = "group-hover:text-rose-700";
       break;
 
     case "watermark-pdf":
@@ -51,6 +59,8 @@ function getCardStyling(tool: ToolItem) {
     case "twitter-media":
       squircleBg = "bg-[#38bdf8]";
       badgeColor = "bg-sky-50 text-sky-700";
+      btnBg = "bg-[#0c364c] group-hover:bg-[#114660]";
+      titleHover = "group-hover:text-sky-700";
       break;
 
     case "compare-pdf":
@@ -60,6 +70,8 @@ function getCardStyling(tool: ToolItem) {
     case "tiktok-saver":
       squircleBg = "bg-[#06b6d4]";
       badgeColor = "bg-cyan-50 text-cyan-700";
+      btnBg = "bg-[#08383f] group-hover:bg-[#0c4750]";
+      titleHover = "group-hover:text-cyan-700";
       break;
 
     case "repair-pdf":
@@ -70,6 +82,8 @@ function getCardStyling(tool: ToolItem) {
     case "barcode-scanner":
       squircleBg = "bg-[#f59e0b]";
       badgeColor = "bg-amber-50 text-amber-700";
+      btnBg = "bg-[#422208] group-hover:bg-[#542c0b]";
+      titleHover = "group-hover:text-amber-700";
       break;
 
     case "pdf-to-jpg":
@@ -77,35 +91,53 @@ function getCardStyling(tool: ToolItem) {
     case "insta-reels":
       squircleBg = "bg-[#ec4899]";
       badgeColor = "bg-pink-50 text-pink-700";
+      btnBg = "bg-[#46122d] group-hover:bg-[#591739]";
+      titleHover = "group-hover:text-pink-700";
       break;
 
     case "html-to-pdf":
       squircleBg = "bg-[#f97316]";
       badgeColor = "bg-orange-50 text-orange-700";
+      btnBg = "bg-[#441d08] group-hover:bg-[#59260a]";
+      titleHover = "group-hover:text-orange-700";
       break;
 
     default:
       if (tool.clayColor === "clay-green") {
         squircleBg = "bg-[#10b981]";
         badgeColor = "bg-emerald-50 text-emerald-700";
+        btnBg = "bg-[#0d3b32] group-hover:bg-[#134d41]";
+        titleHover = "group-hover:text-emerald-700";
       } else if (tool.clayColor === "clay-purple") {
         squircleBg = "bg-[#a855f7]";
         badgeColor = "bg-purple-50 text-purple-700";
+        btnBg = "bg-[#331548] group-hover:bg-[#441d60]";
+        titleHover = "group-hover:text-purple-700";
       } else if (tool.clayColor === "clay-red") {
         squircleBg = "bg-[#ef4444]";
         badgeColor = "bg-rose-50 text-rose-700";
+        btnBg = "bg-[#451218] group-hover:bg-[#5a1820]";
+        titleHover = "group-hover:text-rose-700";
       } else if (tool.clayColor === "clay-blue") {
         squircleBg = "bg-[#38bdf8]";
         badgeColor = "bg-sky-50 text-sky-700";
+        btnBg = "bg-[#0c364c] group-hover:bg-[#114660]";
+        titleHover = "group-hover:text-sky-700";
       } else if (tool.clayColor === "clay-cyan") {
         squircleBg = "bg-[#06b6d4]";
         badgeColor = "bg-cyan-50 text-cyan-700";
+        btnBg = "bg-[#08383f] group-hover:bg-[#0c4750]";
+        titleHover = "group-hover:text-cyan-700";
       } else if (tool.clayColor === "clay-yellow" || tool.clayColor === "clay-orange") {
         squircleBg = "bg-[#f59e0b]";
         badgeColor = "bg-amber-50 text-amber-700";
+        btnBg = "bg-[#422208] group-hover:bg-[#542c0b]";
+        titleHover = "group-hover:text-amber-700";
       } else if (tool.clayColor === "clay-pink") {
         squircleBg = "bg-[#ec4899]";
         badgeColor = "bg-pink-50 text-pink-700";
+        btnBg = "bg-[#46122d] group-hover:bg-[#591739]";
+        titleHover = "group-hover:text-pink-700";
       }
       break;
   }
@@ -150,13 +182,13 @@ function getCardStyling(tool: ToolItem) {
     else actionText = "Open Tool";
   }
 
-  return { squircleBg, badgeColor, badgeText, actionText };
+  return { squircleBg, badgeColor, badgeText, actionText, btnBg, titleHover };
 }
 
 export default function ToolCard({ tool }: ToolCardProps) {
   const [isDragTarget, setIsDragTarget] = useState(false);
   const toolUrl = getToolUrl(tool);
-  const { squircleBg, badgeColor, badgeText, actionText } = getCardStyling(tool);
+  const { squircleBg, badgeColor, badgeText, actionText, btnBg, titleHover } = getCardStyling(tool);
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -210,7 +242,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
 
         {/* Title & Description */}
-        <h3 className="text-[15px] font-bold text-slate-900 mt-4 mb-1 tracking-tight group-hover:text-emerald-700 transition-colors">
+        <h3 className={`text-[15px] font-bold text-slate-900 mt-4 mb-1 tracking-tight ${titleHover} transition-colors`}>
           {tool.title}
         </h3>
         <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 min-h-[34px]">
@@ -218,20 +250,11 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </p>
       </div>
 
-      {/* Bottom Action: Solid Dark Pill for Primary Tools, Clean Arrow Link for others */}
-      {tool.isPrimaryAction ? (
-        <div className="mt-5 w-full bg-[#0d3b32] text-white text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center justify-between group-hover:bg-[#134d41] transition-colors shadow-xs">
-          <span>{actionText}</span>
-          <span className="text-white/80 text-sm font-bold">&rarr;</span>
-        </div>
-      ) : (
-        <div className="mt-5 pt-1 text-xs font-semibold text-slate-700 flex items-center justify-between group-hover:text-emerald-700 transition-colors">
-          <span>{actionText}</span>
-          <span className="text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-700 transition-all font-mono text-sm">
-            &rarr;
-          </span>
-        </div>
-      )}
+      {/* Bottom Action: Solid Pill Button themed with respective icon color */}
+      <div className={`mt-5 w-full ${btnBg} text-white text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center justify-between transition-colors shadow-xs group-hover:shadow-sm`}>
+        <span>{actionText}</span>
+        <span className="text-white/80 text-sm font-bold group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+      </div>
     </Link>
   );
 }

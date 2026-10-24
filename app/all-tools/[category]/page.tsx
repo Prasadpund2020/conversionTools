@@ -16,6 +16,9 @@ interface CategoryPageProps {
   }>;
 }
 
+// Allow blocking route for Next.js 16 Partial Prefetching / Instant Shell
+export const instant = false;
+
 export async function generateStaticParams() {
   // Pre-render all category pages at build time
   return [

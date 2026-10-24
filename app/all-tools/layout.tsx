@@ -20,7 +20,7 @@ export default function AllToolsLayout({
     <>
       <div className="relative z-10 w-full min-h-screen flex flex-col select-none overflow-x-hidden">
         {/* ─── Shared Navbar ─────────────────────────────────────────── */}
-        <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-5 pb-2 sm:pb-4 flex items-center justify-between gap-2 sm:gap-4 select-none">
+        <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-1.5 sm:pb-3 flex items-center justify-between gap-2 sm:gap-4 select-none">
           {/* Brand */}
           <Link href="/" className="flex flex-col cursor-pointer group flex-shrink-0 no-underline">
             <div className="flex items-center text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 group-hover:opacity-95 transition-opacity">

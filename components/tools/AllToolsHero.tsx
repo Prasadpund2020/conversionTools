@@ -176,55 +176,15 @@ export default function AllToolsHero({
   };
 
   return (
-    <div className="relative mb-10">
+    <div className="relative mb-3 sm:mb-4">
       {/* Schema.org breadcrumb structured data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
 
-      {/* 1. Top Breadcrumbs & Tools Count Bar */}
-      <div className="flex items-center justify-between mb-4">
-        {/* Breadcrumb Pill */}
-        <nav
-          aria-label="Breadcrumb navigation"
-          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/90 border border-stone-200/80 shadow-xs text-xs font-medium text-stone-600 backdrop-blur-sm"
-        >
-          <Link
-            href="/"
-            className="w-5 h-5 rounded-md bg-stone-900 text-white flex items-center justify-center hover:bg-stone-700 transition-colors"
-            title="Home"
-          >
-            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-            </svg>
-          </Link>
-          <span className="text-stone-300">›</span>
-          <Link
-            href="/"
-            className="hover:text-stone-900 transition-colors text-stone-600"
-          >
-            FileLab Studio
-          </Link>
-          <span className="text-stone-300">›</span>
-          <span className="font-bold text-stone-900">All Tools</span>
-        </nav>
-
-        {/* 33+ Tools Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-stone-200/80 shadow-xs text-xs font-bold text-stone-800 backdrop-blur-sm">
-          <svg
-            className="w-3.5 h-3.5 text-stone-700"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-          </svg>
-          <span>{totalCount}+ Tools</span>
-        </div>
-      </div>
-
-      {/* 2. Main Hero Architectural Showcase Card */}
-      <div className="relative rounded-[32px] bg-gradient-to-br from-[#faf7f2] via-[#f7f2ea] to-[#efe9dd] border border-[#e8dfd2] p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
+      {/* 2. Main Hero Architectural Showcase Card (Streamlined & Compact) */}
+      <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#faf7f2] via-[#f7f2ea] to-[#efe9dd] border border-[#e8dfd2] p-3.5 sm:p-4.5 lg:px-6 lg:py-4 shadow-xs overflow-hidden">
         {/* Subtle architectural noise/grid texture */}
         <div
           className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -235,34 +195,31 @@ export default function AllToolsHero({
           }}
         />
 
-        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
-          {/* Left Column: Atelier Copy & Glowing Search Bar */}
-          <div className="w-full lg:max-w-[620px] z-10">
-            {/* Eyebrow rule */}
-            <div className="flex items-center gap-2.5 mb-3">
-              <span className="w-6 h-[1.5px] bg-stone-400/80" />
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-stone-500 uppercase">
+        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-6">
+          {/* Left Column: Headline + Tool Count + Search Bar */}
+          <div className="w-full lg:max-w-[520px] xl:max-w-[580px] z-10">
+            {/* Header row: Eyebrow + Inline Tool Count */}
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-4 h-[1.5px] bg-amber-600/70" />
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-stone-500 uppercase">
                 The Complete Tool Atelier
+              </span>
+              <span className="text-stone-300">•</span>
+              <span className="inline-flex items-center px-1.5 py-0.2 rounded-md bg-amber-100/80 text-amber-900 text-[10px] font-bold">
+                {totalCount}+ tools
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight text-stone-900 leading-[1.08] mb-3">
+            <h1 className="text-xl sm:text-2xl lg:text-[26px] xl:text-[28px] font-black tracking-tight text-stone-900 leading-tight mb-2 sm:mb-2.5">
               All File{" "}
               <span className="text-[#a86828] font-black inline-block">
                 Utilities
               </span>
             </h1>
 
-            {/* Subtitle description */}
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-xl mb-6">
-              Every document converter, visual editor, sound extractor, and media
-              courier in one place. Processed entirely inside your browser
-              memory with zero server uploads.
-            </p>
-
             {/* HERO SEARCH BAR with Glowing Ambient Aura & Round Arrow Button */}
-            <form onSubmit={handleSubmit} className="relative max-w-lg w-full mb-6 group">
+            <form onSubmit={handleSubmit} className="relative max-w-md xl:max-w-lg w-full mb-0 group">
               {/* Luminous Golden Ambient Glow Halo */}
               <div
                 className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-300/40 via-amber-200/50 to-amber-400/30 blur-md opacity-80 group-hover:opacity-100 group-focus-within:opacity-100 transition duration-300 pointer-events-none"
@@ -270,11 +227,11 @@ export default function AllToolsHero({
               />
 
               <div
-                className="relative flex items-center bg-white rounded-full p-1.5 pl-4 sm:pl-5 border border-amber-300/70 shadow-[0_4px_22px_rgba(180,115,35,0.16)] group-hover:shadow-[0_6px_28px_rgba(180,115,35,0.22)] focus-within:ring-2 focus-within:ring-amber-500/40 focus-within:border-amber-500 transition-all duration-300"
+                className="relative flex items-center bg-white rounded-full p-1 sm:p-1.2 pl-3.5 sm:pl-4 border border-amber-300/70 shadow-[0_3px_16px_rgba(180,115,35,0.14)] group-hover:shadow-[0_4px_22px_rgba(180,115,35,0.2)] focus-within:ring-2 focus-within:ring-amber-500/40 focus-within:border-amber-500 transition-all duration-300"
               >
                 {/* Search Magnifying Glass Icon */}
                 <svg
-                  className="w-5 h-5 text-stone-400 group-focus-within:text-amber-600 transition-colors mr-3 flex-shrink-0"
+                  className="w-4 h-4 text-stone-400 group-focus-within:text-amber-600 transition-colors mr-2.5 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -294,7 +251,7 @@ export default function AllToolsHero({
                   value={searchQuery}
                   onChange={(e) => onSearchChange(e.target.value)}
                   placeholder={`Search all ${totalCount}+ tools...`}
-                  className="w-full bg-transparent text-sm sm:text-base text-stone-900 placeholder:text-stone-400 focus:outline-none pr-3"
+                  className="w-full bg-transparent text-xs sm:text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none pr-2.5"
                   aria-label="Search all tools"
                 />
 
@@ -306,7 +263,7 @@ export default function AllToolsHero({
                       onSearchChange("");
                       inputRef.current?.focus();
                     }}
-                    className="mr-2 text-xs text-stone-400 hover:text-stone-700 font-bold p-1 transition-colors"
+                    className="mr-1.5 text-xs text-stone-400 hover:text-stone-700 font-bold p-1 transition-colors"
                     title="Clear search"
                   >
                     ✕
@@ -316,12 +273,12 @@ export default function AllToolsHero({
                 {/* Circular Action Arrow Button */}
                 <button
                   type="submit"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#151c24] hover:bg-black text-white flex items-center justify-center flex-shrink-0 transition-transform active:scale-95 shadow-md group-hover:scale-[1.02]"
+                  className="w-8 h-8 rounded-full bg-[#151c24] hover:bg-black text-white flex items-center justify-center flex-shrink-0 transition-transform active:scale-95 shadow-xs group-hover:scale-[1.02]"
                   aria-label="Search"
                   title="Search tools"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white transition-transform group-hover:translate-x-0.5"
+                    className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -336,82 +293,10 @@ export default function AllToolsHero({
                 </button>
               </div>
             </form>
-
-            {/* TRUST BADGES ROW (100% Secure, Super Fast, Privacy First) */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-1 select-none">
-              {/* 100% Secure */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-stone-900 leading-tight">
-                    100% Secure
-                  </div>
-                  <div className="text-[11px] text-stone-500 leading-tight">
-                    No file uploads
-                  </div>
-                </div>
-              </div>
-
-              {/* Vertical divider */}
-              <div className="hidden sm:block w-px h-7 bg-stone-300/80" />
-
-              {/* Super Fast */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-stone-900 leading-tight">
-                    Super Fast
-                  </div>
-                  <div className="text-[11px] text-stone-500 leading-tight">
-                    Process in seconds
-                  </div>
-                </div>
-              </div>
-
-              {/* Vertical divider */}
-              <div className="hidden sm:block w-px h-7 bg-stone-300/80" />
-
-              {/* Privacy First */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 flex-shrink-0">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-stone-900 leading-tight">
-                    Privacy First
-                  </div>
-                  <div className="text-[11px] text-stone-500 leading-tight">
-                    All offline in browser
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: Code-Based 3D Floating Atelier Stage */}
-          <div className="hidden lg:flex items-center justify-end relative w-full lg:w-[480px]">
+          {/* Right Column: Compact Floating Format Tiles Animation */}
+          <div className="hidden lg:flex items-center justify-center relative flex-shrink-0 w-[320px] xl:w-[350px]">
             <Hero3DStage
               onSelectCategory={onSelectCategory}
               activeCategory={activeCategory}
@@ -421,8 +306,8 @@ export default function AllToolsHero({
       </div>
 
       {/* 3. Bottom Category Dock (6 Cards Row matching reference mockup) */}
-      <div className="mt-4 p-2.5 sm:p-3 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-md border border-stone-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.05)]">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
+      <div className="mt-3 p-1.5 sm:p-2 lg:p-2.5 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-stone-200/90 shadow-[0_4px_20px_rgb(0,0,0,0.04)]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-2">
           {HERO_CATEGORIES.map((cat) => {
             const isSelected = activeCategory === cat.id;
 
@@ -431,16 +316,16 @@ export default function AllToolsHero({
                 key={cat.id}
                 type="button"
                 onClick={() => onSelectCategory(isSelected ? "all" : cat.id)}
-                className={`flex items-center justify-between p-2.5 sm:p-3 rounded-xl sm:rounded-2xl transition-all duration-200 text-left border ${
+                className={`flex items-center justify-between p-2 sm:p-2.5 rounded-lg sm:rounded-xl transition-all duration-200 text-left border ${
                   isSelected
-                    ? `${cat.activeRing} shadow-sm scale-[1.01]`
-                    : `${cat.cardBg} ${cat.cardHoverBg} ${cat.cardBorder} hover:shadow-xs`
+                    ? `${cat.activeRing} shadow-xs scale-[1.01]`
+                    : `${cat.cardBg} ${cat.cardHoverBg} ${cat.cardBorder} hover:shadow-2xs`
                 }`}
               >
-                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <div className="flex items-center gap-2 min-w-0">
                   {/* Category Rounded Badge Icon */}
                   <div
-                    className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl ${cat.badgeBg} flex items-center justify-center flex-shrink-0 shadow-xs`}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${cat.badgeBg} flex items-center justify-center flex-shrink-0 shadow-2xs`}
                   >
                     {cat.icon}
                   </div>
@@ -458,10 +343,10 @@ export default function AllToolsHero({
 
                 {/* Circular Chevron Arrow Button */}
                 <div
-                  className={`w-6 h-6 rounded-full ${cat.arrowBg} ${cat.arrowColor} flex items-center justify-center flex-shrink-0 ml-1.5 transition-transform group-hover:scale-105`}
+                  className={`w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full ${cat.arrowBg} ${cat.arrowColor} flex items-center justify-center flex-shrink-0 ml-1 transition-transform group-hover:scale-105`}
                 >
                   <svg
-                    className={`w-3 h-3 ${isSelected ? "rotate-90" : ""} transition-transform`}
+                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${isSelected ? "rotate-90" : ""} transition-transform`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

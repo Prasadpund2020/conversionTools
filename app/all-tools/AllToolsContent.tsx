@@ -204,7 +204,7 @@ export default function AllToolsContent() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-4 lg:py-4.5">
       {/* Atelier Hero Section matching reference mockup */}
       <AllToolsHero
         searchQuery={searchQuery}
@@ -219,7 +219,7 @@ export default function AllToolsContent() {
         {isFiltered ? (
           <div>
             {/* Filter Status Bar */}
-            <div className="mb-6 p-4 rounded-2xl bg-white/80 border border-stone-200/80 shadow-xs flex flex-wrap items-center justify-between gap-3">
+            <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/80 border border-stone-200/80 shadow-xs flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-600">
                 <span>
                   Showing{" "}

@@ -22,6 +22,9 @@ interface ToolPageProps {
   }>;
 }
 
+// Allow blocking route for Next.js 16 Partial Prefetching / Instant Shell
+export const instant = false;
+
 export async function generateStaticParams() {
   return ALL_TOOLS.map((tool: ToolItem) => ({
     category: getCategorySlug(tool.category),
