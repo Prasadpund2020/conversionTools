@@ -74,6 +74,8 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-sky-100", text: "text-sky-500" },
     acceptedFormats: ".pdf",
     actionText: "Merge PDFs",
+    isPrimaryAction: true,
+    badgeText: "PDF Merge",
     handwrittenNote: {
       line1: "Combine",
       line2: "PDF files",
@@ -148,6 +150,8 @@ export const RADIAL_TOOLS: ToolItem[] = [
     radialPosition: "bottom-left",
     quickBadge: { bg: "bg-amber-100", text: "text-amber-500" },
     actionText: "Download Video",
+    isPrimaryAction: true,
+    badgeText: "1080p / MP3",
     handwrittenNote: {
       line1: "Download",
       line2: "videos",
@@ -447,6 +451,10 @@ export const ALL_TOOLS: ToolItem[] = [
     description: "Download full HD Instagram Reels and public video clips easily.",
     clayColor: "clay-pink",
     iconType: "camera",
+    badgeText: "Reels HD",
+    actionText: "Download Reel",
+    isPrimaryAction: true,
+    acceptedFormats: "URL Link",
     quickBadge: { bg: "bg-pink-100", text: "text-pink-500" },
   },
   {
@@ -456,6 +464,10 @@ export const ALL_TOOLS: ToolItem[] = [
     description: "Save high quality TikTok videos without platform watermarks.",
     clayColor: "clay-cyan",
     iconType: "music",
+    badgeText: "No Watermark",
+    actionText: "Save TikTok",
+    isPrimaryAction: true,
+    acceptedFormats: "URL Link",
     quickBadge: { bg: "bg-cyan-100", text: "text-cyan-500" },
   },
   {
@@ -465,6 +477,10 @@ export const ALL_TOOLS: ToolItem[] = [
     description: "Grab MP4 videos and GIFs directly from Twitter / X status URLs.",
     clayColor: "clay-blue",
     iconType: "share",
+    badgeText: "X / Twitter MP4",
+    actionText: "Download Video",
+    isPrimaryAction: true,
+    acceptedFormats: "URL Link",
     quickBadge: { bg: "bg-blue-100", text: "text-blue-500" },
   },
   // Additional Edit & Convert Tools

@@ -29,6 +29,8 @@ export type ClayColor =
   | "clay-purple"
   | "clay-orange";
 
+export type ToolStatus = "published" | "draft" | "coming-soon";
+
 export interface ToolItem {
   id: string;
   title: string;
@@ -56,6 +58,9 @@ export interface ToolItem {
   badgeColor?: string;
   squircleColor?: string;
   isPrimaryAction?: boolean;
+  status?: ToolStatus;
+  isPublished?: boolean;
+  lastModified?: string | Date;
 }
 
 export interface CategoryInfo {

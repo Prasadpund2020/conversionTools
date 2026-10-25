@@ -94,6 +94,25 @@ export function getCategoryInfo(categorySlug: string) {
   return CATEGORIES.find((c) => c.id === category);
 }
 
+/**
+ * Determine whether a tool is published and ready for public indexing.
+ * Considers explicit isPublished / status, falls back to isPrimaryAction for backward compatibility,
+ * and ensures status !== "draft" && status !== "coming-soon".
+ */
+export function isToolPublished(tool: ToolItem): boolean {
+  if (tool.status === "draft" || tool.status === "coming-soon") return false;
+  if (tool.isPublished === false) return false;
+  if (tool.isPublished === true) return true;
+  return Boolean(tool.isPrimaryAction);
+}
+
+/**
+ * Get all published tools from the central registry.
+ */
+export function getPublishedTools(): ToolItem[] {
+  return ALL_TOOLS.filter(isToolPublished);
+}
+
 // ─── SEO helpers ────────────────────────────────────────────────────────────────
 
 const CATEGORY_SEO: Record<

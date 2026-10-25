@@ -25,6 +25,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://freeconvertingtools.co.in"),
   title: "FileLab - Convert, Compress, Download",
   description: "Private & safe client-side file tools: PDF conversion, image compression, audio extraction, video downloads, and more.",
   keywords: ["pdf to word", "compress image", "pdf merge", "pdf to jpg", "remove background", "video to mp3", "youtube downloader", "image to pdf"],
