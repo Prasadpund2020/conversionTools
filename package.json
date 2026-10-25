@@ -12,6 +12,7 @@
     "prepare:pdfjs": "node scripts/copy-pdfjs-assets.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "jszip": "^3.10.2",
     "next": "16.4.2",
     "pdf-lib": "^1.17.1",

@@ -49,6 +49,7 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-emerald-100", text: "text-emerald-600" },
     acceptedFormats: ".jpg,.jpeg,.png,.webp",
     actionText: "Compress Images",
+    isPrimaryAction: true,
     handwrittenNote: {
       line1: "Smaller size",
       line2: "Same quality",
@@ -97,6 +98,7 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-pink-100", text: "text-pink-500" },
     acceptedFormats: ".pdf",
     actionText: "Extract Images",
+    isPrimaryAction: true,
     handwrittenNote: {
       line1: "Convert",
       line2: "pages to images",
@@ -121,6 +123,8 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-cyan-100", text: "text-cyan-600" },
     acceptedFormats: ".png,.jpg,.jpeg,.webp",
     actionText: "Remove Background",
+    isPrimaryAction: true,
+    badgeText: "AI Cutout",
     handwrittenNote: {
       line1: "AI powered",
       line2: "Cutout",
@@ -168,6 +172,7 @@ export const RADIAL_TOOLS: ToolItem[] = [
     quickBadge: { bg: "bg-purple-100", text: "text-purple-600" },
     acceptedFormats: ".mp4,.mkv,.mov,.webm",
     actionText: "Extract MP3 Audio",
+    isPrimaryAction: true,
     handwrittenNote: {
       line1: "Extract",
       line2: "audio",

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Caveat, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,6 +28,9 @@ export const metadata: Metadata = {
   title: "FileLab - Convert, Compress, Download",
   description: "Private & safe client-side file tools: PDF conversion, image compression, audio extraction, video downloads, and more.",
   keywords: ["pdf to word", "compress image", "pdf merge", "pdf to jpg", "remove background", "video to mp3", "youtube downloader", "image to pdf"],
+  verification: {
+    google: "google12e62b428644e34e",
+  },
 };
 
 export const viewport: Viewport = {
@@ -47,6 +51,7 @@ export default function RootLayout({
     >
       <body className="relative min-h-screen overflow-x-hidden font-sans select-none antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
