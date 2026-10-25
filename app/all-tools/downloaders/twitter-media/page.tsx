@@ -12,6 +12,7 @@ import {
 import TwitterMediaTool from "@/components/tools/twitter-media/TwitterMediaTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -81,7 +82,7 @@ export default function TwitterMediaPage() {
     "@type": "WebApplication",
     name: "Twitter / X Video Downloader — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/downloaders/twitter-media",
+    url: `${SITE_URL}/all-tools/downloaders/twitter-media`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements: "Requires modern web browser",

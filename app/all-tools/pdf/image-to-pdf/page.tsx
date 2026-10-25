@@ -12,6 +12,7 @@ import {
 import ImageToPdfTool from "@/components/tools/image-to-pdf/ImageToPdfTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -79,7 +80,7 @@ export default function ImageToPdfPage() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/pdf/image-to-pdf",
+    url: `${SITE_URL}/all-tools/pdf/image-to-pdf`,
     applicationCategory: "UtilityApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

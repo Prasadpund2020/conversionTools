@@ -99,6 +99,28 @@ export default function Home() {
           onOpenSettings={() => setIsSettingsOpen(true)}
         />
 
+        {/* Semantic SEO & Accessibility Shell */}
+        <section className="sr-only" aria-label="Free Online Conversion Tools Overview">
+          <h1>FileLab — Free Online File Conversion, Compression &amp; Download Tools</h1>
+          <p>
+            Private, client-side online file tools: convert PDF to Word, compress images, merge PDFs, extract MP3 audio from videos, and download media in your browser with zero server uploads and 100% privacy.
+          </p>
+          <nav aria-label="Popular Free File Tools">
+            <h2>Popular Free File Tools</h2>
+            <ul>
+              <li><Link href="/all-tools/pdf/pdf-to-word">PDF to Word Converter</Link></li>
+              <li><Link href="/all-tools/image/compress-image">Compress Image Online</Link></li>
+              <li><Link href="/all-tools/pdf/pdf-merge">Merge PDF Files</Link></li>
+              <li><Link href="/all-tools/pdf/pdf-to-jpg">PDF to JPG Converter</Link></li>
+              <li><Link href="/all-tools/image/remove-bg">Remove Image Background</Link></li>
+              <li><Link href="/all-tools/video-audio/video-to-mp3">Video to MP3 Audio Converter</Link></li>
+              <li><Link href="/all-tools/pdf/image-to-pdf">Image to PDF Generator</Link></li>
+              <li><Link href="/all-tools/downloaders/youtube-downloader">YouTube Video Downloader</Link></li>
+              <li><Link href="/all-tools">Browse All 33+ Free Tools</Link></li>
+            </ul>
+          </nav>
+        </section>
+
         {/* Workspace Center Stage: Always Desk on Home Page */}
         <main className="relative w-full flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4 lg:gap-6 my-1 sm:my-2">
           {/* Left Glass Sidebar (Desktop) / Category Pills Strip (Mobile/Tablet) */}

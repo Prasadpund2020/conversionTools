@@ -12,6 +12,7 @@ import {
 import PdfMergeTool from "@/components/tools/pdf-merge/PdfMergeTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -81,7 +82,7 @@ export default function PdfMergePage() {
     "@type": "WebApplication",
     name: "PDF Merge Studio — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/pdf/pdf-merge",
+    url: `${SITE_URL}/all-tools/pdf/pdf-merge`,
     applicationCategory: "BusinessApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

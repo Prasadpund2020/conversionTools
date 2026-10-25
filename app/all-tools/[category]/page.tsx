@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/constants";
 import { CATEGORIES } from "@/data/tools";
 import {
   getCategoryInfo,
@@ -119,12 +120,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     "@type": "CollectionPage",
     name: seo?.title || catInfo.name,
     description: seo?.description || `${catInfo.name} tools running in-browser`,
-    url: `https://filelab.app/all-tools/${category}`,
+    url: `${SITE_URL}/all-tools/${category}`,
     hasPart: tools.map((t) => ({
       "@type": "WebApplication",
       name: t.title,
       description: t.description,
-      url: `https://filelab.app/all-tools/${category}/${t.id}`,
+      url: `${SITE_URL}/all-tools/${category}/${t.id}`,
       applicationCategory: "UtilityApplication",
       operatingSystem: "Any",
       offers: {

@@ -20,7 +20,7 @@ const SLUG_TO_CATEGORY: Record<string, ToolCategory> = Object.fromEntries(
 
 /**
  * Returns the canonical URL path for a tool.
- * e.g. "/tools/pdf/pdf-to-word"
+ * e.g. "/all-tools/pdf/pdf-to-word"
  */
 export function getToolUrl(tool: ToolItem): string {
   const catSlug = getCategorySlug(tool.category);
@@ -188,9 +188,13 @@ export function getCategorySeo(categorySlug: string) {
 export function getToolSeo(tool: ToolItem) {
   const categoryLabel =
     CATEGORIES.find((c) => c.id === tool.category)?.name || "Tool";
+  const description =
+    tool.seoDescription ||
+    `${tool.description} Free client-side tool with instant browser execution and zero file uploads.`;
+
   return {
     title: `${tool.title} — Free Online ${categoryLabel.replace(" Tools", "")} Tool | FileLab`,
-    description: `${tool.description} 100% client-side, zero server uploads, completely private.`,
+    description,
     keywords: [
       tool.title.toLowerCase(),
       tool.id.replace(/-/g, " "),

@@ -3,8 +3,9 @@ import fs from "fs";
 import path from "path";
 import { ALL_TOOLS, CATEGORIES } from "@/data/tools";
 import { getCategorySlug, isToolPublished } from "@/lib/tools";
+import { SITE_URL } from "@/lib/constants";
 
-const BASE_URL = "https://freeconvertingtools.co.in";
+const BASE_URL = SITE_URL;
 const DEFAULT_DATE = new Date("2026-10-24T00:00:00.000Z");
 
 /**

@@ -12,6 +12,7 @@ import {
 import TikTokSaverTool from "@/components/tools/tiktok-saver/TikTokSaverTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -81,7 +82,7 @@ export default function TikTokSaverPage() {
     "@type": "WebApplication",
     name: "TikTok Saver No Watermark — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/downloaders/tiktok-saver",
+    url: `${SITE_URL}/all-tools/downloaders/tiktok-saver`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements: "Requires modern web browser",

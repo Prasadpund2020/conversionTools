@@ -12,6 +12,7 @@ import {
 import SignPdfTool from "@/components/tools/SignPdfTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = getToolBySlugs("pdf", "sign-pdf") || getToolBySlug("sign-pdf");
@@ -73,7 +74,7 @@ export default function SignPdfPage() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/pdf/sign-pdf",
+    url: `${SITE_URL}/all-tools/pdf/sign-pdf`,
     applicationCategory: "UtilityApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements: "Requires modern web browser with WebAssembly and Web Worker support",

@@ -12,6 +12,7 @@ import {
 import InstaReelsTool from "@/components/tools/insta-reels/InstaReelsTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -81,7 +82,7 @@ export default function InstaReelsPage() {
     "@type": "WebApplication",
     name: "Instagram Reels Downloader — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/downloaders/insta-reels",
+    url: `${SITE_URL}/all-tools/downloaders/insta-reels`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements: "Requires modern web browser",

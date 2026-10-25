@@ -12,6 +12,7 @@ import {
 import PdfToWordTool from "@/components/tools/pdf-to-word/PdfToWordTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -79,7 +80,7 @@ export default function PdfToWordPage() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/pdf/pdf-to-word",
+    url: `${SITE_URL}/all-tools/pdf/pdf-to-word`,
     applicationCategory: "UtilityApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

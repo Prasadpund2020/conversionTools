@@ -61,6 +61,7 @@ export interface ToolItem {
   status?: ToolStatus;
   isPublished?: boolean;
   lastModified?: string | Date;
+  seoDescription?: string;
 }
 
 export interface CategoryInfo {

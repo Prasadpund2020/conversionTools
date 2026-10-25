@@ -12,6 +12,7 @@ import {
 import CompressImageTool from "@/components/tools/compress-image/CompressImageTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -79,7 +80,7 @@ export default function CompressImagePage() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/image/compress-image",
+    url: `${SITE_URL}/all-tools/image/compress-image`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

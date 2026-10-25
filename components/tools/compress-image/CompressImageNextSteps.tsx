@@ -9,7 +9,7 @@ export default function CompressImageNextSteps() {
       id: "remove-bg",
       title: "Remove BG",
       subtitle: "AI Alpha Cutout",
-      href: "/all-tools/image/remove-background",
+      href: "/all-tools/image/remove-bg",
       iconSvg: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

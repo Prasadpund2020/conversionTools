@@ -10,7 +10,9 @@ import {
   getCategorySlug,
   getToolsByCategory,
   getToolSeo,
+  isToolPublished,
 } from "@/lib/tools";
+import { SITE_URL } from "@/lib/constants";
 import ToolComingSoon from "@/components/tools/ToolComingSoon";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
@@ -38,9 +40,10 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const tool = getToolBySlugs(category, slug) || getToolBySlug(slug);
 
-  if (!tool) {
+  if (!tool || !isToolPublished(tool)) {
     return {
       title: "Tool Not Found — FileLab",
+      robots: { index: false, follow: false },
     };
   }
 
@@ -71,7 +74,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const { category, slug } = await params;
   const tool = getToolBySlugs(category, slug) || getToolBySlug(slug);
 
-  if (!tool) {
+  if (!tool || !isToolPublished(tool)) {
     notFound();
   }
 
@@ -86,7 +89,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: `https://filelab.app/all-tools/${category}/${slug}`,
+    url: `${SITE_URL}/all-tools/${category}/${slug}`,
     applicationCategory: "UtilityApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements: "Requires modern web browser with WebAssembly and Web Worker support",

@@ -12,6 +12,7 @@ import {
 import RemoveBackgroundTool from "@/components/tools/remove-background/RemoveBackgroundTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -83,7 +84,7 @@ export default function RemoveBackgroundPage() {
     "@type": "WebApplication",
     name: "Remove Background Studio — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/image/remove-bg",
+    url: `${SITE_URL}/all-tools/image/remove-bg`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

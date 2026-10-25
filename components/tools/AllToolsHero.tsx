@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import Hero3DStage from "@/components/tools/Hero3DStage";
+import { SITE_URL } from "@/lib/constants";
 
 export interface CategoryCardData {
   id: string;
@@ -155,13 +156,13 @@ export default function AllToolsHero({
         "@type": "ListItem",
         position: 1,
         name: "FileLab Studio",
-        item: "https://filelab.app/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "All Tools",
-        item: "https://filelab.app/all-tools",
+        item: `${SITE_URL}/all-tools`,
       },
     ],
   };

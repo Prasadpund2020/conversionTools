@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/constants";
 
 interface BreadcrumbItem {
   label: string;
@@ -19,7 +20,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      ...(item.href ? { item: `https://filelab.app${item.href}` } : {}),
+      ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
     })),
   };
 

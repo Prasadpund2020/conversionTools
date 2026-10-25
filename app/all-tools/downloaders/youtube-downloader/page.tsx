@@ -12,6 +12,7 @@ import {
 import YouTubeDownloaderTool from "@/components/tools/youtube-downloader/YouTubeDownloaderTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -82,7 +83,7 @@ export default function YouTubeDownloaderPage() {
     "@type": "WebApplication",
     name: "YouTube Downloader Studio — FileLab",
     description: tool.description,
-    url: "https://filelab.app/all-tools/downloaders/youtube-downloader",
+    url: `${SITE_URL}/all-tools/downloaders/youtube-downloader`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

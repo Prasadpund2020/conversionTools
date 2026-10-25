@@ -12,6 +12,7 @@ import {
 import PdfToJpgTool from "@/components/tools/pdf-to-jpg/PdfToJpgTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -79,7 +80,7 @@ export default function PdfToJpgPage() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/pdf/pdf-to-jpg",
+    url: `${SITE_URL}/all-tools/pdf/pdf-to-jpg`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:

@@ -12,6 +12,7 @@ import {
 import VideoToMp3Tool from "@/components/tools/video-to-mp3/VideoToMp3Tool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
 
@@ -79,7 +80,7 @@ export default function VideoToMp3Page() {
     "@type": "WebApplication",
     name: tool.title,
     description: tool.description,
-    url: "https://filelab.app/all-tools/video-audio/video-to-mp3",
+    url: `${SITE_URL}/all-tools/video-audio/video-to-mp3`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
     browserRequirements:
