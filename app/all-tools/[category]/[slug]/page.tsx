@@ -58,11 +58,20 @@ export async function generateMetadata({
       description: seo.description,
       type: "website",
       url: `/all-tools/${category}/${slug}`,
+      images: [
+        {
+          url: "/images/all-tools-hero-banner.png",
+          width: 1200,
+          height: 630,
+          alt: `${tool.title} — FileLab`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: tool.title,
       description: seo.description,
+      images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
       canonical: `/all-tools/${category}/${slug}`,
@@ -106,12 +115,82 @@ export default async function ToolPage({ params }: ToolPageProps) {
     ],
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "All Tools",
+        item: `${SITE_URL}/all-tools`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: catInfo ? catInfo.name : "Category",
+        item: `${SITE_URL}/all-tools/${category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: tool.title,
+        item: `${SITE_URL}/all-tools/${category}/${slug}`,
+      },
+    ],
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Is ${tool.title} free to use?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Yes, FileLab's ${tool.title} is 100% free with no account creation, subscription, or usage limit required.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Are my files uploaded to any server when using ${tool.title}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `No. FileLab processes files 100% client-side inside your browser's private memory sandbox. Your files never touch external servers or third-party databases.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `What devices and browsers support ${tool.title}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${tool.title} works seamlessly on any modern web browser including Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, and Opera across Windows, Mac, Linux, iOS, and Android.`,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Schema.org WebApplication JSON-LD */}
+      {/* Schema.org WebApplication, BreadcrumbList, and FAQPage JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* Breadcrumbs */}

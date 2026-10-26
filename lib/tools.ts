@@ -188,18 +188,22 @@ export function getCategorySeo(categorySlug: string) {
 export function getToolSeo(tool: ToolItem) {
   const categoryLabel =
     CATEGORIES.find((c) => c.id === tool.category)?.name || "Tool";
+  const cleanCat = categoryLabel.replace(" Tools", "");
   const description =
     tool.seoDescription ||
     `${tool.description} Free client-side tool with instant browser execution and zero file uploads.`;
 
   return {
-    title: `${tool.title} — Free Online ${categoryLabel.replace(" Tools", "")} Tool | FileLab`,
+    title: `${tool.title} — Free Online ${cleanCat} Tool`,
     description,
     keywords: [
       tool.title.toLowerCase(),
       tool.id.replace(/-/g, " "),
       `free ${tool.title.toLowerCase()} online`,
       `${tool.title.toLowerCase()} in browser`,
+      `private ${tool.title.toLowerCase()}`,
+      `client-side ${tool.title.toLowerCase()}`,
+      `${cleanCat.toLowerCase()} tool`,
     ],
   };
 }

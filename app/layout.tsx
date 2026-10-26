@@ -48,12 +48,31 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "FileLab — Free Online File Conversion & Editing Tools",
     description:
       "Private, client-side file tools running directly in your browser. Convert, compress, and download with zero server uploads.",
     url: SITE_URL,
     siteName: "FileLab",
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "FileLab — Free Online File Conversion & Editing Tools",
+      },
+    ],
     type: "website",
     locale: "en_US",
   },
@@ -62,6 +81,7 @@ export const metadata: Metadata = {
     title: "FileLab — Free Online File Tools",
     description:
       "Private & fast client-side file tools: PDF conversion, image compression, audio extraction, video downloads, and more.",
+    images: ["/images/all-tools-hero-banner.png"],
   },
   verification: {
     google: "google12e62b428644e34e",
@@ -78,6 +98,14 @@ const websiteJsonLd = {
   url: SITE_URL,
   description:
     "Free online conversion tools: convert PDF to Word, compress images, merge PDFs, extract audio from videos, and download media safely in your browser.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/all-tools?search={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export const viewport: Viewport = {

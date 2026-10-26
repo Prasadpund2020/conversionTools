@@ -39,11 +39,20 @@ export async function generateMetadata(): Promise<Metadata> {
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/image-to-pdf`,
+      images: [
+        {
+          url: "/images/all-tools-hero-banner.png",
+          width: 1200,
+          height: 630,
+          alt: `${tool.title} — FileLab`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: tool.title,
       description: seo.description,
+      images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
       canonical: `/all-tools/pdf/image-to-pdf`,
