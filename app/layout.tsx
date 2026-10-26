@@ -105,6 +105,23 @@ export default function RootLayout({
       <body className="relative min-h-screen overflow-x-hidden font-sans antialiased">
         {children}
         <Analytics />
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-HG238SCTCE"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HG238SCTCE');
+            `,
+          }}
+        />
         <Script
           id="microsoft-clarity"
           strategy="afterInteractive"
