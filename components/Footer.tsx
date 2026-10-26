@@ -1,26 +1,21 @@
 import React from "react";
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-stone-200/80 bg-gradient-to-b from-transparent via-stone-100/30 to-stone-100/60 mt-12 sm:mt-16 text-stone-600 select-none">
+    <footer className="w-full border-t border-stone-200/80 bg-[#f4f2eb] mt-12 sm:mt-16 text-stone-600 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-20 md:pb-8">
         {/* Main Grid: Brand & Structured Tool Categories */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 pb-8 sm:pb-10 border-b border-stone-200/70">
           {/* Brand & Privacy Capsule (4 cols) */}
           <div className="lg:col-span-4 flex flex-col justify-between space-y-4">
             <div>
-              <Link href="/" className="inline-flex items-center gap-1.5 group no-underline">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-stone-900 group-hover:opacity-90 transition-opacity">
-                  File<span className="text-blue-600">Lab</span>
-                </span>
-                <span className="w-2 h-2 rounded-full bg-blue-500 inline-block group-hover:scale-125 transition-transform" />
-                <span className="ml-2 text-[10px] font-bold tracking-wider text-stone-400 uppercase bg-stone-100 px-2 py-0.5 rounded-full border border-stone-200/60">
-                  Atelier
-                </span>
+              <Link href="/" className="inline-flex items-center group no-underline hover:opacity-95 transition-opacity">
+                <BrandLogo className="h-8 sm:h-9 w-auto" />
               </Link>
 
-              <p className="mt-2 text-xs text-stone-500 leading-relaxed max-w-sm">
+              <p className="mt-3 text-xs text-stone-500 leading-relaxed max-w-sm">
                 Private, in-browser file laboratory. Conversions and media operations execute entirely in your local WebAssembly memory. Zero server uploads.
               </p>
             </div>
@@ -180,7 +175,7 @@ export default function Footer() {
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
           <div className="flex items-center gap-2 flex-wrap text-center sm:text-left">
             <span className="font-semibold text-stone-700">
-              &copy; 2026 FileLab.
+              &copy; 2026 freeconvertingtools.com.
             </span>
             <span>Handcrafted for privacy. Zero cookies &middot; No accounts &middot; No tracking.</span>
           </div>

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BrandLogo from "@/components/BrandLogo";
 
 interface NavbarProps {
   onOpenSearch: () => void;
@@ -22,15 +23,8 @@ export default function Navbar({
   return (
     <header className="w-full flex items-center justify-between gap-2 sm:gap-4 mb-3 sm:mb-5 select-none">
       {/* Brand Logo Section - Always links directly to Home Desk */}
-      <Link href="/" className="flex flex-col cursor-pointer group flex-shrink-0 no-underline">
-        <div className="flex items-center text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 group-hover:opacity-95 transition-opacity">
-          <span>File</span>
-          <span className="text-blue-600">Lab</span>
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-500 ml-0.5 inline-block group-hover:scale-125 transition-transform" />
-        </div>
-        <span className="hidden xs:block text-[8px] sm:text-[9px] font-semibold tracking-wider sm:tracking-widest text-slate-400 mt-0.5 uppercase">
-          Convert • Compress • Download
-        </span>
+      <Link href="/" className="flex items-center cursor-pointer group flex-shrink-0 no-underline hover:opacity-95 transition-opacity">
+        <BrandLogo className="h-8 sm:h-9 md:h-10 w-auto" />
       </Link>
 
       {/* Desktop Search Bar with Ctrl+K */}

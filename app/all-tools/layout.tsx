@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function AllToolsLayout({
   children,
@@ -22,15 +23,8 @@ export default function AllToolsLayout({
         {/* ─── Shared Navbar ─────────────────────────────────────────── */}
         <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-1.5 sm:pb-3 flex items-center justify-between gap-2 sm:gap-4 select-none">
           {/* Brand */}
-          <Link href="/" className="flex flex-col cursor-pointer group flex-shrink-0 no-underline">
-            <div className="flex items-center text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 group-hover:opacity-95 transition-opacity">
-              <span>File</span>
-              <span className="text-blue-600">Lab</span>
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-500 ml-0.5 inline-block group-hover:scale-125 transition-transform"></span>
-            </div>
-            <span className="hidden sm:block text-[8px] sm:text-[9px] font-semibold tracking-wider sm:tracking-widest text-slate-400 mt-0.5 uppercase">
-              Convert • Compress • Download
-            </span>
+          <Link href="/" className="flex items-center cursor-pointer group flex-shrink-0 no-underline hover:opacity-95 transition-opacity">
+            <BrandLogo className="h-8 sm:h-9 md:h-10 w-auto" />
           </Link>
 
           {/* Nav Links + Actions */}
