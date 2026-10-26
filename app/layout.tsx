@@ -125,6 +125,8 @@ export default function RootLayout({
       className={`${inter.variable} ${caveat.variable} ${playfair.variable} h-full antialiased`}
     >
       <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context file" />
+        <link rel="help" type="text/plain" href="/llms-full.txt" title="Full LLM Documentation" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}

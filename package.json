@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "indexnow": "node scripts/submit-indexnow.mjs",
     "postinstall": "node scripts/copy-pdfjs-assets.mjs",
     "prepare:pdfjs": "node scripts/copy-pdfjs-assets.mjs"
   },

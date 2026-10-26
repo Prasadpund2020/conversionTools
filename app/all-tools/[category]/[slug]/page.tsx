@@ -177,9 +177,48 @@ export default async function ToolPage({ params }: ToolPageProps) {
     ],
   };
 
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to Use ${tool.title} Online for Free`,
+    description:
+      tool.seoDescription ||
+      `Step-by-step instructions for using ${tool.title} safely in your web browser.`,
+    totalTime: "PT1M",
+    tool: [
+      {
+        "@type": "HowTool",
+        name: "Web Browser (Chrome, Firefox, Safari, Edge)",
+      },
+    ],
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Select your file or link",
+        text:
+          tool.category === "downloaders"
+            ? "Paste the public video or media URL into the search box."
+            : `Select or drop your ${tool.acceptedFormats || "document"} directly into the tool dropzone.`,
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Process locally in browser",
+        text: "The tool executes parsing and conversion 100% inside your browser memory sandbox with zero server uploads.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Download the result",
+        text: `Click ${tool.actionText || "Download"} to immediately save your processed file onto your computer or phone.`,
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Schema.org WebApplication, BreadcrumbList, and FAQPage JSON-LD */}
+      {/* Schema.org WebApplication, BreadcrumbList, FAQPage, and HowTo JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
@@ -191,6 +230,10 @@ export default async function ToolPage({ params }: ToolPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}
