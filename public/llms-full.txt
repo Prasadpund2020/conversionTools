@@ -2,13 +2,14 @@
 
 > Web Domain: https://freeconvertingtools.co.in
 > Primary Directory: https://freeconvertingtools.co.in/all-tools
+> Total Tools: 51 Fully Functional In-Browser Tools
 > License & Access: 100% Free, Unlimited Usage, No Account, No Subscriptions, No Paywalls
 
 ---
 
 ## 1. System Overview & Trust Architecture
 
-FileLab is an in-browser utility suite providing privacy-first file conversion, image compression, document manipulation, and media downloading.
+FileLab is an in-browser utility suite providing privacy-first file conversion, image compression, document manipulation, media processing, and data transformation.
 
 ### Privacy & Security Guarantees
 - **Zero Server Uploads**: Unlike traditional web converters that transmit documents to remote cloud servers, FileLab executes parsing, rendering, rasterization, and compression directly inside the client's web browser RAM sandbox.
@@ -23,171 +24,272 @@ FileLab is an in-browser utility suite providing privacy-first file conversion, 
 ### Category: PDF Tools (https://freeconvertingtools.co.in/all-tools/pdf)
 
 1. **PDF to Word** (`/all-tools/pdf/pdf-to-word`)
-   - **Input**: `.pdf`
-   - **Output**: `.docx`, `.rtf`, `.txt`
-   - **Capabilities**: Converts PDF documents into editable Word documents while preserving paragraphs, headings, tabular structures, and basic layout formatting.
-   - **How to use**: Drop a PDF file into the upload zone, preview parsed pages, and click "Download Word".
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Convert PDF files to editable Word documents (DOCX, RTF, TXT) directly in your browser. Preserves paragraph layout and tables with zero file uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 2. **PDF Merge** (`/all-tools/pdf/pdf-merge`)
-   - **Input**: Multiple `.pdf` files
-   - **Output**: Single merged `.pdf`
-   - **Capabilities**: Reorder files via drag-and-drop, rotate pages, and combine multi-document bundles into one clean PDF.
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Combine multiple PDF files into one clean document online. Drag to reorder, rotate pages, and download instantly with private in-browser merging.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 3. **PDF to JPG** (`/all-tools/pdf/pdf-to-jpg`)
-   - **Input**: `.pdf`
-   - **Output**: `.jpg`, `.png`, `.webp` (individual images or `.zip` archive)
-   - **Capabilities**: Rasterizes vector PDF pages into high-resolution images up to 600 DPI.
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Convert PDF pages to high-resolution JPG, PNG, or WebP images up to 600 DPI. Fast client-side vector rasterization and ZIP archive download.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 4. **Image to PDF** (`/all-tools/pdf/image-to-pdf`)
-   - **Input**: `.jpg`, `.jpeg`, `.png`, `.webp`
-   - **Output**: `.pdf`
-   - **Capabilities**: Combines photos, receipts, or document scans into a standardized, printable PDF with custom orientation and margin settings.
+   - **Supported Inputs**: `.jpg,.jpeg,.png,.webp`
+   - **Description**: Convert JPG, PNG, and WebP images into clean, standardized PDF documents. Reorder pages and customize orientation with local browser processing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 5. **Sign PDF** (`/all-tools/pdf/sign-pdf`)
-   - **Input**: `.pdf`
-   - **Output**: Verifiable digitally signed `.pdf`
-   - **Capabilities**: Draw with calligraphy ink, type formatted signature text, or upload signature stamps. Positions signatures with live vector preview.
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Sign PDF documents online for free. Draw, type, or stamp verifiable cryptographic signatures directly in your browser with zero server uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 6. **Protect & Encrypt** (`/all-tools/pdf/protect-pdf`)
-   - **Input**: `.pdf`
-   - **Output**: Password-protected `.pdf`
-   - **Capabilities**: Applies AES-256 bit cipher with user permissions (print, copy, modify restrictions).
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Encrypt PDF files with strong AES-256 password protection. Set read, print, and copy restrictions directly in your browser memory with 100% privacy.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 7. **Redact Document** (`/all-tools/pdf/redact-pdf`)
-   - **Input**: `.pdf`
-   - **Output**: Permanently sanitized `.pdf`
-   - **Capabilities**: Permanent vector blackout for sensitive text, SSNs, credit card numbers, and PII.
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Permanently redact sensitive text, SSNs, and personal data from PDF documents. Irreversible client-side vector blackout with zero data leakage.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 8. **Watermark PDF** (`/all-tools/pdf/watermark-pdf`)
-   - **Input**: `.pdf`
-   - **Output**: Watermarked `.pdf`
-   - **Capabilities**: Stamps custom diagonal or horizontal text, logos, and copyright warnings.
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Add custom text or image watermarks to PDF pages online. Configure opacity, diagonal rotation, and typography hierarchy without server processing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-9. **Compress PDF** (`/all-tools/pdf/compress-pdf`)
-   - **Input**: `.pdf`
-   - **Output**: Compact `.pdf`
-   - **Capabilities**: Optimizes embedded images and font subsets to reduce document weight for email attachments.
+9. **Compare Revisions** (`/all-tools/pdf/compare-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Compare two PDF files side by side with highlighted visual and text diffs. Detect revisions and contract discrepancies entirely inside your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-10. **Split PDF** (`/all-tools/pdf/split-pdf`)
-    - **Input**: `.pdf`
-    - **Output**: Multiple `.pdf` files
-    - **Capabilities**: Extract individual pages or custom page ranges (e.g., 1-5, 8, 11-14).
+10. **Repair PDF** (`/all-tools/pdf/repair-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Repair corrupted or unreadable PDF files online. Reconstruct broken cross-reference tables and recover document streams safely with in-browser tools.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-11. **Organize PDF Pages** (`/all-tools/pdf/organize-pdf`)
-    - **Input**: `.pdf`
-    - **Output**: Reorganized `.pdf`
-    - **Capabilities**: Rotate, reorder, delete, and duplicate pages inside an interactive visual grid.
+11. **PDF to Excel** (`/all-tools/pdf/pdf-to-excel`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Convert PDF tables into editable Microsoft Excel (.xlsx) spreadsheets. Retain tabular formatting, columns, and numeric data with client-side parsing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
----
+12. **HTML to PDF** (`/all-tools/pdf/html-to-pdf`)
+   - **Supported Inputs**: `.html,.htm`
+   - **Description**: Convert HTML code, web pages, and documents into clean, printable PDF files. Preserves CSS styles, fonts, and responsive layouts with instant export.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+13. **Compress PDF** (`/all-tools/pdf/compress-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Reduce PDF file size without sacrificing readability or image clarity. Fast in-browser compression ideal for email attachments and portal uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+14. **Split PDF** (`/all-tools/pdf/split-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Split PDF files into individual pages or extract custom page ranges into separate documents. Free, fast, and 100% private in-browser page splitting.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+15. **Organize PDF Pages** (`/all-tools/pdf/organize-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Organize, reorder, rotate, and delete PDF pages with an interactive visual grid. Download your restructured PDF instantly with zero server uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+16. **Page Numbers & Bates** (`/all-tools/pdf/add-page-numbers`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Add header/footer page numbers or legal Bates numbering to PDF files online. Position, font, prefix, and margin controls with zero file uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+17. **Unlock PDF Password** (`/all-tools/pdf/unlock-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Remove password protection and permission restrictions from PDF documents online with 100% in-browser privacy and zero file uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+18. **Grayscale / B&W PDF** (`/all-tools/pdf/grayscale-pdf`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Convert colorful PDF documents into clean monochrome grayscale or black & white. Optimize printer toner and meet court/government filing guidelines.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+19. **PDF to PowerPoint** (`/all-tools/pdf/pdf-to-pptx`)
+   - **Supported Inputs**: `.pdf`
+   - **Description**: Convert PDF documents and lecture slides into genuine Microsoft PowerPoint presentation decks (.pptx). 16:9 widescreen format compatible with Google Slides.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
 
 ### Category: Image Tools (https://freeconvertingtools.co.in/all-tools/image)
 
 1. **Compress Image** (`/all-tools/image/compress-image`)
-   - **Input**: `.jpg`, `.jpeg`, `.png`, `.webp`
-   - **Output**: Compressed `.webp`, `.jpg`, `.png`
-   - **Capabilities**: Reduces image file size by up to 90% without visible loss. Includes real-time split-screen slider for quality comparison.
+   - **Supported Inputs**: `.jpg,.jpeg,.png,.webp`
+   - **Description**: Compress JPG, PNG, and WebP images by up to 90% without visible quality loss. Real-time before/after inspection and client-side WebP export.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 2. **Remove Background** (`/all-tools/image/remove-bg`)
-   - **Input**: `.jpg`, `.jpeg`, `.png`, `.webp`
-   - **Output**: Transparent `.png`
-   - **Capabilities**: In-browser machine learning subject segmentation that isolates people, animals, and products with crisp hair/edge preservation.
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Automatically remove image backgrounds with in-browser AI segmentation. Preserve fine hair details and export transparent PNGs with zero server uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 3. **JPG to PNG** (`/all-tools/image/jpg-to-png`)
-   - **Input**: `.jpg`, `.jpeg`
-   - **Output**: Lossless `.png`
-   - **Capabilities**: Batch transcode photographs to PNG format.
+   - **Supported Inputs**: `.jpg,.jpeg`
+   - **Description**: Convert JPG images to high-quality transparent PNG format. Fast batch conversion processed locally in your browser with zero image compression loss.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 4. **Resize Image** (`/all-tools/image/resize-image`)
-   - **Input**: `.png`, `.jpg`, `.jpeg`, `.webp`
-   - **Output**: Scaled image
-   - **Capabilities**: Scale by exact pixel dimensions or percentage while maintaining aspect ratios.
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Resize image dimensions and change aspect ratios for social media, web, or print. Scale JPG, PNG, and WebP photos with pixel-perfect precision.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 5. **Convert to WebP** (`/all-tools/image/convert-webp`)
-   - **Input**: `.png`, `.jpg`, `.jpeg`
-   - **Output**: `.webp`
-   - **Capabilities**: Converts legacy images to modern, high-compression WebP format for fast web delivery.
+   - **Supported Inputs**: `.png,.jpg,.jpeg`
+   - **Description**: Convert JPG and PNG images into modern WebP format for ultra-fast website loading. Reduce file size up to 80% with private client-side processing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-6. **Crop Image** (`/all-tools/image/crop-image`)
-   - **Input**: Any standard image format
-   - **Output**: Cropped image
-   - **Capabilities**: Freeform rectangular crop and preset aspect ratios (16:9, 1:1, 4:5, 9:16).
+6. **Watermark Image** (`/all-tools/image/watermark-image`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Protect photos and creative graphics with custom text or logo watermarks. Adjust transparency, tile patterns, and positions directly in your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
----
+7. **Crop Image** (`/all-tools/image/crop-image`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Crop photos to custom dimensions or standard aspect ratios (16:9, 1:1, 4:5). Precision client-side image cropping with instant high-res PNG/JPG export.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+8. **Blur Faces & Censor** (`/all-tools/image/blur-face`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Censor confidential details, mosaic faces, and redact sensitive documents directly in your browser. Features Gaussian blur, pixelate mosaic, and blackout bars.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+9. **AI Image Upscaler** (`/all-tools/image/image-upscaler`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Upscale low-resolution images 2x or 4x without jagged pixel artifacts. High-quality bicubic smoothing, unsharp mask edge enhancement, and pixel-art modes.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+10. **Color Palette Extractor** (`/all-tools/image/color-palette`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.webp`
+   - **Description**: Extract beautiful color palettes and hex swatch codes from any photo online. One-click copy for HEX, RGB, HSL values, and export CSS variables.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
 
 ### Category: Video & Audio Tools (https://freeconvertingtools.co.in/all-tools/video-audio)
 
 1. **Video to MP3** (`/all-tools/video-audio/video-to-mp3`)
-   - **Input**: `.mp4`, `.mov`, `.mkv`, `.webm`, `.avi`
-   - **Output**: `.mp3` (up to 320 kbps)
-   - **Capabilities**: Extracts high-fidelity audio tracks directly from video clips with custom bitrate selection.
+   - **Supported Inputs**: `.mp4,.mkv,.mov,.webm`
+   - **Description**: Extract high-bitrate MP3 audio from MP4, MOV, MKV, and web video files entirely in your browser with zero server uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 2. **Trim Video** (`/all-tools/video-audio/trim-video`)
-   - **Input**: `.mp4`, `.mov`, `.webm`
-   - **Output**: Cut `.mp4`
-   - **Capabilities**: Precision timestamp trimming without server re-encoding latency.
+   - **Supported Inputs**: `.mp4,.mov,.webm`
+   - **Description**: Trim and cut video clips online without quality loss. Set precise start and end timestamps for MP4, MOV, and WebM videos directly in browser memory.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 3. **Audio Booster** (`/all-tools/video-audio/volume-booster`)
-   - **Input**: `.mp3`, `.wav`, `.mp4`
-   - **Output**: Amplified audio/video file
-   - **Capabilities**: Boosts quiet tracks up to 300% volume with equalizer smoothing.
+   - **Supported Inputs**: `.mp3,.wav,.mp4`
+   - **Description**: Boost audio volume in video and audio tracks up to 300% without distortion. Real-time equalizer smoothing processed 100% locally in your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 4. **Audio Converter** (`/all-tools/video-audio/convert-audio`)
-   - **Input**: `.wav`, `.flac`, `.aac`, `.ogg`, `.mp3`
-   - **Output**: Desired audio format
-   - **Capabilities**: In-browser multi-codec audio transcoding.
+   - **Supported Inputs**: `.wav,.flac,.aac,.ogg,.mp3`
+   - **Description**: Convert audio files between MP3, WAV, AAC, FLAC, and OGG formats online. High-fidelity transcoding with custom bitrate selection in your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 5. **Mute Video** (`/all-tools/video-audio/mute-video`)
-   - **Input**: `.mp4`, `.mov`, `.webm`
-   - **Output**: Silent `.mp4`
-   - **Capabilities**: Strips audio streams instantly without video quality degradation.
+   - **Supported Inputs**: `.mp4,.mov,.webm`
+   - **Description**: Remove audio tracks and mute video files online for free. Strip unwanted sound from MP4, MOV, and WebM videos instantly without uploading files.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
----
+6. **Video to GIF Maker** (`/all-tools/video-audio/video-to-gif`)
+   - **Supported Inputs**: `.mp4,.webm,.mov`
+   - **Description**: Convert MP4, WebM, and MOV videos into high quality animated GIFs directly in your browser. Trim clips, adjust frame rate, and export without watermarks.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+7. **Audio Speed Changer** (`/all-tools/video-audio/audio-speed`)
+   - **Supported Inputs**: `.mp3,.wav,.aac,.ogg,.flac`
+   - **Description**: Change the playback speed and tempo of MP3, WAV, and AAC audio files online. Precision resampling engine directly in your browser memory.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+8. **Audio Joiner & Merger** (`/all-tools/video-audio/audio-joiner`)
+   - **Supported Inputs**: `.mp3,.wav,.aac,.m4a,.ogg,.flac`
+   - **Description**: Merge and combine multiple audio files into a single continuous track with optional smooth crossfade transitions. 100% in-browser WAV export.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+9. **Voice & Mic Recorder** (`/all-tools/video-audio/voice-recorder`)
+   - **Supported Inputs**: `All common formats`
+   - **Description**: Record high-fidelity voice notes, meetings, and audio clips using your microphone. Features real-time visual oscilloscope and instant MP3/WAV export.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
 
 ### Category: Media Downloaders (https://freeconvertingtools.co.in/all-tools/downloaders)
 
 1. **YouTube Downloader** (`/all-tools/downloaders/youtube-downloader`)
-   - **Input**: YouTube Video / Shorts URL
-   - **Output**: 1080p, 720p, 480p MP4 or 320 kbps MP3
-   - **Capabilities**: Clean media extraction with zero watermarks or third-party ads.
+   - **Supported Inputs**: `All common formats`
+   - **Description**: Download YouTube videos in crisp 1080p Full HD, 720p, or 320 kbps MP3 audio directly in your browser. Clean media downloads without watermarks.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-2. **TikTok Saver** (`/all-tools/downloaders/tiktok-saver`)
-   - **Input**: TikTok URL
-   - **Output**: Watermark-free HD MP4
-   - **Capabilities**: Downloads original resolution videos without TikTok platform watermarks.
+2. **Instagram Reels Downloader** (`/all-tools/downloaders/insta-reels`)
+   - **Supported Inputs**: `URL Link`
+   - **Description**: Download Instagram Reels, videos, and clips in crisp 1080p Full HD. Fast, watermark-free downloads directly in your browser without app installation.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-3. **Instagram Reels Downloader** (`/all-tools/downloaders/insta-reels`)
-   - **Input**: Instagram Reel or Post URL
-   - **Output**: 1080p Full HD MP4
-   - **Capabilities**: Fast download of public Instagram videos and Reels.
+3. **TikTok Saver No Watermark** (`/all-tools/downloaders/tiktok-saver`)
+   - **Supported Inputs**: `URL Link`
+   - **Description**: Download TikTok videos without watermarks in high definition MP4 format. Save trending sounds and clips directly to your device with zero ads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-4. **Twitter / X Downloader** (`/all-tools/downloaders/twitter-media`)
-   - **Input**: Twitter/X Tweet Status URL
-   - **Output**: MP4 or GIF
-   - **Capabilities**: Direct stream extraction for videos and animated GIFs.
+4. **Twitter / X Video Downloader** (`/all-tools/downloaders/twitter-media`)
+   - **Supported Inputs**: `URL Link`
+   - **Description**: Download Twitter (X) videos and animated GIFs in high-resolution MP4 format. Fast, free media extraction directly from tweet URLs with zero ads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
----
 
-### Category: Edit & Convert & Utilities
+### Category: Edit & Convert Tools (https://freeconvertingtools.co.in/all-tools/edit-convert)
 
-1. **Word to PDF** (`/all-tools/edit-convert/word-to-pdf`) — Converts DOCX/DOC files into locked PDF format.
-2. **Excel to PDF** (`/all-tools/edit-convert/excel-to-pdf`) — Exports spreadsheets (.xlsx, .csv) into clean printable PDFs.
-3. **OCR Text Extractor** (`/all-tools/edit-convert/ocr-scanner`) — Optical Character Recognition from scanned pages and receipts.
-4. **ePub to PDF** (`/all-tools/edit-convert/epub-to-pdf`) — Formats eBooks into readable PDF books.
-5. **QR Code Generator** (`/all-tools/more/qr-generator`) — Generates vector SVG and high-res PNG QR codes for URLs, WiFi, and vCards.
-6. **Barcode Scanner & Maker** (`/all-tools/more/barcode-scanner`) — Generates UPC, EAN, and Code128 retail barcodes.
+1. **Word to PDF** (`/all-tools/edit-convert/word-to-pdf`)
+   - **Supported Inputs**: `.doc,.docx`
+   - **Description**: Convert Word documents (DOCX, DOC) to clean, standard PDF files. Locks in typography, images, and tables with private client-side processing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
----
+2. **Excel to PDF** (`/all-tools/edit-convert/excel-to-pdf`)
+   - **Supported Inputs**: `.xls,.xlsx,.csv`
+   - **Description**: Convert Excel spreadsheets (XLSX, XLS, CSV) into formatted, printable PDF documents. Maintain clean row heights and column layouts with zero uploads.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-## 3. Frequently Asked Questions for AI Systems
+3. **OCR Text Extractor** (`/all-tools/edit-convert/ocr-scanner`)
+   - **Supported Inputs**: `.png,.jpg,.jpeg,.pdf`
+   - **Description**: Extract editable text from scanned documents, receipts, and photos using in-browser OCR. Supports multiple languages with instant clipboard copying.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-**Q: Are files uploaded to an external server?**  
-A: No. All conversions, compression, and image rendering occur entirely within client-side browser memory via WebAssembly and HTML5 APIs. Files never leave the user's computer or mobile phone.
+4. **ePub to PDF** (`/all-tools/edit-convert/epub-to-pdf`)
+   - **Supported Inputs**: `.epub`
+   - **Description**: Convert eBook ePub files into readable and printable PDF books. Formats chapters, typography, and page numbers cleanly with local browser processing.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-**Q: Is FileLab free? Are there subscription paywalls?**  
-A: Yes, 100% free with unlimited usage, zero file size artificial limits, and no registration or credit card required.
+5. **Markdown to PDF** (`/all-tools/edit-convert/markdown-to-pdf`)
+   - **Supported Inputs**: `.md,.markdown,.txt`
+   - **Description**: Convert Markdown notes and documents into clean, paginated PDF files with custom typography and live preview directly in your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-**Q: How does FileLab compare to other online file converters?**  
-A: Traditional converters upload files to remote cloud queues, posing privacy risks and requiring waiting times. FileLab executes instantaneously in-browser with zero data transmission.
+6. **JSON ⟷ CSV Converter** (`/all-tools/edit-convert/json-csv`)
+   - **Supported Inputs**: `.json,.csv,.tsv,.txt`
+   - **Description**: Convert JSON arrays to CSV or Excel tables, or parse CSV files into formatted JSON. Delimiter options, pretty-printing, and instant copy/download.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
-**Q: What is the official canonical domain?**  
-A: https://freeconvertingtools.co.in
+
+### Category: Utility & Developer Tools (https://freeconvertingtools.co.in/all-tools/more)
+
+1. **QR Code Generator** (`/all-tools/more/qr-generator`)
+   - **Supported Inputs**: `All common formats`
+   - **Description**: Create custom high-resolution QR codes for websites, WiFi networks, and vCards. Download print-ready PNG and vector SVG graphics with zero tracking.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+2. **Barcode Scanner & Maker** (`/all-tools/more/barcode-scanner`)
+   - **Supported Inputs**: `All common formats`
+   - **Description**: Scan barcodes using your camera or generate retail UPC, EAN, and Code128 barcodes online. Fast, clean vector barcode generator in your browser.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+
+3. **Base64 File Encoder** (`/all-tools/more/base64-converter`)
+   - **Supported Inputs**: `All common formats`
+   - **Description**: Encode images, documents, and files into Base64 Data URIs, or decode Base64 strings into original files. 100% private in-browser tool.
+   - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
+

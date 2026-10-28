@@ -1,0 +1,64 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { StagedVideoFile } from './types';
+
+interface VideoToGifHeaderBarProps {
+  stagedFile: StagedVideoFile | null;
+  isProcessing: boolean;
+  onReset: () => void;
+}
+
+export const VideoToGifHeaderBar: React.FC<VideoToGifHeaderBarProps> = ({
+  stagedFile,
+  isProcessing,
+  onReset,
+}) => {
+  return (
+    <header className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/40 dark:border-white/10 mb-8">
+      <div className="flex items-center gap-3">
+        <Link
+          href="/all-tools"
+          className="clay-btn-ghost p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+          title="Back to All Tools"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </Link>
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-purple-500/20 text-lg">
+          🎬
+        </div>
+        <div>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white">
+              Video to GIF Maker
+            </h1>
+            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300">
+              HD Animated GIF
+            </span>
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Trim video clips, adjust speed & resolution, and export animated GIFs 100% in browser
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3">
+        {stagedFile && (
+          <button
+            onClick={onReset}
+            disabled={isProcessing}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors disabled:opacity-50"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span>New Video</span>
+          </button>
+        )}
+      </div>
+    </header>
+  );
+};

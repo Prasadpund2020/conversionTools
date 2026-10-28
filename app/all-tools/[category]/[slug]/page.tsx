@@ -50,6 +50,7 @@ export async function generateMetadata({
   const seo = getToolSeo(tool);
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,

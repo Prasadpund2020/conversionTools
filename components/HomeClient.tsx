@@ -65,11 +65,18 @@ export default function HomeClient() {
     }
   };
 
+  const [selectedRadialTool, setSelectedRadialTool] = useState<ToolItem | null>(null);
+
   const router = useRouter();
 
   const handleSelectTool = (tool: ToolItem) => {
     handleRecordRecent(tool);
-    router.push(getToolUrl(tool));
+    const isRadial = RADIAL_TOOLS.some((t) => t.id === tool.id);
+    if (isRadial) {
+      setSelectedRadialTool(tool);
+    } else {
+      router.push(getToolUrl(tool));
+    }
   };
 
   const handleFileDrop = (file: File) => {
@@ -85,7 +92,7 @@ export default function HomeClient() {
       targetTool = ALL_TOOLS.find((t) => t.id === "html-to-pdf") || RADIAL_TOOLS[0];
     }
     handleRecordRecent(targetTool);
-    router.push(getToolUrl(targetTool));
+    setSelectedRadialTool(targetTool);
   };
 
   return (
@@ -128,7 +135,9 @@ export default function HomeClient() {
 
           {/* Center Stage: Touch Hub on Mobile / Radial Hub on Desktop */}
           <RadialHub
+            activeTool={selectedRadialTool}
             onSelectTool={handleSelectTool}
+            onResetActiveTool={() => setSelectedRadialTool(null)}
             onFileDrop={handleFileDrop}
           />
 

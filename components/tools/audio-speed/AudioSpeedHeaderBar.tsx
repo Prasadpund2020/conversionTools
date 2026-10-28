@@ -1,0 +1,61 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { StagedAudioFile } from './types';
+
+interface AudioSpeedHeaderBarProps {
+  stagedFile: StagedAudioFile | null;
+  onReset: () => void;
+}
+
+export const AudioSpeedHeaderBar: React.FC<AudioSpeedHeaderBarProps> = ({
+  stagedFile,
+  onReset,
+}) => {
+  return (
+    <header className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/40 dark:border-white/10 mb-8">
+      <div className="flex items-center gap-3">
+        <Link
+          href="/all-tools"
+          className="clay-btn-ghost p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+          title="Back to All Tools"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </Link>
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/20 text-lg">
+          ⚡
+        </div>
+        <div>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white">
+              Audio Speed & Tempo Changer
+            </h1>
+            <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-300">
+              High Fidelity
+            </span>
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Speed up or slow down audio tracks, podcasts, and recordings with crystal-clear 16-bit WAV export
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3">
+        {stagedFile && (
+          <button
+            onClick={onReset}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span>New Audio</span>
+          </button>
+        )}
+      </div>
+    </header>
+  );
+};

@@ -1,6 +1,6 @@
 # FileLab (FreeConvertingTools)
 
-> Free, private, client-side online conversion tools for PDFs, images, video, audio, and media downloads. All operations execute directly in the browser via WebAssembly and HTML5 APIs without uploading files to any external server.
+> Free, private, client-side online conversion tools for PDFs, images, video, audio, code, and media downloads. All operations execute directly in the browser via WebAssembly and HTML5 APIs without uploading files to any external server.
 
 Website: https://freeconvertingtools.co.in
 Canonical Tool Directory: https://freeconvertingtools.co.in/all-tools
@@ -8,26 +8,69 @@ Canonical Tool Directory: https://freeconvertingtools.co.in/all-tools
 ## Core Features & Privacy Model
 - **Zero Server Uploads**: File processing, rasterization, OCR, conversion, and compression occur 100% inside client-side browser memory (RAM) sandbox.
 - **No Account Required**: Completely free to use with no subscriptions, usage limits, or paywalls.
-- **Supported File Types**: PDF, JPG, PNG, WebP, MP4, MKV, MOV, MP3, and social media links.
+- **51 Production Tools**: PDF utilities, high-fidelity media tools, audio joiners/recorders, data converters, and image processing.
 
-## Published Tools
+## Published Tools by Category
 
 ### PDF Tools
-- [PDF to Word](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-word): Convert PDF files to editable Word documents (DOCX, RTF, TXT) with formatting and table preservation.
-- [PDF Merge](https://freeconvertingtools.co.in/all-tools/pdf/pdf-merge): Combine multiple PDF documents into a single file with drag-and-drop page reordering and rotation.
-- [PDF to JPG](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-jpg): Extract and rasterize high-resolution images from PDF pages up to 600 DPI.
-- [Image to PDF](https://freeconvertingtools.co.in/all-tools/pdf/image-to-pdf): Package photos, scans, PNG, and JPG files into clean PDF documents.
-- [Sign PDF](https://freeconvertingtools.co.in/all-tools/pdf/sign-pdf): Draw, type, or stamp verifiable cryptographic digital signatures onto PDF documents.
+- [PDF to Word](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-word): Preserves paragraphs, tables, and typography hierarchy.
+- [PDF Merge](https://freeconvertingtools.co.in/all-tools/pdf/pdf-merge): Combine multiple PDF documents into a single, organized file in seconds.
+- [PDF to JPG](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-jpg): Extract and convert high-resolution image pages from any PDF document.
+- [Image to PDF](https://freeconvertingtools.co.in/all-tools/pdf/image-to-pdf): Convert photos, scans, PNG and JPG images into clean PDF documents.
+- [Sign PDF](https://freeconvertingtools.co.in/all-tools/pdf/sign-pdf): Draw, type, or stamp verifiable digital signatures.
+- [Protect & Encrypt](https://freeconvertingtools.co.in/all-tools/pdf/protect-pdf): Apply AES cipher & restrict print/copy rights.
+- [Redact Document](https://freeconvertingtools.co.in/all-tools/pdf/redact-pdf): Permanent vector blackout for SSN, emails, & names.
+- [Watermark PDF](https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf): Position custom diagonal text, stamps, or vector logos.
+- [Compare Revisions](https://freeconvertingtools.co.in/all-tools/pdf/compare-pdf): Side-by-side color coded text and layout audits.
+- [Repair PDF](https://freeconvertingtools.co.in/all-tools/pdf/repair-pdf): Reconstructs damaged Xref tables & corrupted streams.
+- [PDF to Excel](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-excel): Extract financial and tabular structures cleanly.
+- [HTML to PDF](https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf): Convert web pages, HTML files, or raw HTML code into clean, printable PDF documents.
+- [Compress PDF](https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf): Optimize PDF filesize while preserving document and font clarity.
+- [Split PDF](https://freeconvertingtools.co.in/all-tools/pdf/split-pdf): Separate specific page ranges or extract individual pages into new PDFs.
+- [Organize PDF Pages](https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf): Rotate, reorder, delete, and duplicate pages inside your PDF.
+- [Page Numbers & Bates](https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers): Stamp customized page numbers or Bates numbering into header & footer positions.
+- [Unlock PDF Password](https://freeconvertingtools.co.in/all-tools/pdf/unlock-pdf): Permanently remove passwords, encryption, and printing/copying restrictions.
+- [Grayscale / B&W PDF](https://freeconvertingtools.co.in/all-tools/pdf/grayscale-pdf): Convert color PDFs to clean monochrome grayscale to save printing toner.
+- [PDF to PowerPoint](https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-pptx): Convert presentation PDF slides into standard editable PowerPoint .pptx decks.
 
 ### Image Tools
-- [Compress Image](https://freeconvertingtools.co.in/all-tools/image/compress-image): Compress JPG, PNG, and WebP images by up to 90% without visible quality loss, with interactive split-slider inspection.
-- [Remove Background](https://freeconvertingtools.co.in/all-tools/image/remove-bg): AI-powered subject cutout and transparent PNG export running locally in browser memory.
+- [Compress Image](https://freeconvertingtools.co.in/all-tools/image/compress-image): Drastically reduce image file sizes without compromising visual quality.
+- [Remove Background](https://freeconvertingtools.co.in/all-tools/image/remove-bg): Cut out subjects automatically with client-side AI image processing.
+- [JPG to PNG](https://freeconvertingtools.co.in/all-tools/image/jpg-to-png): Convert JPG photos to lossless transparent PNG format.
+- [Resize Image](https://freeconvertingtools.co.in/all-tools/image/resize-image): Scale image pixel dimensions and aspect ratios for web, print or socials.
+- [Convert to WebP](https://freeconvertingtools.co.in/all-tools/image/convert-webp): Next-gen lightweight web image conversion with superior compression.
+- [Watermark Image](https://freeconvertingtools.co.in/all-tools/image/watermark-image): Stamp customized copyright text or logo images onto your pictures.
+- [Crop Image](https://freeconvertingtools.co.in/all-tools/image/crop-image): Trim unwanted borders or crop to exact rectangular ratios.
+- [Blur Faces & Censor](https://freeconvertingtools.co.in/all-tools/image/blur-face): Pixelate or blur faces, license plates, and sensitive documents with zero server uploads.
+- [AI Image Upscaler](https://freeconvertingtools.co.in/all-tools/image/image-upscaler): Enlarge images 2x or 4x with bicubic edge enhancement and noise smoothing.
+- [Color Palette Extractor](https://freeconvertingtools.co.in/all-tools/image/color-palette): Extract dominant HEX/RGB colors, CSS variables, and swatch cards from photos.
 
 ### Video & Audio Tools
-- [Video to MP3](https://freeconvertingtools.co.in/all-tools/video-audio/video-to-mp3): Extract high-bitrate MP3 audio tracks directly from MP4, MKV, MOV, and web videos.
+- [Video to MP3](https://freeconvertingtools.co.in/all-tools/video-audio/video-to-mp3): Extract crystal clear audio tracks from MP4, MKV, MOV and web videos.
+- [Trim Video](https://freeconvertingtools.co.in/all-tools/video-audio/trim-video): Cut out exact timestamps and trim video clips without re-encoding delays.
+- [Audio Booster](https://freeconvertingtools.co.in/all-tools/video-audio/volume-booster): Amplify quiet audio and video tracks up to 300% with equalizer smoothing.
+- [Audio Converter](https://freeconvertingtools.co.in/all-tools/video-audio/convert-audio): Transcode between WAV, FLAC, AAC, OGG and MP3 formats.
+- [Mute Video](https://freeconvertingtools.co.in/all-tools/video-audio/mute-video): Strip audio tracks from video files cleanly in pure browser memory.
+- [Video to GIF Maker](https://freeconvertingtools.co.in/all-tools/video-audio/video-to-gif): Convert MP4 and WebM video clips into smooth looping animated GIFs.
+- [Audio Speed Changer](https://freeconvertingtools.co.in/all-tools/video-audio/audio-speed): Speed up or slow down audio recordings from 0.25x to 3.0x with lossless 16-bit WAV.
+- [Audio Joiner & Merger](https://freeconvertingtools.co.in/all-tools/video-audio/audio-joiner): Combine multiple audio tracks, voice notes, and songs into one seamless file with crossfade.
+- [Voice & Mic Recorder](https://freeconvertingtools.co.in/all-tools/video-audio/voice-recorder): Capture crystal-clear voice notes and microphone audio with real-time waveform visualizer.
 
 ### Media Downloaders
-- [YouTube Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/youtube-downloader): Download YouTube videos in 1080p, 720p MP4 or 320 kbps MP3 format without watermarks.
-- [TikTok Saver](https://freeconvertingtools.co.in/all-tools/downloaders/tiktok-saver): Save high-definition TikTok videos without platform watermarks.
-- [Instagram Reels Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/insta-reels): Download full HD Instagram Reels and public video clips.
-- [Twitter / X Video Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/twitter-media): Save MP4 videos and GIFs directly from Twitter / X status URLs.
+- [YouTube Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/youtube-downloader): Save YouTube videos directly in 1080p, 720p, or high-definition MP3 format.
+- [Instagram Reels Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/insta-reels): Download full HD Instagram Reels and public video clips easily.
+- [TikTok Saver No Watermark](https://freeconvertingtools.co.in/all-tools/downloaders/tiktok-saver): Save high quality TikTok videos without platform watermarks.
+- [Twitter / X Video Downloader](https://freeconvertingtools.co.in/all-tools/downloaders/twitter-media): Grab MP4 videos and GIFs directly from Twitter / X status URLs.
+
+### Edit & Convert Tools
+- [Word to PDF](https://freeconvertingtools.co.in/all-tools/edit-convert/word-to-pdf): Lossless layout lock for Word documents and templates.
+- [Excel to PDF](https://freeconvertingtools.co.in/all-tools/edit-convert/excel-to-pdf): Export spreadsheets, tables, and Excel sheets (.xlsx) directly to PDF format.
+- [OCR Text Extractor](https://freeconvertingtools.co.in/all-tools/edit-convert/ocr-scanner): Optical Character Recognition: extract searchable text from scans & images.
+- [ePub to PDF](https://freeconvertingtools.co.in/all-tools/edit-convert/epub-to-pdf): Transform eBook ePub files into readable and printable PDF books.
+- [Markdown to PDF](https://freeconvertingtools.co.in/all-tools/edit-convert/markdown-to-pdf): Transform Markdown text or .md files into beautifully styled, paginated PDF documents.
+- [JSON ⟷ CSV Converter](https://freeconvertingtools.co.in/all-tools/edit-convert/json-csv): Bidirectional converter between JSON datasets and CSV / TSV spreadsheet tables.
+
+### Utility & Developer Tools
+- [QR Code Generator](https://freeconvertingtools.co.in/all-tools/more/qr-generator): Generate customized high-resolution QR codes for URLs, WiFi and contacts.
+- [Barcode Scanner & Maker](https://freeconvertingtools.co.in/all-tools/more/barcode-scanner): Scan camera barcodes or generate UPC/EAN retail barcodes instantly.
+- [Base64 File Encoder](https://freeconvertingtools.co.in/all-tools/more/base64-converter): Encode any image, PDF or file into Base64 strings, or decode Base64 back into downloadable files.

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Caveat, Playfair_Display } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
+import { VercelAnalytics } from "@/components/VercelAnalytics";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -134,7 +134,7 @@ export default function RootLayout({
       </head>
       <body className="relative min-h-screen overflow-x-hidden font-sans antialiased">
         {children}
-        <Analytics />
+        <VercelAnalytics />
         {/* Google Analytics (gtag.js) */}
         <Script
           strategy="afterInteractive"
