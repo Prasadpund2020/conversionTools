@@ -48,15 +48,16 @@ export const ProtectPdfStage: React.FC<Props> = ({
             {options.userPassword ? "Document Protected with Password" : "Enter Password to Arm Encryption"}
           </h3>
           <p className="text-xs text-on-surface-variant leading-relaxed">
-            The document dictionary will be signed with standard PDF 128-bit security handlers.
-            Without the correct password, Adobe Acrobat, Apple Preview, and modern web browsers will block opening.
+            The document will be encrypted with standard{" "}
+            {options.encryptionStrength === "standard-rc4" ? "128-bit RC4" : "256-bit AES"}{" "}
+            security handlers. Without the correct password, Adobe Acrobat, Apple Preview, and modern web browsers will block opening.
           </p>
         </div>
 
         {/* Active Policy Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
           <span className="px-3 py-1 rounded-full bg-surface-container text-xs font-semibold text-on-surface shadow-inner">
-            Cipher: Standard 128-Bit Filter
+            Cipher: {options.encryptionStrength === "standard-rc4" ? "RC4 128-Bit (ISO 32000-1)" : "AES-256 (ISO 32000-2)"}
           </span>
           <span
             className={`px-3 py-1 rounded-full text-xs font-semibold shadow-inner ${

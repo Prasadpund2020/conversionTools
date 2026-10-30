@@ -21,36 +21,10 @@ export default function YouTubeDownloaderTips() {
         </div>
         <div className="flex flex-col">
           <span className="text-xs sm:text-sm font-bold text-slate-800">
-            Full 1080p &amp; 60 FPS
+            Official YouTube oEmbed
           </span>
           <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
-            Retains original broadcast frames and bitrate without lossy downscaling or compression artifacts.
-          </p>
-        </div>
-      </div>
-
-      <div className="p-4 rounded-2xl bg-white/90 shadow-xs flex items-start gap-3 border border-stone-200/60">
-        <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700 shrink-0 mt-0.5">
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-            />
-          </svg>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-xs sm:text-sm font-bold text-slate-800">
-            320 kbps Studio Audio
-          </span>
-          <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
-            Extract crystalline stereo audio tracks for podcast offline listening, workouts, and music production.
+            Fetches authentic video metadata, verified creator credentials, and official CDN cover thumbnails directly.
           </p>
         </div>
       </div>
@@ -73,10 +47,36 @@ export default function YouTubeDownloaderTips() {
         </div>
         <div className="flex flex-col">
           <span className="text-xs sm:text-sm font-bold text-slate-800">
-            Zero Watermark &amp; Safe
+            MP4 Container Validation
           </span>
           <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
-            Clean files with no added logos or third-party banners. Clean direct stream downloads.
+            Strict ISO Base Media binary validation (<code className="text-[11px] font-mono">ftyp</code> box). Rejects corrupted, blank, or placeholder files.
+          </p>
+        </div>
+      </div>
+
+      <div className="p-4 rounded-2xl bg-white/90 shadow-xs flex items-start gap-3 border border-stone-200/60">
+        <div className="w-8 h-8 rounded-xl bg-blue-100 flex items-center justify-center text-blue-700 shrink-0 mt-0.5">
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            />
+          </svg>
+        </div>
+        <div className="flex flex-col">
+          <span className="text-xs sm:text-sm font-bold text-slate-800">
+            Authorized Media Stream
+          </span>
+          <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
+            Dispatches genuine media bytes with Content-Length and MIME type validation. Honest platform compliance.
           </p>
         </div>
       </div>

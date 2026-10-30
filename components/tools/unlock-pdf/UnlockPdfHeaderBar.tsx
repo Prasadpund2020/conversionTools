@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { StagedUnlockPdfFile } from './types';
-import { formatBytes } from './unlockPdfEngine';
 
 interface UnlockPdfHeaderBarProps {
   stagedFile: StagedUnlockPdfFile | null;

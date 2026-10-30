@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { SAMPLE_VIDEOS } from "./sampleVideos";
-import { YouTubeVideoMetadata } from "./types";
+import { SAMPLE_VIDEOS, SampleVideoItem } from "./sampleVideos";
 
 interface YouTubeDownloaderUrlInputProps {
   url: string;
   onChangeUrl: (val: string) => void;
   onSubmit: (url: string) => void;
-  onSelectSample: (sample: YouTubeVideoMetadata) => void;
+  onSelectSample: (sample: SampleVideoItem) => void;
   isLoading: boolean;
 }
 
@@ -44,7 +43,7 @@ export default function YouTubeDownloaderUrlInput({
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-4xl mx-auto">
+    <div className="flex flex-col gap-3.5 w-full max-w-4xl mx-auto">
       <form
         onSubmit={handleFormSubmit}
         className="relative flex items-center w-full p-2 rounded-2xl bg-white shadow-lg border border-stone-200/90 focus-within:ring-2 focus-within:ring-amber-500/40 focus-within:border-amber-500 transition-all"
@@ -65,7 +64,7 @@ export default function YouTubeDownloaderUrlInput({
           type="text"
           value={url}
           onChange={(e) => onChangeUrl(e.target.value)}
-          placeholder="Paste YouTube link here (e.g. https://www.youtube.com/watch?v=... or youtu.be/...)"
+          placeholder="Paste YouTube link (e.g. https://www.youtube.com/watch?v=... or youtu.be/...)"
           className="w-full px-3.5 py-2 text-xs sm:text-sm text-slate-800 placeholder:text-stone-400 focus:outline-none bg-transparent"
         />
 
@@ -74,7 +73,7 @@ export default function YouTubeDownloaderUrlInput({
           <button
             type="button"
             onClick={() => onChangeUrl("")}
-            className="w-7 h-7 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 flex items-center justify-center text-xs mr-1"
+            className="w-7 h-7 rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 flex items-center justify-center text-xs mr-1 cursor-pointer"
           >
             ✕
           </button>
@@ -85,7 +84,7 @@ export default function YouTubeDownloaderUrlInput({
           type="button"
           onClick={handlePaste}
           title="Paste from clipboard"
-          className="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-stone-500 hover:bg-stone-100 transition-colors mr-2 hidden sm:flex items-center gap-1 shrink-0"
+          className="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-stone-500 hover:bg-stone-100 transition-colors mr-2 hidden sm:flex items-center gap-1 shrink-0 cursor-pointer"
         >
           <svg
             className="w-3.5 h-3.5 text-stone-600"
@@ -107,12 +106,12 @@ export default function YouTubeDownloaderUrlInput({
         <button
           type="submit"
           disabled={!url.trim() || isLoading}
-          className="px-4 sm:px-6 h-10 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 shadow-xs transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none shrink-0"
+          className="px-4 sm:px-6 h-10 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 shadow-xs transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none shrink-0 cursor-pointer"
         >
           {isLoading ? (
             <>
               <span className="w-4 h-4 border-2 border-slate-900 border-t-transparent rounded-full animate-spin" />
-              <span>Analyzing…</span>
+              <span>Fetching…</span>
             </>
           ) : (
             <>
@@ -130,19 +129,27 @@ export default function YouTubeDownloaderUrlInput({
       )}
 
       {/* Quick Test Sample Chips */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <span className="text-xs font-bold text-slate-600 uppercase tracking-wider mr-1">
-          Instant Test:
+      <div className="flex items-center gap-2 flex-wrap text-xs">
+        <span className="font-bold text-slate-600 uppercase tracking-wider text-[11px] mr-1">
+          Quick Verification:
         </span>
         {SAMPLE_VIDEOS.map((sample) => (
           <button
             key={sample.id}
             type="button"
             onClick={() => onSelectSample(sample)}
-            className="px-3 py-1.5 rounded-full bg-white hover:bg-amber-50 hover:border-amber-300 border border-stone-200 text-xs font-medium text-slate-700 transition-all shadow-2xs flex items-center gap-1.5 active:scale-95"
+            className={`px-3 py-1.5 rounded-full border text-xs font-semibold transition-all shadow-2xs flex items-center gap-1.5 active:scale-95 cursor-pointer ${
+              sample.isAuthorized
+                ? "bg-emerald-50 hover:bg-emerald-100 border-emerald-300 text-emerald-900"
+                : "bg-white hover:bg-amber-50 hover:border-amber-300 border-stone-200 text-slate-700"
+            }`}
           >
-            <span className="w-2 h-2 rounded-full bg-red-500" />
-            <span className="truncate max-w-[140px] sm:max-w-[200px]">
+            <span
+              className={`w-2 h-2 rounded-full ${
+                sample.isAuthorized ? "bg-emerald-500" : "bg-red-500"
+              }`}
+            />
+            <span className="truncate max-w-[200px] sm:max-w-[280px]">
               {sample.title}
             </span>
           </button>

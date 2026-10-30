@@ -22,11 +22,16 @@ export const UnlockPdfControls: React.FC<UnlockPdfControlsProps> = ({
 
   return (
     <div className="clay-card p-6 rounded-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-xl space-y-6">
-      <div className="flex items-center gap-2 pb-3 border-b border-slate-200/60 dark:border-slate-800/60">
-        <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-        </svg>
-        <h2 className="font-bold text-slate-800 dark:text-slate-100">Unlock Credentials</h2>
+      <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div className="flex items-center gap-2">
+          <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+          </svg>
+          <h2 className="font-bold text-slate-800 dark:text-slate-100">Unlock Credentials</h2>
+        </div>
+        <span className="text-[11px] text-slate-400 truncate max-w-[140px]" title={stagedFile.name}>
+          {stagedFile.name}
+        </span>
       </div>
 
       <div className="space-y-2">

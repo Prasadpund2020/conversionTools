@@ -5,7 +5,7 @@ export interface ProtectOptions {
   allowPrinting: boolean;
   allowCopying: boolean;
   allowModifying: boolean;
-  encryptionStrength: "aes-128" | "standard-rc4";
+  encryptionStrength: "aes-256" | "standard-rc4";
 }
 
 export interface StagedProtectFile {

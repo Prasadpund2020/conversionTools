@@ -6,18 +6,19 @@ import YouTubeDownloaderUrlInput from "./YouTubeDownloaderUrlInput";
 import YouTubeDownloaderPreviewCard from "./YouTubeDownloaderPreviewCard";
 import YouTubeDownloaderFormatSelector from "./YouTubeDownloaderFormatSelector";
 import YouTubeDownloaderTips from "./YouTubeDownloaderTips";
-import { SAMPLE_VIDEOS } from "./sampleVideos";
+import { SampleVideoItem } from "./sampleVideos";
 import { YouTubeVideoMetadata } from "./types";
 import { resolveYouTubeVideo } from "./youtubeEngine";
 
 export default function YouTubeDownloaderTool() {
-  const defaultVideo = SAMPLE_VIDEOS[0];
-  const [url, setUrl] = useState(defaultVideo.url);
-  const [video, setVideo] = useState<YouTubeVideoMetadata | null>(defaultVideo);
+  const [url, setUrl] = useState("");
+  const [video, setVideo] = useState<YouTubeVideoMetadata | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleFetchVideo = async (inputUrl: string) => {
+    if (!inputUrl.trim()) return;
+
     setIsLoading(true);
     setErrorMessage(null);
     try {
@@ -35,10 +36,9 @@ export default function YouTubeDownloaderTool() {
     }
   };
 
-  const handleSelectSample = (sample: YouTubeVideoMetadata) => {
+  const handleSelectSample = (sample: SampleVideoItem) => {
     setUrl(sample.url);
-    setVideo(sample);
-    setErrorMessage(null);
+    handleFetchVideo(sample.url);
   };
 
   const handlePasteFromClipboard = async () => {
@@ -70,7 +70,7 @@ export default function YouTubeDownloaderTool() {
         onReset={handleReset}
       />
 
-      {/* URL Input Bar & Instant Chips */}
+      {/* URL Input Bar & Instant Verification Chips */}
       <YouTubeDownloaderUrlInput
         url={url}
         onChangeUrl={setUrl}
@@ -80,12 +80,27 @@ export default function YouTubeDownloaderTool() {
       />
 
       {errorMessage && (
-        <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm font-semibold flex items-center justify-between max-w-4xl mx-auto w-full">
-          <span>{errorMessage}</span>
+        <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm font-semibold flex items-center justify-between max-w-4xl mx-auto w-full shadow-2xs">
+          <div className="flex items-center gap-2">
+            <svg
+              className="w-4 h-4 shrink-0 text-rose-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>{errorMessage}</span>
+          </div>
           <button
             type="button"
             onClick={() => setErrorMessage(null)}
-            className="text-rose-500 hover:text-rose-800"
+            className="text-rose-500 hover:text-rose-800 cursor-pointer"
           >
             ✕
           </button>
@@ -96,7 +111,13 @@ export default function YouTubeDownloaderTool() {
       {video && (
         <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
           <YouTubeDownloaderPreviewCard video={video} />
-          <YouTubeDownloaderFormatSelector video={video} />
+          <YouTubeDownloaderFormatSelector
+            video={video}
+            onSelectSample={(sampleUrl) => {
+              setUrl(sampleUrl);
+              handleFetchVideo(sampleUrl);
+            }}
+          />
         </div>
       )}
 

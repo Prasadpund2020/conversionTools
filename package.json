@@ -13,6 +13,8 @@
     "prepare:pdfjs": "node scripts/copy-pdfjs-assets.mjs"
   },
   "dependencies": {
+    "@pdfsmaller/pdf-decrypt": "^1.0.1",
+    "@pdfsmaller/pdf-encrypt": "^1.2.0",
     "@vercel/analytics": "^2.0.1",
     "jsbarcode": "^3.12.3",
     "jszip": "^3.10.2",
@@ -21,7 +23,8 @@
     "pdfjs-dist": "^6.4.299",
     "qrcode": "^1.5.4",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

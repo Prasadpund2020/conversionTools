@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "YouTube Downloader — Download 1080p Video & MP3 Audio Online | FileLab",
+      title: "YouTube Downloader — Download Verified MP4 Video Online | FileLab",
       description:
-        "Save YouTube videos in high definition 1080p, 720p MP4 or high-fidelity 320 kbps MP3 format. Fast, private, zero ads, no watermark.",
+        "Retrieve official YouTube metadata, high-resolution thumbnails, and download verified MP4 streams. Clean, fast, zero corrupt files, and compliant.",
     };
   }
 
@@ -72,11 +72,11 @@ export default function YouTubeDownloaderPage() {
       title: "YouTube Downloader",
       category: "downloaders",
       description:
-        "Save YouTube videos directly in 1080p, 720p, or high-definition MP3 format.",
+        "Retrieve authentic YouTube metadata, download HD cover art, and save verified MP4 video streams.",
       clayColor: "clay-yellow",
       iconType: "play-down",
-      badgeText: "1080p / MP3",
-      actionText: "Download Video",
+      badgeText: "Verified MP4",
+      actionText: "Fetch Video",
       isPrimaryAction: true,
       acceptedFormats: "URL Link",
     };
@@ -103,10 +103,10 @@ export default function YouTubeDownloaderPage() {
       priceCurrency: "USD",
     },
     featureList: [
-      "1080p Full HD and 720p 60FPS video stream downloads",
-      "Studio quality 320 kbps and 192 kbps MP3 audio extraction",
-      "Maximum resolution cover art thumbnail downloads",
-      "Support for YouTube regular videos, Shorts, and Live stream archives",
+      "Official YouTube oEmbed metadata extraction",
+      "High-resolution cover art thumbnail downloads",
+      "Strict MP4 container validation (ISO Base Media ftyp signature)",
+      "Authorized media stream dispatch with zero corrupted files",
       "Clean downloads with zero watermarks or sponsor banners",
     ],
   };
@@ -153,28 +153,28 @@ export default function YouTubeDownloaderPage() {
       {/* Tool Information & Security Guide */}
       <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
         <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title} &amp; High-Definition Stream Dispatch
+          About {tool.title} &amp; Official Stream Dispatch
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab YouTube Downloader allows you to extract crystal-clear 1080p Full HD MP4 video streams and 320 kbps high-bitrate MP3 audio directly onto your device. Enjoy high-speed chunked downloads without third-party pop-up advertisements, intrusive watermarks, or lossy audio re-encoding.
+          FileLab YouTube Downloader provides verified metadata retrieval via official YouTube APIs and validated MP4 stream downloads. Enjoy genuine downloads with strict container verification, zero dummy placeholders, and full platform compliance.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Multi-Resolution Support
+              Official YouTube oEmbed
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Choose from 1080p Full HD, 720p HD, 480p, or compact 360p streams tailored for phone storage and desktop monitors.
+              Fetches authentic video titles, channel credentials, and high-definition cover art directly from official YouTube endpoints.
             </p>
           </div>
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Audiophile 320 kbps MP3
+              Verified MP4 Validation
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Isolate musical soundtracks, educational lectures, and podcast discussions in full stereo clarity with ID3 metadata tags.
+              Every media byte is checked for ISO Base Media signature (ftyp box) and Content-Length to prevent corrupted or placeholder files.
             </p>
           </div>
 

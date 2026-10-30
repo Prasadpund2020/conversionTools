@@ -98,6 +98,39 @@ export const ProtectPdfControls: React.FC<Props> = ({
           </div>
         </div>
 
+        {/* Encryption Standard Selector */}
+        <div className="flex flex-col gap-1.5 pt-1">
+          <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+            Encryption Standard
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => onOptionsChange({ ...options, encryptionStrength: "aes-256" })}
+              className={`p-2.5 rounded-xl text-xs font-bold transition-all border text-left flex flex-col cursor-pointer ${
+                options.encryptionStrength === "aes-256"
+                  ? "bg-[#b91c1c]/10 border-[#b91c1c] text-[#b91c1c]"
+                  : "bg-surface border-outline-variant/30 text-on-surface hover:border-outline-variant/60"
+              }`}
+            >
+              <span>AES-256</span>
+              <span className="text-[10px] font-normal opacity-75">PDF 2.0 (Strongest)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => onOptionsChange({ ...options, encryptionStrength: "standard-rc4" })}
+              className={`p-2.5 rounded-xl text-xs font-bold transition-all border text-left flex flex-col cursor-pointer ${
+                options.encryptionStrength === "standard-rc4"
+                  ? "bg-[#b91c1c]/10 border-[#b91c1c] text-[#b91c1c]"
+                  : "bg-surface border-outline-variant/30 text-on-surface hover:border-outline-variant/60"
+              }`}
+            >
+              <span>RC4 128-Bit</span>
+              <span className="text-[10px] font-normal opacity-75">PDF 1.4+ (Legacy)</span>
+            </button>
+          </div>
+        </div>
+
         {/* Permissions Bitmask Section */}
         <div className="flex flex-col gap-2 pt-2 border-t border-outline-variant/20">
           <span className="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">

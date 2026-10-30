@@ -25,7 +25,7 @@ export const ProtectPdfTool: React.FC = () => {
     allowPrinting: true,
     allowCopying: false,
     allowModifying: false,
-    encryptionStrength: "aes-128",
+    encryptionStrength: "aes-256",
   });
 
   const handleFileSelected = async (file: File) => {

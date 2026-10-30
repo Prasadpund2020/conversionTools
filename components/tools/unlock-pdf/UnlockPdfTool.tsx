@@ -25,7 +25,7 @@ export const UnlockPdfTool: React.FC = () => {
     try {
       const parsed = await parsePdfForUnlock(file);
       setStagedFile(parsed);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError('Unable to parse the PDF document. Please verify the file.');
     } finally {
@@ -52,12 +52,13 @@ export const UnlockPdfTool: React.FC = () => {
     try {
       const res = await unlockPdfDocument(stagedFile, password);
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(
-        err?.message ||
-          'Failed to decrypt PDF. Please double check the password and try again.'
-      );
+      const message =
+        err instanceof Error
+          ? err.message
+          : 'Failed to decrypt PDF. Please double check the password and try again.';
+      setError(message);
     } finally {
       setIsProcessing(false);
     }
