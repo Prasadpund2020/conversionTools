@@ -63,11 +63,7 @@ export function getToolBySlugs(
   const category = categoryFromSlug(categorySlug);
   if (!category) return undefined;
   return ALL_TOOLS.find(
-    (t) =>
-      t.id === toolSlug &&
-      (category === "edit-convert"
-        ? t.category === "edit-convert" || t.category === "more"
-        : t.category === category)
+    (t) => t.id === toolSlug && getCategorySlug(t.category) === categorySlug
   );
 }
 

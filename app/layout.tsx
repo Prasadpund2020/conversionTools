@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Caveat, Playfair_Display } from "next/font/google";
 import AnalyticsGuard from "@/components/AnalyticsGuard";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "FileLab — Free Online File Conversion, Compression & Download Tools",
-    template: "%s | FileLab",
+      `${SITE_NAME} — Free Online File Conversion, Compression & Download Tools`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Private & safe client-side file tools: PDF conversion, image compression, audio extraction, video downloads, and more. 100% in-browser processing with zero server uploads.",
+    "Free online tools for PDF, image, audio, video, and file conversion. Tool pages explain supported formats and processing methods.",
   keywords: [
     "pdf to word",
     "compress image",
@@ -60,17 +60,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "FileLab — Free Online File Conversion & Editing Tools",
+    title: `${SITE_NAME} — Free Online File Conversion & Editing Tools`,
     description:
-      "Private, client-side file tools running directly in your browser. Convert, compress, and download with zero server uploads.",
+      "Free PDF, image, audio, video, and file utilities with tool-specific processing and format details.",
     url: SITE_URL,
-    siteName: "FileLab",
+    siteName: SITE_NAME,
     images: [
       {
         url: "/images/all-tools-hero-banner.png",
         width: 1200,
         height: 630,
-        alt: "FileLab — Free Online File Conversion & Editing Tools",
+        alt: `${SITE_NAME} — Free Online File Conversion & Editing Tools`,
       },
     ],
     type: "website",
@@ -78,9 +78,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FileLab — Free Online File Tools",
+    title: `${SITE_NAME} — Free Online File Tools`,
     description:
-      "Private & fast client-side file tools: PDF conversion, image compression, audio extraction, video downloads, and more.",
+      "Free PDF, image, audio, video, and file conversion utilities with tool-specific processing details.",
     images: ["/images/all-tools-hero-banner.png"],
   },
   verification: {
@@ -94,10 +94,15 @@ export const metadata: Metadata = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "FileLab",
+  name: SITE_NAME,
   url: SITE_URL,
   description:
     "Free online conversion tools: convert PDF to Word, compress images, merge PDFs, extract audio from videos, and download media safely in your browser.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE_URL}/all-tools?search={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const devAnalyticsInitScript = `

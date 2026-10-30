@@ -87,7 +87,7 @@ export default function BrandLogo({
               textOrientation: "mixed",
             }}
           >
-            .com
+            .co.in
           </span>
         </div>
 

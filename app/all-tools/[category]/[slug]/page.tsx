@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { ALL_TOOLS } from "@/data/tools";
 import { ToolItem } from "@/types/tools";
 import {
   getToolBySlugs,
-  getToolBySlug,
   getCategoryInfo,
   getCategorySlug,
   getToolsByCategory,
   getToolSeo,
   isToolPublished,
 } from "@/lib/tools";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import ToolComingSoon from "@/components/tools/ToolComingSoon";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
@@ -27,6 +28,19 @@ interface ToolPageProps {
 // Allow blocking route for Next.js 16 Partial Prefetching / Instant Shell
 export const instant = false;
 
+function hasDedicatedToolPage(categorySlug: string, toolId: string): boolean {
+  return fs.existsSync(
+    path.join(
+      process.cwd(),
+      "app",
+      "all-tools",
+      categorySlug,
+      toolId,
+      "page.tsx"
+    )
+  );
+}
+
 export async function generateStaticParams() {
   return ALL_TOOLS.map((tool: ToolItem) => ({
     category: getCategorySlug(tool.category),
@@ -38,16 +52,17 @@ export async function generateMetadata({
   params,
 }: ToolPageProps): Promise<Metadata> {
   const { category, slug } = await params;
-  const tool = getToolBySlugs(category, slug) || getToolBySlug(slug);
+  const tool = getToolBySlugs(category, slug);
 
   if (!tool || !isToolPublished(tool)) {
     return {
-      title: "Tool Not Found — FileLab",
+      title: "Tool Not Found",
       robots: { index: false, follow: false },
     };
   }
 
   const seo = getToolSeo(tool);
+  const isIndexable = hasDedicatedToolPage(category, tool.id);
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -55,7 +70,7 @@ export async function generateMetadata({
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — ${SITE_NAME}`,
       description: seo.description,
       type: "website",
       url: `/all-tools/${category}/${slug}`,
@@ -64,7 +79,7 @@ export async function generateMetadata({
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — ${SITE_NAME}`,
         },
       ],
     },
@@ -77,18 +92,22 @@ export async function generateMetadata({
     alternates: {
       canonical: `/all-tools/${category}/${slug}`,
     },
+    robots: isIndexable
+      ? undefined
+      : { index: false, follow: true },
   };
 }
 
 export default async function ToolPage({ params }: ToolPageProps) {
   const { category, slug } = await params;
-  const tool = getToolBySlugs(category, slug) || getToolBySlug(slug);
+  const tool = getToolBySlugs(category, slug);
 
   if (!tool || !isToolPublished(tool)) {
     notFound();
   }
 
   const catInfo = getCategoryInfo(category);
+  const isDedicated = hasDedicatedToolPage(category, tool.id);
   const relatedTools = getToolsByCategory(category)
     .filter((t: ToolItem) => t.id !== tool.id)
     .slice(0, 4);
@@ -109,10 +128,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
       priceCurrency: "USD",
     },
     featureList: [
-      "100% Client-side execution",
-      "Zero server uploads",
-      "Privacy-preserving memory sandbox",
-      tool.acceptedFormats ? `Accepts ${tool.acceptedFormats}` : "Multi-format support",
+      tool.acceptedFormats
+        ? `Accepts ${tool.acceptedFormats}`
+        : "See the tool page for supported inputs",
     ],
   };
 
@@ -147,94 +165,18 @@ export default async function ToolPage({ params }: ToolPageProps) {
     ],
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: `Is ${tool.title} free to use?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `Yes, FileLab's ${tool.title} is 100% free with no account creation, subscription, or usage limit required.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `Are my files uploaded to any server when using ${tool.title}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `No. FileLab processes files 100% client-side inside your browser's private memory sandbox. Your files never touch external servers or third-party databases.`,
-        },
-      },
-      {
-        "@type": "Question",
-        name: `What devices and browsers support ${tool.title}?`,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: `${tool.title} works seamlessly on any modern web browser including Google Chrome, Mozilla Firefox, Safari, Microsoft Edge, and Opera across Windows, Mac, Linux, iOS, and Android.`,
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: `How to Use ${tool.title} Online for Free`,
-    description:
-      tool.seoDescription ||
-      `Step-by-step instructions for using ${tool.title} safely in your web browser.`,
-    totalTime: "PT1M",
-    tool: [
-      {
-        "@type": "HowTool",
-        name: "Web Browser (Chrome, Firefox, Safari, Edge)",
-      },
-    ],
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Select your file or link",
-        text:
-          tool.category === "downloaders"
-            ? "Paste the public video or media URL into the search box."
-            : `Select or drop your ${tool.acceptedFormats || "document"} directly into the tool dropzone.`,
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Process locally in browser",
-        text: "The tool executes parsing and conversion 100% inside your browser memory sandbox with zero server uploads.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download the result",
-        text: `Click ${tool.actionText || "Download"} to immediately save your processed file onto your computer or phone.`,
-      },
-    ],
-  };
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Schema.org WebApplication, BreadcrumbList, FAQPage, and HowTo JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
+      {/* Schema.org WebApplication and BreadcrumbList JSON-LD */}
+      {isDedicated && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}
@@ -259,18 +201,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
           About {tool.title}
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          {tool.description} Unlike traditional cloud conversion services, FileLab executes
-          computations directly in your browser using modern WebAssembly (WASM) and HTML5 Canvas APIs.
-          Your private documents, images, and media never leave your device or touch an external server.
+          {tool.description} This page documents the tool and its current
+          availability. Review the supported inputs below before selecting a
+          file or link.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Zero Uploads
+              Processing
             </div>
             <p className="text-xs text-slate-500">
-              Files are converted in browser RAM and destroyed immediately upon task completion.
+              The processing method is shown by the live tool interface when
+              the tool is available. Do not upload sensitive files unless the
+              tool explicitly states that processing is local.
             </p>
           </div>
 
@@ -285,10 +229,11 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Completely Free
+              Current availability
             </div>
             <p className="text-xs text-slate-500">
-              No credits, no registration, no daily quota limits, no paywalls.
+              This route currently provides the tool information and navigation
+              while the interactive workspace is being prepared.
             </p>
           </div>
         </div>

@@ -348,7 +348,8 @@ export default function AllToolsGrid({
             </div>
 
             <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
-              Handcrafted in-browser file utilities. Zero server uploads, zero subscriptions, 100% private.
+              File utilities with tool-specific processing details, supported
+              formats, and no account required.
             </p>
           </div>
 

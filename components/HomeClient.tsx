@@ -108,9 +108,11 @@ export default function HomeClient() {
 
         {/* Semantic SEO & Accessibility Shell */}
         <section className="sr-only" aria-label="Free Online Conversion Tools Overview">
-          <h1>FileLab — Free Online File Conversion, Compression &amp; Download Tools</h1>
+          <h1>Free Online File Conversion, Compression &amp; Download Tools</h1>
           <p>
-            Private, client-side online file tools: convert PDF to Word, compress images, merge PDFs, extract MP3 audio from videos, and download media in your browser with zero server uploads and 100% privacy.
+            Free online tools for PDF, image, audio, video, and file conversion.
+            Many tools process files locally in your browser; each tool page
+            explains its supported formats and processing method.
           </p>
           <nav aria-label="Popular Free File Tools">
             <h2>Popular Free File Tools</h2>

@@ -6,22 +6,20 @@ import { getCategorySlug, isToolPublished } from "@/lib/tools";
 import { SITE_URL } from "@/lib/constants";
 
 const BASE_URL = SITE_URL;
-const DEFAULT_DATE = new Date("2026-10-24T00:00:00.000Z");
-
 /**
- * Safely read file modification timestamp without falling back to `new Date()` on each invocation.
+ * Safely read a route file modification timestamp.
  * Scoped explicitly to the `app` directory to avoid whole-project Turbopack tracing.
  */
-function getAppFileLastModified(subPath: string): Date {
+function getAppFileLastModified(subPath: string): Date | undefined {
   try {
     const fullPath = path.join(process.cwd(), "app", subPath);
     if (fs.existsSync(fullPath)) {
       return fs.statSync(fullPath).mtime;
     }
   } catch {
-    // fallback if file stat fails
+    return undefined;
   }
-  return DEFAULT_DATE;
+  return undefined;
 }
 
 /**
@@ -60,6 +58,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   };
 
+  const informationEntries: MetadataRoute.Sitemap = [
+    "about",
+    "privacy",
+    "terms",
+    "disclaimer",
+    "contact",
+  ].map((page) => ({
+    url: `${BASE_URL}/${page}`,
+    lastModified: getAppFileLastModified(`${page}/page.tsx`),
+    changeFrequency: "yearly",
+    priority: 0.3,
+  }));
+
   // 3. Filter published tools: must be marked published/ready AND have an implemented route page on disk
   const publishedTools = ALL_TOOLS.filter((tool) => {
     if (!isToolPublished(tool)) return false;
@@ -92,9 +103,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const toolEntries: MetadataRoute.Sitemap = publishedTools.map((tool) => {
     const catSlug = getCategorySlug(tool.category);
     const toolSubPath = path.join("all-tools", catSlug, tool.id, "page.tsx");
-    const lastModified = tool.lastModified
+    const parsedToolDate = tool.lastModified
       ? new Date(tool.lastModified)
-      : getAppFileLastModified(toolSubPath);
+      : undefined;
+    const lastModified =
+      parsedToolDate && !Number.isNaN(parsedToolDate.getTime())
+        ? parsedToolDate
+        : getAppFileLastModified(toolSubPath);
 
     return {
       url: `${BASE_URL}/all-tools/${catSlug}/${tool.id}`,
@@ -104,5 +119,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [homeEntry, allToolsEntry, ...categoryEntries, ...toolEntries];
+  return [
+    homeEntry,
+    allToolsEntry,
+    ...informationEntries,
+    ...categoryEntries,
+    ...toolEntries,
+  ];
 }

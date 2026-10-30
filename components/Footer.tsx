@@ -16,14 +16,15 @@ export default function Footer() {
               </Link>
 
               <p className="mt-3 text-xs text-stone-500 leading-relaxed max-w-sm">
-                Private, in-browser file laboratory. Conversions and media operations execute entirely in your local WebAssembly memory. Zero server uploads.
+                Free file utilities for common conversion and media tasks. Tool
+                pages explain supported formats and whether processing is local.
               </p>
             </div>
 
             {/* Privacy Guarantee Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200/70 text-emerald-800 text-[11px] font-medium self-start shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
-              <span>100% In-Browser &middot; Memory Sandbox &middot; Free</span>
+              <span>Tool-specific processing &middot; No account required &middot; Free</span>
             </div>
           </div>
 
@@ -175,9 +176,9 @@ export default function Footer() {
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
           <div className="flex items-center gap-2 flex-wrap text-center sm:text-left">
             <span className="font-semibold text-stone-700">
-              &copy; 2026 freeconvertingtools.com.
+              &copy; 2026 freeconvertingtools.co.in.
             </span>
-            <span>Handcrafted for privacy. Zero cookies &middot; No accounts &middot; No tracking.</span>
+            <span>Handcrafted for privacy. No account required &middot; Client-side tools.</span>
           </div>
 
           <div className="flex items-center gap-3 text-[11px]">
@@ -187,6 +188,18 @@ export default function Footer() {
             <span className="text-stone-300">&bull;</span>
             <Link href="/all-tools" className="hover:text-stone-900 transition-colors no-underline">
               All Tools
+            </Link>
+            <span className="text-stone-300">&bull;</span>
+            <Link href="/privacy" className="hover:text-stone-900 transition-colors no-underline">
+              Privacy
+            </Link>
+            <span className="text-stone-300">&bull;</span>
+            <Link href="/terms" className="hover:text-stone-900 transition-colors no-underline">
+              Terms
+            </Link>
+            <span className="text-stone-300">&bull;</span>
+            <Link href="/contact" className="hover:text-stone-900 transition-colors no-underline">
+              Contact
             </Link>
             <span className="text-stone-300">&bull;</span>
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-stone-100 text-stone-600 font-mono text-[10px] border border-stone-200/60">
