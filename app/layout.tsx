@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Caveat, Playfair_Display } from "next/font/google";
-import Script from "next/script";
-import { VercelAnalytics } from "@/components/VercelAnalytics";
+import AnalyticsGuard from "@/components/AnalyticsGuard";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -29,7 +28,8 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FileLab — Free Online File Conversion, Compression & Download Tools",
+    default:
+      "FileLab — Free Online File Conversion, Compression & Download Tools",
     template: "%s | FileLab",
   },
   description:
@@ -98,15 +98,100 @@ const websiteJsonLd = {
   url: SITE_URL,
   description:
     "Free online conversion tools: convert PDF to Word, compress images, merge PDFs, extract audio from videos, and download media safely in your browser.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/all-tools?search={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
+
+const devAnalyticsInitScript = `
+(function() {
+  var STORAGE_KEY = 'dev_analytics_disabled';
+
+  function getQueryParam(param) {
+    try {
+      var match = window.location.search.match(new RegExp('[?&]' + param + '=([^&]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  try {
+    var devParam = getQueryParam('dev_mode') || getQueryParam('dev_analytics');
+    if (devParam === '1' || devParam === 'true' || devParam === 'enable') {
+      localStorage.setItem(STORAGE_KEY, 'true');
+      var cleanUrl = window.location.pathname + window.location.search.replace(/[?&]dev_(mode|analytics)=[^&]*/g, '').replace(/^[?&]/, '');
+      if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
+      window.history.replaceState({}, '', cleanUrl || '/');
+    } else if (devParam === '0' || devParam === 'false' || devParam === 'disable') {
+      localStorage.removeItem(STORAGE_KEY);
+      var cleanUrl = window.location.pathname + window.location.search.replace(/[?&]dev_(mode|analytics)=[^&]*/g, '').replace(/^[?&]/, '');
+      if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
+      window.history.replaceState({}, '', cleanUrl || '/');
+    }
+  } catch (e) {}
+
+  function isDevExcluded() {
+    try {
+      return localStorage.getItem(STORAGE_KEY) === 'true' || localStorage.getItem(STORAGE_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  var disabled = isDevExcluded();
+  window.__DEV_ANALYTICS_DISABLED__ = disabled;
+
+  window.devAnalytics = {
+    enable: function() {
+      try {
+        localStorage.setItem(STORAGE_KEY, 'true');
+        console.log('%c[DevAnalytics] Developer mode ENABLED. Analytics disabled for this browser.', 'color: #10b981; font-weight: bold;');
+        console.log('Reloading to apply changes...');
+        window.location.reload();
+      } catch (e) {
+        console.error('[DevAnalytics] Failed to save localStorage:', e);
+      }
+    },
+    disable: function() {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        console.log('%c[DevAnalytics] Developer mode DISABLED. Normal analytics resumed.', 'color: #f59e0b; font-weight: bold;');
+        console.log('Reloading to apply changes...');
+        window.location.reload();
+      } catch (e) {
+        console.error('[DevAnalytics] Failed to clear localStorage:', e);
+      }
+    },
+    toggle: function() {
+      if (isDevExcluded()) {
+        this.disable();
+      } else {
+        this.enable();
+      }
+    },
+    status: function() {
+      var active = isDevExcluded();
+      if (active) {
+        console.log('%c[DevAnalytics] STATUS: DEVELOPER EXCLUSION ACTIVE (Analytics blocked)', 'color: #10b981; font-weight: bold;');
+      } else {
+        console.log('%c[DevAnalytics] STATUS: NORMAL VISITOR MODE (Analytics active)', 'color: #3b82f6; font-weight: bold;');
+      }
+      return { developerMode: active, analyticsBlocked: active };
+    }
+  };
+
+  window.toggleDevAnalytics = function() { window.devAnalytics.toggle(); };
+  window.enableDevAnalytics = function() { window.devAnalytics.enable(); };
+  window.disableDevAnalytics = function() { window.devAnalytics.disable(); };
+
+  if (disabled) {
+    console.info('%c[DevAnalytics] Developer mode ACTIVE: Vercel Analytics, Microsoft Clarity, and tracking scripts are blocked.', 'color: #10b981; font-weight: bold;');
+    window.clarity = function() {};
+    window.clarity.q = [];
+    window.va = function() {};
+    window.vaq = [];
+    window['ga-disable-default'] = true;
+  }
+})();
+`;
 
 export const viewport: Viewport = {
   themeColor: "#edebe6",
@@ -125,8 +210,10 @@ export default function RootLayout({
       className={`${inter.variable} ${caveat.variable} ${playfair.variable} h-full antialiased`}
     >
       <head>
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context file" />
-        <link rel="help" type="text/plain" href="/llms-full.txt" title="Full LLM Documentation" />
+        <script
+          id="dev-analytics-guard"
+          dangerouslySetInnerHTML={{ __html: devAnalyticsInitScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
@@ -134,37 +221,7 @@ export default function RootLayout({
       </head>
       <body className="relative min-h-screen overflow-x-hidden font-sans antialiased">
         {children}
-        <VercelAnalytics />
-        {/* Google Analytics (gtag.js) */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-HG238SCTCE"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-HG238SCTCE');
-            `,
-          }}
-        />
-        <Script
-          id="microsoft-clarity"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "z3drva11mt");
-            `,
-          }}
-        />
+        <AnalyticsGuard />
       </body>
     </html>
   );
