@@ -88,8 +88,8 @@ export async function repairCorruptedPdf(
   addDiag("recovered", `Successfully salvaged and reconstructed ${copiedPages.length} pages.`);
 
   // 4. Clean metadata & save with compact rebuilt object streams
-  recoveredDoc.setProducer("FileLab In-Browser PDF Healer");
-  recoveredDoc.setCreator("FileLab PDF Repair Engine");
+  recoveredDoc.setProducer("Free Converting Tools In-Browser PDF Healer");
+  recoveredDoc.setCreator("Free Converting Tools PDF Repair Engine");
 
   const repairedBytes = await recoveredDoc.save({
     useObjectStreams: true,

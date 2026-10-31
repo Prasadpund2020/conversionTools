@@ -197,7 +197,7 @@ export default function ToolModal({
       });
     }
 
-    const cleanTitle = (title || "FileLab Converted Document").replace(/[()\\]/g, "");
+    const cleanTitle = (title || "Free Converting Tools Converted Document").replace(/[()\\]/g, "");
 
     let stream = "BT\n";
     stream += "/F1 16 Tf\n";
@@ -206,7 +206,7 @@ export default function ToolModal({
 
     stream += "BT\n/F1 9 Tf\n";
     stream += `50 ${(height - 70).toFixed(0)} Td\n`;
-    stream += "(Generated securely via FileLab Local HTML to PDF Converter) Tj\nET\n";
+    stream += "(Generated securely via Free Converting Tools Local HTML to PDF Converter) Tj\nET\n";
 
     let y = height - 100;
     extractedLines.slice(0, 36).forEach((line) => {
@@ -281,7 +281,7 @@ ${350 + streamLength}
         <html>
           <head>
             <meta charset="utf-8">
-            <title>${selectedFiles[0]?.name?.replace(/\\.[^/.]+$/, "") || "FileLab_Converted_Document"}</title>
+            <title>${selectedFiles[0]?.name?.replace(/\\.[^/.]+$/, "") || "Converted_Document"}</title>
             <style>
               @page {
                 size: ${htmlPageSize} ${htmlOrientation};
@@ -321,7 +321,7 @@ ${350 + streamLength}
     if (tool.id === "html-to-pdf") {
       const filename = selectedFiles[0]?.name 
         ? `${selectedFiles[0].name.replace(/\.[^/.]+$/, "")}.pdf`
-        : `filelab_converted_${Date.now()}.pdf`;
+        : `fct_converted_${Date.now()}.pdf`;
       const pdfBlob = createPdfBlobFromHtml(htmlCode, selectedFiles[0]?.name?.replace(/\.[^/.]+$/, "") || "Converted Document", {
         pageSize: htmlPageSize,
         orientation: htmlOrientation,
@@ -341,9 +341,9 @@ ${350 + streamLength}
       ? `processed_${selectedFiles[0].name.replace(/\.[^/.]+$/, "")}.${
           tool.id.includes("word") ? "docx" : tool.id.includes("jpg") ? "zip" : tool.id.includes("mp3") ? "mp3" : "pdf"
         }`
-      : `filelab_${tool.id}_output.zip`;
+      : `fct_${tool.id}_output.zip`;
 
-    const blob = new Blob(["FileLab processed output sample"], { type: "text/plain" });
+    const blob = new Blob(["Free Converting Tools processed output sample"], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;

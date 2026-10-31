@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Audio Converter Online Free — Transcode MP3, WAV, FLAC, AAC, OGG | FileLab",
+      title: "Audio Converter Online Free — Transcode MP3, WAV, FLAC, AAC, OGG | Free Converting Tools",
       description:
         "Convert audio files between MP3, WAV, AAC, FLAC, and OGG online. High-fidelity transcoding with custom bitrates and sample rates directly in your browser.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/video-audio/convert-audio`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -209,7 +209,7 @@ export default function ConvertAudioPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Video & Audio",
@@ -232,7 +232,7 @@ export default function ConvertAudioPage() {
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Convert music tracks, field recordings, voice memos, and audiobooks between industry standard audio formats.
           Featuring customizable 320 kbps studio bitrates, high sample rate resampling, and stereo-to-mono downmixing,
-          FileLab gives you total acoustic control without sending your media across the web.
+          Free Converting Tools gives you total acoustic control without sending your media across the web.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-stone-100">

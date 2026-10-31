@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { ColorPaletteTool } from '@/components/tools/color-palette/ColorPaletteTool';
 
 export const metadata: Metadata = {
-  title: 'Color Palette & Hex Swatch Extractor from Image | Tools Arena',
+  title: 'Color Palette & Hex Swatch Extractor from Image | Free Converting Tools',
   description:
-    'Extract beautiful color palettes and hex swatch codes from any photo online. One-click copy for HEX, RGB, HSL values, and export CSS variables with zero server uploads.',
+    'Extract color palettes and hex swatches from photos online. Copy HEX, RGB, and HSL values or export CSS variables with zero server uploads.',
   keywords: [
     'color palette extractor',
     'extract colors from image',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'free color palette maker',
   ],
   openGraph: {
-    title: 'Color Palette & Hex Swatch Extractor from Image | Tools Arena',
+    title: 'Color Palette & Hex Swatch Extractor from Image | Free Converting Tools',
     description:
       'Extract dominant colors from images into ready-to-use HEX swatches and CSS design tokens in seconds.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function ColorPalettePage() {
       {
         '@type': 'WebApplication',
         name: 'Color Palette Extractor',
-        url: 'https://toolsarena.io/all-tools/image/color-palette',
+        url: 'https://freeconvertingtools.co.in/all-tools/image/color-palette',
         applicationCategory: 'DesignApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function ColorPalettePage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Image Tools',
-            item: 'https://toolsarena.io/all-tools#image',
+            item: 'https://freeconvertingtools.co.in/all-tools#image',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Color Palette Extractor',
-            item: 'https://toolsarena.io/all-tools/image/color-palette',
+            item: 'https://freeconvertingtools.co.in/all-tools/image/color-palette',
           },
         ],
       },

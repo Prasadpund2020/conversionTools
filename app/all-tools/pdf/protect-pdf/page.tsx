@@ -4,7 +4,7 @@ import Script from "next/script";
 import { ProtectPdfTool } from "@/components/tools/protect-pdf/ProtectPdfTool";
 
 export const metadata: Metadata = {
-  title: "Protect PDF Online Free - Password Encrypt & Restrict Permissions | FileLab",
+  title: "Protect PDF Online Free - Password Encrypt & Restrict Permissions | Free Converting Tools",
   description:
     "Protect PDF files with strong password encryption online. Restrict printing, text copying, and modifications directly in your browser with zero server uploads.",
   keywords: [
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "client-side pdf encryptor",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/protect-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/protect-pdf",
   },
   openGraph: {
-    title: "Protect PDF Online Free | FileLab",
+    title: "Protect PDF Online Free | Free Converting Tools",
     description:
       "Lock sensitive PDF records with 128-bit encryption and permission controls entirely inside your web browser.",
-    url: "https://filelab.com/all-tools/pdf/protect-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/protect-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Protect PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/protect-pdf",
+  name: "Free Converting Tools Protect PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/protect-pdf",
   description:
     "Client-side PDF encryption utility. Lock documents with open passwords and restrict reader permissions without server transmission.",
   applicationCategory: "SecurityApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "Are my passwords or files sent to your server?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. FileLab handles all cryptographic key derivation and PDF dictionary updates 100% locally on your machine. Your password and document never leave your device.",
+        text: "No. Free Converting Tools handles all cryptographic key derivation and PDF dictionary updates 100% locally on your machine. Your password and document never leave your device.",
       },
     },
     {
@@ -83,7 +83,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Drop or Choose PDF",
-      text: "Select or drop your PDF file into the FileLab protection workspace.",
+      text: "Select or drop your PDF file into the Free Converting Tools protection workspace.",
     },
     {
       "@type": "HowToStep",
@@ -189,7 +189,7 @@ export default function ProtectPdfPage() {
             <div className="flex flex-col gap-2">
               <h3 className="text-sm font-bold text-on-surface">What happens if I forget my password?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                Because FileLab operates under a zero-knowledge architecture and does not store user data or passwords, we cannot recover forgotten passwords. Please save your password securely.
+                Because Free Converting Tools operates under a zero-knowledge architecture and does not store user data or passwords, we cannot recover forgotten passwords. Please save your password securely.
               </p>
             </div>
             <div className="flex flex-col gap-2">

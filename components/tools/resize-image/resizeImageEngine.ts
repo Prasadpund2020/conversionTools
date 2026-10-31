@@ -227,7 +227,7 @@ export function generateSampleDeskImage(): ImageSourceMeta {
     // Typography
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 38px sans-serif";
-    ctx.fillText("FileLab High-Resolution Studio Preview", 520, 315);
+    ctx.fillText("Free Converting Tools High-Resolution Studio Preview", 520, 315);
 
     ctx.fillStyle = "#334155";
     ctx.font = "bold 28px sans-serif";
@@ -254,7 +254,7 @@ export function generateSampleDeskImage(): ImageSourceMeta {
 
   const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
   return {
-    name: "FileLab_Studio_Sample_1080p.jpg",
+    name: "Sample_1080p.jpg",
     originalWidth: 1920,
     originalHeight: 1080,
     originalSizeBytes: Math.round(dataUrl.length * 0.75),

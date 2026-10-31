@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Convert to WebP Online — Free JPG & PNG to WebP Converter | FileLab",
+      title: "Convert to WebP Online — Free JPG & PNG to WebP Converter | Free Converting Tools",
       description:
         "Convert JPG, PNG, and GIF images to modern WebP format online for free. Reduce file size up to 85% with batch conversion and ZIP export. Zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/convert-webp`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -154,7 +154,7 @@ export default function ConvertWebpPage() {
         name: "Can I convert multiple images to WebP at the same time?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Drag and drop multiple photos into the FileLab WebP Studio. All images convert in parallel within your browser memory and can be downloaded individually or as a single ZIP archive.",
+          text: "Yes. Drag and drop multiple photos into the Free Converting Tools WebP Studio. All images convert in parallel within your browser memory and can be downloaded individually or as a single ZIP archive.",
         },
       },
       {
@@ -221,7 +221,7 @@ export default function ConvertWebpPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -254,7 +254,7 @@ export default function ConvertWebpPage() {
           About {tool.title} &amp; Next-Gen Web Optimization
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Google WebP is the modern web standard for high-speed image compression. FileLab Convert to WebP allows web designers, developers, and content creators to transcode legacy JPG, PNG, and GIF assets into lightweight WebP graphics in seconds. With zero server queues and 100% private in-browser encoding, your assets remain strictly confidential.
+          Google WebP is the modern web standard for high-speed image compression. Free Converting Tools Convert to WebP allows web designers, developers, and content creators to transcode legacy JPG, PNG, and GIF assets into lightweight WebP graphics in seconds. With zero server queues and 100% private in-browser encoding, your assets remain strictly confidential.
         </p>
 
         {/* Feature Highlights Grid */}

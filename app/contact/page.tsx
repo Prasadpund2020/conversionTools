@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Contact and Support",
   description:
-    "Contact Free Converting Tools about bugs, unsupported files, privacy questions, and tool feedback.",
+    "Get in touch with the Free Converting Tools team regarding bug reports, feature suggestions, unsupported formats, or privacy inquiries.",
   alternates: { canonical: "/contact" },
 };
 

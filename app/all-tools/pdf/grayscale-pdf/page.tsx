@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { GrayscalePdfTool } from '@/components/tools/grayscale-pdf/GrayscalePdfTool';
 
 export const metadata: Metadata = {
-  title: 'Grayscale PDF Converter - Turn PDF into Black & White | Tools Arena',
+  title: 'Grayscale PDF Converter - Turn PDF into Black & White | Free Converting Tools',
   description:
-    'Convert colorful PDF documents into clean monochrome grayscale or black & white online. Save printer ink & toner, reduce PDF file size, and meet court/government filing guidelines.',
+    'Convert colorful PDF documents into clean monochrome grayscale or black & white. Save printer toner and meet filing guidelines privately.',
   keywords: [
     'grayscale pdf',
     'black and white pdf converter',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'court filing pdf black white',
   ],
   openGraph: {
-    title: 'Grayscale PDF Converter - Turn PDF into Black & White | Tools Arena',
+    title: 'Grayscale PDF Converter - Turn PDF into Black & White | Free Converting Tools',
     description:
       'Convert colorful PDF pages to clean black & white grayscale directly in your browser. 100% private, customizable contrast and print DPI.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function GrayscalePdfPage() {
       {
         '@type': 'WebApplication',
         name: 'Grayscale PDF Converter',
-        url: 'https://toolsarena.io/all-tools/pdf/grayscale-pdf',
+        url: 'https://freeconvertingtools.co.in/all-tools/pdf/grayscale-pdf',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function GrayscalePdfPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'PDF Tools',
-            item: 'https://toolsarena.io/all-tools#pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools#pdf',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Grayscale PDF',
-            item: 'https://toolsarena.io/all-tools/pdf/grayscale-pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools/pdf/grayscale-pdf',
           },
         ],
       },

@@ -4,9 +4,9 @@ import Script from "next/script";
 import { HtmlToPdfTool } from "@/components/tools/html-to-pdf/HtmlToPdfTool";
 
 export const metadata: Metadata = {
-  title: "HTML to PDF Converter Free Online - Convert Web Pages & Code | FileLab",
+  title: "HTML to PDF Converter Free Online - Convert Web Pages & Code | Free Converting Tools",
   description:
-    "Convert HTML files, raw code, and web layouts into high-resolution printable PDF documents online. Custom paper sizes, margins, and CSS rendering with zero server uploads.",
+    "Convert HTML code, web layouts, and pages into printable PDF documents online. Custom paper sizes, margins, and CSS with zero server uploads.",
   keywords: [
     "html to pdf",
     "convert html to pdf online",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "client-side html to pdf",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/html-to-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf",
   },
   openGraph: {
-    title: "HTML to PDF Converter Free Online | FileLab",
+    title: "HTML to PDF Converter Free Online | Free Converting Tools",
     description:
       "Transform HTML code, web pages, and documents into print-ready PDF files directly in your web browser.",
-    url: "https://filelab.com/all-tools/pdf/html-to-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab HTML to PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/html-to-pdf",
+  name: "Free Converting Tools HTML to PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf",
   description:
     "In-browser HTML to PDF rendering engine. Converts HTML files and raw markup into paginated vector PDF documents without server transmission.",
   applicationCategory: "BusinessApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "How does the HTML to PDF conversion work in the browser?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab renders your HTML markup through an in-memory high-DPI canvas using SVG foreignObject technologies, and encodes the resulting visual vectors into standard PDF pages via pdf-lib.",
+        text: "Free Converting Tools renders your HTML markup through an in-memory high-DPI canvas using SVG foreignObject technologies, and encodes the resulting visual vectors into standard PDF pages via pdf-lib.",
       },
     },
     {

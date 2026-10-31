@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "PDF Merge — Combine Multiple PDF Files Online Free | FileLab",
+      title: "PDF Merge — Combine Multiple PDF Files Online Free | Free Converting Tools",
       description:
         "Merge multiple PDF files into one clean document. Drag and drop, reorder pages, rotate sheets, and download instantly with 100% private in-browser processing.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/pdf-merge`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -89,7 +89,7 @@ export default function PdfMergePage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "PDF Merge Studio — FileLab",
+    name: "PDF Merge Studio — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/pdf/pdf-merge`,
     applicationCategory: "BusinessApplication",
@@ -122,7 +122,7 @@ export default function PdfMergePage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "PDF Tools",
@@ -155,7 +155,7 @@ export default function PdfMergePage() {
           About {tool.title} &amp; Client-Side Document Concatenation
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab PDF Merge combines financial statements, legal contracts, slide decks, and multi-page receipts directly in your browser. Using modern WebAssembly bytecode, memory buffers are merged in client RAM without transmitting proprietary data to third-party cloud servers.
+          Free Converting Tools PDF Merge combines financial statements, legal contracts, slide decks, and multi-page receipts directly in your browser. Using modern WebAssembly bytecode, memory buffers are merged in client RAM without transmitting proprietary data to third-party cloud servers.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

@@ -105,7 +105,7 @@ export const AddPageNumbersStage: React.FC<Props> = ({
 
           {/* Mock Document Footer */}
           <div className="pt-2 border-t border-gray-100 text-[10px] text-gray-400 font-mono flex justify-between">
-            <span>FileLab Document Services</span>
+            <span>Free Converting Tools Document Services</span>
             <span>Verified Stream</span>
           </div>
 

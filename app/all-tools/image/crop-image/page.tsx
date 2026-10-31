@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Crop Image Online — Free Aspect Ratio Photo Trimmer | FileLab",
+      title: "Crop Image Online — Free Aspect Ratio Photo Trimmer | Free Converting Tools",
       description:
         "Crop photos to standard aspect ratios (1:1, 16:9, 4:5, 9:16) or custom bounds online for free. Drag handles with live preview. Zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/crop-image`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -154,7 +154,7 @@ export default function CropImagePage() {
         name: "Does cropping reduce my image resolution?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Cropping extracts a specific region from your original high-resolution photo. FileLab never compresses or reduces pixel density inside the crop area unless you choose to lower the export quality.",
+          text: "Cropping extracts a specific region from your original high-resolution photo. Free Converting Tools never compresses or reduces pixel density inside the crop area unless you choose to lower the export quality.",
         },
       },
       {
@@ -180,7 +180,7 @@ export default function CropImagePage() {
         "@type": "HowToStep",
         position: 1,
         name: "Upload your image",
-        text: "Select or drop your photo into the FileLab Crop Studio dropzone.",
+        text: "Select or drop your photo into the Free Converting Tools Crop Studio dropzone.",
       },
       {
         "@type": "HowToStep",
@@ -221,7 +221,7 @@ export default function CropImagePage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -254,7 +254,7 @@ export default function CropImagePage() {
           About {tool.title} &amp; Rule-of-Thirds Composition
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Crop Studio empowers creators, photographers, and developers to trim unwanted peripheries and reframe photos for social feeds or hero banners. With dynamic aspect ratio locks and interactive rule-of-thirds grid guides, you can position your subject with aesthetic precision. Every operation runs in client-side memory with zero server uploads.
+          Free Converting Tools Crop Studio empowers creators, photographers, and developers to trim unwanted peripheries and reframe photos for social feeds or hero banners. With dynamic aspect ratio locks and interactive rule-of-thirds grid guides, you can position your subject with aesthetic precision. Every operation runs in client-side memory with zero server uploads.
         </p>
 
         {/* Feature Highlights Grid */}

@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { AudioJoinerTool } from '@/components/tools/audio-joiner/AudioJoinerTool';
 
 export const metadata: Metadata = {
-  title: 'Audio Joiner & Track Merger - Combine MP3, WAV Online | Tools Arena',
+  title: 'Audio Joiner & Track Merger - Combine MP3, WAV Online | Free Converting Tools',
   description:
-    'Combine and merge multiple audio files into a single continuous track online. Add crossfade effects, reorder songs, and export lossless 16-bit WAV with 100% in-browser privacy.',
+    'Combine multiple audio files into a continuous track online. Add crossfades, reorder songs, and export lossless 16-bit WAV with 100% browser privacy.',
   keywords: [
     'audio joiner',
     'merge audio files online',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'wav merger online',
   ],
   openGraph: {
-    title: 'Audio Joiner & Track Merger - Combine MP3, WAV Online | Tools Arena',
+    title: 'Audio Joiner & Track Merger - Combine MP3, WAV Online | Free Converting Tools',
     description:
       'Seamlessly merge multiple audio tracks into a single master audio file with crossfade blending directly in your browser.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function AudioJoinerPage() {
       {
         '@type': 'WebApplication',
         name: 'Audio Joiner & Merger',
-        url: 'https://toolsarena.io/all-tools/video-audio/audio-joiner',
+        url: 'https://freeconvertingtools.co.in/all-tools/video-audio/audio-joiner',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function AudioJoinerPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Video & Audio',
-            item: 'https://toolsarena.io/all-tools#video-audio',
+            item: 'https://freeconvertingtools.co.in/all-tools#video-audio',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Audio Joiner',
-            item: 'https://toolsarena.io/all-tools/video-audio/audio-joiner',
+            item: 'https://freeconvertingtools.co.in/all-tools/video-audio/audio-joiner',
           },
         ],
       },

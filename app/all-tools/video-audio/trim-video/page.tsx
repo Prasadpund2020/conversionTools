@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Trim Video Online Free — Cut MP4, MOV, WebM Video Clips | FileLab",
+      title: "Trim Video Online Free — Cut MP4, MOV, WebM Video Clips | Free Converting Tools",
       description:
         "Trim and cut video clips with millisecond precision online. 100% private in-browser trimming with zero upload wait times or quality loss.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/video-audio/trim-video`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -145,7 +145,7 @@ export default function TrimVideoPage() {
         name: "Can I trim large 4K video clips without uploading?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes! FileLab processes video clips entirely in your browser's local memory using HTML5 Canvas and MediaStream APIs. Your gigabyte-sized video files never touch an external server.",
+          text: "Yes! Free Converting Tools processes video clips entirely in your browser's local memory using HTML5 Canvas and MediaStream APIs. Your gigabyte-sized video files never touch an external server.",
         },
       },
       {
@@ -209,7 +209,7 @@ export default function TrimVideoPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Video & Audio",
@@ -231,7 +231,7 @@ export default function TrimVideoPage() {
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Trim highlights from gaming streams, podcasts, lectures, and social media reels without waiting for heavy cloud re-encoding.
-          With instant timeline scrubbing, precise millisecond cutting, and customizable speed multipliers, FileLab delivers
+          With instant timeline scrubbing, precise millisecond cutting, and customizable speed multipliers, Free Converting Tools delivers
           desktop-grade video editing straight in your browser.
         </p>
 

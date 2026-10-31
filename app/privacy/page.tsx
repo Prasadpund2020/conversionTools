@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Free Converting Tools privacy information for browser-based file processing and site analytics.",
+    "Learn how Free Converting Tools protects your privacy through local in-browser processing, zero server storage, and strict data safeguards.",
   alternates: { canonical: "/privacy" },
 };
 

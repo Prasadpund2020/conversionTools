@@ -28,7 +28,7 @@ export async function parseDocxFile(file: File): Promise<WordDocMeta> {
         type: "paragraph",
         runs: [
           {
-            text: "This document was loaded into FileLab Word to PDF. The document structure has been preserved for export.",
+            text: "This document was loaded into Free Converting Tools Word to PDF. The document structure has been preserved for export.",
           },
         ],
       },
@@ -190,7 +190,7 @@ export function generateSampleWordDoc(): WordDocMeta {
       type: "paragraph",
       runs: [
         { text: "Prepared by: ", bold: true },
-        { text: "FileLab Strategic Working Group • Confidential • Q4 Edition", italic: true },
+        { text: "Free Converting Tools Working Group • Confidential • Q4 Edition", italic: true },
       ],
     },
     {

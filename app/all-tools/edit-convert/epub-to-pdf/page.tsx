@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "ePub to PDF Converter Online Free — eBook to Book PDF Typesetter | FileLab",
+      title: "ePub to PDF Converter Online Free — eBook to Book PDF Typesetter | Free Converting Tools",
       description:
         "Transform eBook EPUB files into printable, formatted PDF books with covers, typography styling, and chapters. 100% private, client-side conversion.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/epub-to-pdf`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -142,10 +142,10 @@ export default function EpubToPdfPage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Does FileLab preserve eBook chapters and metadata?",
+        name: "Does Free Converting Tools preserve eBook chapters and metadata?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. FileLab parses the EPUB container XML and spine to extract chapter titles, paragraphs, and book author details, generating an authentic book PDF with page numbers and headers.",
+          text: "Yes. Free Converting Tools parses the EPUB container XML and spine to extract chapter titles, paragraphs, and book author details, generating an authentic book PDF with page numbers and headers.",
         },
       },
       {
@@ -209,7 +209,7 @@ export default function EpubToPdfPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Edit & Convert",
@@ -232,7 +232,7 @@ export default function EpubToPdfPage() {
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Convert reflowable EPUB manuscripts into standardized, paginated PDF books ready for physical printing, Kindle, or reading on tablets.
           Featuring classic trade paperback trim sizes, running book headers, automated table of contents, and decorative chapter headings,
-          FileLab provides full publishing layout power entirely in your browser with complete privacy.
+          Free Converting Tools provides full publishing layout power entirely in your browser with complete privacy.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-stone-100">

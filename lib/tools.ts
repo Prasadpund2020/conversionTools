@@ -155,7 +155,7 @@ const CATEGORY_SEO: Record<
   downloaders: {
     title: "Media Downloaders",
     description:
-      "Download videos from YouTube, Instagram, TikTok, and Twitter/X in HD quality directly in your browser.",
+      "Download videos from YouTube, Instagram, TikTok, and Twitter/X in HD quality directly in your browser with verified security and privacy.",
     keywords: [
       "youtube downloader",
       "instagram reels download",

@@ -240,7 +240,7 @@ export default function SignPdfTool() {
         if (attachAuditCert) {
           const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
           targetPage.drawText(
-            `Digitally signed with FileLab Cryptographic Seal (${new Date().toUTCString()}) • 100% In-Browser Privacy Sandbox`,
+            `Digitally signed with Free Converting Tools Cryptographic Seal (${new Date().toUTCString()}) • 100% In-Browser Privacy Sandbox`,
             {
               x: 40,
               y: 25,
@@ -297,7 +297,7 @@ export default function SignPdfTool() {
           color: rgb(0.8, 0.8, 0.8),
         });
 
-        page.drawText("FileLab Systems, Inc.", { x: 50, y: 320, size: 11, font: timesRoman, color: rgb(0.1, 0.1, 0.1) });
+        page.drawText("Free Converting Tools", { x: 50, y: 320, size: 11, font: timesRoman, color: rgb(0.1, 0.1, 0.1) });
         page.drawText("Elena Vance (General Counsel)", { x: 50, y: 290, size: 14, font: italicFont, color: rgb(0.1, 0.3, 0.7) });
         page.drawText(`Date: ${signingDate} • Verified`, { x: 50, y: 270, size: 9, font: regularFont, color: rgb(0.2, 0.5, 0.3) });
 

@@ -4,9 +4,9 @@ import Script from "next/script";
 import { AddPageNumbersTool } from "@/components/tools/add-page-numbers/AddPageNumbersTool";
 
 export const metadata: Metadata = {
-  title: "Add Page Numbers to PDF Online Free - Bates Stamping & Footers | FileLab",
+  title: "Add Page Numbers to PDF Online Free - Bates Stamping & Footers | Free Converting Tools",
   description:
-    "Add page numbers and legal Bates stamping to PDF documents online for free. Customize headers, footers, typography, offsets, and start numbers with zero server uploads.",
+    "Add page numbers and legal Bates stamping to PDF documents online. Customize headers, footers, typography, and offsets with zero uploads.",
   keywords: [
     "add page numbers to pdf",
     "bates numbering online",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "bates stamping online free",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/add-page-numbers",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers",
   },
   openGraph: {
-    title: "Add Page Numbers to PDF Online Free | FileLab",
+    title: "Add Page Numbers to PDF Online Free | Free Converting Tools",
     description:
       "Stamp sequential page numbers, headers, footers, and legal Bates numbers directly in your browser.",
-    url: "https://filelab.com/all-tools/pdf/add-page-numbers",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Add Page Numbers Tool",
-  url: "https://filelab.com/all-tools/pdf/add-page-numbers",
+  name: "Free Converting Tools Add Page Numbers Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers",
   description:
     "In-browser PDF page numbering and Bates stamping utility. Stamp customizable headers and footers without server transmission.",
   applicationCategory: "BusinessApplication",
@@ -58,10 +58,10 @@ const jsonLdFaq = {
     },
     {
       "@type": "Question",
-      name: "Does FileLab support legal Bates numbering?",
+      name: "Does Free Converting Tools support legal Bates numbering?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. FileLab offers specialized Bates stamping with custom case prefixes (e.g., CONF, PLAINTIFF) and configurable zero-padding digits.",
+        text: "Yes. Free Converting Tools offers specialized Bates stamping with custom case prefixes (e.g., CONF, PLAINTIFF) and configurable zero-padding digits.",
       },
     },
     {
@@ -83,7 +83,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Upload PDF",
-      text: "Select or drop your PDF document into the FileLab workspace.",
+      text: "Select or drop your PDF document into the Free Converting Tools workspace.",
     },
     {
       "@type": "HowToStep",

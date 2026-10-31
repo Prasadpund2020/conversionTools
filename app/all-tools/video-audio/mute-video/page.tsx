@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Mute Video Online Free — Strip Audio from MP4, MOV, WebM | FileLab",
+      title: "Mute Video Online Free — Strip Audio from MP4, MOV, WebM | Free Converting Tools",
       description:
         "Remove audio tracks and mute video files online for free. Strip unwanted sound and background noise from MP4, MOV, and WebM videos without uploading files.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/video-audio/mute-video`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -153,7 +153,7 @@ export default function MuteVideoPage() {
         name: "Will the video quality be degraded when muted?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. FileLab processes video frames with high fidelity, preserving original resolution and frame rates without external compression artifacts.",
+          text: "No. Free Converting Tools processes video frames with high fidelity, preserving original resolution and frame rates without external compression artifacts.",
         },
       },
     ],
@@ -209,7 +209,7 @@ export default function MuteVideoPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Video & Audio",
@@ -231,7 +231,7 @@ export default function MuteVideoPage() {
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Strip noisy ambient chatter, copyrighted songs, or wind distortion from personal videos, b-roll footage, and presentations.
-          Operating entirely inside browser memory, FileLab gives you instant sound removal without upload limits, watermarks, or accounts.
+          Operating entirely inside browser memory, Free Converting Tools gives you instant sound removal without upload limits, watermarks, or accounts.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-stone-100">

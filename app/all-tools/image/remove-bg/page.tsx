@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Remove Background Studio — Free AI Image Cutout | FileLab",
+      title: "Remove Background Studio — Free AI Image Cutout | Free Converting Tools",
       description:
         "Isolate subjects automatically with client-side AI image processing. Preserve ultra-fine hair strands and edge details with zero server uploads.",
     };
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/remove-bg`,
@@ -46,7 +46,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -91,7 +91,7 @@ export default function RemoveBackgroundPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Remove Background Studio — FileLab",
+    name: "Remove Background Studio — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/image/remove-bg`,
     applicationCategory: "MultimediaApplication",
@@ -124,7 +124,7 @@ export default function RemoveBackgroundPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -157,7 +157,7 @@ export default function RemoveBackgroundPage() {
           About {tool.title} &amp; Client-Side Neural Segmentation
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Remove Background Studio empowers designers, e-commerce sellers, and creators to extract high-resolution portrait subjects, products, and graphics with pristine alpha transparency. All edge-matting and color clustering pipelines execute strictly inside your local browser sandbox with zero cloud uploads.
+          Free Converting Tools Remove Background Studio empowers designers, e-commerce sellers, and creators to extract high-resolution portrait subjects, products, and graphics with pristine alpha transparency. All edge-matting and color clustering pipelines execute strictly inside your local browser sandbox with zero cloud uploads.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

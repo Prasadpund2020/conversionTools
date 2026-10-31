@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn how Free Converting Tools provides browser-based file conversion and utility tools.",
+    "Learn how Free Converting Tools provides secure, client-side file conversion, PDF editing, and media utilities with 100% in-browser privacy.",
   alternates: { canonical: "/about" },
 };
 

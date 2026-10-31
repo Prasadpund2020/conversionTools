@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Video to MP3 Converter — Extract Audio Online Free | FileLab",
+      title: "Video to MP3 Converter — Extract Audio Online Free | Free Converting Tools",
       description:
         "Extract high-bitrate MP3, WAV, or AAC audio from MP4, MKV, and MOV videos. 100% in-browser WebAudio & WebAssembly processing with zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/video-audio/video-to-mp3`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -120,7 +120,7 @@ export default function VideoToMp3Page() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Video & Audio",
@@ -153,7 +153,7 @@ export default function VideoToMp3Page() {
           About {tool.title} &amp; Client-Side Audio Demuxing
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Video to MP3 &amp; Audio Lab provides broadcast-grade audio extraction running entirely inside
+          Free Converting Tools Video to MP3 &amp; Audio Lab provides broadcast-grade audio extraction running entirely inside
           your web browser. Using the Web Audio API and WebAssembly codecs, video containers are demuxed locally
           without uploading sensitive interviews, presentations, or keynote recordings to remote servers.
         </p>

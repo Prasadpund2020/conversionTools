@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Image to PDF Converter — Free & Private | FileLab",
+      title: "Image to PDF Converter — Free & Private | Free Converting Tools",
       description:
         "Convert photos, receipts, JPG, and PNG images into high quality PDF documents. 100% client-side WebAssembly, zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/image-to-pdf`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -120,7 +120,7 @@ export default function ImageToPdfPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "PDF Tools",
@@ -153,7 +153,7 @@ export default function ImageToPdfPage() {
           About {tool.title} &amp; High-Fidelity PDF Assembly
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Image to PDF is a tactile executive-grade staging desk for converting receipts, contract scans,
+          Free Converting Tools Image to PDF is a tactile executive-grade staging desk for converting receipts, contract scans,
           presentation slides, and identification photos into unified, print-ready PDF files. Built on top of
           WebAssembly and the HTML5 Canvas 2D engine, every image is scaled, oriented, and compressed directly
           inside your browser&apos;s memory sandbox with zero network uploads.

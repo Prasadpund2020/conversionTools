@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Read the terms for using Free Converting Tools and its online conversion utilities.",
+    "Review terms of service, conditions of use, intellectual property terms, and legal guidelines for using Free Converting Tools online.",
   alternates: { canonical: "/terms" },
 };
 

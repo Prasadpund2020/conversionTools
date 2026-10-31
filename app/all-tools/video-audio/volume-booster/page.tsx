@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Audio & Volume Booster Online Free — Amplify Audio to 300% | FileLab",
+      title: "Audio & Volume Booster Online Free — Amplify Audio to 300% | Free Converting Tools",
       description:
         "Boost quiet MP3, WAV, and video audio tracks up to 300% without distortion. Real-time equalizer smoothing and anti-clipping limiter directly in your browser.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/video-audio/volume-booster`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -145,7 +145,7 @@ export default function VolumeBoosterPage() {
         name: "How does the volume booster prevent harsh digital distortion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FileLab integrates an anti-clipping dynamics compressor (soft limiter) directly into the Web Audio graph to round out sharp waveform peaks when boosting volume up to 300%.",
+          text: "Free Converting Tools integrates an anti-clipping dynamics compressor (soft limiter) directly into the Web Audio graph to round out sharp waveform peaks when boosting volume up to 300%.",
         },
       },
       {
@@ -153,7 +153,7 @@ export default function VolumeBoosterPage() {
         name: "Can I boost volume on video files directly?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. You can upload MP4, WebM, and MOV videos, and FileLab will decode and amplify the audio track for instant export.",
+          text: "Yes. You can upload MP4, WebM, and MOV videos, and Free Converting Tools will decode and amplify the audio track for instant export.",
         },
       },
     ],
@@ -209,7 +209,7 @@ export default function VolumeBoosterPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Video & Audio",
@@ -231,7 +231,7 @@ export default function VolumeBoosterPage() {
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Fix barely audible phone recordings, quiet Zoom meetings, conference keynotes, and podcast episodes.
-          Powered by browser-native Web Audio API gain stages and studio-grade dynamic limiters, FileLab enhances audio presence,
+          Powered by browser-native Web Audio API gain stages and studio-grade dynamic limiters, Free Converting Tools enhances audio presence,
           bass punch, and speech intelligibility without digital crackle or cloud latency.
         </p>
 

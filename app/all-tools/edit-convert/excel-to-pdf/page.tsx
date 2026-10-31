@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Excel to PDF Converter Online Free — XLSX, XLS, CSV to PDF | FileLab",
+      title: "Excel to PDF Converter Online Free — XLSX, XLS, CSV to PDF | Free Converting Tools",
       description:
         "Convert Excel spreadsheets (.xlsx, .xls) and CSV tables to high-resolution, printable PDF documents directly in your browser with zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/excel-to-pdf`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -142,10 +142,10 @@ export default function ExcelToPdfPage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Does FileLab support multi-sheet Excel files?",
+        name: "Does Free Converting Tools support multi-sheet Excel files?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes! FileLab parses all worksheets inside your workbook and allows you to select which specific sheet to export as a formatted PDF.",
+          text: "Yes! Free Converting Tools parses all worksheets inside your workbook and allows you to select which specific sheet to export as a formatted PDF.",
         },
       },
       {
@@ -209,7 +209,7 @@ export default function ExcelToPdfPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Edit & Convert",

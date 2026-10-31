@@ -262,7 +262,7 @@ function createSampleDataUrl(type: "receipt" | "contract" | "chart" | "id"): {
     // Company text
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 20px sans-serif";
-    ctx.fillText("FILELAB SECURITY CREDENTIAL", 30, 50);
+    ctx.fillText("FREE CONVERTING TOOLS SECURITY CREDENTIAL", 30, 50);
 
     // Avatar box
     ctx.fillStyle = "#e2e8f0";

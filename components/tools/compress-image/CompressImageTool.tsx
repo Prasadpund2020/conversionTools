@@ -17,7 +17,7 @@ import CompressImageControls from "./CompressImageControls";
 import CompressImageInspectionSheet from "./CompressImageInspectionSheet";
 import CompressImageNextSteps from "./CompressImageNextSteps";
 
-const RECENT_KEY = "filelab_compress_image_recent";
+const RECENT_KEY = "fct_compress_image_recent";
 
 export default function CompressImageTool() {
   const [imageMeta, setImageMeta] = useState<ImageMetadata | null>(null);

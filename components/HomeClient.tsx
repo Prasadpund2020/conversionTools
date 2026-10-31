@@ -34,7 +34,7 @@ export default function HomeClient() {
   // Load recent tools from localStorage if available
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("filelab_recent_tools");
+      const saved = localStorage.getItem("fct_recent_tools");
       if (saved) {
         setRecentTools(JSON.parse(saved));
       }
@@ -48,7 +48,7 @@ export default function HomeClient() {
       const filtered = prev.filter((t) => t.id !== tool.id);
       const updated = [tool, ...filtered].slice(0, 8);
       try {
-        localStorage.setItem("filelab_recent_tools", JSON.stringify(updated));
+        localStorage.setItem("fct_recent_tools", JSON.stringify(updated));
       } catch {
         // Ignore
       }
@@ -59,7 +59,7 @@ export default function HomeClient() {
   const handleClearRecent = () => {
     setRecentTools([]);
     try {
-      localStorage.removeItem("filelab_recent_tools");
+      localStorage.removeItem("fct_recent_tools");
     } catch {
       // Ignore
     }

@@ -22,9 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "OCR Text Extractor Online Free — Extract Text from Images & Scans | FileLab",
+      title: "OCR Text Extractor Online Free — Extract Text from Images & Scans | Free Converting Tools",
       description:
-        "Optical Character Recognition: extract editable text, receipt totals, and code from photos and scanned documents directly in your browser. 100% private, zero uploads.",
+        "Extract editable text, receipt totals, and code from photos and scanned documents directly in your browser with private client-side OCR.",
     };
   }
 
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/ocr-scanner`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -142,10 +142,10 @@ export default function OcrScannerPage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "How does FileLab perform OCR without uploading my files?",
+        name: "How does Free Converting Tools perform OCR without uploading my files?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FileLab runs optical segmentation and neural character detection directly inside your browser memory using HTML5 Canvas pixel analysis and hardware-accelerated Shape Detection. Your scans and sensitive receipts never leave your computer.",
+          text: "Free Converting Tools runs optical segmentation and neural character detection directly inside your browser memory using HTML5 Canvas pixel analysis and hardware-accelerated Shape Detection. Your scans and sensitive receipts never leave your computer.",
         },
       },
       {
@@ -209,7 +209,7 @@ export default function OcrScannerPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Edit & Convert",
@@ -231,7 +231,7 @@ export default function OcrScannerPage() {
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Instantly convert physical invoices, handwritten memos, contracts, and screenshots into editable, searchable digital text.
-          Because FileLab processes pixels directly inside your web browser’s RAM sandbox, you can extract confidential financial, legal,
+          Because Free Converting Tools processes pixels directly inside your web browser’s RAM sandbox, you can extract confidential financial, legal,
           and proprietary documents without risk of third-party telemetry or cloud leaks.
         </p>
 

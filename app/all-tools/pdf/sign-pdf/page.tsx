@@ -19,8 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Sign PDF Online — Free & Secure Electronic Signatures — FileLab",
-      description: "Sign PDF documents online for free. Draw, type, or stamp verifiable digital signatures with zero server uploads.",
+      title: "Sign PDF Online — Free & Secure Electronic Signatures — Free Converting Tools",
+      description: "Sign PDF documents online for free. Draw, type, or stamp verifiable cryptographic signatures with 100% private in-browser processing.",
     };
   }
 
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/sign-pdf`,
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -112,7 +112,7 @@ export default function SignPdfPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "PDF Tools",
@@ -143,7 +143,7 @@ export default function SignPdfPage() {
           About {tool.title} & Cryptographic Signatures
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Sign PDF is an executive-grade e-signing studio running entirely within your browser
+          Free Converting Tools Sign PDF is an executive-grade e-signing studio running entirely within your browser
           using WebAssembly and client-side PDF document manipulation. Your sensitive financial, employment,
           and legal agreements never leave your device or get sent to third-party servers.
         </p>

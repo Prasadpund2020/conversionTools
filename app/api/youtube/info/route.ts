@@ -83,7 +83,7 @@ export async function GET(request: NextRequest) {
         id: "test-authorized",
         url: "https://www.youtube.com/watch?v=test-authorized",
         title: "Authorized Media Test Video (Flower Blooming - CC0 Public Domain)",
-        channelTitle: "FileLab Verified Media Suite",
+        channelTitle: "Free Converting Tools Verified Media Suite",
         channelUrl: "https://www.youtube.com",
         thumbnail: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1280&q=80",
         thumbnailFallback: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=640&q=80",

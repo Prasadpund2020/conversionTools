@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { BlurFaceTool } from '@/components/tools/blur-face/BlurFaceTool';
 
 export const metadata: Metadata = {
-  title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Tools Arena',
+  title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Free Converting Tools',
   description:
-    'Easily blur faces, license plates, credit card numbers, and private text in your photos. Features Gaussian blur, pixelate mosaic, and blackout censor bars with 100% private in-browser processing.',
+    'Blur faces, license plates, and private text in photos online. Features Gaussian blur, pixelate mosaic, and blackout bars with zero uploads.',
   keywords: [
     'blur face online',
     'photo censor tool',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'blur photo online free without upload',
   ],
   openGraph: {
-    title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Tools Arena',
+    title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Free Converting Tools',
     description:
       'Censor confidential details, mosaic faces, and redact sensitive documents directly in your browser. Zero cloud uploads.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function BlurFacePage() {
       {
         '@type': 'WebApplication',
         name: 'Photo Censor & Face Blur Tool',
-        url: 'https://toolsarena.io/all-tools/image/blur-face',
+        url: 'https://freeconvertingtools.co.in/all-tools/image/blur-face',
         applicationCategory: 'PhotoEditor',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function BlurFacePage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Image Tools',
-            item: 'https://toolsarena.io/all-tools#image',
+            item: 'https://freeconvertingtools.co.in/all-tools#image',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Blur Face & Photo Censor',
-            item: 'https://toolsarena.io/all-tools/image/blur-face',
+            item: 'https://freeconvertingtools.co.in/all-tools/image/blur-face',
           },
         ],
       },

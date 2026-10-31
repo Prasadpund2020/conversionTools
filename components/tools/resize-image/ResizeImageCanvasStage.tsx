@@ -115,7 +115,7 @@ export default function ResizeImageCanvasStage({
         </div>
 
         <div className="text-[11px] text-stone-500 font-mono">
-          FileLab In-Browser Bilinear Filter
+          Free Converting Tools In-Browser Bilinear Filter
         </div>
       </div>
     </div>

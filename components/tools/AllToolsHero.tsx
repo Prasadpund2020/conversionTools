@@ -155,7 +155,7 @@ export default function AllToolsHero({
       {
         "@type": "ListItem",
         position: 1,
-        name: "FileLab Studio",
+        name: "Free Converting Tools Studio",
         item: `${SITE_URL}/`,
       },
       {

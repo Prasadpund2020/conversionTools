@@ -4,7 +4,7 @@ import Script from "next/script";
 import { CompressPdfTool } from "@/components/tools/compress-pdf/CompressPdfTool";
 
 export const metadata: Metadata = {
-  title: "Compress PDF Online Free - Reduce PDF File Size in Browser | FileLab",
+  title: "Compress PDF Online Free - Reduce PDF File Size in Browser | Free Converting Tools",
   description:
     "Compress PDF files online for free. Reduce PDF file sizes up to 80% while maintaining crisp vector text and print quality with zero server uploads.",
   keywords: [
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "pdf size reducer",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/compress-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf",
   },
   openGraph: {
-    title: "Compress PDF Online Free | FileLab",
+    title: "Compress PDF Online Free | Free Converting Tools",
     description:
       "Shrink bloated PDF documents up to 80% directly in your browser without uploading to any remote server.",
-    url: "https://filelab.com/all-tools/pdf/compress-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Compress PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/compress-pdf",
+  name: "Free Converting Tools Compress PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf",
   description:
     "Client-side PDF compression utility. Compacts indirect stream objects and strips unnecessary metadata without server transmission.",
   applicationCategory: "BusinessApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "How does client-side PDF compression work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab reconstructs the PDF object tree using object streams and flate encoding, purging orphaned revisions, uncompressed streams, and redundant metadata directly in your browser's memory.",
+        text: "Free Converting Tools reconstructs the PDF object tree using object streams and flate encoding, purging orphaned revisions, uncompressed streams, and redundant metadata directly in your browser's memory.",
       },
     },
     {
@@ -83,7 +83,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Upload or Drop PDF",
-      text: "Select or drop your large PDF document into the FileLab compression workspace.",
+      text: "Select or drop your large PDF document into the Free Converting Tools compression workspace.",
     },
     {
       "@type": "HowToStep",
@@ -189,7 +189,7 @@ export default function CompressPdfPage() {
             <div className="flex flex-col gap-2">
               <h3 className="text-sm font-bold text-on-surface">Why was my PDF file size already small?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                Some PDFs created by modern export tools are already pre-optimized with compressed streams. In such cases, FileLab preserves your best file size without bloating it.
+                Some PDFs created by modern export tools are already pre-optimized with compressed streams. In such cases, Free Converting Tools preserves your best file size without bloating it.
               </p>
             </div>
             <div className="flex flex-col gap-2">

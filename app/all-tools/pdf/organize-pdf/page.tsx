@@ -4,9 +4,9 @@ import Script from "next/script";
 import { OrganizePdfTool } from "@/components/tools/organize-pdf/OrganizePdfTool";
 
 export const metadata: Metadata = {
-  title: "Organize PDF Online Free - Rotate, Reorder & Delete Pages | FileLab",
+  title: "Organize PDF Online Free - Rotate, Reorder & Delete Pages | Free Converting Tools",
   description:
-    "Organize, reorder, rotate, duplicate, and delete pages from PDF files online for free. Drag and rearrange pages visually with instant in-browser processing and zero server uploads.",
+    "Organize, reorder, rotate, duplicate, and delete PDF pages online. Drag and rearrange pages visually with instant private in-browser processing.",
   keywords: [
     "organize pdf",
     "reorder pdf pages",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "free pdf page sorter",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/organize-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
   },
   openGraph: {
-    title: "Organize PDF Online Free | FileLab",
+    title: "Organize PDF Online Free | Free Converting Tools",
     description:
       "Visually rearrange, rotate, duplicate, and delete PDF pages directly inside your web browser.",
-    url: "https://filelab.com/all-tools/pdf/organize-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Organize PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/organize-pdf",
+  name: "Free Converting Tools Organize PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
   description:
     "Client-side PDF page organizer. Reorder, rotate, duplicate, and delete pages with an interactive visual grid.",
   applicationCategory: "UtilitiesApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "How does the PDF organizer work without server uploads?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab reads your document into local memory using pdf-lib, lets you visually manipulate the page index sequence and rotation degrees, and synthesizes a new PDF on your device.",
+        text: "Free Converting Tools reads your document into local memory using pdf-lib, lets you visually manipulate the page index sequence and rotation degrees, and synthesizes a new PDF on your device.",
       },
     },
     {

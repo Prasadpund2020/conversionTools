@@ -235,7 +235,7 @@ export function generateSampleEpubBook(
     title: "The Time Machine",
     author: "H. G. Wells",
     language: "en",
-    publisher: "FileLab Classic Library",
+    publisher: "Free Converting Tools Classic Library",
     description: "An 1895 science fiction novella generally credited with the popularization of the concept of time travel.",
     chapters,
     totalWords: 460,
@@ -330,7 +330,7 @@ export async function convertEpubToPdf(
     });
 
     // Publisher Tag at bottom
-    const publisherText = book.publisher || "Typeset with FileLab Book Engine";
+    const publisherText = book.publisher || "Typeset with Free Converting Tools Book Engine";
     const pubWidth = fontRegular.widthOfTextAtSize(publisherText, 9);
     coverPage.drawText(publisherText, {
       x: (width - pubWidth) / 2,

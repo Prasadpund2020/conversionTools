@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "QR Code Generator — Free & Private | FileLab",
+      title: "QR Code Generator — Free & Private | Free Converting Tools",
       description:
         "Create custom high-resolution QR codes for websites, WiFi networks, and vCards. Download print-ready PNG and vector SVG graphics with zero tracking.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/more/qr-generator`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -113,7 +113,7 @@ export default function QrCodeGeneratorPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "More Tools",
@@ -146,7 +146,7 @@ export default function QrCodeGeneratorPage() {
           About {tool.title}
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-6">
-          FileLab QR Code Generator runs entirely within your browser using
+          Free Converting Tools QR Code Generator runs entirely within your browser using
           client-side processing. Create high-resolution QR codes for URLs,
           text, WiFi credentials, and more. Your data never leaves your device.
         </p>

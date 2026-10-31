@@ -45,8 +45,8 @@ export async function compressPdfDocument(
     compDoc.setAuthor("");
     compDoc.setSubject("");
     compDoc.setKeywords([]);
-    compDoc.setProducer("FileLab In-Browser Compressor");
-    compDoc.setCreator("FileLab");
+    compDoc.setProducer("Free Converting Tools In-Browser Compressor");
+    compDoc.setCreator("Free Converting Tools");
   } else {
     try {
       const title = srcDoc.getTitle();
@@ -103,7 +103,7 @@ export async function createSampleCompressPdf(): Promise<File> {
 
   // Add metadata to demonstrate stripping
   pdfDoc.setTitle("Internal Diagnostic Specifications 2026");
-  pdfDoc.setAuthor("FileLab Enterprise Architecture Team");
+  pdfDoc.setAuthor("Free Converting Tools Enterprise Architecture Team");
   pdfDoc.setSubject("Comprehensive Benchmark Test for Object Stream Compression");
   pdfDoc.setKeywords(["pdf", "compression", "benchmark", "enterprise", "confidential"]);
 

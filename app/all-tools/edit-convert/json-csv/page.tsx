@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "JSON to CSV & CSV to JSON Converter — Free Online Data Sync | FileLab",
+      title: "JSON to CSV & CSV to JSON Converter — Free Online Data Sync | Free Converting Tools",
       description:
         "Easily convert JSON data to CSV or Excel spreadsheet tables, or parse CSV files into formatted JSON. 100% private in-browser conversion.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/json-csv`,
@@ -44,13 +44,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: "JSON to CSV & CSV to JSON Converter — FileLab",
+          alt: "JSON to CSV & CSV to JSON Converter — Free Converting Tools",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       images: ["/images/all-tools-hero-banner.png"],
     },
@@ -121,7 +121,7 @@ export default async function JsonCsvPage() {
               Instant Data Transformation for Developers & Analysts
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-              Exporting data from REST APIs, database queries, and log analyzers frequently produces nested JSON arrays that are hard to analyze in Microsoft Excel or Google Sheets. Conversely, spreadsheet exports need to be converted to JSON structures for web apps. FileLab gives you a lightning-fast, 100% private in-browser converter with delimiter options (comma, tab, semicolon), pretty-printing, and instant copy/download functionality.
+              Exporting data from REST APIs, database queries, and log analyzers frequently produces nested JSON arrays that are hard to analyze in Microsoft Excel or Google Sheets. Conversely, spreadsheet exports need to be converted to JSON structures for web apps. Free Converting Tools gives you a lightning-fast, 100% private in-browser converter with delimiter options (comma, tab, semicolon), pretty-printing, and instant copy/download functionality.
             </p>
           </section>
 

@@ -4,9 +4,9 @@ import Script from "next/script";
 import { RedactPdfTool } from "@/components/tools/redact-pdf/RedactPdfTool";
 
 export const metadata: Metadata = {
-  title: "Redact PDF Online Free - Permanent Blackout & PII Removal | FileLab",
+  title: "Redact PDF Online Free - Permanent Blackout & PII Removal | Free Converting Tools",
   description:
-    "Permanently redact sensitive PII, social security numbers, and financial data from PDF files online. Burn irreversible blackout or whiteout blocks with zero server uploads.",
+    "Permanently redact sensitive PII, SSNs, and financial data from PDFs. Burn irreversible blackout or whiteout blocks with zero server uploads.",
   keywords: [
     "redact pdf",
     "blackout pdf text",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "permanent pdf blackout",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/redact-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/redact-pdf",
   },
   openGraph: {
-    title: "Redact PDF Online Free | FileLab",
+    title: "Redact PDF Online Free | Free Converting Tools",
     description:
       "Permanently obscure sensitive legal, medical, and financial information from your PDF pages directly in your browser.",
-    url: "https://filelab.com/all-tools/pdf/redact-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/redact-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Redact PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/redact-pdf",
+  name: "Free Converting Tools Redact PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/redact-pdf",
   description:
     "In-browser PDF redaction application. Burn permanent opaque blackout barriers and whiteout masks into PDF documents without server transmission.",
   applicationCategory: "SecurityApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "Are redactions truly irreversible?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Unlike superficial desktop highlighter overlays, FileLab burns opaque vector geometry directly into the rendered stream and deletes underlying view references.",
+        text: "Yes. Unlike superficial desktop highlighter overlays, Free Converting Tools burns opaque vector geometry directly into the rendered stream and deletes underlying view references.",
       },
     },
     {
@@ -83,7 +83,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Select PDF Document",
-      text: "Drop or choose your PDF into the FileLab Redaction workspace.",
+      text: "Drop or choose your PDF into the Free Converting Tools Redaction workspace.",
     },
     {
       "@type": "HowToStep",

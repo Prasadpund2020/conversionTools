@@ -4,9 +4,9 @@ import Script from "next/script";
 import { RepairPdfTool } from "@/components/tools/repair-pdf/RepairPdfTool";
 
 export const metadata: Metadata = {
-  title: "Repair PDF Online Free - Fix Corrupted & Damaged PDF Files | FileLab",
+  title: "Repair PDF Online Free - Fix Corrupted & Damaged PDF Files | Free Converting Tools",
   description:
-    "Repair damaged and corrupted PDF files online. Reconstruct broken cross-reference (xref) tables, fix missing EOF trailers, and salvage unreadable pages with zero server uploads.",
+    "Repair damaged and corrupted PDF files online. Reconstruct broken cross-reference tables and recover unreadable pages with zero server uploads.",
   keywords: [
     "repair pdf",
     "fix corrupted pdf",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "free pdf healer",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/repair-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/repair-pdf",
   },
   openGraph: {
-    title: "Repair PDF Online Free | FileLab",
+    title: "Repair PDF Online Free | Free Converting Tools",
     description:
       "Reconstruct corrupted PDF documents and recover unreadable pages directly in your browser with zero data leakage.",
-    url: "https://filelab.com/all-tools/pdf/repair-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/repair-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Repair PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/repair-pdf",
+  name: "Free Converting Tools Repair PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/repair-pdf",
   description:
     "In-browser PDF repair and recovery application. Rebuilds cross-reference tables and recovers corrupted page dictionaries without server transmission.",
   applicationCategory: "UtilitiesApplication",
@@ -50,10 +50,10 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does FileLab repair corrupted PDF files?",
+      name: "How does Free Converting Tools repair corrupted PDF files?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab analyzes the raw binary bytes of the document to detect damaged headers, missing %%EOF trailer markers, and broken cross-reference (xref) offsets, reconstructing them into a clean, compliant PDF.",
+        text: "Free Converting Tools analyzes the raw binary bytes of the document to detect damaged headers, missing %%EOF trailer markers, and broken cross-reference (xref) offsets, reconstructing them into a clean, compliant PDF.",
       },
     },
     {

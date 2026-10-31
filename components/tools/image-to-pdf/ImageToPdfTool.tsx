@@ -10,7 +10,7 @@ import ImageToPdfStagingWell from "./ImageToPdfStagingWell";
 import ImageToPdfSettingsDeck from "./ImageToPdfSettingsDeck";
 import ImageToPdfClipboard from "./ImageToPdfClipboard";
 
-const RECENT_HISTORY_KEY = "filelab_image_to_pdf_recent";
+const RECENT_HISTORY_KEY = "fct_image_to_pdf_recent";
 
 export default function ImageToPdfTool() {
   const [stagedImages, setStagedImages] = useState<StagedImage[]>([]);

@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { PdfToPptxTool } from '@/components/tools/pdf-to-pptx/PdfToPptxTool';
 
 export const metadata: Metadata = {
-  title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Tools Arena',
+  title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Free Converting Tools',
   description:
-    'Convert PDF documents and lecture slides into genuine Microsoft PowerPoint presentation decks (.pptx). 100% private in-browser conversion compatible with Google Slides and Keynote.',
+    'Convert PDF slides into Microsoft PowerPoint (.pptx) decks. 100% private in-browser conversion compatible with Google Slides and Keynote.',
   keywords: [
     'pdf to pptx',
     'pdf to powerpoint converter',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'presentation slide generator',
   ],
   openGraph: {
-    title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Tools Arena',
+    title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Free Converting Tools',
     description:
       'Turn PDF slides into editable Microsoft PowerPoint .pptx decks in seconds. Zero uploads, 16:9 widescreen layout.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function PdfToPptxPage() {
       {
         '@type': 'WebApplication',
         name: 'PDF to PowerPoint Converter',
-        url: 'https://toolsarena.io/all-tools/pdf/pdf-to-pptx',
+        url: 'https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-pptx',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function PdfToPptxPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'PDF Tools',
-            item: 'https://toolsarena.io/all-tools#pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools#pdf',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'PDF to PowerPoint',
-            item: 'https://toolsarena.io/all-tools/pdf/pdf-to-pptx',
+            item: 'https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-pptx',
           },
         ],
       },

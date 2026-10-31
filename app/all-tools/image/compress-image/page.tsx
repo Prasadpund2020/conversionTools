@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Compress Image Online — Reduce JPG, PNG & WebP File Sizes | FileLab",
+      title: "Compress Image Online — Reduce JPG, PNG & WebP File Sizes | Free Converting Tools",
       description:
         "Compress images up to 90% without visible quality loss. 100% in-browser WebAssembly processing with zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/compress-image`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -120,7 +120,7 @@ export default function CompressImagePage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -153,7 +153,7 @@ export default function CompressImagePage() {
           About {tool.title} &amp; Intelligent Rate-Distortion Optimization
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Image Optimizer Studio provides executive-grade image compression directly within your web browser
+          Free Converting Tools Image Optimizer Studio provides executive-grade image compression directly within your web browser
           using WebAssembly and client-side Canvas 2D color quantization. Your high-resolution photography, raw marketing
           assets, and confidential UI mocks are processed 100% in local memory with zero server uploads.
         </p>

@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { VoiceRecorderTool } from '@/components/tools/voice-recorder/VoiceRecorderTool';
 
 export const metadata: Metadata = {
-  title: 'Voice & Microphone Recorder - Free Online Audio Tool | Tools Arena',
+  title: 'Voice & Microphone Recorder - Free Online Audio Tool | Free Converting Tools',
   description:
-    'Record high-quality voice memos, lectures, and podcasts directly in your browser. Live oscilloscope waveform visualizer, pause/resume controls, and instant audio download with zero cloud uploads.',
+    'Record high-quality voice memos and podcasts in your browser. Live waveform visualizer, pause/resume controls, and audio export with zero cloud uploads.',
   keywords: [
     'voice recorder',
     'microphone recorder online',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'mic audio capture without installation',
   ],
   openGraph: {
-    title: 'Voice & Microphone Recorder - Free Online Audio Tool | Tools Arena',
+    title: 'Voice & Microphone Recorder - Free Online Audio Tool | Free Converting Tools',
     description:
       'Record crystal-clear voice memos and mic audio with real-time waveform visualization in your browser. 100% private.',
     type: 'website',
@@ -28,7 +28,7 @@ export default function VoiceRecorderPage() {
       {
         '@type': 'WebApplication',
         name: 'Voice & Microphone Recorder',
-        url: 'https://toolsarena.io/all-tools/video-audio/voice-recorder',
+        url: 'https://freeconvertingtools.co.in/all-tools/video-audio/voice-recorder',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -47,25 +47,25 @@ export default function VoiceRecorderPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Video & Audio',
-            item: 'https://toolsarena.io/all-tools#video-audio',
+            item: 'https://freeconvertingtools.co.in/all-tools#video-audio',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Voice Recorder',
-            item: 'https://toolsarena.io/all-tools/video-audio/voice-recorder',
+            item: 'https://freeconvertingtools.co.in/all-tools/video-audio/voice-recorder',
           },
         ],
       },

@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Add Watermark to Image Online Free — Custom Text & Logo | FileLab",
+      title: "Add Watermark to Image Online Free — Custom Text & Logo | Free Converting Tools",
       description:
         "Add custom text or brand logo watermarks to photos online for free. Adjust opacity, angle, size, position, and repeating tile pattern. 100% private in browser.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/watermark-image`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -130,7 +130,7 @@ export default function WatermarkImagePage() {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to add a watermark to an image online",
-    description: "Learn how to protect your photos with text or transparent logo watermarks using FileLab.",
+    description: "Learn how to protect your photos with text or transparent logo watermarks using Free Converting Tools.",
     step: [
       {
         "@type": "HowToStep",
@@ -169,7 +169,7 @@ export default function WatermarkImagePage() {
         name: "Is it safe to watermark confidential images here?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, 100%. FileLab performs all image composition directly in your web browser using HTML5 Canvas. Your photos and watermark logos are never uploaded to any remote server or stored in the cloud.",
+          text: "Yes, 100%. Free Converting Tools performs all image composition directly in your web browser using HTML5 Canvas. Your photos and watermark logos are never uploaded to any remote server or stored in the cloud.",
         },
       },
       {
@@ -193,7 +193,7 @@ export default function WatermarkImagePage() {
         name: "Does adding a watermark lower the quality of my original photo?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. FileLab exports your image at 100% full pixel resolution with maximum JPEG or PNG fidelity, preserving sharp details and vibrant colors.",
+          text: "No. Free Converting Tools exports your image at 100% full pixel resolution with maximum JPEG or PNG fidelity, preserving sharp details and vibrant colors.",
         },
       },
     ],

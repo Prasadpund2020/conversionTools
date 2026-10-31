@@ -157,7 +157,7 @@ export const WatermarkPdfStage: React.FC<Props> = ({
 
           {/* Footer Mock */}
           <div className="flex items-center justify-between pt-2 border-t border-gray-100 text-[10px] text-gray-400">
-            <span>Strictly Confidential • FileLab Enterprise Engine</span>
+            <span>Strictly Confidential • Free Converting Tools Enterprise Engine</span>
             <span>Ref: FL-2024-PDF</span>
           </div>
 

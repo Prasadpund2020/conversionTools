@@ -4,9 +4,9 @@ import Script from "next/script";
 import { ComparePdfTool } from "@/components/tools/compare-pdf/ComparePdfTool";
 
 export const metadata: Metadata = {
-  title: "Compare PDF Online Free - Side-by-Side Visual Diff & Revisions | FileLab",
+  title: "Compare PDF Online Free - Side-by-Side Visual Diff & Revisions | Free Converting Tools",
   description:
-    "Compare two PDF documents side by side to detect revisions, text modifications, and layout differences. 100% private in-browser document audit with zero server uploads.",
+    "Compare two PDF documents side by side to detect revisions, text differences, and layout changes. 100% private in-browser document audit.",
   keywords: [
     "compare pdf",
     "pdf diff online",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "free pdf comparison tool",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/compare-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/compare-pdf",
   },
   openGraph: {
-    title: "Compare PDF Online Free | FileLab",
+    title: "Compare PDF Online Free | Free Converting Tools",
     description:
       "Detect modifications and layout discrepancies between two PDF versions directly inside your web browser.",
-    url: "https://filelab.com/all-tools/pdf/compare-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/compare-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Compare PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/compare-pdf",
+  name: "Free Converting Tools Compare PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/compare-pdf",
   description:
     "Client-side PDF comparison utility. Inspect differences between two document revisions side-by-side or with interactive swipe curtains.",
   applicationCategory: "BusinessApplication",
@@ -53,7 +53,7 @@ const jsonLdFaq = {
       name: "How does the PDF comparison work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab parses both PDF files locally in your browser to inspect page dimensions, structure, content streams, and visual alignments to report page-by-page variances.",
+        text: "Free Converting Tools parses both PDF files locally in your browser to inspect page dimensions, structure, content streams, and visual alignments to report page-by-page variances.",
       },
     },
     {
@@ -189,7 +189,7 @@ export default function ComparePdfPage() {
             <div className="flex flex-col gap-2">
               <h3 className="text-sm font-bold text-on-surface">Can I compare PDFs with different page counts?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                Yes. FileLab handles unequal page counts cleanly, highlighting missing or added pages in the comparative report.
+                Yes. Free Converting Tools handles unequal page counts cleanly, highlighting missing or added pages in the comparative report.
               </p>
             </div>
             <div className="flex flex-col gap-2">

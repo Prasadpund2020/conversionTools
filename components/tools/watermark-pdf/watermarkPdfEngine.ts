@@ -234,7 +234,7 @@ export async function createSampleWatermarkPdf(): Promise<File> {
   // Create 3 demo pages
   for (let i = 1; i <= 3; i++) {
     const page = pdfDoc.addPage([600, 400]);
-    page.drawText(`FileLab Sample Document`, {
+    page.drawText(`Free Converting Tools Sample Document`, {
       x: 50,
       y: 340,
       size: 20,

@@ -40,7 +40,7 @@ export async function generateMetadata({
 
   if (!seo || !catInfo) {
     return {
-      title: "Category Not Found — FileLab",
+      title: "Category Not Found — Free Converting Tools",
     };
   }
 
@@ -50,7 +50,7 @@ export async function generateMetadata({
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${seo.title} — FileLab`,
+      title: `${seo.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/${category}`,
@@ -59,13 +59,13 @@ export async function generateMetadata({
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${seo.title} — FileLab`,
+          alt: `${seo.title} — Free Converting Tools`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${seo.title} — FileLab`,
+      title: `${seo.title} — Free Converting Tools`,
       description: seo.description,
       images: ["/images/all-tools-hero-banner.png"],
     },

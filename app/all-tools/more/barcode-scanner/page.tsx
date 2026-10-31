@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Barcode Scanner & Maker — Free & Private | FileLab",
+      title: "Barcode Scanner & Maker — Free & Private | Free Converting Tools",
       description:
         "Scan barcodes using your camera or generate retail UPC, EAN, and Code128 barcodes online. Fast, clean vector barcode generator in your browser.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/more/barcode-scanner`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -113,7 +113,7 @@ export default function BarcodeScannerPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "More Tools",
@@ -146,7 +146,7 @@ export default function BarcodeScannerPage() {
           About {tool.title}
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-6">
-          FileLab Barcode Scanner & Maker runs entirely within your browser.
+          Free Converting Tools Barcode Scanner & Maker runs entirely within your browser.
           Generate CODE128, EAN-13, UPC-A, ISBN, and CODE39 barcodes with
           customizable styling. Scan barcodes using your camera — all
           processing is local, nothing is uploaded.

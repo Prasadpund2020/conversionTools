@@ -101,7 +101,7 @@ export default function BarcodeScannerTool() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `filelab-barcode-${Date.now()}.svg`;
+    link.download = `tool-barcode-${Date.now()}.svg`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

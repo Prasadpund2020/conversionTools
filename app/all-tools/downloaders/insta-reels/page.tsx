@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Instagram Reels Downloader — Save Reels Video HD & MP3 | FileLab",
+      title: "Instagram Reels Downloader — Save Reels Video HD & MP3 | Free Converting Tools",
       description:
         "Download Instagram Reels, public video posts, and audio tracks in full 1080p HD without watermarks. Free and fast browser tool.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/downloaders/insta-reels`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -89,7 +89,7 @@ export default function InstaReelsPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Instagram Reels Downloader — FileLab",
+    name: "Instagram Reels Downloader — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/downloaders/insta-reels`,
     applicationCategory: "MultimediaApplication",
@@ -118,7 +118,7 @@ export default function InstaReelsPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Downloaders",
@@ -149,7 +149,7 @@ export default function InstaReelsPage() {
           About {tool.title} &amp; High-Definition Media Extraction
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Instagram Reels Downloader provides high-speed, watermark-free downloads of public Instagram Reels, videos, and audio tracks. Enjoy direct access to 1080p video files and crisp 320 kbps MP3 extractions with zero account registration or third-party ads.
+          Free Converting Tools Instagram Reels Downloader provides high-speed, watermark-free downloads of public Instagram Reels, videos, and audio tracks. Enjoy direct access to 1080p video files and crisp 320 kbps MP3 extractions with zero account registration or third-party ads.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

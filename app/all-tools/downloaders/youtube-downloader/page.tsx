@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "YouTube Downloader — Download Verified MP4 Video Online | FileLab",
+      title: "YouTube Downloader — Download Verified MP4 Video Online | Free Converting Tools",
       description:
         "Retrieve official YouTube metadata, high-resolution thumbnails, and download verified MP4 streams. Clean, fast, zero corrupt files, and compliant.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/downloaders/youtube-downloader`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -90,7 +90,7 @@ export default function YouTubeDownloaderPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "YouTube Downloader Studio — FileLab",
+    name: "YouTube Downloader Studio — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/downloaders/youtube-downloader`,
     applicationCategory: "MultimediaApplication",
@@ -123,7 +123,7 @@ export default function YouTubeDownloaderPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Downloaders",
@@ -156,7 +156,7 @@ export default function YouTubeDownloaderPage() {
           About {tool.title} &amp; Official Stream Dispatch
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab YouTube Downloader provides verified metadata retrieval via official YouTube APIs and validated MP4 stream downloads. Enjoy genuine downloads with strict container verification, zero dummy placeholders, and full platform compliance.
+          Free Converting Tools YouTube Downloader provides verified metadata retrieval via official YouTube APIs and validated MP4 stream downloads. Enjoy genuine downloads with strict container verification, zero dummy placeholders, and full platform compliance.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

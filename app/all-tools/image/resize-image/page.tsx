@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Resize Image Online — Scale Dimensions & Aspect Ratio Free | FileLab",
+      title: "Resize Image Online — Scale Dimensions & Aspect Ratio Free | Free Converting Tools",
       description:
         "Resize JPG, PNG, and WebP image dimensions online for free. Scale by pixels or percentage with aspect ratio lock. 100% in-browser processing.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/resize-image`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -146,7 +146,7 @@ export default function ResizeImagePage() {
         name: "Does resizing an image reduce its visual quality?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "When scaling down, FileLab uses high-quality multi-step bilinear interpolation to preserve sharp edges and text contrast without pixelation. When scaling up, vector interpolation ensures clean smoothing.",
+          text: "When scaling down, Free Converting Tools uses high-quality multi-step bilinear interpolation to preserve sharp edges and text contrast without pixelation. When scaling up, vector interpolation ensures clean smoothing.",
         },
       },
       {
@@ -162,7 +162,7 @@ export default function ResizeImagePage() {
         name: "Are my photos uploaded to any external server?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. FileLab processes all resizing operations 100% inside your browser's private memory. Your images never leave your computer or phone.",
+          text: "No. Free Converting Tools processes all resizing operations 100% inside your browser's private memory. Your images never leave your computer or phone.",
         },
       },
     ],
@@ -221,7 +221,7 @@ export default function ResizeImagePage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -254,7 +254,7 @@ export default function ResizeImagePage() {
           About {tool.title} &amp; High-Fidelity Client-Side Scaling
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Image Resizer provides professional pixel-scaling and aspect ratio formatting directly in browser memory. Whether resizing banner photos for social media feeds or shrinking high-resolution camera photography for responsive mobile web pages, our engine performs multi-pass interpolation with zero loss in color gamut and zero server uploads.
+          Free Converting Tools Image Resizer provides professional pixel-scaling and aspect ratio formatting directly in browser memory. Whether resizing banner photos for social media feeds or shrinking high-resolution camera photography for responsive mobile web pages, our engine performs multi-pass interpolation with zero loss in color gamut and zero server uploads.
         </p>
 
         {/* Feature Highlights Grid */}

@@ -86,7 +86,7 @@ export default function ConvertWebpTool() {
       const url = URL.createObjectURL(zipBlob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `filelab-webp-bundle-${Date.now()}.zip`;
+      link.download = `tool-webp-bundle-${Date.now()}.zip`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

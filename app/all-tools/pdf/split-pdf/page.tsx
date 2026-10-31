@@ -4,7 +4,7 @@ import Script from "next/script";
 import { SplitPdfTool } from "@/components/tools/split-pdf/SplitPdfTool";
 
 export const metadata: Metadata = {
-  title: "Split PDF Online Free - Extract Pages & Ranges to Separate Files | FileLab",
+  title: "Split PDF Online Free - Extract Pages & Ranges to Separate Files | Free Converting Tools",
   description:
     "Split a PDF into separate files instantly in your browser. Extract individual pages, split by custom page ranges, or combine selected pages with zero uploads.",
   keywords: [
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "client-side pdf splitter",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/split-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/split-pdf",
   },
   openGraph: {
-    title: "Split PDF Online Free | FileLab",
+    title: "Split PDF Online Free | Free Converting Tools",
     description:
       "Separate PDF pages or extract custom ranges directly in your web browser with zero file uploads.",
-    url: "https://filelab.com/all-tools/pdf/split-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/split-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Split PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/split-pdf",
+  name: "Free Converting Tools Split PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/split-pdf",
   description:
     "Client-side PDF page splitter. Extract all pages into single files or divide documents by custom ranges with ZIP bundle download.",
   applicationCategory: "BusinessApplication",
@@ -50,10 +50,10 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does FileLab split PDF files without uploading them?",
+      name: "How does Free Converting Tools split PDF files without uploading them?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab executes page division directly in your browser using the pdf-lib WebAssembly library. The PDF bytes are read into local memory and new PDFs are synthesized on your device.",
+        text: "Free Converting Tools executes page division directly in your browser using the pdf-lib WebAssembly library. The PDF bytes are read into local memory and new PDFs are synthesized on your device.",
       },
     },
     {
@@ -61,7 +61,7 @@ const jsonLdFaq = {
       name: "Can I split a PDF into both individual files and a ZIP archive?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. When extracting multiple pages or ranges, FileLab generates both individual download links and a combined ZIP archive for one-click downloading.",
+        text: "Yes. When extracting multiple pages or ranges, Free Converting Tools generates both individual download links and a combined ZIP archive for one-click downloading.",
       },
     },
     {
@@ -157,7 +157,7 @@ export default function SplitPdfPage() {
             </div>
             <h3 className="text-lg font-bold text-on-surface">Flexible Range Splitting</h3>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              Define arbitrary page ranges like <code>1-3, 4-6, 10</code>. FileLab extracts every range into its own dedicated PDF document cleanly.
+              Define arbitrary page ranges like <code>1-3, 4-6, 10</code>. Free Converting Tools extracts every range into its own dedicated PDF document cleanly.
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function SplitPdfPage() {
             </div>
             <h3 className="text-lg font-bold text-on-surface">Automatic ZIP Bundling</h3>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              When splitting documents into dozens of individual pages, avoid downloading files one by one. FileLab generates a single ZIP bundle in memory.
+              When splitting documents into dozens of individual pages, avoid downloading files one by one. Free Converting Tools generates a single ZIP bundle in memory.
             </p>
           </div>
 

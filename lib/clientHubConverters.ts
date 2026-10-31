@@ -279,7 +279,7 @@ export async function pdfToWordClient(file: File): Promise<ConversionOutput> {
   </style>
 </head>
 <body>
-  <div class="meta-tag">Converted with FileLab In-Browser PDF to Word Engine • Original file: ${file.name}</div>
+  <div class="meta-tag">Converted with Free Converting Tools In-Browser PDF to Word Engine • Original file: ${file.name}</div>
   <h1>${baseName}</h1>
   <p>This document was converted client-side from your PDF file. The layout and paragraphs have been preserved for editing in Microsoft Word, Google Docs, or LibreOffice.</p>
 </body>
@@ -320,7 +320,7 @@ export async function pdfToJpgClient(file: File): Promise<ConversionOutput> {
 
     ctx.fillStyle = "#64748b";
     ctx.font = "20px sans-serif";
-    ctx.fillText("High-Resolution Page Render (FileLab Client-Side Engine)", 80, 160);
+    ctx.fillText("High-Resolution Page Render (Free Converting Tools Client-Side Engine)", 80, 160);
 
     // Decorative document line
     ctx.strokeStyle = "#e2e8f0";

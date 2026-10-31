@@ -49,7 +49,7 @@ export default function SettingsModal({
               />
             </svg>
             <h3 className="font-bold text-sm text-slate-800">
-              FileLab Settings & Privacy
+              Free Converting Tools Settings & Privacy
             </h3>
           </div>
           <button
@@ -114,7 +114,7 @@ export default function SettingsModal({
           </div>
 
           <div className="p-3 bg-amber-50 rounded-xl border border-amber-200/60 text-[11px] text-amber-900 leading-relaxed">
-            <span className="font-bold">Privacy Guarantee:</span> FileLab uses
+            <span className="font-bold">Privacy Guarantee:</span> Free Converting Tools uses
             WebAssembly and pure HTML5 APIs to convert and compress your documents
             locally. No analytics trackers or file storage servers are involved.
           </div>

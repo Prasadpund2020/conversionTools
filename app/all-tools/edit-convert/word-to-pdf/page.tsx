@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Word to PDF Converter Online Free — Fast & Private | FileLab",
+      title: "Word to PDF Converter Online Free — Fast & Private | Free Converting Tools",
       description:
         "Convert Microsoft Word DOCX and DOC files to high-quality PDF documents online. 100% private in-browser conversion with zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/word-to-pdf`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -142,10 +142,10 @@ export default function WordToPdfPage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "How does FileLab convert Word to PDF without uploading?",
+        name: "How does Free Converting Tools convert Word to PDF without uploading?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FileLab parses the internal XML structure of DOCX files and typesets pages directly into PDF vector format inside your browser's Web Worker sandbox. Your private files never leave your device.",
+          text: "Free Converting Tools parses the internal XML structure of DOCX files and typesets pages directly into PDF vector format inside your browser's Web Worker sandbox. Your private files never leave your device.",
         },
       },
       {
@@ -209,7 +209,7 @@ export default function WordToPdfPage() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[
-          { label: "FileLab Studio", href: "/" },
+          { label: "Home", href: "/" },
           { label: "All Tools", href: "/all-tools" },
           {
             label: catInfo ? catInfo.name : "Edit & Convert",
@@ -231,7 +231,7 @@ export default function WordToPdfPage() {
         </h2>
         <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
           Unlike ordinary cloud conversion websites that upload your sensitive business reports, contracts, and resumes to external servers,
-          FileLab processes Word documents (.docx, .doc) 100% locally inside your web browser. Utilizing fast XML DOM parsing and
+          Free Converting Tools processes Word documents (.docx, .doc) 100% locally inside your web browser. Utilizing fast XML DOM parsing and
           in-browser PDF vector generation, your documents are rendered with high fidelity while ensuring complete confidentiality.
         </p>
 

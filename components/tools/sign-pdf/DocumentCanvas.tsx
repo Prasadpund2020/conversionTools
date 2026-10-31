@@ -265,7 +265,7 @@ export default function DocumentCanvas({
                 <strong className="text-stone-900 font-bold">
                   7.4 Entirety of Understanding.
                 </strong>{" "}
-                This Instrument supersedes all prior covenants, representations, and communications between Executive and FileLab Corporation regarding compensation, incentive equity units, and IP assignment schedules.
+                This Instrument supersedes all prior covenants, representations, and communications between Executive and Free Converting Tools regarding compensation, incentive equity units, and IP assignment schedules.
               </p>
               <p>
                 <strong className="text-stone-900 font-bold">
@@ -290,7 +290,7 @@ export default function DocumentCanvas({
                     Company Signatory
                   </span>
                   <p className="text-xs font-bold text-stone-900">
-                    FileLab Systems, Inc.
+                    Free Converting Tools
                   </p>
                   <div className="h-16 flex items-center">
                     <svg className="w-36 h-12 text-blue-700" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 160 50">

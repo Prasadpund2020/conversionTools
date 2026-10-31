@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Disclaimer",
   description:
-    "Important limitations and responsible-use guidance for Free Converting Tools.",
+    "Read our official disclaimer regarding client-side processing, tool reliability, acceptable use policies, and format conversion limitations.",
   alternates: { canonical: "/disclaimer" },
 };
 

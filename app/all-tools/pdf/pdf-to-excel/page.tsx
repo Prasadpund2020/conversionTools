@@ -4,9 +4,9 @@ import Script from "next/script";
 import { PdfToExcelTool } from "@/components/tools/pdf-to-excel/PdfToExcelTool";
 
 export const metadata: Metadata = {
-  title: "PDF to Excel Converter Free Online - Extract Tables to XLSX | FileLab",
+  title: "PDF to Excel Converter Free Online - Extract Tables to XLSX | Free Converting Tools",
   description:
-    "Convert PDF tables to editable Microsoft Excel (.xlsx) and CSV spreadsheets online for free. Auto column alignment and in-memory OpenXML synthesis with zero file uploads.",
+    "Convert PDF tables to editable Excel (.xlsx) and CSV spreadsheets online for free. Auto column alignment and OpenXML synthesis with zero uploads.",
   keywords: [
     "pdf to excel",
     "convert pdf to xlsx",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "client-side pdf to excel",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/pdf-to-excel",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-excel",
   },
   openGraph: {
-    title: "PDF to Excel Converter Free Online | FileLab",
+    title: "PDF to Excel Converter Free Online | Free Converting Tools",
     description:
       "Extract financial tables, numbers, and structured columns from PDF documents directly into clean Excel spreadsheets.",
-    url: "https://filelab.com/all-tools/pdf/pdf-to-excel",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-excel",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab PDF to Excel Tool",
-  url: "https://filelab.com/all-tools/pdf/pdf-to-excel",
+  name: "Free Converting Tools PDF to Excel Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-excel",
   description:
     "Client-side PDF table extraction utility. Converts PDF tables and numbers into Microsoft Excel XLSX and CSV formats.",
   applicationCategory: "BusinessApplication",
@@ -50,10 +50,10 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does FileLab extract tables from PDF files?",
+      name: "How does Free Converting Tools extract tables from PDF files?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "FileLab analyzes the coordinate transforms of text objects on each PDF page to cluster them into rows and aligned columns, synthesizing native OpenXML .xlsx spreadsheets entirely in your browser.",
+        text: "Free Converting Tools analyzes the coordinate transforms of text objects on each PDF page to cluster them into rows and aligned columns, synthesizing native OpenXML .xlsx spreadsheets entirely in your browser.",
       },
     },
     {
@@ -83,7 +83,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Upload PDF",
-      text: "Select or drop your PDF containing tabular data into the FileLab workspace.",
+      text: "Select or drop your PDF containing tabular data into the Free Converting Tools workspace.",
     },
     {
       "@type": "HowToStep",
@@ -189,7 +189,7 @@ export default function PdfToExcelPage() {
             <div className="flex flex-col gap-2">
               <h3 className="text-sm font-bold text-on-surface">Will formulas be preserved?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                PDF documents store computed values rather than raw formulas. FileLab extracts the exact values and tabular relationships into structured spreadsheet cells.
+                PDF documents store computed values rather than raw formulas. Free Converting Tools extracts the exact values and tabular relationships into structured spreadsheet cells.
               </p>
             </div>
             <div className="flex flex-col gap-2">

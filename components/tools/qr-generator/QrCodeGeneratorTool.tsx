@@ -79,7 +79,7 @@ export default function QrCodeGeneratorTool() {
     if (options.format === "png" && qrDataUrl) {
       const link = document.createElement("a");
       link.href = qrDataUrl;
-      link.download = `filelab-qr-code-${Date.now()}.png`;
+      link.download = `tool-qr-code-${Date.now()}.png`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -88,7 +88,7 @@ export default function QrCodeGeneratorTool() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `filelab-qr-code-${Date.now()}.svg`;
+      link.download = `tool-qr-code-${Date.now()}.svg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

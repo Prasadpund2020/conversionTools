@@ -64,7 +64,7 @@ export default function JpgToPngTool() {
       const url = URL.createObjectURL(zipBlob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `filelab-png-bundle-${Date.now()}.zip`;
+      link.download = `tool-png-bundle-${Date.now()}.zip`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

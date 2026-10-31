@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "TikTok Saver No Watermark — Download HD Video & MP3 Audio | FileLab",
+      title: "TikTok Saver No Watermark — Download HD Video & MP3 Audio | Free Converting Tools",
       description:
         "Save high quality TikTok videos without platform watermarks. Extract viral audio tracks and cover posters in 1080p MP4. Free & fast.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/downloaders/tiktok-saver`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -89,7 +89,7 @@ export default function TikTokSaverPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "TikTok Saver No Watermark — FileLab",
+    name: "TikTok Saver No Watermark — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/downloaders/tiktok-saver`,
     applicationCategory: "MultimediaApplication",
@@ -118,7 +118,7 @@ export default function TikTokSaverPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Downloaders",
@@ -149,7 +149,7 @@ export default function TikTokSaverPage() {
           About {tool.title} &amp; Clean Video Extraction
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab TikTok Saver allows you to extract full high-definition TikTok videos without the distracting bouncing logo watermark. Convert choreography clips, food recipes, educational tutorials, and viral sound tracks directly to MP4 and MP3 with fast, private client-side dispatch.
+          Free Converting Tools TikTok Saver allows you to extract full high-definition TikTok videos without the distracting bouncing logo watermark. Convert choreography clips, food recipes, educational tutorials, and viral sound tracks directly to MP4 and MP3 with fast, private client-side dispatch.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

@@ -104,7 +104,7 @@ export async function generateSampleVideo(): Promise<VideoMeta> {
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 22px 'Plus Jakarta Sans', sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("FileLab High-Speed Video Trim Demo", canvas.width / 2, canvas.height / 2 + 60);
+    ctx.fillText("Free Converting Tools High-Speed Video Trim Demo", canvas.width / 2, canvas.height / 2 + 60);
 
     // Dynamic Timer
     ctx.font = "16px monospace";

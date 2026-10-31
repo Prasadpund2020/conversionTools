@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Markdown to PDF Converter — Free Client-Side MD to PDF | FileLab",
+      title: "Markdown to PDF Converter — Free Client-Side MD to PDF | Free Converting Tools",
       description:
         "Convert Markdown (.md) documents and notes into clean, professionally formatted PDF files directly in your browser. 100% private with no server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/edit-convert/markdown-to-pdf`,
@@ -44,13 +44,13 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: "Markdown to PDF Converter — FileLab",
+          alt: "Markdown to PDF Converter — Free Converting Tools",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       images: ["/images/all-tools-hero-banner.png"],
     },
@@ -118,10 +118,10 @@ export default async function MarkdownToPdfPage() {
         <div className="mt-16 max-w-4xl mx-auto space-y-12">
           <section className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-              Why Convert Markdown to PDF in FileLab?
+              Why Convert Markdown to PDF in Free Converting Tools?
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-              Markdown is the standard format for developer documentation, READMEs, technical specifications, and personal note-taking in apps like Obsidian and Notion. FileLab allows you to transform raw markdown files or text snippets into formatted, paginated PDF documents with headers, footers, code blocks, and customizable font scaling — all directly in your browser without uploading your notes to any remote servers.
+              Markdown is the standard format for developer documentation, READMEs, technical specifications, and personal note-taking in apps like Obsidian and Notion. Free Converting Tools allows you to transform raw markdown files or text snippets into formatted, paginated PDF documents with headers, footers, code blocks, and customizable font scaling — all directly in your browser without uploading your notes to any remote servers.
             </p>
           </section>
 

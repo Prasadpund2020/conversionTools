@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { UnlockPdfTool } from '@/components/tools/unlock-pdf/UnlockPdfTool';
 
 export const metadata: Metadata = {
-  title: 'Unlock PDF - Remove Password & Restrictions Online | Tools Arena',
+  title: 'Unlock PDF - Remove Password & Restrictions Online | Free Converting Tools',
   description:
-    'Permanently remove passwords, encryption, and printing/copying restrictions from your PDF files. Fast, private client-side PDF decryption directly in your browser.',
+    'Remove passwords, encryption, and printing restrictions from PDF files. Fast, private client-side PDF decryption directly in your browser.',
   keywords: [
     'unlock pdf',
     'remove pdf password',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'free pdf unlocker',
   ],
   openGraph: {
-    title: 'Unlock PDF - Remove Password & Restrictions Online | Tools Arena',
+    title: 'Unlock PDF - Remove Password & Restrictions Online | Free Converting Tools',
     description:
       'Unlock password-protected PDFs and permanently remove print, copy, and edit locks with 100% in-browser privacy.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function UnlockPdfPage() {
       {
         '@type': 'WebApplication',
         name: 'Unlock PDF Tool',
-        url: 'https://toolsarena.io/all-tools/pdf/unlock-pdf',
+        url: 'https://freeconvertingtools.co.in/all-tools/pdf/unlock-pdf',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function UnlockPdfPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'PDF Tools',
-            item: 'https://toolsarena.io/all-tools#pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools#pdf',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Unlock PDF',
-            item: 'https://toolsarena.io/all-tools/pdf/unlock-pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools/pdf/unlock-pdf',
           },
         ],
       },

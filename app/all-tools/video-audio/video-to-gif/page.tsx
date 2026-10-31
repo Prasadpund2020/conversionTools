@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { VideoToGifTool } from '@/components/tools/video-to-gif/VideoToGifTool';
 
 export const metadata: Metadata = {
-  title: 'Video to GIF Converter - Free Online Animated GIF Maker | Tools Arena',
+  title: 'Video to GIF Converter - Free Online Animated GIF Maker | Free Converting Tools',
   description:
-    'Convert MP4, WebM, MOV videos into animated GIFs directly in your browser. Trim clips, choose frame rate (FPS), adjust resolution, and download high-quality GIFs without watermarks.',
+    'Convert MP4, WebM, and MOV videos into animated GIFs in your browser. Trim clips, adjust frame rate (FPS) and resolution, with zero watermarks.',
   keywords: [
     'video to gif',
     'gif maker',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'trim video to gif',
   ],
   openGraph: {
-    title: 'Video to GIF Converter - Free Online Animated GIF Maker | Tools Arena',
+    title: 'Video to GIF Converter - Free Online Animated GIF Maker | Free Converting Tools',
     description:
       'Turn video clips into silky smooth animated GIFs in seconds. 100% client-side privacy, customizable FPS and dimensions.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function VideoToGifPage() {
       {
         '@type': 'WebApplication',
         name: 'Video to GIF Converter',
-        url: 'https://toolsarena.io/all-tools/video-audio/video-to-gif',
+        url: 'https://freeconvertingtools.co.in/all-tools/video-audio/video-to-gif',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function VideoToGifPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Video & Audio',
-            item: 'https://toolsarena.io/all-tools#video-audio',
+            item: 'https://freeconvertingtools.co.in/all-tools#video-audio',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Video to GIF',
-            item: 'https://toolsarena.io/all-tools/video-audio/video-to-gif',
+            item: 'https://freeconvertingtools.co.in/all-tools/video-audio/video-to-gif',
           },
         ],
       },

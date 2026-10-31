@@ -195,7 +195,7 @@ function createPageCanvas(pageNumber: number): string {
     ctx.fillStyle = "#1e1b1a";
     ctx.font = "bold 16px sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("FILELAB STUDIO EDITIONS", w / 2, h * 0.72);
+    ctx.fillText("FREE CONVERTING TOOLS STUDIO EDITIONS", w / 2, h * 0.72);
     ctx.font = "12px sans-serif";
     ctx.fillStyle = "#6e7881";
     ctx.fillText("ISBN 978-0-241-52904-8", w / 2, h * 0.77);
@@ -227,7 +227,7 @@ function createPageCanvas(pageNumber: number): string {
 
     ctx.fillStyle = "#8a949e";
     ctx.font = "11px sans-serif";
-    ctx.fillText("FileLab High-Fidelity Client Demux 2025", w / 2, h * 0.88);
+    ctx.fillText("Free Converting Tools High-Fidelity Client Demux 2025", w / 2, h * 0.88);
   }
 
   return canvas.toDataURL("image/jpeg", 0.9);

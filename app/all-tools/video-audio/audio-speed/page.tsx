@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { AudioSpeedTool } from '@/components/tools/audio-speed/AudioSpeedTool';
 
 export const metadata: Metadata = {
-  title: 'Audio Speed & Tempo Changer - Free Online Audio Tool | Tools Arena',
+  title: 'Audio Speed & Tempo Changer - Free Online Audio Tool | Free Converting Tools',
   description:
-    'Change the speed and tempo of MP3, WAV, AAC, and FLAC audio files without loss of quality. Speed up podcasts or slow down music recordings directly in your browser.',
+    'Change the speed and tempo of MP3, WAV, AAC, and FLAC audio files. Speed up podcasts or slow down music recordings directly in your browser safely.',
   keywords: [
     'audio speed changer',
     'change audio tempo online',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'free audio speed modifier',
   ],
   openGraph: {
-    title: 'Audio Speed & Tempo Changer - Free Online Audio Tool | Tools Arena',
+    title: 'Audio Speed & Tempo Changer - Free Online Audio Tool | Free Converting Tools',
     description:
       'Modify the playback speed of songs, podcasts, and voice notes from 0.25x to 3.0x. Export crystal-clear 16-bit WAV with zero cloud uploads.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function AudioSpeedPage() {
       {
         '@type': 'WebApplication',
         name: 'Audio Speed & Tempo Changer',
-        url: 'https://toolsarena.io/all-tools/video-audio/audio-speed',
+        url: 'https://freeconvertingtools.co.in/all-tools/video-audio/audio-speed',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function AudioSpeedPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Video & Audio',
-            item: 'https://toolsarena.io/all-tools#video-audio',
+            item: 'https://freeconvertingtools.co.in/all-tools#video-audio',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Audio Speed Changer',
-            item: 'https://toolsarena.io/all-tools/video-audio/audio-speed',
+            item: 'https://freeconvertingtools.co.in/all-tools/video-audio/audio-speed',
           },
         ],
       },

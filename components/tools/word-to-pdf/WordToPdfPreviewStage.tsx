@@ -98,7 +98,7 @@ export default function WordToPdfPreviewStage({
             {options.includeHeader && (
               <div className="flex items-center justify-between pb-3 mb-6 border-b border-stone-200 text-[10px] text-stone-400 font-medium">
                 <span>{options.documentTitle || meta.title}</span>
-                <span>FileLab Client Engine</span>
+                <span>Free Converting Tools Client Engine</span>
               </div>
             )}
 

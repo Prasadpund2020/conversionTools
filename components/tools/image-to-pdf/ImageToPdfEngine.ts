@@ -136,8 +136,8 @@ export async function convertImagesToPdf(
 
   const pdfDoc = await PDFDocument.create();
   pdfDoc.setTitle("Converted Images");
-  pdfDoc.setCreator("FileLab Studio Image to PDF");
-  pdfDoc.setProducer("FileLab Client Engine (WASM / pdf-lib)");
+  pdfDoc.setCreator("Free Converting Tools Studio Image to PDF");
+  pdfDoc.setProducer("Free Converting Tools Client Engine (WASM / pdf-lib)");
 
   const marginPt = MARGIN_SIZES[settings.margin];
 

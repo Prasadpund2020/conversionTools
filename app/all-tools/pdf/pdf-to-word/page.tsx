@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "PDF to Word Converter — Free & Private | FileLab",
+      title: "PDF to Word Converter — Free & Private | Free Converting Tools",
       description:
         "Convert PDF files to editable Word documents. Preserves text, paragraphs, and basic formatting. 100% client-side, zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/pdf-to-word`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -119,7 +119,7 @@ export default function PdfToWordPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "PDF Tools",
@@ -154,7 +154,7 @@ export default function PdfToWordPage() {
           About {tool.title}
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab PDF to Word runs entirely within your browser using the
+          Free Converting Tools PDF to Word runs entirely within your browser using the
           PDF.js rendering engine. Text is extracted page-by-page and assembled
           into a proper Word document (Open XML format) or RTF, preserving
           paragraph structure and line breaks. Your file is never uploaded to

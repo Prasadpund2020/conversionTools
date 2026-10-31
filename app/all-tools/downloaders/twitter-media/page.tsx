@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Twitter / X Video Downloader — Save X Videos & GIFs in 1080p MP4 | FileLab",
+      title: "Twitter / X Video Downloader — Save X Videos & GIFs in 1080p MP4 | Free Converting Tools",
       description:
         "Download videos and animated GIFs from Twitter / X in 1080p, 720p HD MP4 format. Free online browser downloader with zero ads.",
     };
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/downloaders/twitter-media`,
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -89,7 +89,7 @@ export default function TwitterMediaPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Twitter / X Video Downloader — FileLab",
+    name: "Twitter / X Video Downloader — Free Converting Tools",
     description: tool.description,
     url: `${SITE_URL}/all-tools/downloaders/twitter-media`,
     applicationCategory: "MultimediaApplication",
@@ -118,7 +118,7 @@ export default function TwitterMediaPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Downloaders",
@@ -149,7 +149,7 @@ export default function TwitterMediaPage() {
           About {tool.title} &amp; Social Video Preservation
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab Twitter / X Video Downloader extracts full resolution MP4 video streams, high-framerate clips, and looping GIFs directly from public post URLs. Save viral memes, breaking news footage, and keynote speeches directly into your personal media library with complete privacy.
+          Free Converting Tools Twitter / X Video Downloader extracts full resolution MP4 video streams, high-framerate clips, and looping GIFs directly from public post URLs. Save viral memes, breaking news footage, and keynote speeches directly into your personal media library with complete privacy.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

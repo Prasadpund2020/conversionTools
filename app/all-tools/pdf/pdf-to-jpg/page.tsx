@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "PDF to JPG Converter — Convert PDF Pages to Images | FileLab",
+      title: "PDF to JPG Converter — Convert PDF Pages to Images | Free Converting Tools",
       description:
         "Convert PDF pages to high-resolution JPG, PNG, and WebP images. 100% in-browser WebAssembly rasterization with zero server uploads.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/pdf/pdf-to-jpg`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -120,7 +120,7 @@ export default function PdfToJpgPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "PDF Tools",
@@ -153,7 +153,7 @@ export default function PdfToJpgPage() {
           About {tool.title} &amp; High-DPI Vector Rasterization
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab PDF to JPG converts vector PDF pages into high-density raster graphics entirely within
+          Free Converting Tools PDF to JPG converts vector PDF pages into high-density raster graphics entirely within
           your browser using PDF.js WebAssembly and the HTML5 2D Canvas pipeline. Whether converting full multi-page
           catalogs, contracts, or presentation decks, every pixel is decoded in local memory with zero server uploads.
         </p>

@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import { ImageUpscalerTool } from '@/components/tools/image-upscaler/ImageUpscalerTool';
 
 export const metadata: Metadata = {
-  title: 'AI Image Upscaler - Enlarge Images 2x & 4x Free Online | Tools Arena',
+  title: 'AI Image Upscaler - Enlarge Images 2x & 4x Free Online | Free Converting Tools',
   description:
-    'Upscale low-resolution images 2x or 4x without jagged pixel artifacts. High-quality bicubic smoothing, unsharp mask edge enhancement, and pixel-art modes directly in your browser with zero server uploads.',
+    'Upscale images 2x or 4x without pixel artifacts. Features bicubic smoothing, unsharp edge mask enhancement, and instant client-side export.',
   keywords: [
     'image upscaler',
     'enlarge image online',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'pixel art upscaler',
   ],
   openGraph: {
-    title: 'AI Image Upscaler - Enlarge Images 2x & 4x Free Online | Tools Arena',
+    title: 'AI Image Upscaler - Enlarge Images 2x & 4x Free Online | Free Converting Tools',
     description:
       'Double or quadruple image resolution in seconds with clean edge enhancement and complete privacy. 100% in-browser processing.',
     type: 'website',
@@ -29,7 +29,7 @@ export default function ImageUpscalerPage() {
       {
         '@type': 'WebApplication',
         name: 'AI Image Upscaler',
-        url: 'https://toolsarena.io/all-tools/image/image-upscaler',
+        url: 'https://freeconvertingtools.co.in/all-tools/image/image-upscaler',
         applicationCategory: 'MultimediaApplication',
         operatingSystem: 'All',
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -48,25 +48,25 @@ export default function ImageUpscalerPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://toolsarena.io',
+            item: 'https://freeconvertingtools.co.in',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'All Tools',
-            item: 'https://toolsarena.io/all-tools',
+            item: 'https://freeconvertingtools.co.in/all-tools',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Image Tools',
-            item: 'https://toolsarena.io/all-tools#image',
+            item: 'https://freeconvertingtools.co.in/all-tools#image',
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: 'Image Upscaler',
-            item: 'https://toolsarena.io/all-tools/image/image-upscaler',
+            item: 'https://freeconvertingtools.co.in/all-tools/image/image-upscaler',
           },
         ],
       },

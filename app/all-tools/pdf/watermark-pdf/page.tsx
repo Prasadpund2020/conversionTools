@@ -4,9 +4,9 @@ import Script from "next/script";
 import { WatermarkPdfTool } from "@/components/tools/watermark-pdf/WatermarkPdfTool";
 
 export const metadata: Metadata = {
-  title: "Watermark PDF Online Free - Add Text & Image Stamps | FileLab",
+  title: "Watermark PDF Online Free - Add Text & Image Stamps | Free Converting Tools",
   description:
-    "Add custom text or image watermarks to your PDF pages in seconds. Choose typography, opacity, rotation angle, 3x3 placement grid, and repeated tiled stamps with zero server uploads.",
+    "Add custom text or image watermarks to PDF pages in seconds. Customize font, opacity, rotation, 3x3 placement grid, and tiled stamps with zero uploads.",
   keywords: [
     "watermark pdf",
     "add watermark to pdf",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     "client-side pdf watermark",
   ],
   alternates: {
-    canonical: "https://filelab.com/all-tools/pdf/watermark-pdf",
+    canonical: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
   },
   openGraph: {
-    title: "Watermark PDF Online Free | FileLab",
+    title: "Watermark PDF Online Free | Free Converting Tools",
     description:
       "Stamp PDFs with custom confidential watermarks, corporate logos, and diagonal copyright notices 100% in your browser.",
-    url: "https://filelab.com/all-tools/pdf/watermark-pdf",
-    siteName: "FileLab",
+    url: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
+    siteName: "Free Converting Tools",
     type: "website",
   },
 };
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 const jsonLdWebapp = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "FileLab Watermark PDF Tool",
-  url: "https://filelab.com/all-tools/pdf/watermark-pdf",
+  name: "Free Converting Tools Watermark PDF Tool",
+  url: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
   description:
     "In-browser PDF watermarking suite. Stamp documents with custom typography, opacity, orientation, and logos without server uploads.",
   applicationCategory: "BusinessApplication",
@@ -54,7 +54,7 @@ const jsonLdFaq = {
       name: "Are my confidential PDF documents uploaded to a remote server?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. FileLab processes all PDF stamping directly inside your web browser via WebAssembly and pdf-lib. Your confidential records never leave your local machine.",
+        text: "No. Free Converting Tools processes all PDF stamping directly inside your web browser via WebAssembly and pdf-lib. Your confidential records never leave your local machine.",
       },
     },
     {
@@ -84,7 +84,7 @@ const jsonLdHowTo = {
     {
       "@type": "HowToStep",
       name: "Upload or Drop PDF",
-      text: "Select or drop your PDF document into the FileLab Watermark workspace.",
+      text: "Select or drop your PDF document into the Free Converting Tools Watermark workspace.",
     },
     {
       "@type": "HowToStep",
@@ -194,7 +194,7 @@ export default function WatermarkPdfPage() {
             <div className="flex flex-col gap-2">
               <h3 className="text-sm font-bold text-on-surface">Will watermarking reduce the text sharpness of my original PDF?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                No. FileLab injects native PDF text and vector objects directly into the existing PDF structure without rasterizing the underlying pages, maintaining crisp 300+ DPI print quality.
+                No. Free Converting Tools injects native PDF text and vector objects directly into the existing PDF structure without rasterizing the underlying pages, maintaining crisp 300+ DPI print quality.
               </p>
             </div>
             <div className="flex flex-col gap-2">

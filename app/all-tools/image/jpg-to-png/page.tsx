@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "JPG to PNG Converter — Free & Lossless | FileLab",
+      title: "JPG to PNG Converter — Free & Lossless | Free Converting Tools",
       description:
         "Convert JPG and JPEG photos to lossless transparent PNG format online for free. Batch conversion with instant ZIP download. 100% in-browser processing.",
     };
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {
-      title: `${tool.title} — FileLab`,
+      title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
       url: `/all-tools/image/jpg-to-png`,
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/images/all-tools-hero-banner.png",
           width: 1200,
           height: 630,
-          alt: `${tool.title} — FileLab`,
+          alt: `${tool.title} — Free Converting Tools`,
         },
       ],
     },
@@ -161,7 +161,7 @@ export default function JpgToPngPage() {
         name: "Are my photos uploaded to any server during conversion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. FileLab processes all image conversions 100% inside your browser's local memory. Your files never leave your computer or phone.",
+          text: "No. Free Converting Tools processes all image conversions 100% inside your browser's local memory. Your files never leave your computer or phone.",
         },
       },
     ],
@@ -185,7 +185,7 @@ export default function JpgToPngPage() {
         "@type": "HowToStep",
         position: 2,
         name: "Automatic in-browser transcoding",
-        text: "FileLab decodes the JPEG streams and renders clean, uncompressed PNG rasters in local memory.",
+        text: "Free Converting Tools decodes the JPEG streams and renders clean, uncompressed PNG rasters in local memory.",
       },
       {
         "@type": "HowToStep",
@@ -220,7 +220,7 @@ export default function JpgToPngPage() {
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: "FileLab Studio", href: "/" },
+            { label: "Home", href: "/" },
             { label: "All Tools", href: "/all-tools" },
             {
               label: catInfo ? catInfo.name : "Image Tools",
@@ -253,7 +253,7 @@ export default function JpgToPngPage() {
           About {tool.title} &amp; Lossless Raster Packaging
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          FileLab JPG to PNG Converter transposes lossy JPEG files into Portable Network Graphics (PNG) standard containers. Unlike online converters that queue your personal photos on third-party cloud machines, our engine decodes and re-encodes rasters purely in your device&apos;s browser sandbox, protecting confidential documents, receipts, and personal photography.
+          Free Converting Tools JPG to PNG Converter transposes lossy JPEG files into Portable Network Graphics (PNG) standard containers. Unlike online converters that queue your personal photos on third-party cloud machines, our engine decodes and re-encodes rasters purely in your device&apos;s browser sandbox, protecting confidential documents, receipts, and personal photography.
         </p>
 
         {/* Feature Highlights Grid */}

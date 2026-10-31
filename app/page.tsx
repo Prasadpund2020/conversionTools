@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Free Online File Conversion, Compression & Download Tools",
   description:
-    "Free online file tools for PDF, image, audio, video, and format conversion. Many tools process files in your browser; review each tool page for its processing method and supported formats.",
+  "Free online file tools for PDF, image, audio, video, and format conversion. Fast, secure, and private in-browser utilities with zero server uploads.",
   keywords: [
     "free online tools",
     "pdf to word converter",
