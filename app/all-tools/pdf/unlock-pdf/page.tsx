@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { UnlockPdfTool } from '@/components/tools/unlock-pdf/UnlockPdfTool';
 
 export const metadata: Metadata = {
-  title: 'Unlock PDF - Remove Password & Restrictions Online | Free Converting Tools',
+  title: 'Unlock PDF - Remove Password & Restrictions Online',
   description:
     'Remove passwords, encryption, and printing restrictions from PDF files. Fast, private client-side PDF decryption directly in your browser.',
   keywords: [
@@ -14,8 +14,20 @@ export const metadata: Metadata = {
     'remove pdf restrictions',
     'free pdf unlocker',
   ],
+  alternates: {
+    canonical: "/all-tools/pdf/unlock-pdf",
+  },
   openGraph: {
-    title: 'Unlock PDF - Remove Password & Restrictions Online | Free Converting Tools',
+    url: "/all-tools/pdf/unlock-pdf",
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Unlock PDF",
+      },
+    ],
+    title: 'Unlock PDF - Remove Password & Restrictions Online',
     description:
       'Unlock password-protected PDFs and permanently remove print, copy, and edit locks with 100% in-browser privacy.',
     type: 'website',
@@ -60,7 +72,7 @@ export default function UnlockPdfPage() {
             '@type': 'ListItem',
             position: 3,
             name: 'PDF Tools',
-            item: 'https://freeconvertingtools.co.in/all-tools#pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools/pdf',
           },
           {
             '@type': 'ListItem',
@@ -69,61 +81,7 @@ export default function UnlockPdfPage() {
             item: 'https://freeconvertingtools.co.in/all-tools/pdf/unlock-pdf',
           },
         ],
-      },
-      {
-        '@type': 'HowTo',
-        name: 'How to Unlock a Password-Protected PDF',
-        description: 'Easily remove PDF password protection in 3 quick steps.',
-        step: [
-          {
-            '@type': 'HowToStep',
-            position: 1,
-            name: 'Upload PDF',
-            text: 'Drag and drop or select your protected PDF document.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 2,
-            name: 'Enter Password',
-            text: 'Type the document open password to authorize decryption.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 3,
-            name: 'Download Decrypted PDF',
-            text: 'Click "Unlock & Remove Password" and download your completely unrestricted PDF.',
-          },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Is my password or PDF sent to any server?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. Decryption and security removal happen 100% locally in your browser memory. No data is transmitted across the internet.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Can this remove owner restrictions on printing and copying?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! The tool creates a completely clean copy of the document without any permission locks or restriction flags.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Will I need to enter a password every time I open the unlocked file?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. The output PDF has all password prompts permanently eliminated.',
-            },
-          },
-        ],
-      },
+      }
     ],
   };
 

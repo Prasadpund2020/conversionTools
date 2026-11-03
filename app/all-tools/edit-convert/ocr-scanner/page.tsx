@@ -136,56 +136,6 @@ export default function OcrScannerPage() {
     ],
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How does Free Converting Tools perform OCR without uploading my files?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Free Converting Tools runs optical segmentation and neural character detection directly inside your browser memory using HTML5 Canvas pixel analysis and hardware-accelerated Shape Detection. Your scans and sensitive receipts never leave your computer.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I export extracted text to searchable PDF?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. You can copy text directly to your clipboard, or download it as a .TXT file, structured .JSON bounding coordinates, or clean .PDF.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Extract Text from Images with Free OCR",
-    description: "Scan images, receipts, and documents to extract editable text client-side.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload your image or document scan",
-        text: "Select a PNG, JPG, or WebP scan of your invoice, receipt, or document.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Inspect detected bounding regions",
-        text: "Review highlighted text segments and adjust contrast filters or replace terms as needed.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Copy or download",
-        text: "Copy the extracted text with 1 click or download as TXT, JSON, or PDF.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
@@ -196,14 +146,6 @@ export default function OcrScannerPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

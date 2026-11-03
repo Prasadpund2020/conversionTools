@@ -105,115 +105,12 @@ export default function JpgToPngPage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Image Tools",
-        item: `${SITE_URL}/all-tools/image`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/image/jpg-to-png`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Why should I convert my JPG photos to PNG format?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "PNG is a lossless raster format that prevents generation loss during repetitive edits in photo software like Photoshop or Figma. It also provides truecolor depth without JPEG blocking artifacts.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I convert multiple JPG files to PNG at once?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Drag and drop multiple JPG or JPEG photos into the dropzone. All files are converted in parallel inside your browser and can be saved individually or downloaded as a unified ZIP archive.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are my photos uploaded to any server during conversion?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. Free Converting Tools processes all image conversions 100% inside your browser's local memory. Your files never leave your computer or phone.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Convert JPG to PNG Online for Free",
-    description: "Step-by-step instructions to convert JPG and JPEG photos to lossless PNG format.",
-    totalTime: "PT1M",
-    tool: [{ "@type": "HowTool", name: "Web Browser (Chrome, Firefox, Safari, Edge)" }],
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Select or drop your JPG files",
-        text: "Select one or multiple JPG or JPEG files from your computer or phone.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Automatic in-browser transcoding",
-        text: "Free Converting Tools decodes the JPEG streams and renders clean, uncompressed PNG rasters in local memory.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Save PNG files or download ZIP",
-        text: "Click Save on any photo or Download All as ZIP to preserve the entire converted bundle.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      {/* Schema.org WebApplication, BreadcrumbList, FAQPage, and HowTo JSON-LD */}
+      {/* Schema.org WebApplication JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

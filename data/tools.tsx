@@ -2,11 +2,11 @@ import { ToolItem, CategoryInfo } from "@/types/tools";
 
 export const CATEGORIES: CategoryInfo[] = [
   { id: "all", name: "All Tools", count: 51, iconName: "grid" },
-  { id: "pdf", name: "PDF Tools", count: 14, iconName: "document" },
+  { id: "pdf", name: "PDF Tools", count: 19, iconName: "document" },
   { id: "image", name: "Image Tools", count: 10, iconName: "photograph" },
-  { id: "video-audio", name: "Video & Audio", count: 10, iconName: "film" },
+  { id: "video-audio", name: "Video & Audio", count: 9, iconName: "film" },
   { id: "downloaders", name: "Downloaders", count: 4, iconName: "download" },
-  { id: "edit-convert", name: "Edit & Convert", count: 8, iconName: "pencil" },
+  { id: "edit-convert", name: "Edit & Convert", count: 6, iconName: "pencil" },
   { id: "more", name: "More Tools", count: 3, iconName: "squares-plus" },
 ];
 

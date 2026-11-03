@@ -4,7 +4,7 @@ import Script from "next/script";
 import { OrganizePdfTool } from "@/components/tools/organize-pdf/OrganizePdfTool";
 
 export const metadata: Metadata = {
-  title: "Organize PDF Online Free - Rotate, Reorder & Delete Pages | Free Converting Tools",
+  title: "Organize PDF Online Free - Rotate, Reorder & Delete Pages",
   description:
     "Organize, reorder, rotate, duplicate, and delete PDF pages online. Drag and rearrange pages visually with instant private in-browser processing.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Organize PDF",
+      },
+    ],
     title: "Organize PDF Online Free | Free Converting Tools",
     description:
       "Visually rearrange, rotate, duplicate, and delete PDF pages directly inside your web browser.",
@@ -50,50 +58,19 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does the PDF organizer work without server uploads?",
+      name: "Will reordering pages degrade document quality?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Free Converting Tools reads your document into local memory using pdf-lib, lets you visually manipulate the page index sequence and rotation degrees, and synthesizes a new PDF on your device.",
+        text: "No. The underlying page streams and vector definitions are referenced directly without re-encoding or rasterizing images.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I rotate individual pages or all pages at once?",
+      name: "What if I accidentally delete a page?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Both! You can click the rotate icon on individual page cards to turn them 90° clockwise, or click 'Rotate All Pages 90°' in the sidebar to orient the whole document.",
+        text: "Simply click \"Reset to Original Order\" in the sidebar at any time to restore your document back to its initial state.",
       },
-    },
-    {
-      "@type": "Question",
-      name: "Can I duplicate pages within the same document?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Simply click the '+' duplicate button on any page card to clone that page directly into your document.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Reorder and Organize PDF Pages Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Drop PDF File",
-      text: "Select or drop your PDF document into the organizer workspace.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Rearrange, Rotate & Edit",
-      text: "Use the arrow controls to move pages, rotate sideways sheets, duplicate sections, or delete unneeded pages.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Save & Download",
-      text: "Click Save & Download PDF to compile your restructured document immediately.",
     },
   ],
 };
@@ -105,16 +82,6 @@ export default function OrganizePdfPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

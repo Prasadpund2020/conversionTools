@@ -34,7 +34,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    openGraph: {
+    alternates: {
+    canonical: "/all-tools/edit-convert/markdown-to-pdf",
+  },
+  openGraph: {
       title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
@@ -104,7 +107,7 @@ export default async function MarkdownToPdfPage() {
             { label: "All Tools", href: "/all-tools" },
             {
               label: category?.name || "Edit & Convert",
-              href: `/all-tools?category=${tool.category}`,
+              href: `/all-tools/${tool.category}`,
             },
             { label: tool.title },
           ]}

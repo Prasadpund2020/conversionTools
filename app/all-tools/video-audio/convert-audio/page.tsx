@@ -105,105 +105,12 @@ export default function ConvertAudioPage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: catInfo ? catInfo.name : "Video & Audio",
-        item: `${SITE_URL}/all-tools/video-audio`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/video-audio/convert-audio`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Which audio formats can I convert between?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can convert between MP3, WAV, AAC, FLAC, and OGG formats with customizable bitrates up to 320 kbps and custom sample rates.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are my music recordings or voice memos uploaded to a server?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. All audio transcoding runs 100% client-side inside your browser's private Web Audio memory sandbox.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Convert Audio Files Online for Free",
-    description: "Transcode audio between formats in three simple steps.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Select your audio file",
-        text: "Upload your WAV, MP3, AAC, FLAC, or OGG file.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Choose target format & bitrate",
-        text: "Pick your target format, sample rate, and bitrate settings.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Audition and download",
-        text: "Audition the transcoded audio and download your new file.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

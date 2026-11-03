@@ -4,7 +4,7 @@ import Script from "next/script";
 import { SplitPdfTool } from "@/components/tools/split-pdf/SplitPdfTool";
 
 export const metadata: Metadata = {
-  title: "Split PDF Online Free - Extract Pages & Ranges to Separate Files | Free Converting Tools",
+  title: "Split PDF Online Free - Extract Pages & Ranges to Separate Files",
   description:
     "Split a PDF into separate files instantly in your browser. Extract individual pages, split by custom page ranges, or combine selected pages with zero uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/split-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Split PDF",
+      },
+    ],
     title: "Split PDF Online Free | Free Converting Tools",
     description:
       "Separate PDF pages or extract custom ranges directly in your web browser with zero file uploads.",
@@ -44,60 +52,6 @@ const jsonLdWebapp = {
   },
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How does Free Converting Tools split PDF files without uploading them?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Free Converting Tools executes page division directly in your browser using the pdf-lib WebAssembly library. The PDF bytes are read into local memory and new PDFs are synthesized on your device.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I split a PDF into both individual files and a ZIP archive?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. When extracting multiple pages or ranges, Free Converting Tools generates both individual download links and a combined ZIP archive for one-click downloading.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is there a page count limit when splitting PDFs?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "There are no arbitrary page limits. Because processing runs locally on your machine, large multi-hundred-page documents can be split smoothly.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Split a PDF Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Select PDF Document",
-      text: "Drag and drop or choose your PDF file to load it into the split workspace.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Choose Splitting Mode",
-      text: "Select 'Extract All Pages', 'Split by Custom Ranges' (e.g. 1-2, 3-5), or 'Extract Selected Pages'.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Split & Save",
-      text: "Click Split & Download to produce your new PDF files or download the consolidated ZIP archive.",
-    },
-  ],
-};
-
 export default function SplitPdfPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
@@ -105,16 +59,6 @@ export default function SplitPdfPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

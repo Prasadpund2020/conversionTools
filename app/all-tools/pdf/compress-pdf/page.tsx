@@ -4,7 +4,7 @@ import Script from "next/script";
 import { CompressPdfTool } from "@/components/tools/compress-pdf/CompressPdfTool";
 
 export const metadata: Metadata = {
-  title: "Compress PDF Online Free - Reduce PDF File Size in Browser | Free Converting Tools",
+  title: "Compress PDF Online Free - Reduce PDF File Size in Browser",
   description:
     "Compress PDF files online for free. Reduce PDF file sizes up to 80% while maintaining crisp vector text and print quality with zero server uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Compress PDF",
+      },
+    ],
     title: "Compress PDF Online Free | Free Converting Tools",
     description:
       "Shrink bloated PDF documents up to 80% directly in your browser without uploading to any remote server.",

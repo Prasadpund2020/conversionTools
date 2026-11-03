@@ -149,7 +149,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/all-tools" className="hover:text-stone-900 transition-colors no-underline">
-                    All 33+ Tools
+                    All 51 Tools
                   </Link>
                 </li>
                 <li>
@@ -160,6 +160,11 @@ export default function Footer() {
                 <li>
                   <Link href="/all-tools/downloaders" className="hover:text-stone-900 transition-colors no-underline">
                     Media Courier
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/all-tools/more" className="hover:text-stone-900 transition-colors no-underline">
+                    More Tools
                   </Link>
                 </li>
                 <li>

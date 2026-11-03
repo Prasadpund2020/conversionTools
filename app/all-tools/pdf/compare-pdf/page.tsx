@@ -4,7 +4,7 @@ import Script from "next/script";
 import { ComparePdfTool } from "@/components/tools/compare-pdf/ComparePdfTool";
 
 export const metadata: Metadata = {
-  title: "Compare PDF Online Free - Side-by-Side Visual Diff & Revisions | Free Converting Tools",
+  title: "Compare PDF Online Free - Side-by-Side Visual Diff & Revisions",
   description:
     "Compare two PDF documents side by side to detect revisions, text differences, and layout changes. 100% private in-browser document audit.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/compare-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Compare PDF",
+      },
+    ],
     title: "Compare PDF Online Free | Free Converting Tools",
     description:
       "Detect modifications and layout discrepancies between two PDF versions directly inside your web browser.",
@@ -50,50 +58,19 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does the PDF comparison work?",
+      name: "Can I compare PDFs with different page counts?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Free Converting Tools parses both PDF files locally in your browser to inspect page dimensions, structure, content streams, and visual alignments to report page-by-page variances.",
+        text: "Yes. Free Converting Tools handles unequal page counts cleanly, highlighting missing or added pages in the comparative report.",
       },
     },
     {
       "@type": "Question",
-      name: "Are my confidential contracts or briefs uploaded to any server?",
+      name: "Can I export the audit log?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Both PDF files are analyzed 100% locally on your machine. Your files never touch a remote server.",
+        text: "Yes. Click the Export Comparison Audit button to download a complete structured JSON breakdown of similarity scores.",
       },
-    },
-    {
-      "@type": "Question",
-      name: "Can I export an audit report of the differences?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. You can export a comprehensive JSON audit file summarizing page counts, similarity percentages, and identified differences.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Compare Two PDF Files Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Upload Baseline Document A",
-      text: "Select or drag your original PDF file into the Document A dropzone.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Upload New Revision Document B",
-      text: "Select or drag the updated revision PDF into the Document B dropzone.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Inspect Differences",
-      text: "Switch between Side-by-Side and Curtain Slider views to inspect variances page by page.",
     },
   ],
 };
@@ -110,11 +87,6 @@ export default function ComparePdfPage() {
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

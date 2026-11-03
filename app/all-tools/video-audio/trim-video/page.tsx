@@ -105,105 +105,12 @@ export default function TrimVideoPage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: catInfo ? catInfo.name : "Video & Audio",
-        item: `${SITE_URL}/all-tools/video-audio`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/video-audio/trim-video`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Can I trim large 4K video clips without uploading?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! Free Converting Tools processes video clips entirely in your browser's local memory using HTML5 Canvas and MediaStream APIs. Your gigabyte-sized video files never touch an external server.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What video formats are supported?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can load and trim MP4, MOV, and WebM videos with support for exporting in standard MP4 or WebM formats.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Trim Video Clips Online for Free",
-    description: "Cut and trim video timestamps safely in your web browser.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload or drag your video",
-        text: "Select your MP4, MOV, or WebM video file.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Adjust start and end timestamps",
-        text: "Drag the timeline slider or type exact seconds to define your cut.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Render and download",
-        text: "Click Cut & Render Clip to export your trimmed video.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

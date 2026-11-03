@@ -136,56 +136,6 @@ export default function WordToPdfPage() {
     ],
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How does Free Converting Tools convert Word to PDF without uploading?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Free Converting Tools parses the internal XML structure of DOCX files and typesets pages directly into PDF vector format inside your browser's Web Worker sandbox. Your private files never leave your device.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I customize the PDF page orientation and font style?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. You can switch between A4, Letter, and Legal paper sizes, toggle Portrait or Landscape, choose Sans-Serif, Serif, or Monospace typography, and customize margins.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Convert Word to PDF Online for Free",
-    description: "Step-by-step instructions to convert DOCX documents to PDF securely in your browser.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Select or drop your Word document",
-        text: "Drag and drop your DOCX file into the dropzone or click to select from your files.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Adjust layout preferences",
-        text: "Customize page size, font family, margins, and header options.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download your clean PDF",
-        text: "Click Download PDF to immediately save your converted document.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
@@ -196,14 +146,6 @@ export default function WordToPdfPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

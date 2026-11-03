@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { BlurFaceTool } from '@/components/tools/blur-face/BlurFaceTool';
 
 export const metadata: Metadata = {
-  title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Free Converting Tools',
+  title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool',
   description:
     'Blur faces, license plates, and private text in photos online. Features Gaussian blur, pixelate mosaic, and blackout bars with zero uploads.',
   keywords: [
@@ -14,8 +14,20 @@ export const metadata: Metadata = {
     'license plate blur',
     'blur photo online free without upload',
   ],
+  alternates: {
+    canonical: "/all-tools/image/blur-face",
+  },
   openGraph: {
-    title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool | Free Converting Tools',
+    url: "/all-tools/image/blur-face",
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Blur Faces & Censor Photos Online",
+      },
+    ],
+    title: 'Blur Faces & Censor Photos Online - 100% Free Privacy Tool',
     description:
       'Censor confidential details, mosaic faces, and redact sensitive documents directly in your browser. Zero cloud uploads.',
     type: 'website',
@@ -60,7 +72,7 @@ export default function BlurFacePage() {
             '@type': 'ListItem',
             position: 3,
             name: 'Image Tools',
-            item: 'https://freeconvertingtools.co.in/all-tools#image',
+            item: 'https://freeconvertingtools.co.in/all-tools/image',
           },
           {
             '@type': 'ListItem',
@@ -69,61 +81,7 @@ export default function BlurFacePage() {
             item: 'https://freeconvertingtools.co.in/all-tools/image/blur-face',
           },
         ],
-      },
-      {
-        '@type': 'HowTo',
-        name: 'How to Blur Faces and Censor Photos',
-        description: 'Easily censor confidential information in 3 quick steps.',
-        step: [
-          {
-            '@type': 'HowToStep',
-            position: 1,
-            name: 'Upload Photo',
-            text: 'Drop or select any PNG, JPG, or WebP photo.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 2,
-            name: 'Draw Censor Boxes',
-            text: 'Click and drag over faces or sensitive text. Choose between smooth blur, pixelate mosaic, or solid blackout.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 3,
-            name: 'Download Censored Photo',
-            text: 'Click Download PNG or Download JPG to save your redacted photo instantly.',
-          },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Are my private photos uploaded to any server?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No! Everything is rendered completely in your browser using HTML5 Canvas. Your sensitive photos never leave your device.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Can someone undo or remove the blur after downloading?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. The pixel data under the censor box is permanently transformed and flattened into the image pixels upon export.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What styles of censorship are supported?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'You can choose between Gaussian Smooth Blur, Pixelate Mosaic (8-bit style), and Blackout redaction bars.',
-            },
-          },
-        ],
-      },
+      }
     ],
   };
 

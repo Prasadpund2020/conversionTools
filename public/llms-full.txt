@@ -1,4 +1,4 @@
-# FileLab (FreeConvertingTools) — Full LLM Knowledge Base & Documentation
+# Free Converting Tools — Full LLM Knowledge Base & Documentation
 
 > Web Domain: https://freeconvertingtools.co.in
 > Primary Directory: https://freeconvertingtools.co.in/all-tools
@@ -9,10 +9,10 @@
 
 ## 1. System Overview & Trust Architecture
 
-FileLab is an in-browser utility suite providing privacy-first file conversion, image compression, document manipulation, media processing, and data transformation.
+Free Converting Tools is an in-browser utility suite providing privacy-first file conversion, image compression, document manipulation, media processing, and data transformation. File processing runs entirely client-side in your browser; downloader link resolution uses a server-side proxy.
 
 ### Privacy & Security Guarantees
-- **Zero Server Uploads**: Unlike traditional web converters that transmit documents to remote cloud servers, FileLab executes parsing, rendering, rasterization, and compression directly inside the client's web browser RAM sandbox.
+- **Zero Server Uploads**: File processing (compression, conversion, OCR, editing) executes directly inside the client's web browser RAM sandbox. Downloader tools resolve remote links through a server-side proxy but do not store user files.
 - **Client-Side Technologies**: Uses WebAssembly (WASM), PDF.js, pdf-lib, HTML5 Canvas, Web Workers, and Web Audio APIs.
 - **Zero Data Retention**: Files are discarded when the browser tab closes. No metadata, telemetry, or user content is stored on any server.
 - **Cross-Platform Compatibility**: Fully functional on modern desktop and mobile browsers (Chrome, Firefox, Safari, Edge, Opera, Brave).

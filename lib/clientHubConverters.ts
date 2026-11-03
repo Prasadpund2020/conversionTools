@@ -1,5 +1,3 @@
-import { PDFDocument } from "pdf-lib";
-
 /**
  * Result structure returned by conversion functions
  */
@@ -163,6 +161,7 @@ export async function mergePdfsClient(files: File[]): Promise<ConversionOutput> 
     throw new Error("No PDF files provided");
   }
 
+  const { PDFDocument } = await import("pdf-lib");
   const mergedDoc = await PDFDocument.create();
   let totalInputSize = 0;
 
@@ -198,6 +197,7 @@ export async function imagesToPdfClient(
     throw new Error("No images provided");
   }
 
+  const { PDFDocument } = await import("pdf-lib");
   const pdfDoc = await PDFDocument.create();
   let totalInputSize = 0;
 

@@ -45,7 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 1. Homepage
   const homeEntry: MetadataRoute.Sitemap[number] = {
     url: BASE_URL,
-    lastModified: getAppFileLastModified("page.tsx"),
     changeFrequency: "weekly",
     priority: 1.0,
   };
@@ -53,7 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 2. All Tools Index
   const allToolsEntry: MetadataRoute.Sitemap[number] = {
     url: `${BASE_URL}/all-tools`,
-    lastModified: getAppFileLastModified("all-tools/page.tsx"),
     changeFrequency: "weekly",
     priority: 0.9,
   };
@@ -93,7 +91,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const catSlug = getCategorySlug(cat.id);
       return {
         url: `${BASE_URL}/all-tools/${catSlug}`,
-        lastModified: getAppFileLastModified("all-tools/[category]/page.tsx"),
         changeFrequency: "weekly",
         priority: 0.8,
       };
@@ -102,18 +99,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 5. Individual Published Tool Pages
   const toolEntries: MetadataRoute.Sitemap = publishedTools.map((tool) => {
     const catSlug = getCategorySlug(tool.category);
-    const toolSubPath = path.join("all-tools", catSlug, tool.id, "page.tsx");
-    const parsedToolDate = tool.lastModified
-      ? new Date(tool.lastModified)
-      : undefined;
-    const lastModified =
-      parsedToolDate && !Number.isNaN(parsedToolDate.getTime())
-        ? parsedToolDate
-        : getAppFileLastModified(toolSubPath);
-
     return {
       url: `${BASE_URL}/all-tools/${catSlug}/${tool.id}`,
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     };

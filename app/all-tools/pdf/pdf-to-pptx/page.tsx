@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { PdfToPptxTool } from '@/components/tools/pdf-to-pptx/PdfToPptxTool';
 
 export const metadata: Metadata = {
-  title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Free Converting Tools',
+  title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online',
   description:
     'Convert PDF slides into Microsoft PowerPoint (.pptx) decks. 100% private in-browser conversion compatible with Google Slides and Keynote.',
   keywords: [
@@ -14,8 +14,20 @@ export const metadata: Metadata = {
     'google slides pdf converter',
     'presentation slide generator',
   ],
+  alternates: {
+    canonical: "/all-tools/pdf/pdf-to-pptx",
+  },
   openGraph: {
-    title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online | Free Converting Tools',
+    url: "/all-tools/pdf/pdf-to-pptx",
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "PDF to PowerPoint Converter",
+      },
+    ],
+    title: 'PDF to PowerPoint Converter - Convert PDF to PPTX Online',
     description:
       'Turn PDF slides into editable Microsoft PowerPoint .pptx decks in seconds. Zero uploads, 16:9 widescreen layout.',
     type: 'website',
@@ -60,7 +72,7 @@ export default function PdfToPptxPage() {
             '@type': 'ListItem',
             position: 3,
             name: 'PDF Tools',
-            item: 'https://freeconvertingtools.co.in/all-tools#pdf',
+            item: 'https://freeconvertingtools.co.in/all-tools/pdf',
           },
           {
             '@type': 'ListItem',
@@ -69,61 +81,7 @@ export default function PdfToPptxPage() {
             item: 'https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-pptx',
           },
         ],
-      },
-      {
-        '@type': 'HowTo',
-        name: 'How to Convert PDF to PowerPoint PPTX',
-        description: 'Easily turn PDF documents into PowerPoint presentation decks in 3 steps.',
-        step: [
-          {
-            '@type': 'HowToStep',
-            position: 1,
-            name: 'Upload PDF',
-            text: 'Drop or select your presentation PDF document.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 2,
-            name: 'Select Aspect Ratio',
-            text: 'Choose 16:9 Modern Widescreen or 4:3 Standard format.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 3,
-            name: 'Download .PPTX',
-            text: 'Click "Convert Pages to .PPTX" and download your PowerPoint slide deck.',
-          },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Does this create genuine .pptx presentation files?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! It generates standard OpenXML PowerPoint presentation archives that open seamlessly in Microsoft PowerPoint, Google Slides, Keynote, and LibreOffice Impress.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Are my slides uploaded to a remote server?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. Rendering and OpenXML packaging execute entirely in your local browser memory using JavaScript and WebAssembly.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Will my formatting and fonts remain intact?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes! High-density canvas rasterization guarantees that graphics, formulas, typography, and charts match the original PDF slides perfectly.',
-            },
-          },
-        ],
-      },
+      }
     ],
   };
 

@@ -4,7 +4,7 @@ import Script from "next/script";
 import { RedactPdfTool } from "@/components/tools/redact-pdf/RedactPdfTool";
 
 export const metadata: Metadata = {
-  title: "Redact PDF Online Free - Permanent Blackout & PII Removal | Free Converting Tools",
+  title: "Redact PDF Online Free - Permanent Blackout & PII Removal",
   description:
     "Permanently redact sensitive PII, SSNs, and financial data from PDFs. Burn irreversible blackout or whiteout blocks with zero server uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/redact-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Redact PDF",
+      },
+    ],
     title: "Redact PDF Online Free | Free Converting Tools",
     description:
       "Permanently obscure sensitive legal, medical, and financial information from your PDF pages directly in your browser.",
@@ -44,60 +52,6 @@ const jsonLdWebapp = {
   },
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Are redactions truly irreversible?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Unlike superficial desktop highlighter overlays, Free Converting Tools burns opaque vector geometry directly into the rendered stream and deletes underlying view references.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do my sensitive documents get uploaded to a cloud server?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. All drawing, coordinate math, and PDF byte synthesis run strictly within your local browser memory via WebAssembly.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I choose between solid blackouts and REDACTED label stamps?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. You can switch between Solid Blackout, Clean Whiteout, and official [REDACTED] stamped boxes.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Redact Sensitive Content from a PDF Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Select PDF Document",
-      text: "Drop or choose your PDF into the Free Converting Tools Redaction workspace.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Mark Redaction Areas",
-      text: "Drag directly on the interactive document preview to draw blackout or whiteout boxes over sensitive text.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Burn Redactions & Save",
-      text: "Click Burn Redactions & Download to permanently bake the opaque boxes into a sanitized PDF file.",
-    },
-  ],
-};
-
 export default function RedactPdfPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
@@ -105,16 +59,6 @@ export default function RedactPdfPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

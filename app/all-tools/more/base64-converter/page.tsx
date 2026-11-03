@@ -35,7 +35,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    openGraph: {
+    alternates: {
+    canonical: "/all-tools/more/base64-converter",
+  },
+  openGraph: {
       title: `${tool.title} — Free Converting Tools`,
       description: seo.description,
       type: "website",
@@ -105,7 +108,7 @@ export default async function Base64ConverterPage() {
             { label: "All Tools", href: "/all-tools" },
             {
               label: category?.name || "More Tools",
-              href: `/all-tools?category=${tool.category}`,
+              href: `/all-tools/${tool.category}`,
             },
             { label: tool.title },
           ]}

@@ -40,5 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local agent skills
+/.agents/
+
 # pdf.js runtime generated assets (copied by scripts/copy-pdfjs-assets.mjs)
 /public/pdfjs/

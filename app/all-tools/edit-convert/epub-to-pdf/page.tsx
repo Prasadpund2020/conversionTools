@@ -136,56 +136,6 @@ export default function EpubToPdfPage() {
     ],
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Does Free Converting Tools preserve eBook chapters and metadata?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Free Converting Tools parses the EPUB container XML and spine to extract chapter titles, paragraphs, and book author details, generating an authentic book PDF with page numbers and headers.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What book sizes can I export?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can choose between 6×9″ Trade Paperback (standard for published novels), 5×8″ Pocket Paperback, A4, or US Letter.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Convert ePub to PDF Online for Free",
-    description: "Convert eBook EPUB files into printable PDF books with customized trim sizes.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload your EPUB eBook",
-        text: "Drag and drop your .epub file into the book converter dropzone.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Select trim size & typography",
-        text: "Choose 6x9 trade or pocket size, serif or sans font, and cover page options.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download book PDF",
-        text: "Click Download Book PDF to save your publication-ready document.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
@@ -196,14 +146,6 @@ export default function EpubToPdfPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

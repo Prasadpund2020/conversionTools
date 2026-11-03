@@ -106,115 +106,12 @@ export default function ResizeImagePage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Image Tools",
-        item: `${SITE_URL}/all-tools/image`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/image/resize-image`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Does resizing an image reduce its visual quality?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "When scaling down, Free Converting Tools uses high-quality multi-step bilinear interpolation to preserve sharp edges and text contrast without pixelation. When scaling up, vector interpolation ensures clean smoothing.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How can I resize a photo for Instagram or YouTube?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Click the 'Social Presets' tab in the controls panel. Choose presets like Instagram Post (1080×1080), Story / Reel (1080×1920), or YouTube Thumbnail (1280×720) to automatically resize in one click.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are my photos uploaded to any external server?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. Free Converting Tools processes all resizing operations 100% inside your browser's private memory. Your images never leave your computer or phone.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Resize an Image Online for Free",
-    description: "Step-by-step instructions to resize photos and image dimensions in your web browser.",
-    totalTime: "PT1M",
-    tool: [{ "@type": "HowTool", name: "Web Browser (Chrome, Firefox, Safari, Edge)" }],
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload or drop your photo",
-        text: "Select a JPG, PNG, or WebP photo or drag it into the dropzone.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Adjust dimensions or pick a preset",
-        text: "Type your target width and height in pixels, use the percentage slider, or choose a social media preset.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download the resized image",
-        text: "Select your desired export format (WebP, JPG, or PNG) and click Download Resized Image.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      {/* Schema.org WebApplication, BreadcrumbList, FAQPage, and HowTo JSON-LD */}
+      {/* Schema.org WebApplication JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

@@ -4,7 +4,7 @@ import Script from "next/script";
 import { WatermarkPdfTool } from "@/components/tools/watermark-pdf/WatermarkPdfTool";
 
 export const metadata: Metadata = {
-  title: "Watermark PDF Online Free - Add Text & Image Stamps | Free Converting Tools",
+  title: "Watermark PDF Online Free - Add Text & Image Stamps",
   description:
     "Add custom text or image watermarks to PDF pages in seconds. Customize font, opacity, rotation, 3x3 placement grid, and tiled stamps with zero uploads.",
   keywords: [
@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Watermark PDF",
+      },
+    ],
     title: "Watermark PDF Online Free | Free Converting Tools",
     description:
       "Stamp PDFs with custom confidential watermarks, corporate logos, and diagonal copyright notices 100% in your browser.",
@@ -45,60 +53,6 @@ const jsonLdWebapp = {
   },
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Are my confidential PDF documents uploaded to a remote server?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. Free Converting Tools processes all PDF stamping directly inside your web browser via WebAssembly and pdf-lib. Your confidential records never leave your local machine.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I add both text and graphic logos as watermarks?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. You can switch seamlessly between custom text inscriptions (such as CONFIDENTIAL or DRAFT) and graphic company logos (PNG or JPEG).",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I watermark only specific pages in a PDF?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Use the target page range input to specify exact page numbers (e.g. 1-3, 5) or apply your stamp to all pages simultaneously.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Watermark a PDF Document Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Upload or Drop PDF",
-      text: "Select or drop your PDF document into the Free Converting Tools Watermark workspace.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Configure Watermark Properties",
-      text: "Choose between Text or Image watermark, adjust font size, stamp opacity, rotation angle, and 3x3 grid position.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Apply and Download",
-      text: "Click Apply Watermark to generate your stamped PDF instantly in your browser and save the result.",
-    },
-  ],
-};
-
 export default function WatermarkPdfPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
@@ -106,16 +60,6 @@ export default function WatermarkPdfPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

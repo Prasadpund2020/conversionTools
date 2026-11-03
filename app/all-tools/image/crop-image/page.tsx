@@ -106,115 +106,12 @@ export default function CropImagePage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Image Tools",
-        item: `${SITE_URL}/all-tools/image`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/image/crop-image`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How do I crop an image into a perfect 1:1 square for Instagram or profile pictures?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Select your image, then click the '1:1 Square' aspect ratio preset in the controls panel. The crop box automatically locks into a square that you can move across your photo.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does cropping reduce my image resolution?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Cropping extracts a specific region from your original high-resolution photo. Free Converting Tools never compresses or reduces pixel density inside the crop area unless you choose to lower the export quality.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I rotate or flip my photo while cropping?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Use the Rotate 90° or Flip Horizontal buttons in the top header or controls bar to re-orient your photo before downloading.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Crop an Image Online for Free",
-    description: "Step-by-step instructions to crop photos and adjust visual framing in your browser.",
-    totalTime: "PT1M",
-    tool: [{ "@type": "HowTool", name: "Web Browser (Chrome, Firefox, Safari, Edge)" }],
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload your image",
-        text: "Select or drop your photo into the Free Converting Tools Crop Studio dropzone.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Select ratio and adjust frame",
-        text: "Pick an aspect ratio (1:1, 16:9, 4:5) or drag the corner handles to freely frame your subject.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download the cropped photo",
-        text: "Choose your desired export format (WebP, JPG, or PNG) and click Download Cropped Image.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      {/* Schema.org WebApplication, BreadcrumbList, FAQPage, and HowTo JSON-LD */}
+      {/* Schema.org WebApplication JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

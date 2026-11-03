@@ -85,7 +85,7 @@ export default function Navbar({
               : "text-slate-600 hover:text-slate-900 hover:bg-white/80 border border-slate-200/80 bg-white/50"
           }`}
         >
-          All Tools (33)
+          All Tools (51)
         </Link>
 
         {/* Settings Cog */}

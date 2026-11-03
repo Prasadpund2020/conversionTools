@@ -105,105 +105,12 @@ export default function MuteVideoPage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: catInfo ? catInfo.name : "Video & Audio",
-        item: `${SITE_URL}/all-tools/video-audio`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/video-audio/mute-video`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Does muting a video reduce file size?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! Stripping uncompressed or high-bitrate audio streams reduces the overall file payload, allowing for faster web sharing and lighter file storage.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Will the video quality be degraded when muted?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. Free Converting Tools processes video frames with high fidelity, preserving original resolution and frame rates without external compression artifacts.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Mute Video Online for Free",
-    description: "Remove audio streams from video files safely in your browser.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload video file",
-        text: "Select your MP4, MOV, or WebM video file.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Audition mute state",
-        text: "Toggle between original sound and silent preview.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download muted video",
-        text: "Click Strip Audio & Mute Video to export your silent clip.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

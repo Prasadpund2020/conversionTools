@@ -4,7 +4,7 @@ import Script from "next/script";
 import { AddPageNumbersTool } from "@/components/tools/add-page-numbers/AddPageNumbersTool";
 
 export const metadata: Metadata = {
-  title: "Add Page Numbers to PDF Online Free - Bates Stamping & Footers | Free Converting Tools",
+  title: "Add Page Numbers to PDF Online Free - Bates Stamping & Footers",
   description:
     "Add page numbers and legal Bates stamping to PDF documents online. Customize headers, footers, typography, and offsets with zero uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Add Page Numbers to PDF",
+      },
+    ],
     title: "Add Page Numbers to PDF Online Free | Free Converting Tools",
     description:
       "Stamp sequential page numbers, headers, footers, and legal Bates numbers directly in your browser.",

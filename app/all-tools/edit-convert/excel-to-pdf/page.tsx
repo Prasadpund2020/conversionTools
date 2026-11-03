@@ -136,56 +136,6 @@ export default function ExcelToPdfPage() {
     ],
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Does Free Converting Tools support multi-sheet Excel files?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes! Free Converting Tools parses all worksheets inside your workbook and allows you to select which specific sheet to export as a formatted PDF.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Are financial spreadsheets safe from leaks?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Absolutely. All XML cell parsing and PDF drawing happen entirely inside your web browser's RAM sandbox. No file is ever transmitted to a server.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Convert Excel to PDF Online for Free",
-    description: "Convert spreadsheets (XLSX, XLS, CSV) into printable PDF documents in three easy steps.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Select or drop your spreadsheet",
-        text: "Upload your XLSX or CSV file directly into the conversion workspace.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Customize layout & theme",
-        text: "Select landscape or portrait, table color theme, and toggle gridlines.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Download PDF",
-        text: "Click Download PDF Spreadsheet to save your print-ready document.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
@@ -196,14 +146,6 @@ export default function ExcelToPdfPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

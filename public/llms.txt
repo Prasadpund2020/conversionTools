@@ -1,12 +1,12 @@
-# FileLab (FreeConvertingTools)
+# Free Converting Tools
 
-> Free, private, client-side online conversion tools for PDFs, images, video, audio, code, and media downloads. All operations execute directly in the browser via WebAssembly and HTML5 APIs without uploading files to any external server.
+> Free, private online conversion tools for PDFs, images, video, audio, code, and media downloads. File processing (compression, conversion, OCR, editing) runs entirely client-side in your browser via WebAssembly and HTML5 APIs. Downloader tools fetch remote metadata through a server-side proxy for link resolution.
 
 Website: https://freeconvertingtools.co.in
 Canonical Tool Directory: https://freeconvertingtools.co.in/all-tools
 
 ## Core Features & Privacy Model
-- **Zero Server Uploads**: File processing, rasterization, OCR, conversion, and compression occur 100% inside client-side browser memory (RAM) sandbox.
+- **Zero Server Uploads**: File processing (compression, conversion, OCR, editing) occurs 100% inside client-side browser memory (RAM) sandbox. Downloader tools resolve remote links through a server-side proxy but do not store user files.
 - **No Account Required**: Completely free to use with no subscriptions, usage limits, or paywalls.
 - **51 Production Tools**: PDF utilities, high-fidelity media tools, audio joiners/recorders, data converters, and image processing.
 

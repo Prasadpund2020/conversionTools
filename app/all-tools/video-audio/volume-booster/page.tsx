@@ -105,105 +105,12 @@ export default function VolumeBoosterPage() {
     ],
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "All Tools",
-        item: `${SITE_URL}/all-tools`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: catInfo ? catInfo.name : "Video & Audio",
-        item: `${SITE_URL}/all-tools/video-audio`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: tool.title,
-        item: `${SITE_URL}/all-tools/video-audio/volume-booster`,
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How does the volume booster prevent harsh digital distortion?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Free Converting Tools integrates an anti-clipping dynamics compressor (soft limiter) directly into the Web Audio graph to round out sharp waveform peaks when boosting volume up to 300%.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I boost volume on video files directly?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. You can upload MP4, WebM, and MOV videos, and Free Converting Tools will decode and amplify the audio track for instant export.",
-        },
-      },
-    ],
-  };
-
-  const howToJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "How to Boost Audio Volume Online up to 300%",
-    description: "Amplify quiet audio and video recordings safely in your browser.",
-    step: [
-      {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Upload your media",
-        text: "Select your MP3, WAV, or MP4 video file.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Adjust boost multiplier & EQ",
-        text: "Choose 150%, 200%, or 300% boost and toggle the anti-clipping limiter.",
-      },
-      {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Audition and download",
-        text: "Preview the boosted audio live and download the amplified track.",
-      },
-    ],
-  };
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
 
       {/* Breadcrumbs */}

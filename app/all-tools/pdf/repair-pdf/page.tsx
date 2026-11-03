@@ -4,7 +4,7 @@ import Script from "next/script";
 import { RepairPdfTool } from "@/components/tools/repair-pdf/RepairPdfTool";
 
 export const metadata: Metadata = {
-  title: "Repair PDF Online Free - Fix Corrupted & Damaged PDF Files | Free Converting Tools",
+  title: "Repair PDF Online Free - Fix Corrupted & Damaged PDF Files",
   description:
     "Repair damaged and corrupted PDF files online. Reconstruct broken cross-reference tables and recover unreadable pages with zero server uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/repair-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Repair PDF",
+      },
+    ],
     title: "Repair PDF Online Free | Free Converting Tools",
     description:
       "Reconstruct corrupted PDF documents and recover unreadable pages directly in your browser with zero data leakage.",
@@ -44,60 +52,6 @@ const jsonLdWebapp = {
   },
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How does Free Converting Tools repair corrupted PDF files?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Free Converting Tools analyzes the raw binary bytes of the document to detect damaged headers, missing %%EOF trailer markers, and broken cross-reference (xref) offsets, reconstructing them into a clean, compliant PDF.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are my broken files uploaded to a remote server?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. The entire byte scanning and reconstruction pipeline executes 100% locally in your web browser. Your confidential files are never uploaded.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can every corrupted PDF be fixed?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most files corrupted by incomplete downloads, truncated transfer streams, or broken xref tables can be fully repaired. If the underlying content streams were entirely overwritten, some pages may be lost.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Repair a Damaged PDF Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Drop Damaged PDF",
-      text: "Select or drop your unreadable PDF file into the repair dropzone.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Select Repair Options",
-      text: "Enable Xref rebuilding, trailer regeneration, and stream sanitization.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Reconstruct & Download",
-      text: "Click Reconstruct & Repair PDF to salvage pages and download your fixed document.",
-    },
-  ],
-};
-
 export default function RepairPdfPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
@@ -105,16 +59,6 @@ export default function RepairPdfPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

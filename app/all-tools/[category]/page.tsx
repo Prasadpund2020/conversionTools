@@ -7,6 +7,7 @@ import {
   getCategoryInfo,
   getCategorySeo,
   getToolsByCategory,
+  getToolUrl,
   categoryFromSlug,
 } from "@/lib/tools";
 import CategoryPageContent from "@/components/tools/CategoryPageContent";
@@ -28,6 +29,7 @@ export async function generateStaticParams() {
     { category: "video-audio" },
     { category: "downloaders" },
     { category: "edit-convert" },
+    { category: "more" },
   ];
 }
 
@@ -141,7 +143,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       "@type": "WebApplication",
       name: t.title,
       description: t.description,
-      url: `${SITE_URL}/all-tools/${category}/${t.id}`,
+      url: `${SITE_URL}${getToolUrl(t)}`,
       applicationCategory: "UtilityApplication",
       operatingSystem: "Any",
       offers: {

@@ -4,7 +4,7 @@ import Script from "next/script";
 import { PdfToExcelTool } from "@/components/tools/pdf-to-excel/PdfToExcelTool";
 
 export const metadata: Metadata = {
-  title: "PDF to Excel Converter Free Online - Extract Tables to XLSX | Free Converting Tools",
+  title: "PDF to Excel Converter Free Online - Extract Tables to XLSX",
   description:
     "Convert PDF tables to editable Excel (.xlsx) and CSV spreadsheets online for free. Auto column alignment and OpenXML synthesis with zero uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/pdf-to-excel",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "PDF to Excel Converter",
+      },
+    ],
     title: "PDF to Excel Converter Free Online | Free Converting Tools",
     description:
       "Extract financial tables, numbers, and structured columns from PDF documents directly into clean Excel spreadsheets.",
@@ -44,60 +52,6 @@ const jsonLdWebapp = {
   },
 };
 
-const jsonLdFaq = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How does Free Converting Tools extract tables from PDF files?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Free Converting Tools analyzes the coordinate transforms of text objects on each PDF page to cluster them into rows and aligned columns, synthesizing native OpenXML .xlsx spreadsheets entirely in your browser.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are financial statements or bank records sent to external servers?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Never. All parsing and spreadsheet synthesis run 100% locally on your computer inside your web browser. No data is transmitted across the internet.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I export to both Excel and CSV formats?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. You can export your data as native Microsoft Excel (.xlsx) workbooks, comma-separated (.csv) spreadsheets, or structured JSON data.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Convert PDF Tables to Excel Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Upload PDF",
-      text: "Select or drop your PDF containing tabular data into the Free Converting Tools workspace.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Preview Table Grid",
-      text: "Inspect the live matrix grid to verify extracted rows and columns.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Export Spreadsheet",
-      text: "Choose .xlsx or .csv and click Export to download your spreadsheet immediately.",
-    },
-  ],
-};
-
 export default function PdfToExcelPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
@@ -105,16 +59,6 @@ export default function PdfToExcelPage() {
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">

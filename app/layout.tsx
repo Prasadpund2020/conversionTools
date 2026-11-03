@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   },
   description:
     "Free online tools for PDF, image, audio, video, and file conversion. Tool pages explain supported formats and processing methods.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "48x48" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   keywords: [
     "pdf to word",
     "compress image",
@@ -45,9 +53,6 @@ export const metadata: Metadata = {
     "image to pdf",
     "free converting tools",
   ],
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
@@ -93,16 +98,30 @@ export const metadata: Metadata = {
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: SITE_URL,
-  description:
-    "Free online conversion tools: convert PDF to Word, compress images, merge PDFs, extract audio from videos, and download media safely in your browser.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/all-tools?search={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon.svg`,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      inLanguage: "en",
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      description:
+        "Free online conversion tools: convert PDF to Word, compress images, merge PDFs, extract audio from videos, and download media safely in your browser.",
+    },
+  ],
 };
 
 const devAnalyticsInitScript = `

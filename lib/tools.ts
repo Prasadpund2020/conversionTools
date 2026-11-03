@@ -73,11 +73,6 @@ export function getToolBySlugs(
 export function getToolsByCategory(categorySlug: string): ToolItem[] {
   const category = categoryFromSlug(categorySlug);
   if (!category || category === "all") return ALL_TOOLS;
-  if (category === "edit-convert") {
-    return ALL_TOOLS.filter(
-      (t) => t.category === "edit-convert" || t.category === "more"
-    );
-  }
   return ALL_TOOLS.filter((t) => t.category === category);
 }
 
@@ -166,13 +161,24 @@ const CATEGORY_SEO: Record<
   "edit-convert": {
     title: "Edit & Convert Tools",
     description:
-      "Convert Word to PDF, Excel to PDF, extract text with OCR, generate QR codes, and more — powerful conversion utilities running entirely in your browser.",
+      "Convert Word to PDF, Excel to PDF, extract text with OCR, and more — powerful conversion utilities running entirely in your browser.",
     keywords: [
       "word to pdf",
       "excel to pdf",
       "ocr scanner",
-      "qr code generator",
       "epub to pdf",
+    ],
+  },
+  more: {
+    title: "Utility Tools",
+    description:
+      "Generate QR codes, scan barcodes, and encode or decode Base64 files with free client-side utilities that run entirely in your browser.",
+    keywords: [
+      "qr code generator",
+      "barcode scanner",
+      "base64 encoder",
+      "base64 decoder",
+      "free online utilities",
     ],
   },
 };
@@ -181,10 +187,17 @@ export function getCategorySeo(categorySlug: string) {
   return CATEGORY_SEO[categorySlug];
 }
 
+const CATEGORY_TOOL_LABEL: Record<string, string> = {
+  pdf: "PDF",
+  image: "Image",
+  "video-audio": "Video & Audio",
+  downloaders: "Downloader",
+  "edit-convert": "Edit & Convert",
+  more: "Utility",
+};
+
 export function getToolSeo(tool: ToolItem) {
-  const categoryLabel =
-    CATEGORIES.find((c) => c.id === tool.category)?.name || "Tool";
-  const cleanCat = categoryLabel.replace(" Tools", "");
+  const cleanCat = CATEGORY_TOOL_LABEL[tool.category] || "Tool";
   const description =
     tool.seoDescription ||
     `${tool.description} Free client-side tool with instant browser execution and zero file uploads.`;

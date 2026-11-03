@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "skills": {
+    "seo-ai-visibility": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-ai-visibility/SKILL.md",
+      "computedHash": "841b22839f0c488ddd822daedd99adaac896624daa6e0f02dc26cf4faf81d982"
+    },
+    "seo-cannibalization": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-cannibalization/SKILL.md",
+      "computedHash": "3fdc4eafe910cfe7675fc04c48f254366f6be47dec8298cba8ca6588a7002ee4"
+    },
+    "seo-change-review": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-change-review/SKILL.md",
+      "computedHash": "47d397e1759ad091a9007e7e029ec762c9c015674045b5ec0a2f4b62f6b7fa76"
+    },
+    "seo-content-brief": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content-brief/SKILL.md",
+      "computedHash": "c999e05af2c6d17146d9748016acf72c507af359a4ca87cb384752851da2cdc4"
+    },
+    "seo-content-optimizer": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content-optimizer/SKILL.md",
+      "computedHash": "677834fa12eecbacd1ad8b57a692ffa2615bf4fed946e3a8545917e5f281ef59"
+    },
+    "seo-indexation-analysis": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-indexation-analysis/SKILL.md",
+      "computedHash": "c6622bb1cfac4b807043dfde44c9263deec0de661a5e235bf9e585c07bbff543"
+    },
+    "seo-internal-linking": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-internal-linking/SKILL.md",
+      "computedHash": "35bdb34853b07d8c2f9528560e909bf62eccf23896888775aedf2d99c4de90b1"
+    },
+    "seo-keyword-research": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-keyword-research/SKILL.md",
+      "computedHash": "f9b356ff326ed397416e3aa850f07d40d2f7394db495653dc4f57a56ebff0a4d"
+    },
+    "seo-migration": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-migration/SKILL.md",
+      "computedHash": "3a8711e7ba55f80a48f1b0d954cdd0e0c7fd83f3f310c8b6c507878734caf377"
+    },
+    "seo-orchestrator": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-orchestrator/SKILL.md",
+      "computedHash": "13dec0c2e937bfee5ac1b02608fce63cb4015a0268dd9dcaf06121626ba01577"
+    },
+    "seo-page-audit": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-page-audit/SKILL.md",
+      "computedHash": "26691781a58150beb18d7454b4b9aa11bf05b39d833e6718ee9da9e5360d5496"
+    },
+    "seo-performance-analysis": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-performance-analysis/SKILL.md",
+      "computedHash": "f98584c5a441fb56190472a74ca8cf39ecb65546ae7b860586c503a409db0aac"
+    },
+    "seo-prioritization": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-prioritization/SKILL.md",
+      "computedHash": "8f39039a8a237ea7265501c73ff80531b6a7977c7a40949ec752d56fc59b1912"
+    },
+    "seo-programmatic": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-programmatic/SKILL.md",
+      "computedHash": "8cd0c614d326102c218362e83208c03ea26ca5da838b5366504ae607f7718022"
+    },
+    "seo-schema": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-schema/SKILL.md",
+      "computedHash": "9882f69f965dcb9228a1df458a913d9cfc67a10e29ef58a3bf50b5875a17e908"
+    },
+    "seo-serp-analysis": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-serp-analysis/SKILL.md",
+      "computedHash": "ee75fe8b719029a2c3cfca54806d980aac5ac0fb89cb55b9bee337f3eb949508"
+    },
+    "seo-strategy": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-strategy/SKILL.md",
+      "computedHash": "49dee8ba58ae61b3bbc71e427c1a6fe6fdd8bfec0983c19c21d50aba5302d2d4"
+    },
+    "seo-technical-audit": {
+      "source": "datacas/seo-agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/seo-technical-audit/SKILL.md",
+      "computedHash": "bbfabebd431f02acf6a145440cd70071f7337fa257250356a77a35368fdea349"
+    }
+  }
+}

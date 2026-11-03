@@ -4,7 +4,7 @@ import Script from "next/script";
 import { HtmlToPdfTool } from "@/components/tools/html-to-pdf/HtmlToPdfTool";
 
 export const metadata: Metadata = {
-  title: "HTML to PDF Converter Free Online - Convert Web Pages & Code | Free Converting Tools",
+  title: "HTML to PDF Converter Free Online - Convert Web Pages & Code",
   description:
     "Convert HTML code, web layouts, and pages into printable PDF documents online. Custom paper sizes, margins, and CSS with zero server uploads.",
   keywords: [
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf",
   },
   openGraph: {
+    images: [
+      {
+        url: "/images/all-tools-hero-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "HTML to PDF Converter",
+      },
+    ],
     title: "HTML to PDF Converter Free Online | Free Converting Tools",
     description:
       "Transform HTML code, web pages, and documents into print-ready PDF files directly in your web browser.",
@@ -50,50 +58,19 @@ const jsonLdFaq = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How does the HTML to PDF conversion work in the browser?",
+      name: "Can I paste raw HTML directly without saving a file?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Free Converting Tools renders your HTML markup through an in-memory high-DPI canvas using SVG foreignObject technologies, and encodes the resulting visual vectors into standard PDF pages via pdf-lib.",
+        text: "Yes! Click the \"Paste HTML Code\" tab to type or paste HTML snippets, email templates, or receipt tables directly.",
       },
     },
     {
       "@type": "Question",
-      name: "Are CSS styles and web fonts preserved?",
+      name: "Are external images supported?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Standard inline CSS, layout flexboxes, grid systems, and typography rules are rendered faithfully.",
+        text: "Inline SVG graphics and base64 data URIs are rendered with 100% accuracy. For external URLs, ensure cross-origin (CORS) permissions allow image loading.",
       },
-    },
-    {
-      "@type": "Question",
-      name: "Are my HTML files uploaded to a remote server?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. Conversion executes 100% inside your local browser memory. No HTML code, proprietary templates, or personal data leave your device.",
-      },
-    },
-  ],
-};
-
-const jsonLdHowTo = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Convert HTML to PDF Online",
-  step: [
-    {
-      "@type": "HowToStep",
-      name: "Upload HTML File or Paste Code",
-      text: "Drag and drop your .html file or paste raw HTML code into the input field.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Customize Paper Layout",
-      text: "Choose paper size (A4, Letter, Legal), orientation (Portrait, Landscape), and margins.",
-    },
-    {
-      "@type": "HowToStep",
-      name: "Convert & Download",
-      text: "Click Convert to PDF to render and download your new document instantly.",
     },
   ],
 };
@@ -110,11 +87,6 @@ export default function HtmlToPdfPage() {
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
-      />
-      <Script
-        id="howto-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">
