@@ -59,6 +59,12 @@ export default function AnalyticsGuard() {
           `,
         }}
       />
+      <Script
+        id="ahrefs-analytics"
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="IrIK5YdO1d+KrFXk4w+tcQ"
+        strategy="afterInteractive"
+      />
     </>
   );
 }
