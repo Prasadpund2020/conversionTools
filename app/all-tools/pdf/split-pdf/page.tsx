@@ -145,6 +145,17 @@ export default function SplitPdfPage() {
           </div>
         </section>
 
+        <p className="text-sm text-on-surface-variant">
+          Need a different page order instead of splitting?{" "}
+          <Link
+            href="/all-tools/pdf/organize-pdf"
+            className="text-primary font-semibold hover:underline"
+          >
+            rearrange PDF pages
+          </Link>{" "}
+          online for free.
+        </p>
+
         {/* Related Tools Shelf */}
         <section className="flex flex-col gap-4 pt-4">
           <h2 className="text-xl font-bold text-on-surface">Related PDF Utilities</h2>

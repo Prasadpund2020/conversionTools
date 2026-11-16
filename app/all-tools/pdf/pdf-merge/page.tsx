@@ -188,6 +188,17 @@ export default function PdfMergePage() {
         </div>
       </div>
 
+      <p className="mt-8 text-sm text-slate-600">
+        After merging,{" "}
+        <Link
+          href="/all-tools/pdf/organize-pdf"
+          className="text-blue-600 font-semibold hover:underline"
+        >
+          rearrange PDF pages
+        </Link>{" "}
+        to set the final page order.
+      </p>
+
       {/* Related Tools Shelf */}
       {relatedTools.length > 0 && (
         <div className="mt-12">

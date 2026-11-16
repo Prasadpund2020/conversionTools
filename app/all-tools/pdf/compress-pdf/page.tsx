@@ -209,6 +209,17 @@ export default function CompressPdfPage() {
           </div>
         </section>
 
+        <p className="text-sm text-on-surface-variant">
+          Want to fix page order before or after compressing?{" "}
+          <Link
+            href="/all-tools/pdf/organize-pdf"
+            className="text-primary font-semibold hover:underline"
+          >
+            rearrange PDF pages
+          </Link>{" "}
+          in your browser.
+        </p>
+
         {/* Related Tools Shelf */}
         <section className="flex flex-col gap-4 pt-4">
           <h2 className="text-xl font-bold text-on-surface">Related PDF Utilities</h2>

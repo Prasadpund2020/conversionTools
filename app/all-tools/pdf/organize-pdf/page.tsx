@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { OrganizePdfTool } from "@/components/tools/organize-pdf/OrganizePdfTool";
 
 export const metadata: Metadata = {
-  title: "Organize PDF Online Free - Rotate, Reorder & Delete Pages",
+  title: "Rearrange & Reorder PDF Pages Online Free",
   description:
-    "Organize, reorder, rotate, duplicate, and delete PDF pages online. Drag and rearrange pages visually with instant private in-browser processing.",
+    "Rearrange, reorder, rotate and delete PDF pages online for free. Organize your PDF visually and download it. Files stay in your browser, nothing is uploaded.",
   keywords: [
     "organize pdf",
     "reorder pdf pages",
@@ -14,6 +13,12 @@ export const metadata: Metadata = {
     "delete pages from pdf",
     "duplicate pdf page",
     "free pdf page sorter",
+    "rearrange pdf pages",
+    "rearrange pdf pages online",
+    "pdf page arranger",
+    "reorder pdf online",
+    "organize pdf free",
+    "free pdf page organizer",
   ],
   alternates: {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
@@ -27,14 +32,52 @@ export const metadata: Metadata = {
         alt: "Organize PDF",
       },
     ],
-    title: "Organize PDF Online Free | Free Converting Tools",
+    title: "Rearrange & Reorder PDF Pages Online Free",
     description:
-      "Visually rearrange, rotate, duplicate, and delete PDF pages directly inside your web browser.",
+      "Rearrange, reorder, rotate and delete PDF pages online for free. Organize your PDF visually in your browser — nothing is uploaded.",
     url: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
     siteName: "Free Converting Tools",
     type: "website",
   },
 };
+
+const faqs = [
+  {
+    question: "Will reordering pages degrade document quality?",
+    answer:
+      "No. The underlying page streams and vector definitions are referenced directly without re-encoding or rasterizing images.",
+  },
+  {
+    question: "What if I accidentally delete a page?",
+    answer:
+      'Simply click "Reset to Original Order" in the sidebar at any time to restore your document back to its initial state.',
+  },
+  {
+    question: "How do I rearrange pages in a PDF for free?",
+    answer:
+      "Upload your PDF, then use the left and right controls on each page card to change the page order. Rotate, duplicate, or delete pages as needed, then click Save & Download PDF. The tool is free and runs in your browser.",
+  },
+  {
+    question: "Can I move multiple pages in a PDF?",
+    answer:
+      "You rearrange pages one at a time with the left/right controls. To flip the whole document at once, use Reverse Page Sequence. There is no multi-select bulk move.",
+  },
+  {
+    question: "Are my PDF files uploaded to a server?",
+    answer:
+      "No. Your file is read and rebuilt entirely in your browser with client-side PDF processing. Nothing is uploaded to our servers.",
+  },
+  {
+    question: "Can I rotate or delete pages while rearranging?",
+    answer:
+      "Yes. You can rotate a single page or all pages by 90°, duplicate a page, or delete pages you do not need — then save the new page order.",
+  },
+  {
+    question: "Is there a page limit or file size limit?",
+    answer:
+      "There is no hard page or file-size limit in the tool. It works with most PDFs; very large files depend on your device's memory.",
+  },
+];
 
 const jsonLdWebapp = {
   "@context": "https://schema.org",
@@ -42,7 +85,7 @@ const jsonLdWebapp = {
   name: "Free Converting Tools Organize PDF Tool",
   url: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
   description:
-    "Client-side PDF page organizer. Reorder, rotate, duplicate, and delete pages with an interactive visual grid.",
+    "Client-side PDF page organizer. Rearrange, reorder, rotate, duplicate, and delete pages with an interactive visual grid.",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "All",
   offers: {
@@ -55,22 +98,43 @@ const jsonLdWebapp = {
 const jsonLdFaq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const jsonLdBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
     {
-      "@type": "Question",
-      name: "Will reordering pages degrade document quality?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. The underlying page streams and vector definitions are referenced directly without re-encoding or rasterizing images.",
-      },
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://freeconvertingtools.co.in",
     },
     {
-      "@type": "Question",
-      name: "What if I accidentally delete a page?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Simply click \"Reset to Original Order\" in the sidebar at any time to restore your document back to its initial state.",
-      },
+      "@type": "ListItem",
+      position: 2,
+      name: "All Tools",
+      item: "https://freeconvertingtools.co.in/all-tools",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "PDF Tools",
+      item: "https://freeconvertingtools.co.in/all-tools/pdf",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Organize PDF",
+      item: "https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf",
     },
   ],
 };
@@ -78,10 +142,21 @@ const jsonLdFaq = {
 export default function OrganizePdfPage() {
   return (
     <div className="w-full min-h-screen bg-background text-on-surface">
-      <Script
+      {/* Native script tags so JSON-LD is present in SSR HTML for crawlers */}
+      <script
         id="webapp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebapp) }}
+      />
+      <script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col gap-8">
@@ -104,7 +179,7 @@ export default function OrganizePdfPage() {
             <span>100% In-Browser Manipulation</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-on-surface">
-            Organize &amp; Reorder PDF Pages
+            Rearrange &amp; Organize PDF Pages Online
           </h1>
           <p className="text-sm md:text-base text-on-surface-variant leading-relaxed">
             Visually arrange your document pages, rotate landscape scans, duplicate important sections, and remove excess pages with zero file uploads.
@@ -114,6 +189,59 @@ export default function OrganizePdfPage() {
         {/* Interactive Tool Orchestrator */}
         <section aria-label="PDF Organizer Tool">
           <OrganizePdfTool />
+        </section>
+
+        {/* How to */}
+        <section className="rounded-3xl bg-surface-container-low p-6 md:p-8 border border-outline-variant/30 shadow-md flex flex-col gap-4">
+          <h2 className="text-2xl font-bold text-on-surface">How to Rearrange PDF Pages Online</h2>
+          <p className="text-sm text-on-surface-variant leading-relaxed max-w-3xl">
+            Follow these steps to reorder and organize your PDF in the browser. Need to{" "}
+            <Link href="/all-tools/pdf/split-pdf" className="text-primary font-semibold hover:underline">
+              split a PDF
+            </Link>{" "}
+            into separate files first? Do that, then come back to arrange the page order.
+          </p>
+          <ol className="list-decimal list-inside flex flex-col gap-3 text-sm text-on-surface-variant leading-relaxed">
+            <li>
+              <span className="font-semibold text-on-surface">Upload your PDF</span>
+              {" — "}click or drop the file into the organizer.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Rearrange pages</span>
+              {" — "}move each page left or right with the arrow controls until the page order looks right.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Optional edits</span>
+              {" — "}rotate, duplicate, or delete pages as needed. You can also reverse the full sequence or reset to the original order.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Save and download</span>
+              {" — "}click Save &amp; Download PDF to get your organized file.
+            </li>
+          </ol>
+        </section>
+
+        {/* When to use */}
+        <section className="rounded-3xl bg-surface-container-low p-6 md:p-8 border border-outline-variant/30 shadow-md flex flex-col gap-4">
+          <h2 className="text-2xl font-bold text-on-surface">When to Use the PDF Organizer</h2>
+          <ul className="flex flex-col gap-3 text-sm text-on-surface-variant leading-relaxed list-disc list-inside">
+            <li>
+              Fix the order of scanned pages that came out shuffled or back-to-front.
+            </li>
+            <li>
+              After you{" "}
+              <Link href="/all-tools/pdf/pdf-merge" className="text-primary font-semibold hover:underline">
+                merge PDF files
+              </Link>
+              , rearrange the combined document so chapters and sections sit in the right place.
+            </li>
+            <li>
+              Remove blank or unwanted pages before you share or print.
+            </li>
+            <li>
+              Rotate sideways or upside-down scans without rebuilding the whole file.
+            </li>
+          </ul>
         </section>
 
         {/* Feature Cards Grid */}
@@ -153,18 +281,12 @@ export default function OrganizePdfPage() {
         <section className="rounded-3xl bg-surface-container-low p-6 md:p-8 border border-outline-variant/30 shadow-md flex flex-col gap-6">
           <h2 className="text-2xl font-bold text-on-surface">Frequently Asked Questions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col gap-2">
-              <h3 className="text-sm font-bold text-on-surface">Will reordering pages degrade document quality?</h3>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                No. The underlying page streams and vector definitions are referenced directly without re-encoding or rasterizing images.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-sm font-bold text-on-surface">What if I accidentally delete a page?</h3>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                Simply click &quot;Reset to Original Order&quot; in the sidebar at any time to restore your document back to its initial state.
-              </p>
-            </div>
+            {faqs.map((faq) => (
+              <div key={faq.question} className="flex flex-col gap-2">
+                <h3 className="text-sm font-bold text-on-surface">{faq.question}</h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -177,7 +299,7 @@ export default function OrganizePdfPage() {
               className="p-4 rounded-2xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 transition-all shadow-sm flex flex-col gap-1.5"
             >
               <span className="text-xl">✂️</span>
-              <span className="text-xs font-bold text-on-surface">Split PDF</span>
+              <span className="text-xs font-bold text-on-surface">Split a PDF</span>
               <span className="text-[11px] text-on-surface-variant">Separate into pages or ranges</span>
             </Link>
 
@@ -186,7 +308,7 @@ export default function OrganizePdfPage() {
               className="p-4 rounded-2xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 transition-all shadow-sm flex flex-col gap-1.5"
             >
               <span className="text-xl">📑</span>
-              <span className="text-xs font-bold text-on-surface">PDF Merge</span>
+              <span className="text-xs font-bold text-on-surface">Merge PDF files</span>
               <span className="text-[11px] text-on-surface-variant">Combine multiple documents</span>
             </Link>
 

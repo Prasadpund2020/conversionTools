@@ -95,7 +95,7 @@ Free Converting Tools is an in-browser utility suite providing privacy-first fil
 
 15. **Organize PDF Pages** (`/all-tools/pdf/organize-pdf`)
    - **Supported Inputs**: `.pdf`
-   - **Description**: Organize, reorder, rotate, and delete PDF pages with an interactive visual grid. Download your restructured PDF instantly with zero server uploads.
+   - **Description**: Rearrange, reorder, rotate, delete and duplicate pages; processed in the browser. Download your restructured PDF instantly with an interactive visual grid.
    - **Capabilities & Privacy**: Processed 100% client-side with zero remote server retention.
 
 16. **Page Numbers & Bates** (`/all-tools/pdf/add-page-numbers`)

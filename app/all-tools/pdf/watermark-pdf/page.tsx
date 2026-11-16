@@ -126,7 +126,7 @@ export default function WatermarkPdfPage() {
             <h3 className="text-lg font-bold text-on-surface">Zero Cloud Ingress</h3>
             <p className="text-xs text-on-surface-variant leading-relaxed">
               Your confidential legal briefs, pitch decks, and financial statements never travel across the network.
-              Rendering and byte injection happen entirely inside your browser's V8 runtime.
+              Rendering and byte injection happen entirely inside your browser&apos;s V8 runtime.
             </p>
           </div>
         </section>
@@ -149,6 +149,17 @@ export default function WatermarkPdfPage() {
             </div>
           </div>
         </section>
+
+        <p className="text-sm text-on-surface-variant">
+          Prefer to set page order first?{" "}
+          <Link
+            href="/all-tools/pdf/organize-pdf"
+            className="text-primary font-semibold hover:underline"
+          >
+            rearrange PDF pages
+          </Link>
+          , then add your watermark.
+        </p>
 
         {/* Related Tools Shelf */}
         <section className="flex flex-col gap-4 pt-4">

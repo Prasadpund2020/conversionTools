@@ -27,7 +27,7 @@ Canonical Tool Directory: https://freeconvertingtools.co.in/all-tools
 - [HTML to PDF](https://freeconvertingtools.co.in/all-tools/pdf/html-to-pdf): Convert web pages, HTML files, or raw HTML code into clean, printable PDF documents.
 - [Compress PDF](https://freeconvertingtools.co.in/all-tools/pdf/compress-pdf): Optimize PDF filesize while preserving document and font clarity.
 - [Split PDF](https://freeconvertingtools.co.in/all-tools/pdf/split-pdf): Separate specific page ranges or extract individual pages into new PDFs.
-- [Organize PDF Pages](https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf): Rotate, reorder, delete, and duplicate pages inside your PDF.
+- [Organize PDF Pages](https://freeconvertingtools.co.in/all-tools/pdf/organize-pdf): Rearrange, reorder, rotate, delete and duplicate pages; processed in the browser.
 - [Page Numbers & Bates](https://freeconvertingtools.co.in/all-tools/pdf/add-page-numbers): Stamp customized page numbers or Bates numbering into header & footer positions.
 - [Unlock PDF Password](https://freeconvertingtools.co.in/all-tools/pdf/unlock-pdf): Permanently remove passwords, encryption, and printing/copying restrictions.
 - [Grayscale / B&W PDF](https://freeconvertingtools.co.in/all-tools/pdf/grayscale-pdf): Convert color PDFs to clean monochrome grayscale to save printing toner.
