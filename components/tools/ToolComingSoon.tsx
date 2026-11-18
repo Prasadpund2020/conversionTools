@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { ToolItem } from "@/types/tools";
-import { getToolUrl } from "@/lib/tools";
 import ToolIcon from "@/components/ToolIcon";
 
 interface ToolComingSoonProps {

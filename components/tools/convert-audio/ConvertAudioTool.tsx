@@ -48,18 +48,26 @@ export default function ConvertAudioTool() {
   );
 
   // Mount with sample on initial render
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const sample = generateSampleAcousticBuffer();
-    setMeta(sample);
-    const initialOpts: AudioConvertOptions = {
-      targetFormat: "mp3",
-      bitrate: 320,
-      sampleRate: 44100,
-      channelMode: "stereo",
-      normalizeGain: true,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleAcousticBuffer();
+      setMeta(sample);
+      const initialOpts: AudioConvertOptions = {
+        targetFormat: "mp3",
+        bitrate: 320,
+        sampleRate: 44100,
+        channelMode: "stereo",
+        normalizeGain: true,
+      };
+      setOptions(initialOpts);
+      triggerConversion(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerConversion(sample, initialOpts);
   }, [triggerConversion]);
 
   // Handle options changes with debounce

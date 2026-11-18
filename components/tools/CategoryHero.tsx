@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import Category3DStage from "@/components/tools/Category3DStage";
 
 interface CategoryHeroProps {
@@ -18,7 +17,6 @@ export default function CategoryHero({
   category,
   categoryName,
   departmentNumber,
-  description,
   searchQuery,
   onSearchChange,
   toolCount,

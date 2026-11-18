@@ -15,7 +15,6 @@ interface VideoToGifControlsProps {
 
 export const VideoToGifControls: React.FC<VideoToGifControlsProps> = ({
   options,
-  duration,
   isProcessing,
   progressPercent,
   statusText,

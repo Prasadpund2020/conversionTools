@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import {
   ProofPage,
   LoadedPdfInfo,
@@ -9,7 +9,6 @@ import {
   ColorMode,
   ConversionMode,
 } from "./types";
-import { getSampleCatalogPages, getSamplePdfInfo } from "./sampleCatalog";
 import {
   loadPdfDoc,
   canvasToBlob,
@@ -26,7 +25,6 @@ import PdfToJpgModal from "./PdfToJpgModal";
 export default function PdfToJpgTool() {
   const [pdfInfo, setPdfInfo] = useState<LoadedPdfInfo | null>(null);
   const [pages, setPages] = useState<ProofPage[]>([]);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   // Settings
   const [mode, setMode] = useState<ConversionMode>("entire-pages");
@@ -38,19 +36,6 @@ export default function PdfToJpgTool() {
   const [inspectingPage, setInspectingPage] = useState<ProofPage | null>(null);
   const [isDownloadingZip, setIsDownloadingZip] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-
-  // Initialize with sample catalog on mount
-  useEffect(() => {
-    try {
-      const samplePages = getSampleCatalogPages();
-      const sampleInfo = getSamplePdfInfo();
-      setPages(samplePages);
-      setPdfInfo(sampleInfo);
-    } catch {
-      // fallback
-    }
-    setIsInitialized(true);
-  }, []);
 
   const selectedCount = useMemo(() => {
     return pages.filter((p) => p.isSelected).length;
@@ -78,15 +63,6 @@ export default function PdfToJpgTool() {
     setPages((prev) => prev.map((p) => ({ ...p, isSelected: !p.isSelected })));
   }, []);
 
-  // Reset to default sample catalog
-  const handleResetSample = useCallback(() => {
-    const samplePages = getSampleCatalogPages();
-    const sampleInfo = getSamplePdfInfo();
-    setPages(samplePages);
-    setPdfInfo(sampleInfo);
-    setStatusMessage("");
-  }, []);
-
   // Handle User Uploading Real PDF
   const handleChangeFile = useCallback(async (file: File) => {
     const sizeMb = (file.size / (1024 * 1024)).toFixed(1);
@@ -109,7 +85,7 @@ export default function PdfToJpgTool() {
         const ctx = canvas.getContext("2d");
 
         if (ctx) {
-          await page.render({ canvasContext: ctx, viewport, canvas } as any).promise;
+          await page.render({ canvasContext: ctx, viewport, canvas }).promise;
           const url = canvas.toDataURL("image/jpeg", 0.85);
 
           newPages.push({
@@ -158,7 +134,7 @@ export default function PdfToJpgTool() {
         const ctx = canvas.getContext("2d");
 
         if (ctx) {
-          await page.render({ canvasContext: ctx, viewport, canvas } as any).promise;
+          await page.render({ canvasContext: ctx, viewport, canvas }).promise;
           if (colorMode === "grayscale") {
             applyGrayscaleFilter(canvas);
           }
@@ -187,7 +163,7 @@ export default function PdfToJpgTool() {
       }
       return canvas;
     },
-    [pdfInfo?.file, dpi, colorMode]
+    [pdfInfo, dpi, colorMode]
   );
 
   // Download Single Page
@@ -220,7 +196,7 @@ export default function PdfToJpgTool() {
         setStatusMessage("Failed to export page image.");
       }
     },
-    [pages, dpi, format, pdfInfo?.name, renderHighResCanvas]
+    [pages, dpi, format, pdfInfo, renderHighResCanvas]
   );
 
   // Download All Selected as ZIP
@@ -268,26 +244,10 @@ export default function PdfToJpgTool() {
     }
   };
 
-  if (!isInitialized) {
-    return (
-      <div className="w-full min-h-[450px] flex items-center justify-center bg-stone-50 rounded-3xl border border-stone-200">
-        <div className="flex flex-col items-center gap-3">
-          <span className="w-8 h-8 border-3 border-orange-500 border-t-transparent rounded-full animate-spin" />
-          <span className="text-xs font-bold text-stone-500">
-            Initializing PDF to JPG Rasterizer...
-          </span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="flex flex-col w-full gap-6">
       {!pdfInfo ? (
-        <PdfToJpgDropzone
-          onPdfSelected={handleChangeFile}
-          onLoadSample={handleResetSample}
-        />
+        <PdfToJpgDropzone onPdfSelected={handleChangeFile} />
       ) : (
         <>
           {/* Screen Sub-Header & Loaded File Spec Deck */}

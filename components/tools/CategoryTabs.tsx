@@ -2,10 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { ToolItem } from "@/types/tools";
 import { CATEGORIES } from "@/data/tools";
 import { getCategoryUrl } from "@/lib/tools";
-import ToolIcon from "@/components/ToolIcon";
 
 interface CategoryTabsProps {
   activeCategory: string;

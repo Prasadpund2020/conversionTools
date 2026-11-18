@@ -49,18 +49,26 @@ export default function OcrScannerTool() {
   );
 
   // Mount with sample on initial render
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const sample = generateSampleInvoiceImage();
-    setMeta(sample);
-    const initialOpts: OcrOptions = {
-      mode: "general",
-      enhanceContrast: true,
-      threshold: 128,
-      invertColors: false,
-      autoCleanText: true,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleInvoiceImage();
+      setMeta(sample);
+      const initialOpts: OcrOptions = {
+        mode: "general",
+        enhanceContrast: true,
+        threshold: 128,
+        invertColors: false,
+        autoCleanText: true,
+      };
+      setOptions(initialOpts);
+      triggerOcr(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerOcr(sample, initialOpts);
   }, [triggerOcr]);
 
   // Handle options changes with debounce

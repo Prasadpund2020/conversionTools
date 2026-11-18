@@ -3,8 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { StagedComparePdf } from "./types";
-import { formatBytes } from "./comparePdfEngine";
-
 interface Props {
   docA: StagedComparePdf | null;
   docB: StagedComparePdf | null;

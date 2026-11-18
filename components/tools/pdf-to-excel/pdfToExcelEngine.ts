@@ -41,7 +41,7 @@ export async function extractTablesFromPdf(
       pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.mjs";
     }
 
-    const pdf = await pdfjsLib.getDocument({ data: file.bytes as any }).promise;
+    const pdf = await pdfjsLib.getDocument({ data: file.bytes }).promise;
     const numPages = pdf.numPages;
 
     for (let p = 1; p <= numPages; p++) {

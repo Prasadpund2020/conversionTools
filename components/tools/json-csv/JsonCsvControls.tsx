@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { JsonCsvOptions, ConversionDirection, Delimiter } from './types';
+import { JsonCsvOptions, Delimiter } from './types';
 
 interface JsonCsvControlsProps {
   options: JsonCsvOptions;

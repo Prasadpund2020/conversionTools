@@ -1,4 +1,4 @@
-import { PDFDocument, StandardFonts, rgb, degrees } from "pdf-lib";
+import { PDFDocument, PDFImage, StandardFonts, rgb, degrees } from "pdf-lib";
 import { StagedPdfFile, WatermarkOptions, WatermarkResult, WatermarkPosition } from "./types";
 
 export function formatBytes(bytes: number): string {
@@ -106,7 +106,7 @@ export async function applyWatermarkToPdf(
   }
 
   // Image setup if provided
-  let embeddedImage: any = null;
+  let embeddedImage: PDFImage | null = null;
   if (options.type === "image" && options.imageDataUrl) {
     const res = await fetch(options.imageDataUrl);
     const imgBytes = await res.arrayBuffer();
@@ -224,48 +224,4 @@ export async function applyWatermarkToPdf(
     sizeBytes: blob.size,
     pageCount: totalPages,
   };
-}
-
-export async function createSampleWatermarkPdf(): Promise<File> {
-  const pdfDoc = await PDFDocument.create();
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-  // Create 3 demo pages
-  for (let i = 1; i <= 3; i++) {
-    const page = pdfDoc.addPage([600, 400]);
-    page.drawText(`Free Converting Tools Sample Document`, {
-      x: 50,
-      y: 340,
-      size: 20,
-      font: boldFont,
-      color: rgb(0.05, 0.4, 0.55),
-    });
-    page.drawText(`Page ${i} of 3 • Confidential Quarterly Report`, {
-      x: 50,
-      y: 310,
-      size: 12,
-      font,
-      color: rgb(0.3, 0.35, 0.4),
-    });
-    page.drawText(`This sample document demonstrates client-side PDF watermarking.`, {
-      x: 50,
-      y: 260,
-      size: 11,
-      font,
-      color: rgb(0.2, 0.2, 0.2),
-    });
-    page.drawText(`All stamps and watermarks are embedded directly in your browser.`, {
-      x: 50,
-      y: 240,
-      size: 11,
-      font,
-      color: rgb(0.4, 0.4, 0.4),
-    });
-  }
-
-  const bytes = await pdfDoc.save();
-  return new File([bytes as unknown as BlobPart], "Pitch_Deck_Confidential.pdf", {
-    type: "application/pdf",
-  });
 }

@@ -18,7 +18,6 @@ interface Props {
 export const RedactPdfControls: React.FC<Props> = ({
   options,
   boxes,
-  activePage,
   isProcessing,
   onOptionsChange,
   onRemoveBox,

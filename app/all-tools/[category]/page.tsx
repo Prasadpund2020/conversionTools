@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { SITE_URL } from "@/lib/constants";
-import { CATEGORIES } from "@/data/tools";
 import {
   getCategoryInfo,
   getCategorySeo,
   getToolsByCategory,
   getToolUrl,
-  categoryFromSlug,
 } from "@/lib/tools";
 import CategoryPageContent from "@/components/tools/CategoryPageContent";
 

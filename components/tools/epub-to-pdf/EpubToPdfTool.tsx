@@ -51,22 +51,30 @@ export default function EpubToPdfTool() {
   );
 
   // Mount with sample on initial render
+  // (deferred so state isn't set synchronously in the effect body)
   useEffect(() => {
-    const sample = generateSampleEpubBook();
-    setMeta(sample);
-    const initialOpts: EpubToPdfOptions = {
-      trimSize: "6x9",
-      fontFamily: "serif",
-      fontSize: 11,
-      lineSpacing: 1.6,
-      includeCoverPage: true,
-      includeTableOfContents: true,
-      includeRunningHeader: true,
-      includePageNumbers: true,
-      selectedChapterIndex: -1,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleEpubBook();
+      setMeta(sample);
+      const initialOpts: EpubToPdfOptions = {
+        trimSize: "6x9",
+        fontFamily: "serif",
+        fontSize: 11,
+        lineSpacing: 1.6,
+        includeCoverPage: true,
+        includeTableOfContents: true,
+        includeRunningHeader: true,
+        includePageNumbers: true,
+        selectedChapterIndex: -1,
+      };
+      setOptions(initialOpts);
+      triggerConversion(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerConversion(sample, initialOpts);
   }, [triggerConversion]);
 
   // Handle options changes with debounce

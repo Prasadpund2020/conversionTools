@@ -49,9 +49,9 @@ export const MarkdownToPdfTool: React.FC = () => {
     try {
       const res = await convertMarkdownToPdf(markdownText, docTitle || 'Document', options);
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Markdown to PDF error:', err);
-      setError(err?.message || 'Failed to generate PDF from Markdown.');
+      setError((err instanceof Error && err.message) || 'Failed to generate PDF from Markdown.');
     } finally {
       setIsProcessing(false);
     }

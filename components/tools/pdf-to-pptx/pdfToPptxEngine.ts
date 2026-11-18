@@ -42,7 +42,7 @@ export async function convertPdfToPptx(
     pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.min.mjs';
   }
 
-  const pdf = await pdfjsLib.getDocument({ data: file.bytes as any }).promise;
+  const pdf = await pdfjsLib.getDocument({ data: file.bytes }).promise;
   const numPages = pdf.numPages;
 
   const zip = new JSZip();
@@ -93,7 +93,7 @@ export async function convertPdfToPptx(
         canvasContext: ctx,
         viewport,
         canvas,
-      } as any)).promise;
+      })).promise;
     }
 
     const imgBase64 = canvas.toDataURL('image/jpeg', options.quality || 0.88).split(',')[1];

@@ -68,9 +68,9 @@ export const JsonCsvTool: React.FC = () => {
         const res = convertCsvToJson(inputText, options, baseFileName);
         setResult(res);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Conversion error:', err);
-      setError(err?.message || 'Failed to convert data. Please verify your input format.');
+      setError((err instanceof Error && err.message) || 'Failed to convert data. Please verify your input format.');
     }
   };
 

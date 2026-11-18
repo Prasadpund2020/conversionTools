@@ -47,10 +47,18 @@ export default function JpgToPngTool() {
   }, []);
 
   // Initialize with sample on mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const samples = generateJpgSampleItems();
-    setItems(samples);
-    samples.forEach((sample) => convertSingle(sample));
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const samples = generateJpgSampleItems();
+      setItems(samples);
+      samples.forEach((sample) => convertSingle(sample));
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [convertSingle]);
 
   // Download all as ZIP

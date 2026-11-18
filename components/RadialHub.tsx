@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { ToolItem } from "@/types/tools";
 import { RADIAL_TOOLS, ALL_TOOLS } from "@/data/tools";
@@ -80,15 +80,20 @@ export default function RadialHub({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const activeStageRef = useRef<HTMLDivElement>(null);
 
-  // Reset file/conversion state when active tool changes
-  useEffect(() => {
+  // Reset file/conversion state when active tool changes. The active tool can be
+  // driven by the parent prop, so compare against the previous id during render
+  // (https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes)
+  const activeToolId = activeTool?.id;
+  const [prevActiveToolId, setPrevActiveToolId] = useState(activeToolId);
+  if (prevActiveToolId !== activeToolId) {
+    setPrevActiveToolId(activeToolId);
     setSelectedFiles([]);
     setConversionResult(null);
     setIsProcessing(false);
     setProgress(0);
     setVideoUrl("");
     setStatusMessage("");
-  }, [activeTool?.id]);
+  }
 
   const handleToolClick = (tool: ToolItem) => {
     setActiveTool(tool);

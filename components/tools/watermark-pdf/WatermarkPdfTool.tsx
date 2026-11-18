@@ -5,7 +5,6 @@ import { StagedPdfFile, WatermarkOptions, WatermarkResult } from "./types";
 import {
   parsePdfDocument,
   applyWatermarkToPdf,
-  createSampleWatermarkPdf,
 } from "./watermarkPdfEngine";
 import { WatermarkPdfHeaderBar } from "./WatermarkPdfHeaderBar";
 import { WatermarkPdfDropzone } from "./WatermarkPdfDropzone";
@@ -48,18 +47,6 @@ export const WatermarkPdfTool: React.FC = () => {
     }
   };
 
-  const handleLoadSample = async () => {
-    try {
-      setIsLoadingFile(true);
-      const sampleFile = await createSampleWatermarkPdf();
-      await handleFileSelected(sampleFile);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoadingFile(false);
-    }
-  };
-
   const handleReset = () => {
     setStagedFile(null);
     setResult(null);
@@ -91,18 +78,13 @@ export const WatermarkPdfTool: React.FC = () => {
   return (
     <div className="w-full flex flex-col min-h-[600px] bg-surface rounded-3xl border border-outline-variant/30 shadow-2xl overflow-hidden">
       {/* Header Bar */}
-      <WatermarkPdfHeaderBar
-        stagedFile={stagedFile}
-        onLoadSample={handleLoadSample}
-        onReset={handleReset}
-      />
+      <WatermarkPdfHeaderBar stagedFile={stagedFile} onReset={handleReset} />
 
       <div className="w-full p-4 md:p-8 flex-1 flex flex-col">
         {!stagedFile ? (
           <div className="my-auto py-8">
             <WatermarkPdfDropzone
               onFileSelected={handleFileSelected}
-              onLoadSample={handleLoadSample}
               isLoading={isLoadingFile}
             />
           </div>

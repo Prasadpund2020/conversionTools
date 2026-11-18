@@ -99,7 +99,7 @@ export function decodeBase64ToFile(
   let byteCharacters: string;
   try {
     byteCharacters = atob(rawBase64);
-  } catch (e) {
+  } catch {
     throw new Error('Invalid Base64 string. Please verify the characters.');
   }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { AudioTrackItem, AudioJoinerResult } from './types';
 import { formatBytes, formatTime } from './audioJoinerEngine';
 

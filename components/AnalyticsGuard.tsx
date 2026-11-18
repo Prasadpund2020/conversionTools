@@ -1,23 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 
-export default function AnalyticsGuard() {
-  const [isExcluded, setIsExcluded] = useState<boolean | null>(null);
+// The exclusion flag is read once on the client; nothing pushes updates to us.
+const subscribeNever = () => () => {};
 
-  useEffect(() => {
-    try {
-      const excluded =
-        localStorage.getItem("dev_analytics_disabled") === "true" ||
-        localStorage.getItem("dev_analytics_disabled") === "1" ||
-        Boolean(window.__DEV_ANALYTICS_DISABLED__);
-      setIsExcluded(excluded);
-    } catch {
-      setIsExcluded(false);
-    }
-  }, []);
+function getIsExcludedSnapshot(): boolean {
+  try {
+    return (
+      localStorage.getItem("dev_analytics_disabled") === "true" ||
+      localStorage.getItem("dev_analytics_disabled") === "1" ||
+      Boolean(window.__DEV_ANALYTICS_DISABLED__)
+    );
+  } catch {
+    return false;
+  }
+}
+
+// null on the server (and during hydration) means "not checked yet"
+const getIsExcludedServerSnapshot = (): boolean | null => null;
+
+export default function AnalyticsGuard() {
+  const isExcluded = useSyncExternalStore<boolean | null>(
+    subscribeNever,
+    getIsExcludedSnapshot,
+    getIsExcludedServerSnapshot
+  );
 
   // During SSR or while checking, or if developer mode is enabled, do not mount any analytics
   if (isExcluded === null || isExcluded === true) {

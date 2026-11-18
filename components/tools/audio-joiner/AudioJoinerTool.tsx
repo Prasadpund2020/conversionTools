@@ -34,7 +34,7 @@ export const AudioJoinerTool: React.FC = () => {
         decodedTracks.push(decoded);
       }
       setTracks((prev) => [...prev, ...decodedTracks]);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError('Unable to decode one or more audio files. Please check formats.');
     } finally {
@@ -101,9 +101,9 @@ export const AudioJoinerTool: React.FC = () => {
         }
       );
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err?.message || 'Failed to join audio tracks.');
+      setError((err instanceof Error && err.message) || 'Failed to join audio tracks.');
     } finally {
       setIsProcessing(false);
     }

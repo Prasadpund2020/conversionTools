@@ -30,7 +30,7 @@ export const PdfToPptxTool: React.FC = () => {
     try {
       const parsed = await parsePdfForPptx(file);
       setStagedFile(parsed);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError('Unable to parse the PDF document. Please verify the file.');
     } finally {
@@ -71,10 +71,10 @@ export const PdfToPptxTool: React.FC = () => {
         }
       );
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError(
-        err?.message ||
+        (err instanceof Error && err.message) ||
           'Failed to convert PDF to PowerPoint. Please check document contents.'
       );
     } finally {

@@ -17,7 +17,6 @@ export const ComparePdfDropzone: React.FC<Props> = ({
   docB,
   onSelectDocA,
   onSelectDocB,
-  isLoading,
 }) => {
   const [isDragA, setIsDragA] = useState(false);
   const [isDragB, setIsDragB] = useState(false);

@@ -12,7 +12,6 @@ interface ResizeImageHeaderBarProps {
 export default function ResizeImageHeaderBar({
   onReset,
   onLoadSample,
-  isProcessing = false,
 }: ResizeImageHeaderBarProps) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-4">

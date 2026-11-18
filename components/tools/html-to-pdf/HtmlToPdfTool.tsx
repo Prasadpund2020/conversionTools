@@ -11,7 +11,7 @@ import { HtmlToPdfControls } from "./HtmlToPdfControls";
 export const HtmlToPdfTool: React.FC = () => {
   const [stagedInput, setStagedInput] = useState<StagedHtmlInput | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [result, setResult] = useState<HtmlToPdfResult | null>(null);
 
   const [options, setOptions] = useState<HtmlToPdfOptions>({

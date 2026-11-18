@@ -11,7 +11,6 @@ export interface DocumentInfo {
   fileSize: number;
   arrayBuffer: ArrayBuffer | null;
   pageCount: number;
-  isDemoSample: boolean;
 }
 
 export interface SignaturePlacement {

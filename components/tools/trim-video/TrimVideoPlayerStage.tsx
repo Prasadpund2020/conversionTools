@@ -15,7 +15,6 @@ export default function TrimVideoPlayerStage({
   meta,
   options,
   onOptionsChange,
-  isProcessing,
 }: TrimVideoPlayerStageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);

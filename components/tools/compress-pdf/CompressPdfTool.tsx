@@ -5,7 +5,6 @@ import { StagedCompressFile, CompressOptions, CompressResult } from "./types";
 import {
   parsePdfForCompression,
   compressPdfDocument,
-  createSampleCompressPdf,
   formatBytes,
 } from "./compressPdfEngine";
 import { CompressPdfHeaderBar } from "./CompressPdfHeaderBar";
@@ -35,18 +34,6 @@ export const CompressPdfTool: React.FC = () => {
     } catch (err) {
       console.error(err);
       alert("Failed to load PDF file. Please ensure it is a valid PDF.");
-    } finally {
-      setIsLoadingFile(false);
-    }
-  };
-
-  const handleLoadSample = async () => {
-    try {
-      setIsLoadingFile(true);
-      const sample = await createSampleCompressPdf();
-      await handleFileSelected(sample);
-    } catch (err) {
-      console.error(err);
     } finally {
       setIsLoadingFile(false);
     }
@@ -82,18 +69,13 @@ export const CompressPdfTool: React.FC = () => {
   return (
     <div className="w-full flex flex-col min-h-[600px] bg-surface rounded-3xl border border-outline-variant/30 shadow-2xl overflow-hidden">
       {/* Header Bar */}
-      <CompressPdfHeaderBar
-        stagedFile={stagedFile}
-        onLoadSample={handleLoadSample}
-        onReset={handleReset}
-      />
+      <CompressPdfHeaderBar stagedFile={stagedFile} onReset={handleReset} />
 
       <div className="w-full p-4 md:p-8 flex-1 flex flex-col">
         {!stagedFile ? (
           <div className="my-auto py-8">
             <CompressPdfDropzone
               onFileSelected={handleFileSelected}
-              onLoadSample={handleLoadSample}
               isLoading={isLoadingFile}
             />
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { UpscaleOptions, UpscaleFactor, UpscaleAlgorithm } from './types';
+import { UpscaleOptions, UpscaleFactor } from './types';
 
 interface ImageUpscalerControlsProps {
   options: UpscaleOptions;

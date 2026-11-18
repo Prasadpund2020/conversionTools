@@ -84,9 +84,9 @@ export const ImageUpscalerTool: React.FC = () => {
         }
       );
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err?.message || 'Failed to upscale image.');
+      setError((err instanceof Error && err.message) || 'Failed to upscale image.');
     } finally {
       setIsProcessing(false);
     }

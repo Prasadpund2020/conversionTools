@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PptxOptions, PptxSlideRatio } from './types';
+import { PptxOptions } from './types';
 
 interface PdfToPptxControlsProps {
   options: PptxOptions;

@@ -23,6 +23,8 @@ export async function parsePdfForRepair(file: File): Promise<StagedDamagedPdf> {
 
 export async function repairCorruptedPdf(
   file: StagedDamagedPdf,
+  // Kept for API compatibility with callers; not currently consumed.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   options: RepairOptions
 ): Promise<RepairResult> {
   const diagnostics: RepairDiagnosticItem[] = [];

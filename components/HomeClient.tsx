@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useSyncExternalStore } from "react";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import RadialHub from "@/components/RadialHub";
@@ -17,35 +17,55 @@ import { RADIAL_TOOLS, ALL_TOOLS } from "@/data/tools";
 import { getToolUrl } from "@/lib/tools";
 import Footer from "@/components/Footer";
 
+const subscribeNever = () => () => {};
+
+const getDefaultRecentTools = (): ToolItem[] => [
+  RADIAL_TOOLS[0], // PDF to Word
+  RADIAL_TOOLS[1], // Compress Image
+  RADIAL_TOOLS[6], // Video to MP3
+];
+
+function getSavedRecentSnapshot(): string | null {
+  try {
+    return localStorage.getItem("fct_recent_tools");
+  } catch {
+    return null;
+  }
+}
+
+const getSavedRecentServerSnapshot = (): string | null => null;
+
 export default function HomeClient() {
   const [selectedTool, setSelectedTool] = useState<ToolItem | null>(null);
-  const [initialFile, setInitialFile] = useState<File | null>(null);
+  const [initialFile] = useState<File | null>(null);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isRecentOpen, setIsRecentOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  const [recentTools, setRecentTools] = useState<ToolItem[]>(() => [
-    RADIAL_TOOLS[0], // PDF to Word
-    RADIAL_TOOLS[1], // Compress Image
-    RADIAL_TOOLS[6], // Video to MP3
-  ]);
-
-  // Load recent tools from localStorage if available
-  useEffect(() => {
+  // Persisted recent tools are read from localStorage once on the client
+  // (server/hydration snapshot is null). Local edits are kept in recentOverride.
+  const savedRecentRaw = useSyncExternalStore(
+    subscribeNever,
+    getSavedRecentSnapshot,
+    getSavedRecentServerSnapshot
+  );
+  const [recentOverride, setRecentOverride] = useState<ToolItem[] | null>(null);
+  const savedRecentTools = useMemo<ToolItem[]>(() => {
     try {
-      const saved = localStorage.getItem("fct_recent_tools");
-      if (saved) {
-        setRecentTools(JSON.parse(saved));
+      if (savedRecentRaw) {
+        return JSON.parse(savedRecentRaw);
       }
     } catch {
       // Ignore localStorage errors
     }
-  }, []);
+    return getDefaultRecentTools();
+  }, [savedRecentRaw]);
+  const recentTools = recentOverride ?? savedRecentTools;
 
   const handleRecordRecent = (tool: ToolItem) => {
-    setRecentTools((prev) => {
-      const filtered = prev.filter((t) => t.id !== tool.id);
+    setRecentOverride((prev) => {
+      const filtered = (prev ?? savedRecentTools).filter((t) => t.id !== tool.id);
       const updated = [tool, ...filtered].slice(0, 8);
       try {
         localStorage.setItem("fct_recent_tools", JSON.stringify(updated));
@@ -57,7 +77,7 @@ export default function HomeClient() {
   };
 
   const handleClearRecent = () => {
-    setRecentTools([]);
+    setRecentOverride([]);
     try {
       localStorage.removeItem("fct_recent_tools");
     } catch {

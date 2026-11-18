@@ -57,13 +57,21 @@ export default function ConvertWebpTool() {
   );
 
   // Initialize with sample items on mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const samples = generateWebpSampleItems();
-    setItems(samples);
-    // Convert sample items
-    samples.forEach((sample) => {
-      convertSingle(sample, { quality: 82, lossless: false });
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const samples = generateWebpSampleItems();
+      setItems(samples);
+      // Convert sample items
+      samples.forEach((sample) => {
+        convertSingle(sample, { quality: 82, lossless: false });
+      });
     });
+    return () => {
+      cancelled = true;
+    };
   }, [convertSingle]);
 
   // Convert all pending or re-convert with new quality

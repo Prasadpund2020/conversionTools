@@ -9,7 +9,6 @@ interface JsonCsvDropzoneProps {
 
 export const JsonCsvDropzone: React.FC<JsonCsvDropzoneProps> = ({
   onFileLoaded,
-  error,
 }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);

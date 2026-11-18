@@ -68,23 +68,31 @@ export default function CompressImageTool() {
   );
 
   // Initialize with sample 4K landscape image on mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    try {
-      const sample = generateSampleLandscapeImage();
-      setImageMeta(sample);
-      executeCompression(sample, 82, "webp");
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const sample = generateSampleLandscapeImage();
+        setImageMeta(sample);
+        executeCompression(sample, 82, "webp");
 
-      const saved = localStorage.getItem(RECENT_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setRecentFiles(parsed);
+        const saved = localStorage.getItem(RECENT_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setRecentFiles(parsed);
+          }
         }
+      } catch {
+        // fallback
       }
-    } catch {
-      // fallback
-    }
-    setIsInitialized(true);
+      setIsInitialized(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [executeCompression]);
 
   // Handle Profile Switch
@@ -192,7 +200,11 @@ export default function CompressImageTool() {
     const updated = [newEntry, ...recentFiles.slice(0, 9)];
     setRecentFiles(updated);
     try {
-      const toStore = updated.map(({ blobUrl: _, ...rest }) => rest);
+      const toStore = updated.map((item) => {
+        const { blobUrl, ...rest } = item;
+        void blobUrl; // intentionally dropped: blob URLs are not persistable
+        return rest;
+      });
       localStorage.setItem(RECENT_KEY, JSON.stringify(toStore));
     } catch {
       // ignore

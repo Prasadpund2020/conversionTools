@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { PdfToExcelOptions, ExportSpreadsheetFormat } from "./types";
+import { PdfToExcelOptions, ExportSpreadsheetFormat, TableDetectionMode } from "./types";
 
 interface Props {
   options: PdfToExcelOptions;
@@ -126,7 +126,7 @@ export const PdfToExcelControls: React.FC<Props> = ({
             onChange={(e) =>
               onOptionsChange({
                 ...options,
-                detectionMode: e.target.value as any,
+                detectionMode: e.target.value as TableDetectionMode,
               })
             }
             className="w-full px-3 py-2 rounded-xl bg-surface text-on-surface text-xs font-semibold border border-outline-variant/40 shadow-inner focus:outline-none"

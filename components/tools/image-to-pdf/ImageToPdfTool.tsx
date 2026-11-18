@@ -53,22 +53,30 @@ export default function ImageToPdfTool() {
   ]);
 
   // Load sample images & saved history on initial client mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    try {
-      const samples = getSampleImages();
-      setStagedImages(samples);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const samples = getSampleImages();
+        setStagedImages(samples);
 
-      const saved = localStorage.getItem(RECENT_HISTORY_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setRecentHistory(parsed);
+        const saved = localStorage.getItem(RECENT_HISTORY_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setRecentHistory(parsed);
+          }
         }
+      } catch {
+        // fallback
       }
-    } catch {
-      // fallback
-    }
-    setIsInitialized(true);
+      setIsInitialized(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Save history to localStorage
@@ -76,7 +84,11 @@ export default function ImageToPdfTool() {
     setRecentHistory(newItems);
     try {
       // store metadata only
-      const toStore = newItems.map(({ blobUrl: _, ...rest }) => rest);
+      const toStore = newItems.map((item) => {
+        const { blobUrl, ...rest } = item;
+        void blobUrl; // intentionally dropped: blob URLs are not persistable
+        return rest;
+      });
       localStorage.setItem(RECENT_HISTORY_KEY, JSON.stringify(toStore));
     } catch {
       // ignore storage errors

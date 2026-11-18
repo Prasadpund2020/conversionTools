@@ -5,7 +5,6 @@ import { StagedRedactFile, RedactionBox, RedactOptions, RedactResult } from "./t
 import {
   parsePdfForRedact,
   applyRedactionsToPdf,
-  createSampleRedactPdf,
 } from "./redactPdfEngine";
 import { RedactPdfHeaderBar } from "./RedactPdfHeaderBar";
 import { RedactPdfDropzone } from "./RedactPdfDropzone";
@@ -37,39 +36,6 @@ export const RedactPdfTool: React.FC = () => {
     } catch (err) {
       console.error(err);
       alert("Failed to load PDF file. Please ensure it is a valid PDF.");
-    } finally {
-      setIsLoadingFile(false);
-    }
-  };
-
-  const handleLoadSample = async () => {
-    try {
-      setIsLoadingFile(true);
-      const sample = await createSampleRedactPdf();
-      await handleFileSelected(sample);
-      // Pre-populate with sample redaction boxes
-      setBoxes([
-        {
-          id: "ssn-box",
-          page: 1,
-          x: 44,
-          y: 28,
-          width: 32,
-          height: 6,
-          style: "blackout",
-        },
-        {
-          id: "email-box",
-          page: 1,
-          x: 32,
-          y: 38,
-          width: 48,
-          height: 6,
-          style: "redacted-label",
-        },
-      ]);
-    } catch (err) {
-      console.error(err);
     } finally {
       setIsLoadingFile(false);
     }
@@ -155,7 +121,6 @@ export const RedactPdfTool: React.FC = () => {
       <RedactPdfHeaderBar
         stagedFile={stagedFile}
         boxesCount={boxes.length}
-        onLoadSample={handleLoadSample}
         onReset={handleReset}
       />
 
@@ -164,7 +129,6 @@ export const RedactPdfTool: React.FC = () => {
           <div className="my-auto py-8">
             <RedactPdfDropzone
               onFileSelected={handleFileSelected}
-              onLoadSample={handleLoadSample}
               isLoading={isLoadingFile}
             />
           </div>

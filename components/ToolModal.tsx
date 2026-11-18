@@ -83,9 +83,14 @@ export default function ToolModal({
   const modalRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  // Reset modal state when the tool / initial file changes (adjust state during
+  // render instead of in an effect)
+  const [prevTool, setPrevTool] = useState<ToolItem | null>(null);
+  const [prevInitialFile, setPrevInitialFile] = useState<File | null | undefined>(null);
+  if (tool !== prevTool || initialFile !== prevInitialFile) {
+    setPrevTool(tool);
+    setPrevInitialFile(initialFile);
     if (tool) {
-      onRecordRecent(tool);
       setIsCompleted(false);
       setProgress(0);
       setIsProcessing(false);
@@ -93,10 +98,18 @@ export default function ToolModal({
         setSelectedFiles([initialFile]);
         if (tool.id === "html-to-pdf") {
           setHtmlMode("file");
-          initialFile.text().then((text) => setHtmlCode(text)).catch(() => {});
         }
       } else {
         setSelectedFiles([]);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (tool) {
+      onRecordRecent(tool);
+      if (initialFile && tool.id === "html-to-pdf") {
+        initialFile.text().then((text) => setHtmlCode(text)).catch(() => {});
       }
     }
   }, [tool, initialFile]);

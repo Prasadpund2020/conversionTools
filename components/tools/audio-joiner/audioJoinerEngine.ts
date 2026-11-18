@@ -154,8 +154,6 @@ export async function joinAudioTracks(
     const srcChannels = srcBuf.numberOfChannels;
     const srcLeft = srcBuf.getChannelData(0);
     const srcRight = srcChannels > 1 ? srcBuf.getChannelData(1) : srcLeft;
-    const trackLength = srcBuf.length;
-
     // Resample factor if track sample rate differs
     const rateRatio = srcBuf.sampleRate / targetSampleRate;
 

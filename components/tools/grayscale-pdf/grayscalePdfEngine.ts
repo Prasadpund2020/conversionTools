@@ -41,7 +41,7 @@ export async function convertPdfToGrayscale(
     pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.min.mjs';
   }
 
-  const pdf = await pdfjsLib.getDocument({ data: file.bytes as any }).promise;
+  const pdf = await pdfjsLib.getDocument({ data: file.bytes }).promise;
   const numPages = pdf.numPages;
 
   const outDoc = await PDFDocument.create();
@@ -69,7 +69,7 @@ export async function convertPdfToGrayscale(
       canvasContext: ctx,
       viewport,
       canvas,
-    } as any)).promise;
+    })).promise;
 
     // Apply Pixel-level Grayscale / Threshold transformation
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);

@@ -9,7 +9,6 @@ interface Base64ConverterDropzoneProps {
 
 export const Base64ConverterDropzone: React.FC<Base64ConverterDropzoneProps> = ({
   onFileLoaded,
-  error,
 }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);

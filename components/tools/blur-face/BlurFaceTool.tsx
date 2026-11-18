@@ -89,9 +89,9 @@ export const BlurFaceTool: React.FC = () => {
       document.body.removeChild(a);
 
       setTimeout(() => URL.revokeObjectURL(downloadUrl), 4000);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err?.message || 'Failed to export image.');
+      setError((err instanceof Error && err.message) || 'Failed to export image.');
     }
   };
 

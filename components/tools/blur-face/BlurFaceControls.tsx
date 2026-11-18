@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CensorMode, CensorShape, CensorRegion, BlurFaceOptions } from './types';
+import { CensorRegion, BlurFaceOptions } from './types';
 
 interface BlurFaceControlsProps {
   options: BlurFaceOptions;

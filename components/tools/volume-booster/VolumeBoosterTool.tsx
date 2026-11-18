@@ -44,18 +44,26 @@ export default function VolumeBoosterTool() {
   );
 
   // Mount with sample on initial render
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const sample = generateSampleAudioBuffer();
-    setMeta(sample);
-    const initialOpts: BoosterOptions = {
-      boostMultiplier: 2.0,
-      limiterEnabled: true,
-      bassBoostDb: 3,
-      trebleBoostDb: 2,
-      outputFormat: "wav",
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleAudioBuffer();
+      setMeta(sample);
+      const initialOpts: BoosterOptions = {
+        boostMultiplier: 2.0,
+        limiterEnabled: true,
+        bassBoostDb: 3,
+        trebleBoostDb: 2,
+        outputFormat: "wav",
+      };
+      setOptions(initialOpts);
+      triggerBoostExecution(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerBoostExecution(sample, initialOpts);
   }, [triggerBoostExecution]);
 
   // Handle options changes with debounce

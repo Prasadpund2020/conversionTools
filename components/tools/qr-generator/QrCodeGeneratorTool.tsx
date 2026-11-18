@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import QRCode from "qrcode";
 
 interface QrOptions {
@@ -14,9 +14,6 @@ interface QrOptions {
 }
 
 export default function QrCodeGeneratorTool() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-
   const [options, setOptions] = useState<QrOptions>({
     text: "",
     size: 400,

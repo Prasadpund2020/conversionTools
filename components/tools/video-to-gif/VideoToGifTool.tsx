@@ -40,9 +40,9 @@ export const VideoToGifTool: React.FC = () => {
         speed: 1.0,
         loop: true,
       });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err?.message || 'Unable to load video file. Please check file format.');
+      setError((err instanceof Error && err.message) || 'Unable to load video file. Please check file format.');
     }
   };
 
@@ -82,9 +82,9 @@ export const VideoToGifTool: React.FC = () => {
         }
       );
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err?.message || 'Failed to convert video to GIF. Please try a shorter duration.');
+      setError((err instanceof Error && err.message) || 'Failed to convert video to GIF. Please try a shorter duration.');
     } finally {
       setIsProcessing(false);
     }

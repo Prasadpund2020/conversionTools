@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { SignatureMode, DocumentInfo, SignaturePlacement } from "./sign-pdf/types";
 import SignPdfHeader from "./sign-pdf/SignPdfHeader";
@@ -9,6 +9,10 @@ import DocumentToolbar from "./sign-pdf/DocumentToolbar";
 import DocumentCanvas from "./sign-pdf/DocumentCanvas";
 import SignatureCreatorCard from "./sign-pdf/SignatureCreatorCard";
 import SignerProfileCard from "./sign-pdf/SignerProfileCard";
+
+const subscribeNever = () => () => {};
+const getTodayIsoDate = () => new Date().toISOString().split("T")[0];
+const getTodayIsoDateServerSnapshot = () => "2026-10-22";
 
 export default function SignPdfTool() {
   // ─── Document state (Defaults to null to show Upload Screen first) ──────────
@@ -19,17 +23,16 @@ export default function SignPdfTool() {
   // ─── Signer identity state ─────────────────────────────────────────────────
   const [signerName, setSignerName] = useState("Alex Rivera");
   const [signerTitle, setSignerTitle] = useState("VP of Product");
-  const [signingDate, setSigningDate] = useState("2026-10-22");
+  // Client time is read via useSyncExternalStore (server snapshot is a static fallback)
+  // to prevent Next.js blocking prerender errors; manual edits are kept in the override.
+  const todayIsoDate = useSyncExternalStore(
+    subscribeNever,
+    getTodayIsoDate,
+    getTodayIsoDateServerSnapshot
+  );
+  const [signingDateOverride, setSigningDate] = useState<string | null>(null);
+  const signingDate = signingDateOverride ?? todayIsoDate;
   const [attachAuditCert, setAttachAuditCert] = useState(true);
-
-  // Defer reading client time to useEffect to prevent Next.js blocking prerender errors
-  useEffect(() => {
-    try {
-      setSigningDate(new Date().toISOString().split("T")[0]);
-    } catch {
-      // fallback
-    }
-  }, []);
 
   // ─── Signature creator state ───────────────────────────────────────────────
   const [signatureMode, setSignatureMode] = useState<SignatureMode>("type");
@@ -139,7 +142,6 @@ export default function SignPdfTool() {
         fileSize: file.size,
         arrayBuffer,
         pageCount,
-        isDemoSample: false,
       });
 
       setCurrentPage(1);
@@ -160,158 +162,71 @@ export default function SignPdfTool() {
     }
   };
 
-  // Load sample demo contract
-  const handleLoadSample = () => {
-    setDoc({
-      file: null,
-      fileName: "Sample_Employment_Contract.pdf",
-      fileSize: 184320,
-      arrayBuffer: null,
-      pageCount: 4,
-      isDemoSample: true,
-    });
-    setCurrentPage(4);
-    setSignaturePlacement({ x: 75, y: 85, page: 4 });
-    setIsSignaturePlaced(true);
-  };
-
   // ─── Real PDF Signing & Download via pdf-lib ───────────────────────────────
   const handleSignAndDownload = async () => {
-    if (!doc) return;
+    if (!doc || (!doc.file && !doc.arrayBuffer)) return;
     setIsProcessing(true);
 
     try {
-      let pdfDoc: PDFDocument;
+      const freshBuffer = doc.file
+        ? await doc.file.arrayBuffer()
+        : doc.arrayBuffer!.slice(0);
+      const pdfDoc = await PDFDocument.load(freshBuffer);
+      const pages = pdfDoc.getPages();
+      const targetPageIndex = Math.min(
+        Math.max(0, (signaturePlacement.page || currentPage) - 1),
+        pages.length - 1
+      );
+      const targetPage = pages[targetPageIndex];
+      const { width, height } = targetPage.getSize();
 
-      if (!doc.isDemoSample && (doc.file || doc.arrayBuffer)) {
-        // Load the USER'S ACTUAL UPLOADED PDF FILE directly from File or cloned buffer
-        const freshBuffer = doc.file
-          ? await doc.file.arrayBuffer()
-          : doc.arrayBuffer!.slice(0);
-        pdfDoc = await PDFDocument.load(freshBuffer);
-        const pages = pdfDoc.getPages();
-        const targetPageIndex = Math.min(
-          Math.max(0, (signaturePlacement.page || currentPage) - 1),
-          pages.length - 1
-        );
-        const targetPage = pages[targetPageIndex];
-        const { width, height } = targetPage.getSize();
+      const targetX = (width * Math.min(80, Math.max(10, signaturePlacement.x))) / 100;
+      const targetY = height - (height * Math.min(90, Math.max(10, signaturePlacement.y))) / 100;
 
-        // Calculate coordinates based on percentage placement
-        const targetX = (width * Math.min(80, Math.max(10, signaturePlacement.x))) / 100;
-        const targetY = height - (height * Math.min(90, Math.max(10, signaturePlacement.y))) / 100;
-
-        // Draw Signature
-        if (signatureMode === "draw" && canvasRef.current) {
-          // Export drawn signature canvas as PNG
-          const pngDataUrl = canvasRef.current.toDataURL("image/png");
-          const pngBytes = await fetch(pngDataUrl).then((r) => r.arrayBuffer());
-          const signatureImage = await pdfDoc.embedPng(pngBytes);
-          targetPage.drawImage(signatureImage, {
-            x: Math.max(20, targetX - 60),
-            y: Math.max(20, targetY - 20),
-            width: 140,
-            height: 45,
-          });
-        } else {
-          // Embed typed calligraphic signature
-          const italicFont = await pdfDoc.embedFont(StandardFonts.TimesRomanItalic);
-          const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
-          const sigText = typedSignature || signerName;
-          targetPage.drawText(sigText, {
-            x: Math.max(20, targetX - 50),
-            y: Math.max(20, targetY),
-            size: 16,
-            font: italicFont,
-            color: selectedInkColor === "#003751" ? rgb(0, 0.22, 0.32) : rgb(0.12, 0.11, 0.1),
-          });
-
-          targetPage.drawText(`Signed by ${signerName} • ${signingDate}`, {
-            x: Math.max(20, targetX - 50),
-            y: Math.max(10, targetY - 14),
-            size: 8,
-            font: regularFont,
-            color: rgb(0.4, 0.4, 0.4),
-          });
-        }
-
-        // Attach cryptographic audit note if selected
-        if (attachAuditCert) {
-          const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-          targetPage.drawText(
-            `Digitally signed with Free Converting Tools Cryptographic Seal (${new Date().toUTCString()}) • 100% In-Browser Privacy Sandbox`,
-            {
-              x: 40,
-              y: 25,
-              size: 7,
-              font: regularFont,
-              color: rgb(0.5, 0.5, 0.5),
-            }
-          );
-        }
+      if (signatureMode === "draw" && canvasRef.current) {
+        const pngDataUrl = canvasRef.current.toDataURL("image/png");
+        const pngBytes = await fetch(pngDataUrl).then((r) => r.arrayBuffer());
+        const signatureImage = await pdfDoc.embedPng(pngBytes);
+        targetPage.drawImage(signatureImage, {
+          x: Math.max(20, targetX - 60),
+          y: Math.max(20, targetY - 20),
+          width: 140,
+          height: 45,
+        });
       } else {
-        // Fallback for demo sample contract: generate full PDF
-        pdfDoc = await PDFDocument.create();
-        const page = pdfDoc.addPage([595.28, 841.89]);
-        const timesRoman = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
-        const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
         const italicFont = await pdfDoc.embedFont(StandardFonts.TimesRomanItalic);
+        const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-        page.drawText("CONFIDENTIAL • SCHEDULE C", {
-          x: 50,
-          y: 780,
-          size: 9,
-          font: regularFont,
-          color: rgb(0.5, 0.5, 0.5),
-        });
-
-        page.drawText("Standard Executive Employment Agreement", {
-          x: 50,
-          y: 760,
+        const sigText = typedSignature || signerName;
+        targetPage.drawText(sigText, {
+          x: Math.max(20, targetX - 50),
+          y: Math.max(20, targetY),
           size: 16,
-          font: timesRoman,
-          color: rgb(0.1, 0.1, 0.1),
+          font: italicFont,
+          color: selectedInkColor === "#003751" ? rgb(0, 0.22, 0.32) : rgb(0.12, 0.11, 0.1),
         });
 
-        const clauses = [
-          "7.4 Entirety of Understanding: This Instrument supersedes all prior covenants and communications.",
-          "8.1 Electronic Execution: The parties agree this electronic signature complies with UETA & ESIGN Act.",
-          "8.2 Authorization: By affixing signature below, the executive confirms contractual capacity.",
-        ];
+        targetPage.drawText(`Signed by ${signerName} • ${signingDate}`, {
+          x: Math.max(20, targetX - 50),
+          y: Math.max(10, targetY - 14),
+          size: 8,
+          font: regularFont,
+          color: rgb(0.4, 0.4, 0.4),
+        });
+      }
 
-        clauses.forEach((clause, idx) => {
-          page.drawText(clause, {
-            x: 50,
-            y: 710 - idx * 24,
-            size: 10,
+      if (attachAuditCert) {
+        const regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        targetPage.drawText(
+          `Digitally signed with Free Converting Tools Cryptographic Seal (${new Date().toUTCString()}) • 100% In-Browser Privacy Sandbox`,
+          {
+            x: 40,
+            y: 25,
+            size: 7,
             font: regularFont,
-            color: rgb(0.3, 0.3, 0.3),
-          });
-        });
-
-        page.drawLine({
-          start: { x: 50, y: 350 },
-          end: { x: 545, y: 350 },
-          thickness: 1,
-          color: rgb(0.8, 0.8, 0.8),
-        });
-
-        page.drawText("Free Converting Tools", { x: 50, y: 320, size: 11, font: timesRoman, color: rgb(0.1, 0.1, 0.1) });
-        page.drawText("Elena Vance (General Counsel)", { x: 50, y: 290, size: 14, font: italicFont, color: rgb(0.1, 0.3, 0.7) });
-        page.drawText(`Date: ${signingDate} • Verified`, { x: 50, y: 270, size: 9, font: regularFont, color: rgb(0.2, 0.5, 0.3) });
-
-        page.drawText(`${signerName} (${signerTitle})`, { x: 300, y: 320, size: 11, font: timesRoman, color: rgb(0.1, 0.1, 0.1) });
-        const sigToRender = typedSignature || signerName;
-        page.drawText(sigToRender, { x: 300, y: 290, size: 16, font: italicFont, color: rgb(0.1, 0.1, 0.1) });
-        page.drawText(`Date: ${signingDate} • Certified`, { x: 300, y: 270, size: 9, font: regularFont, color: rgb(0.2, 0.5, 0.3) });
-
-        if (attachAuditCert) {
-          page.drawText(
-            "Audit Trail: Verified 100% In-Browser Cryptographic Digest • Zero Cloud Uploads",
-            { x: 50, y: 50, size: 8, font: regularFont, color: rgb(0.5, 0.5, 0.5) }
-          );
-        }
+            color: rgb(0.5, 0.5, 0.5),
+          }
+        );
       }
 
       const pdfBytes = await pdfDoc.save();
@@ -348,7 +263,6 @@ export default function SignPdfTool() {
       {!doc ? (
         <DocumentUploader
           onFileUpload={handleRealPdfUpload}
-          onLoadSample={handleLoadSample}
           isProcessing={isProcessing}
         />
       ) : (

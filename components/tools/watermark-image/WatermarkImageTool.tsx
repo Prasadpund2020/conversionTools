@@ -28,10 +28,8 @@ export function WatermarkImageTool() {
 
   // Re-render watermark when options or source change
   useEffect(() => {
-    if (!source) {
-      setResult(null);
-      return;
-    }
+    // result is cleared in handleReset, the only place source becomes null
+    if (!source) return;
 
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);

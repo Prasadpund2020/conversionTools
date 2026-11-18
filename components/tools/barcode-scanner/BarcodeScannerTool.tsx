@@ -25,9 +25,18 @@ const BARCODE_FORMATS: BarcodeFormat[] = [
   "CODE39",
 ];
 
+interface DetectedBarcode {
+  rawValue: string;
+}
+
+interface BarcodeDetectorLike {
+  getSupportedFormats(): Promise<string[]>;
+  detect(source: HTMLVideoElement): Promise<DetectedBarcode[]>;
+}
+
+type BarcodeDetectorCtor = new (options?: { formats?: string[] }) => BarcodeDetectorLike;
+
 export default function BarcodeScannerTool() {
-  const barcodeRef = useRef<SVGSVGElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [options, setOptions] = useState<BarcodeOptions>({
@@ -51,11 +60,11 @@ export default function BarcodeScannerTool() {
   const [scannedValue, setScannedValue] = useState<string | null>(null);
   const [scannerError, setScannerError] = useState<string | null>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
-  const [supportedFormats, setSupportedFormats] = useState<string[]>([]);
+  const [, setSupportedFormats] = useState<string[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined" && "BarcodeDetector" in window) {
-      const detector = new (window as any).BarcodeDetector({});
+      const detector = new (window as unknown as { BarcodeDetector: BarcodeDetectorCtor }).BarcodeDetector({});
       detector.getSupportedFormats().then((fmts: string[]) => {
         setSupportedFormats(fmts);
       });
@@ -152,14 +161,14 @@ export default function BarcodeScannerTool() {
   const scanFrame = useCallback(() => {
     if (!videoRef.current || typeof window !== "undefined" && !("BarcodeDetector" in window)) return;
 
-    const detector = new (window as any).BarcodeDetector({});
+    const detector = new (window as unknown as { BarcodeDetector: BarcodeDetectorCtor }).BarcodeDetector({});
     const video = videoRef.current;
 
     const detect = () => {
       if (!scannerActive || !video) return;
       detector
         .detect(video)
-        .then((barcodes: any[]) => {
+        .then((barcodes: DetectedBarcode[]) => {
           if (barcodes.length > 0 && !scannedValue) {
             setScannedValue(barcodes[0].rawValue);
             stopScanner();

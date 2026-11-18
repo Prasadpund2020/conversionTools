@@ -3,8 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { StagedPdfToPptxFile } from './types';
-import { formatBytes } from './pdfToPptxEngine';
-
 interface PdfToPptxHeaderBarProps {
   stagedFile: StagedPdfToPptxFile | null;
   isProcessing: boolean;

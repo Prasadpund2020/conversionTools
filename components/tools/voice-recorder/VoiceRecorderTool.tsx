@@ -93,7 +93,7 @@ export const VoiceRecorderTool: React.FC = () => {
       timerIntervalRef.current = setInterval(() => {
         setElapsedSeconds((prev) => prev + 0.1);
       }, 100);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError(
         'Unable to access microphone. Please grant browser microphone permission and try again.'

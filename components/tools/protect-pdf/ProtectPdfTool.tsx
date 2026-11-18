@@ -5,7 +5,6 @@ import { StagedProtectFile, ProtectOptions, ProtectResult } from "./types";
 import {
   parsePdfForProtect,
   protectPdfDocument,
-  createSampleProtectPdf,
 } from "./protectPdfEngine";
 import { ProtectPdfHeaderBar } from "./ProtectPdfHeaderBar";
 import { ProtectPdfDropzone } from "./ProtectPdfDropzone";
@@ -42,18 +41,6 @@ export const ProtectPdfTool: React.FC = () => {
     }
   };
 
-  const handleLoadSample = async () => {
-    try {
-      setIsLoadingFile(true);
-      const sample = await createSampleProtectPdf();
-      await handleFileSelected(sample);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsLoadingFile(false);
-    }
-  };
-
   const handleReset = () => {
     setStagedFile(null);
     setResult(null);
@@ -85,18 +72,13 @@ export const ProtectPdfTool: React.FC = () => {
   return (
     <div className="w-full flex flex-col min-h-[600px] bg-surface rounded-3xl border border-outline-variant/30 shadow-2xl overflow-hidden">
       {/* Header Bar */}
-      <ProtectPdfHeaderBar
-        stagedFile={stagedFile}
-        onLoadSample={handleLoadSample}
-        onReset={handleReset}
-      />
+      <ProtectPdfHeaderBar stagedFile={stagedFile} onReset={handleReset} />
 
       <div className="w-full p-4 md:p-8 flex-1 flex flex-col">
         {!stagedFile ? (
           <div className="my-auto py-8">
             <ProtectPdfDropzone
               onFileSelected={handleFileSelected}
-              onLoadSample={handleLoadSample}
               isLoading={isLoadingFile}
             />
           </div>

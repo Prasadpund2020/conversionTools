@@ -19,7 +19,6 @@ export const BlurFaceStage: React.FC<BlurFaceStageProps> = ({
   onAddRegion,
   onRemoveRegion,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const displayCanvasRef = useRef<HTMLCanvasElement>(null);
 
   const [isDrawing, setIsDrawing] = useState(false);
@@ -134,55 +133,44 @@ export const BlurFaceStage: React.FC<BlurFaceStageProps> = ({
 
       {/* Interactive Drag Canvas Box */}
       <div
-        ref={containerRef}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         className="relative w-full rounded-xl overflow-hidden bg-slate-950/90 flex items-center justify-center cursor-crosshair select-none shadow-inner min-h-[350px] p-2"
       >
-        <canvas
-          ref={displayCanvasRef}
-          className="max-h-[600px] w-auto max-w-full object-contain rounded-lg shadow-lg pointer-events-none"
-        />
+        {/* Wrapper shrink-wraps the canvas so tags can be positioned in % of the canvas box (no ref reads during render) */}
+        <div className="relative max-w-full leading-none">
+          <canvas
+            ref={displayCanvasRef}
+            className="block max-h-[600px] w-auto max-w-full object-contain rounded-lg shadow-lg pointer-events-none"
+          />
 
-        {/* Existing region delete tags */}
-        <div className="absolute inset-0 pointer-events-none">
-          {displayCanvasRef.current &&
-            regions.map((region) => {
-              const canvasRect = displayCanvasRef.current?.getBoundingClientRect();
-              const containerRect = containerRef.current?.getBoundingClientRect();
-              if (!canvasRect || !containerRect) return null;
-
-              const canvasLeft = canvasRect.left - containerRect.left;
-              const canvasTop = canvasRect.top - containerRect.top;
-
-              const left = canvasLeft + region.x * canvasRect.width;
-              const top = canvasTop + region.y * canvasRect.height;
-
-              return (
-                <div
-                  key={region.id}
-                  style={{
-                    position: 'absolute',
-                    left: `${left}px`,
-                    top: `${top}px`,
+          {/* Existing region delete tags */}
+          <div className="absolute inset-0 pointer-events-none">
+            {regions.map((region) => (
+              <div
+                key={region.id}
+                style={{
+                  position: 'absolute',
+                  left: `${region.x * 100}%`,
+                  top: `${region.y * 100}%`,
+                }}
+                className="pointer-events-auto transform -translate-y-1/2"
+              >
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onRemoveRegion(region.id);
                   }}
-                  className="pointer-events-auto transform -translate-y-1/2"
+                  title="Remove censor box"
+                  className="w-5 h-5 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center text-[10px] font-bold shadow-md hover:scale-110 active:scale-95 transition-all"
                 >
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onRemoveRegion(region.id);
-                    }}
-                    title="Remove censor box"
-                    className="w-5 h-5 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center text-[10px] font-bold shadow-md hover:scale-110 active:scale-95 transition-all"
-                  >
-                    ×
-                  </button>
-                </div>
-              );
-            })}
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

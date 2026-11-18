@@ -18,7 +18,6 @@ export const Base64ConverterControls: React.FC<Base64ConverterControlsProps> = (
   onConvert,
   onReset,
   canConvert,
-  fileName,
 }) => {
   return (
     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm space-y-4">

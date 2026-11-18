@@ -134,7 +134,7 @@ export async function executeSplitPdf(
   // If more than 1 file, also zip them together
   let zipBlob: Blob | null = null;
   let zipDownloadUrl: string | null = null;
-  let zipFileName = `${prefix}_split_bundle.zip`;
+  const zipFileName = `${prefix}_split_bundle.zip`;
 
   if (resultFiles.length > 1) {
     const zip = new JSZip();
@@ -153,32 +153,4 @@ export async function executeSplitPdf(
     zipFileName,
     totalOutputFiles: resultFiles.length,
   };
-}
-
-export async function createSampleSplitPdf(): Promise<File> {
-  const pdfDoc = await PDFDocument.create();
-  // Create 6 demo pages
-  for (let i = 1; i <= 6; i++) {
-    const page = pdfDoc.addPage([595.28, 841.89]);
-    page.drawText(`Document Section ${i}`, {
-      x: 50,
-      y: 780,
-      size: 24,
-    });
-    page.drawText(`Page ${i} of 6 • Sample Multi-Page Split File`, {
-      x: 50,
-      y: 740,
-      size: 14,
-    });
-    page.drawText(`This page was generated for testing page range splitting and extraction.`, {
-      x: 50,
-      y: 680,
-      size: 12,
-    });
-  }
-
-  const bytes = await pdfDoc.save();
-  return new File([bytes as unknown as BlobPart], "Annual_Report_6_Pages.pdf", {
-    type: "application/pdf",
-  });
 }

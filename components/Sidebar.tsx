@@ -13,7 +13,6 @@ interface SidebarProps {
 
 export default function Sidebar({
   activeCategory = "all",
-  onSelectCategory,
 }: SidebarProps) {
   const getCategoryIcon = (id: ToolCategory) => {
     switch (id) {

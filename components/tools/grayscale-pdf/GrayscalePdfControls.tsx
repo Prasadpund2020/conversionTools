@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { GrayscaleOptions, GrayscaleMode, GrayscaleDpi } from './types';
+import { GrayscaleOptions, GrayscaleDpi } from './types';
 
 interface GrayscalePdfControlsProps {
   options: GrayscaleOptions;

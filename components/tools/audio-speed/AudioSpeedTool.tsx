@@ -38,7 +38,7 @@ export const AudioSpeedTool: React.FC = () => {
         numberOfChannels: decoded.numberOfChannels,
         audioBuffer: decoded.audioBuffer,
       });
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError('Failed to decode audio file. Please ensure it is a valid audio format.');
     } finally {
@@ -80,9 +80,9 @@ export const AudioSpeedTool: React.FC = () => {
           duration: processedBuffer.duration,
           sizeBytes: wavBlob.size,
         });
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error(err);
-        setError(err?.message || 'Failed to process audio speed.');
+        setError((err instanceof Error && err.message) || 'Failed to process audio speed.');
       } finally {
         setIsProcessing(false);
       }

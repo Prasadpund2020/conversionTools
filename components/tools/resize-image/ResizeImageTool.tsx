@@ -41,20 +41,28 @@ export default function ResizeImageTool() {
   );
 
   // Initialize with sample demo image on mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const sample = generateSampleDeskImage();
-    setMeta(sample);
-    const initialOpts: ResizeOptions = {
-      width: 1200,
-      height: 675,
-      maintainAspectRatio: true,
-      outputFormat: "webp",
-      quality: 85,
-      fitMode: "contain",
-      fillColor: "#ffffff",
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleDeskImage();
+      setMeta(sample);
+      const initialOpts: ResizeOptions = {
+        width: 1200,
+        height: 675,
+        maintainAspectRatio: true,
+        outputFormat: "webp",
+        quality: 85,
+        fitMode: "contain",
+        fillColor: "#ffffff",
+      };
+      setOptions(initialOpts);
+      triggerResize(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerResize(sample, initialOpts);
   }, [triggerResize]);
 
   // Handle options change with debounce

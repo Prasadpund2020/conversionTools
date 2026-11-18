@@ -343,8 +343,6 @@ export async function exportOcrToPdf(
   const width = 595.28; // A4 pt
   const height = 841.89;
   const margin = 50;
-  const contentWidth = width - margin * 2;
-
   let page = pdfDoc.addPage([width, height]);
   let currentY = height - margin;
 

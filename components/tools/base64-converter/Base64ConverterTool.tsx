@@ -33,9 +33,9 @@ export const Base64ConverterTool: React.FC = () => {
         mode: 'encode',
       });
       setResult(res);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Encoding error:', err);
-      setError(err?.message || 'Failed to encode file.');
+      setError((err instanceof Error && err.message) || 'Failed to encode file.');
     }
   };
 
@@ -67,9 +67,9 @@ export const Base64ConverterTool: React.FC = () => {
         const res = decodeBase64ToFile(base64InputText);
         setResult(res);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Base64 error:', err);
-      setError(err?.message || 'Failed to process Base64 operation.');
+      setError((err instanceof Error && err.message) || 'Failed to process Base64 operation.');
     }
   };
 

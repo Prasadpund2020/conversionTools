@@ -50,21 +50,29 @@ export default function WordToPdfTool() {
   );
 
   // Load sample on initial mount
+  // (deferred so state isn't set synchronously in the effect body)
   useEffect(() => {
-    const sample = generateSampleWordDoc();
-    setMeta(sample);
-    const initialOpts: WordToPdfOptions = {
-      pageSize: "A4",
-      orientation: "portrait",
-      fontFamily: "sans",
-      margins: "normal",
-      includePageNumbers: true,
-      includeHeader: true,
-      documentTitle: sample.title,
-      lineSpacing: 1.5,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleWordDoc();
+      setMeta(sample);
+      const initialOpts: WordToPdfOptions = {
+        pageSize: "A4",
+        orientation: "portrait",
+        fontFamily: "sans",
+        margins: "normal",
+        includePageNumbers: true,
+        includeHeader: true,
+        documentTitle: sample.title,
+        lineSpacing: 1.5,
+      };
+      setOptions(initialOpts);
+      triggerConversion(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerConversion(sample, initialOpts);
   }, [triggerConversion]);
 
   // Handle options changes with debounce

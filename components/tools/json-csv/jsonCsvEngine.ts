@@ -11,7 +11,7 @@ export function formatBytes(bytes: number): string {
 /**
  * Escapes a cell for CSV formatting according to RFC 4180
  */
-function escapeCsvCell(val: any, delimiter: Delimiter): string {
+function escapeCsvCell(val: unknown, delimiter: Delimiter): string {
   if (val === null || val === undefined) return '';
   let str = typeof val === 'object' ? JSON.stringify(val) : String(val);
 
@@ -34,19 +34,20 @@ export function convertJsonToCsv(
   options: JsonCsvOptions,
   baseName: string = 'converted'
 ): JsonCsvResult {
-  const parsed = JSON.parse(jsonInput);
-  let arrayData: any[] = [];
+  const parsed: unknown = JSON.parse(jsonInput);
+  let arrayData: Record<string, unknown>[] = [];
 
   if (Array.isArray(parsed)) {
-    arrayData = parsed;
+    arrayData = parsed as Record<string, unknown>[];
   } else if (typeof parsed === 'object' && parsed !== null) {
     // Check if there is an array property inside the object (common API pattern)
-    const arrayKey = Object.keys(parsed).find((k) => Array.isArray(parsed[k]));
+    const record = parsed as Record<string, unknown>;
+    const arrayKey = Object.keys(record).find((k) => Array.isArray(record[k]));
     if (arrayKey) {
-      arrayData = parsed[arrayKey];
+      arrayData = record[arrayKey] as Record<string, unknown>[];
     } else {
       // Single record
-      arrayData = [parsed];
+      arrayData = [record];
     }
   } else {
     throw new Error('JSON must be an array of objects or an object representing a record.');
@@ -183,9 +184,9 @@ export function convertCsvToJson(
   }
 
   const jsonArray = dataRows.map((r) => {
-    const obj: Record<string, any> = {};
+    const obj: Record<string, unknown> = {};
     headers.forEach((h, i) => {
-      let val = r[i] !== undefined ? r[i].trim() : '';
+      const val = r[i] !== undefined ? r[i].trim() : '';
       // Try to parse number or boolean if clean
       if (/^-?\d+(\.\d+)?$/.test(val)) {
         obj[h] = Number(val);

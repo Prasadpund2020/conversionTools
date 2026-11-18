@@ -3,24 +3,20 @@
 import React from "react";
 import Link from "next/link";
 import { StagedRedactFile } from "./types";
-import { formatBytes } from "./redactPdfEngine";
 
 interface Props {
   stagedFile: StagedRedactFile | null;
   boxesCount: number;
-  onLoadSample: () => void;
   onReset: () => void;
 }
 
 export const RedactPdfHeaderBar: React.FC<Props> = ({
   stagedFile,
   boxesCount,
-  onLoadSample,
   onReset,
 }) => {
   return (
     <div className="w-full bg-surface-container-low/70 border-b border-outline-variant/30 px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
-      {/* Breadcrumb & Title */}
       <div className="flex items-center gap-3">
         <Link
           href="/all-tools"
@@ -44,9 +40,8 @@ export const RedactPdfHeaderBar: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Action shortcuts / File badge */}
       <div className="flex items-center gap-2">
-        {stagedFile ? (
+        {stagedFile && (
           <div className="flex items-center gap-2 bg-surface-container px-3 py-1 rounded-full text-xs text-on-surface shadow-inner">
             <span className="w-2 h-2 rounded-full bg-slate-500 animate-pulse"></span>
             <span className="font-semibold truncate max-w-[150px]">{stagedFile.name}</span>
@@ -61,14 +56,6 @@ export const RedactPdfHeaderBar: React.FC<Props> = ({
               ✕
             </button>
           </div>
-        ) : (
-          <button
-            onClick={onLoadSample}
-            className="px-3 py-1 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
-          >
-            <span>📄</span>
-            <span>Load Medical Record Sample</span>
-          </button>
         )}
       </div>
     </div>

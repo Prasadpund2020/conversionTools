@@ -184,7 +184,7 @@ export default function WordToPdfPage() {
             </div>
             <h3 className="text-sm font-bold text-stone-800 mb-1">Zero Cloud Egress</h3>
             <p className="text-xs text-stone-500 leading-relaxed">
-              Files are converted purely in your browser's private memory sandbox and never sent over the Internet.
+              Files are converted purely in your browser&apos;s private memory sandbox and never sent over the Internet.
             </p>
           </div>
 

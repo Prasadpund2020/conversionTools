@@ -240,8 +240,6 @@ export async function convertExcelToPdf(
 
   const margin = 36; // 0.5 in for spreadsheets
   const contentWidth = width - margin * 2;
-  const contentHeight = height - margin * 2;
-
   const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
@@ -268,8 +266,6 @@ export async function convertExcelToPdf(
 
   const headerRows = 1;
   const dataRows = rows.slice(headerRows);
-  const rowsPerPage = Math.floor((contentHeight - 40) / rowHeight);
-
   let currentPage = pdfDoc.addPage([width, height]);
   let currentY = height - margin;
 
@@ -366,7 +362,6 @@ export async function convertExcelToPdf(
   drawTableRow(currentPage, rows[0], currentY, true, false, false);
   currentY -= rowHeight;
 
-  let pageIndex = 0;
   const pagesList: typeof currentPage[] = [currentPage];
 
   for (let i = 0; i < dataRows.length; i++) {
@@ -377,7 +372,6 @@ export async function convertExcelToPdf(
       // New Page
       currentPage = pdfDoc.addPage([width, height]);
       pagesList.push(currentPage);
-      pageIndex++;
       currentY = height - margin;
 
       // Repeat header if requested

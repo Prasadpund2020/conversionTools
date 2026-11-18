@@ -12,7 +12,6 @@ interface MuteVideoPlayerStageProps {
 export default function MuteVideoPlayerStage({
   meta,
   options,
-  isProcessing,
 }: MuteVideoPlayerStageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);

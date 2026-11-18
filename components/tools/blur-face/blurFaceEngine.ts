@@ -1,4 +1,4 @@
-import { CensorRegion, StagedImageFile } from './types';
+import { CensorRegion } from './types';
 
 /**
  * Renders all censor regions on an image and returns the final canvas or data URL
@@ -60,7 +60,7 @@ export function renderCensoredCanvas(
       }
     } else if (region.mode === 'blur') {
       const blurRadius = Math.max(4, Math.round(region.intensity || 14));
-      const ctxAny = ctx as any;
+      const ctxAny = ctx as CanvasRenderingContext2D & { filter?: string };
       if (typeof ctxAny.filter === 'string') {
         ctxAny.filter = `blur(${blurRadius}px)`;
         ctx.drawImage(canvas, rx, ry, rw, rh, rx, ry, rw, rh);

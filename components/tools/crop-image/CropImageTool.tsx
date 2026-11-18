@@ -58,25 +58,33 @@ export default function CropImageTool() {
   );
 
   // Initialize with sample on mount
+  // (browser-only sample generation, deferred so state isn't set synchronously in the effect)
   useEffect(() => {
-    const sample = generateCropSampleImage();
-    setMeta(sample);
-    const initialRect = calculateInitialCrop(
-      sample.originalWidth,
-      sample.originalHeight,
-      "16:9"
-    );
-    setCropRect(initialRect);
-    const initialOpts: CropTransformOptions = {
-      cropRect: initialRect,
-      rotation: 0,
-      flipHorizontal: false,
-      flipVertical: false,
-      outputFormat: "webp",
-      quality: 88,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateCropSampleImage();
+      setMeta(sample);
+      const initialRect = calculateInitialCrop(
+        sample.originalWidth,
+        sample.originalHeight,
+        "16:9"
+      );
+      setCropRect(initialRect);
+      const initialOpts: CropTransformOptions = {
+        cropRect: initialRect,
+        rotation: 0,
+        flipHorizontal: false,
+        flipVertical: false,
+        outputFormat: "webp",
+        quality: 88,
+      };
+      setOptions(initialOpts);
+      triggerCropExecution(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerCropExecution(sample, initialOpts);
   }, [triggerCropExecution]);
 
   // Handle crop rect change

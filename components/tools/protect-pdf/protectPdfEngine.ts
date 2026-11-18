@@ -94,27 +94,3 @@ export async function protectPdfDocument(
     pageCount,
   };
 }
-
-export async function createSampleProtectPdf(): Promise<File> {
-  const pdfDoc = await PDFDocument.create();
-  const page = pdfDoc.addPage([595.28, 841.89]);
-  page.drawText("Confidential Board Strategy Memo", {
-    x: 50,
-    y: 780,
-    size: 22,
-  });
-  page.drawText(
-    "This document demonstrates client-side 256-bit encryption and permission controls.",
-    { x: 50, y: 740, size: 12 }
-  );
-  page.drawText("When protected, viewing requires the defined user password.", {
-    x: 50,
-    y: 710,
-    size: 11,
-  });
-
-  const bytes = await pdfDoc.save();
-  return new File([bytes as unknown as BlobPart], "Confidential_Board_Memo.pdf", {
-    type: "application/pdf",
-  });
-}

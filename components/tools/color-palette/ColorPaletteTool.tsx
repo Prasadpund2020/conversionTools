@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ColorPaletteHeaderBar } from './ColorPaletteHeaderBar';
 import { ColorPaletteDropzone } from './ColorPaletteDropzone';
 import { ColorPaletteControls } from './ColorPaletteControls';

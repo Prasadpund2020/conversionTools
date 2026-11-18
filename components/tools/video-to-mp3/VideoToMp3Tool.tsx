@@ -51,17 +51,25 @@ export default function VideoToMp3Tool() {
   const activeSourceRef = useRef<AudioBufferSourceNode | null>(null);
 
   // Initialize with sample video on mount
+  // (deferred so state isn't set synchronously in the effect body)
   useEffect(() => {
-    try {
-      const sample = getSampleVideoMetadata();
-      setVideoMeta(sample);
-      setStartTimeSec(80);
-      setEndTimeSec(1425);
-      setCurrentTimeSec(195);
-    } catch {
-      // fallback
-    }
-    setIsInitialized(true);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const sample = getSampleVideoMetadata();
+        setVideoMeta(sample);
+        setStartTimeSec(80);
+        setEndTimeSec(1425);
+        setCurrentTimeSec(195);
+      } catch {
+        // fallback
+      }
+      setIsInitialized(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Cleanup Web Audio nodes on unmount
@@ -133,7 +141,7 @@ export default function VideoToMp3Tool() {
       console.error("Audition playback error:", err);
       setIsPlaying(false);
     }
-  }, [isPlaying, videoMeta?.audioBuffer]);
+  }, [isPlaying, videoMeta]);
 
   // Handle Seek in Waveform
   const handleSeek = useCallback((seconds: number) => {

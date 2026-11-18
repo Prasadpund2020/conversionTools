@@ -52,23 +52,31 @@ export default function ExcelToPdfTool() {
   );
 
   // Mount with sample on initial render
+  // (deferred so state isn't set synchronously in the effect body)
   useEffect(() => {
-    const sample = generateSampleSpreadsheet();
-    setMeta(sample);
-    const initialOpts: ExcelToPdfOptions = {
-      pageSize: "A4",
-      orientation: "landscape",
-      theme: "emerald",
-      showGridlines: true,
-      zebraStriping: true,
-      repeatHeaderOnPages: true,
-      includePageNumbers: true,
-      includeSheetTitle: true,
-      fontSize: 8,
-      selectedSheetIndex: 0,
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      const sample = generateSampleSpreadsheet();
+      setMeta(sample);
+      const initialOpts: ExcelToPdfOptions = {
+        pageSize: "A4",
+        orientation: "landscape",
+        theme: "emerald",
+        showGridlines: true,
+        zebraStriping: true,
+        repeatHeaderOnPages: true,
+        includePageNumbers: true,
+        includeSheetTitle: true,
+        fontSize: 8,
+        selectedSheetIndex: 0,
+      };
+      setOptions(initialOpts);
+      triggerConversion(sample, initialOpts);
+    });
+    return () => {
+      cancelled = true;
     };
-    setOptions(initialOpts);
-    triggerConversion(sample, initialOpts);
   }, [triggerConversion]);
 
   // Handle options changes with debounce

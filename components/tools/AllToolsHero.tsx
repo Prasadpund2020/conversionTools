@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import Link from "next/link";
 import Hero3DStage from "@/components/tools/Hero3DStage";
 import { SITE_URL } from "@/lib/constants";
 

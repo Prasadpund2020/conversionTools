@@ -1,5 +1,3 @@
-import { StagedAudioFile, AudioSpeedOptions, ProcessedAudioResult } from './types';
-
 /**
  * Decodes an uploaded audio File into an AudioBuffer
  */

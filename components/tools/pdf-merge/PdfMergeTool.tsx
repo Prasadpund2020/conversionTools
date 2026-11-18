@@ -8,7 +8,6 @@ import PdfMergeSettingsDeck from "./PdfMergeSettingsDeck";
 import PdfMergeSuccessModal from "./PdfMergeSuccessModal";
 import { MergePdfItem, MergeOptions, MergeResult } from "./types";
 import { parsePdfFile, mergePdfDocuments } from "./pdfMergeEngine";
-import { createSamplePdfs } from "./samplePdfs";
 
 export default function PdfMergeTool() {
   const [items, setItems] = useState<MergePdfItem[]>([]);
@@ -19,7 +18,6 @@ export default function PdfMergeTool() {
     normalizePageSizes: "original",
   });
   const [isMerging, setIsMerging] = useState(false);
-  const [isLoadingSamples, setIsLoadingSamples] = useState(false);
   const [result, setResult] = useState<MergeResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -45,22 +43,6 @@ export default function PdfMergeTool() {
     if (newItems.length > 0) {
       setItems((prev) => [...prev, ...newItems]);
       setResult(null);
-    }
-  }, []);
-
-  // Load in-memory sample PDFs
-  const handleLoadSamples = useCallback(async () => {
-    setIsLoadingSamples(true);
-    setErrorMessage(null);
-    try {
-      const samples = await createSamplePdfs();
-      setItems(samples);
-      setResult(null);
-    } catch (err) {
-      console.error("Failed to generate samples:", err);
-      setErrorMessage("Could not generate sample files. Please try uploading your own PDFs.");
-    } finally {
-      setIsLoadingSamples(false);
     }
   }, []);
 
@@ -155,11 +137,7 @@ export default function PdfMergeTool() {
       {result ? (
         <PdfMergeSuccessModal result={result} onReset={handleClear} />
       ) : items.length === 0 ? (
-        <PdfMergeDropzone
-          onFilesSelect={handleAddFiles}
-          onLoadSamples={handleLoadSamples}
-          isLoadingSamples={isLoadingSamples}
-        />
+        <PdfMergeDropzone onFilesSelect={handleAddFiles} />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* File Ordering Deck (7 Cols) */}

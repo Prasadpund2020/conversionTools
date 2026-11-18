@@ -97,39 +97,3 @@ export async function compressPdfDocument(
     pageCount: totalPages,
   };
 }
-
-export async function createSampleCompressPdf(): Promise<File> {
-  const pdfDoc = await PDFDocument.create();
-
-  // Add metadata to demonstrate stripping
-  pdfDoc.setTitle("Internal Diagnostic Specifications 2026");
-  pdfDoc.setAuthor("Free Converting Tools Enterprise Architecture Team");
-  pdfDoc.setSubject("Comprehensive Benchmark Test for Object Stream Compression");
-  pdfDoc.setKeywords(["pdf", "compression", "benchmark", "enterprise", "confidential"]);
-
-  // Create 4 pages with lots of redundant content to compress
-  for (let i = 1; i <= 4; i++) {
-    const page = pdfDoc.addPage([595.28, 841.89]);
-    page.drawText(`High Density Benchmark Section ${i}`, {
-      x: 50,
-      y: 780,
-      size: 20,
-    });
-    page.drawText(
-      `This benchmark document contains full metadata headers and object references designed for stream optimization.`,
-      { x: 50, y: 740, size: 11 }
-    );
-    for (let line = 0; line < 15; line++) {
-      page.drawText(`Record #${line + 1}: Data stream block identifier [HASH-99824-${line * 37}]`, {
-        x: 50,
-        y: 690 - line * 20,
-        size: 9,
-      });
-    }
-  }
-
-  const bytes = await pdfDoc.save();
-  return new File([bytes as unknown as BlobPart], "Diagnostic_Report_Large.pdf", {
-    type: "application/pdf",
-  });
-}

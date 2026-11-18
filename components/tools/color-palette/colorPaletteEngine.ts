@@ -122,7 +122,7 @@ export function extractColorPalette(
   }
 
   // Format into final swatches
-  let swatches: SwatchColor[] = distinctColors.map((item) => {
+  const swatches: SwatchColor[] = distinctColors.map((item) => {
     const [r, g, b] = item.rgb;
     return {
       hex: rgbToHex(r, g, b),

@@ -3,8 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { StagedGrayscalePdfFile } from './types';
-import { formatBytes } from './grayscalePdfEngine';
-
 interface GrayscalePdfHeaderBarProps {
   stagedFile: StagedGrayscalePdfFile | null;
   isProcessing: boolean;

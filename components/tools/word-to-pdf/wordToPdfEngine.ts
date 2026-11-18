@@ -286,16 +286,16 @@ export async function convertWordToPdf(
   // Choose Font Family
   let regularFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
   let boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-  let italicFont = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
+  await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
 
   if (options.fontFamily === "serif") {
     regularFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
     boldFont = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
-    italicFont = await pdfDoc.embedFont(StandardFonts.TimesRomanItalic);
+    await pdfDoc.embedFont(StandardFonts.TimesRomanItalic);
   } else if (options.fontFamily === "mono") {
     regularFont = await pdfDoc.embedFont(StandardFonts.Courier);
     boldFont = await pdfDoc.embedFont(StandardFonts.CourierBold);
-    italicFont = await pdfDoc.embedFont(StandardFonts.CourierOblique);
+    await pdfDoc.embedFont(StandardFonts.CourierOblique);
   }
 
   let currentPage = pdfDoc.addPage([width, height]);
