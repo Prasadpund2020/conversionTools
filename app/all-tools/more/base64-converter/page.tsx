@@ -5,11 +5,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import { Base64ConverterTool } from "@/components/tools/base64-converter/Base64ConverterTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -27,19 +27,25 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
     metadataBase: new URL(SITE_URL),
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Base64 Encoder and Decoder Online",
+    description:
+      "Encode any file, including a PDF or image, to Base64 or a data URI, and decode Base64 back to a file. The work stays in your browser.",
+    keywords: [
+      "base64 encoder",
+      "base64 decoder",
+      "pdf to base64",
+      "pdf to base64 converter",
+      "file to base64",
+    ],
     alternates: {
     canonical: "/all-tools/more/base64-converter",
   },
   openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Base64 Encoder and Decoder Online",
+      description:
+        "Encode a PDF, image, or other file to Base64, or decode a Base64 string back to a file.",
       type: "website",
       url: `/all-tools/more/base64-converter`,
       images: [
@@ -53,8 +59,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Base64 Encoder and Decoder Online",
+      description:
+        "Encode a PDF, image, or other file to Base64, or decode a Base64 string back to a file.",
       images: ["/images/all-tools-hero-banner.png"],
     },
   };
@@ -114,23 +121,82 @@ export default async function Base64ConverterPage() {
         />
 
         <div className="mt-6">
+          <ToolPageIntro
+            title="Base64 Encoder and Decoder"
+            lede="Turn any file the browser can read, including a PDF, into Base64 text or a data URI. Paste Base64 to download the file again. This is a general encoder, not a PDF-only converter."
+          />
           <Base64ConverterTool />
         </div>
 
-        {/* Informational Section */}
-        <div className="mt-16 max-w-4xl mx-auto space-y-12">
-          <section className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-              Why Use Base64 Encoding & Decoding in Free Converting Tools?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-              Base64 encoding is an essential utility for web developers, designers, and software engineers. It represents binary data (such as JPEG/PNG icons, fonts, and PDFs) as plain ASCII text. This enables inline embedding in HTML, CSS stylesheets, and JSON API payloads without triggering extra network requests. Free Converting Tools executes 100% in client-side memory, ensuring your confidential files and keys are never uploaded or logged anywhere.
-            </p>
-          </section>
+        <div className="mt-16 max-w-4xl mx-auto">
+          <ToolPageGuide
+            explanationTitle="PDF to Base64 is one use of this encoder"
+            explanation={
+              <p>
+                A PDF to Base64 conversion is one job this page can do, because the encoder reads the bytes of whatever file you choose. The same control also encodes images and other documents, and it can decode a Base64 string or data URI back into a download.
+              </p>
+            }
+            stepsTitle="How to encode or decode"
+            steps={[
+              "To encode, choose a file. A PDF, JPG, PNG, or any other file the browser can read is accepted.",
+              "Choose whether you want the raw Base64 text or the data URI prefix, and whether long lines should wrap at 76 characters.",
+              "Copy the result. Image files can show a preview because the browser knows the image type.",
+              "To decode, paste Base64 or a data URI and download the reconstructed file.",
+            ]}
+            formats="Input for encoding is any file. Output is Base64 text or a data URI. Decoding accepts raw Base64 or a data:*;base64, URI and downloads a file using the MIME type in that URI when one is present."
+            details={[
+              {
+                title: "Not a PDF editor",
+                body: "Encoding a PDF does not merge, compress, or extract pages. You get the file bytes as text.",
+              },
+              {
+                title: "Line wrap",
+                body: "Wrapped output inserts line breaks every 76 characters. The data URI option keeps the prefix.",
+              },
+              {
+                title: "Size",
+                body: "Base64 is larger than the original file. Very large files depend on the memory available in the tab.",
+              },
+            ]}
+            privacy="Encoding and decoding use the browser FileReader. The file is not uploaded."
+            useCases={[
+              "Put a small PDF or icon into a data URI for a document or stylesheet.",
+              "Inspect the Base64 form of a file you already have.",
+              "Turn a Base64 string someone sent you back into a downloadable file.",
+            ]}
+            faqs={[
+              {
+                question: "Can I convert a PDF to Base64 here?",
+                answer:
+                  "Yes. Choose the PDF and copy the Base64 or data URI. The tool does not change the PDF contents.",
+              },
+              {
+                question: "Will decoding always restore the original file name?",
+                answer:
+                  "The download uses the name you provide or a name derived from the decoded data. Keep your own copy of the original if the name matters.",
+              },
+              {
+                question: "Is this only for images?",
+                answer:
+                  "No. Images can show a preview, but any file, including a PDF, can be encoded.",
+              },
+            ]}
+            links={[
+              {
+                href: "/all-tools/edit-convert/json-csv",
+                title: "JSON and CSV converter",
+                description: "Convert structured text when the job is a table, not Base64.",
+              },
+              {
+                href: "/all-tools/more/qr-generator",
+                title: "QR code generator",
+                description: "Make a QR code from a short link or text value.",
+              },
+            ]}
+          />
 
-          {/* Related Tools */}
           {relatedTools.length > 0 && (
-            <section className="space-y-4">
+            <section className="space-y-4 mt-12">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                 Related Utility Tools
               </h3>

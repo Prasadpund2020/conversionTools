@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import ResizeImageTool from "@/components/tools/resize-image/ResizeImageTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -22,21 +22,27 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Resize Image Online — Scale Dimensions & Aspect Ratio Free | Free Converting Tools",
+      title: "Resize Image Online",
       description:
-        "Resize JPG, PNG, and WebP image dimensions online for free. Scale by pixels or percentage with aspect ratio lock. 100% in-browser processing.",
+        "Change the width and height of a JPG, PNG, or WebP image in your browser, with an aspect-ratio lock and size presets.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Resize Image Online",
+    description:
+      "Resize an image by pixels. Keep the aspect ratio, pick a preset, and download JPG, PNG, or WebP. Scaling runs in your browser.",
+    keywords: [
+      "resize image online",
+      "change image size",
+      "resize jpg",
+      "resize png",
+      "image dimensions",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Resize Image Online",
+      description:
+        "Set a new pixel width and height for a JPG, PNG, or WebP image, with an aspect-ratio lock and size presets.",
       type: "website",
       url: `/all-tools/image/resize-image`,
       images: [
@@ -50,8 +56,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "Resize Image Online",
+      description:
+        "Change image pixel dimensions in the browser and export JPG, PNG, or WebP.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -142,48 +149,83 @@ export default function ResizeImagePage() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="Resize Image Online"
+          lede="Set a new width and height for a JPG, PNG, or WebP. Lock the aspect ratio, or pick a preset such as 1080 by 1080 or 1920 by 1080. Export JPG, PNG, or WebP."
+        />
         <ResizeImageTool />
       </Suspense>
 
-      {/* Educational & Architectural Feature Guide */}
-      <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">
-          About {tool.title} &amp; High-Fidelity Client-Side Scaling
-        </h2>
-        <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools Image Resizer provides professional pixel-scaling and aspect ratio formatting directly in browser memory. Whether resizing banner photos for social media feeds or shrinking high-resolution camera photography for responsive mobile web pages, our engine performs multi-pass interpolation with zero loss in color gamut and zero server uploads.
-        </p>
-
-        {/* Feature Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Multi-Pass Interpolation
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Step-down bicubic smoothing avoids jagged diagonal lines and aliasing artifacts common in standard browser resizers.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Proportional Lock
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Locking aspect ratios guarantees your portraits and product photos never appear stretched or horizontally distorted.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Social Presets Built-In
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              One-click presets for Instagram Squares (1080×1080), Stories/Reels (1080×1920), YouTube Thumbnails, and Twitter Headers.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ToolPageGuide
+        explanationTitle="How image resizing works here"
+        explanation={
+          <p>
+            The image is drawn at the size you choose. Making it larger does not recover detail. Enlarging a small photo will look softer. Fit modes can contain the image with a fill color, cover the frame, or stretch it. The aspect-ratio lock changes height when you edit width, and the other way around.
+          </p>
+        }
+        stepsTitle="How to resize an image"
+        steps={[
+          "Add a JPG, PNG, or WebP file.",
+          "Type a width and height, or choose a preset.",
+          "Keep the aspect lock on unless you want the picture stretched.",
+          "Choose JPG, PNG, or WebP and download.",
+        ]}
+        formats="Input is JPG, PNG, or WebP. Output is the format you select. JPEG and WebP use the quality control. PNG does not."
+        details={[
+          {
+            title: "Presets",
+            body: "Presets include common sizes such as 1080×1080, 1080×1920, 1280×720, and 1920×1080. They set the canvas; they do not crop a face into place.",
+          },
+          {
+            title: "Aspect lock",
+            body: "With the lock on, one side follows the original ratio. Turn it off to set both sides yourself.",
+          },
+          {
+            title: "Quality",
+            body: "A lower JPEG or WebP quality makes a smaller file and a softer picture. PNG stays lossless for the pixels on the canvas.",
+          },
+        ]}
+        privacy="Resizing runs in your browser. The image is not uploaded."
+        useCases={[
+          "Make a photo smaller before you email it.",
+          "Match a requested pixel size for a form or a website slot.",
+          "Export the same picture as JPG, PNG, or WebP after the resize.",
+        ]}
+        faqs={[
+          {
+            question: "Can I resize without stretching the photo?",
+            answer:
+              "Yes. Leave the aspect-ratio lock on, or use contain instead of stretch.",
+          },
+          {
+            question: "Will a larger size look sharper?",
+            answer:
+              "No. Extra pixels are interpolated from the original. The result can look soft.",
+          },
+          {
+            question: "Does this crop the image?",
+            answer:
+              "Cover mode fills the frame and can cut off edges. Contain keeps the whole image and may add a fill color. Stretch changes the shape.",
+          },
+        ]}
+        links={[
+          {
+            href: "/all-tools/image/jpg-to-png",
+            title: "JPG to PNG",
+            description: "Change a JPG into a PNG when size is already correct.",
+          },
+          {
+            href: "/all-tools/image/convert-webp",
+            title: "Convert to WebP",
+            description: "Write WebP without using the resize canvas.",
+          },
+          {
+            href: "/all-tools/image/crop-image",
+            title: "Crop image",
+            description: "Trim the frame when you need a crop rather than a scale.",
+          },
+        ]}
+      />
 
       {/* Related Image Tools Carousel/Grid */}
       {relatedTools.length > 0 && (

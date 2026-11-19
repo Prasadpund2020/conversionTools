@@ -130,9 +130,9 @@ export default function HomeClient() {
         <section className="sr-only" aria-label="Free Online Conversion Tools Overview">
           <h1>Free Online File Conversion, Compression &amp; Download Tools</h1>
           <p>
-            Free online tools for PDF, image, audio, video, and file conversion.
-            Many tools process files locally in your browser; each tool page
-            explains its supported formats and processing method.
+            Free tools for PDF comparison, image conversion, resizing, barcode
+            scanning, and Base64 encoding. Open a tool page for its formats and
+            limits. Media link pages do not download platform videos.
           </p>
           <nav aria-label="Popular Free File Tools">
             <h2>Popular Free File Tools</h2>
@@ -144,8 +144,10 @@ export default function HomeClient() {
               <li><Link href="/all-tools/image/remove-bg">Remove Image Background</Link></li>
               <li><Link href="/all-tools/video-audio/video-to-mp3">Video to MP3 Audio Converter</Link></li>
               <li><Link href="/all-tools/pdf/image-to-pdf">Image to PDF Generator</Link></li>
-              <li><Link href="/all-tools/downloaders/youtube-downloader">YouTube Video Downloader</Link></li>
-              <li><Link href="/all-tools">Browse All 33+ Free Tools</Link></li>
+              <li><Link href="/all-tools/pdf/compare-pdf">Compare PDF files online</Link></li>
+              <li><Link href="/all-tools/image/convert-webp">Convert images to WebP</Link></li>
+              <li><Link href="/all-tools/more/barcode-scanner">Online barcode scanner</Link></li>
+              <li><Link href="/all-tools">Browse all free tools</Link></li>
             </ul>
           </nav>
         </section>
@@ -169,6 +171,28 @@ export default function HomeClient() {
 
         {/* Desktop Props & Foliage Accessories (Desktop only) */}
         <DesktopProps />
+
+        <section className="w-full max-w-5xl mx-auto mt-4 mb-2 px-1 select-text" aria-label="What you can do">
+          <h2 className="text-sm font-bold text-stone-800 mb-2">Start with the job, not a generic converter</h2>
+          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1 text-xs sm:text-sm text-stone-600 leading-relaxed">
+            <li>
+              <Link href="/all-tools/pdf" className="font-semibold text-stone-800 hover:underline">PDF tools</Link>
+              {" "}for comparing files, visual redaction, stamps, and page order.
+            </li>
+            <li>
+              <Link href="/all-tools/image" className="font-semibold text-stone-800 hover:underline">Image tools</Link>
+              {" "}for WebP, JPG to PNG, resizing, watermarks, and solid-background cutouts.
+            </li>
+            <li>
+              <Link href="/all-tools/edit-convert" className="font-semibold text-stone-800 hover:underline">Edit and convert</Link>
+              {" "}for Markdown to PDF and text reading from a photo.
+            </li>
+            <li>
+              <Link href="/all-tools/more/barcode-scanner" className="font-semibold text-stone-800 hover:underline">Barcode scanner</Link>
+              {" "}uses your camera in Chrome or Edge, with no separate app.
+            </li>
+          </ul>
+        </section>
 
         {/* Global Studio Footer */}
         <Footer />

@@ -111,74 +111,70 @@ const CATEGORY_SEO: Record<
   { title: string; description: string; keywords: string[] }
 > = {
   pdf: {
-    title: "PDF Tools",
+    title: "Free PDF Tools Online",
     description:
-      "Free client-side PDF tools: convert to Word, merge, split, compress, protect, and organize PDF pages — all in your browser with zero uploads.",
+      "Compare two PDFs, redact with a visual cover, add a PDF stamp, merge, split, compress, and rearrange pages. Each PDF tool page states what it changes in the file.",
     keywords: [
-      "pdf to word",
+      "free pdf tools",
+      "compare pdf files online",
+      "redact pdf free",
+      "pdf stamp",
       "merge pdf",
-      "compress pdf",
-      "split pdf",
-      "pdf tools online free",
-      "pdf converter",
+      "organize pdf pages",
     ],
   },
   image: {
-    title: "Image Tools",
+    title: "Free Image Tools Online",
     description:
-      "Compress, resize, crop, watermark, and convert images between JPG, PNG, and WebP formats entirely client-side in your browser.",
+      "Convert images to WebP, turn JPG into PNG, resize photos, add a watermark, and remove a solid background. Image tools run in your browser.",
     keywords: [
-      "compress image",
-      "resize image",
+      "webp converter",
       "jpg to png",
+      "resize image online",
+      "watermark image",
       "remove background",
-      "image compressor online",
     ],
   },
   "video-audio": {
-    title: "Video & Audio Tools",
+    title: "Video and Audio Tools Online",
     description:
-      "Extract audio from video, trim clips, boost volume, mute tracks, and convert between audio formats — all processed locally in your browser.",
+      "Extract audio from a video file the browser can decode, trim clips, mute a track, or change playback speed. Check each tool for the file type it actually writes.",
     keywords: [
-      "video to mp3",
-      "trim video online",
-      "audio converter",
-      "volume booster",
       "extract audio from video",
+      "trim video online",
+      "mute video",
+      "audio tools",
     ],
   },
   downloaders: {
-    title: "Media Downloaders",
+    title: "Media Link Tools",
     description:
-      "Download videos from YouTube, Instagram, TikTok, and Twitter/X in HD quality directly in your browser with verified security and privacy.",
+      "These pages look up a public YouTube title and thumbnail, or show a preview for an Instagram or X link. They do not save the platform video file.",
     keywords: [
-      "youtube downloader",
-      "instagram reels download",
-      "tiktok saver",
-      "twitter video download",
+      "youtube video details",
+      "media link lookup",
     ],
   },
   "edit-convert": {
-    title: "Edit & Convert Tools",
+    title: "Edit and Convert Files Online",
     description:
-      "Convert Word to PDF, Excel to PDF, extract text with OCR, and more — powerful conversion utilities running entirely in your browser.",
+      "Convert Markdown, Word, or Excel into PDF, and read text from a PNG, JPG, or WebP when your browser supports text detection.",
     keywords: [
+      "markdown to pdf",
       "word to pdf",
+      "ocr scanner online",
       "excel to pdf",
-      "ocr scanner",
-      "epub to pdf",
     ],
   },
   more: {
-    title: "Utility Tools",
+    title: "Barcode, QR, and Base64 Tools",
     description:
-      "Generate QR codes, scan barcodes, and encode or decode Base64 files with free client-side utilities that run entirely in your browser.",
+      "Scan a barcode with your camera in Chrome or Edge, generate a QR code, or encode any file, including a PDF, as Base64 in the browser.",
     keywords: [
+      "online barcode scanner free",
       "qr code generator",
-      "barcode scanner",
       "base64 encoder",
-      "base64 decoder",
-      "free online utilities",
+      "pdf to base64",
     ],
   },
 };

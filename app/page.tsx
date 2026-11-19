@@ -5,20 +5,16 @@ import { SITE_NAME, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Free Online File Conversion, Compression & Download Tools",
   description:
-  "Free online file tools for PDF, image, audio, video, and format conversion. Fast, secure, and private in-browser utilities with zero server uploads.",
+    "Free tools to compare PDFs, convert images to WebP or PNG, resize photos, read text from an image, and encode a file as Base64. Each tool page explains what it really does.",
   keywords: [
     "free online tools",
-    "pdf to word converter",
-    "compress image online",
-    "merge pdf files",
-    "pdf to jpg converter",
-    "remove background free",
-    "video to mp3 converter",
-    "youtube downloader hd",
-    "image to pdf",
-    "client-side file tools",
-    "no upload file converter",
-    "private file tools",
+    "compare pdf files online",
+    "convert to webp",
+    "jpg to png",
+    "resize image online",
+    "ocr scanner online",
+    "base64 encoder",
+    "redact pdf free",
   ],
   alternates: {
     canonical: "/",
@@ -26,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE_NAME} — Free Online File Conversion, Compression & Download Tools`,
     description:
-      "Free PDF, image, audio, video, and file conversion utilities. Tool pages explain supported formats and whether processing runs in your browser.",
+      "Free PDF, image, and file tools. Open a tool to see its formats, limits, and whether the work stays in your browser.",
     url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
@@ -43,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} — Free Online File Tools`,
     description:
-      "Free PDF, image, audio, video, and file conversion utilities with tool-specific format and processing details.",
+      "Free PDF, image, and file tools. Each page explains the formats it accepts and the limits of the result.",
     images: ["/images/all-tools-hero-banner.png"],
   },
 };

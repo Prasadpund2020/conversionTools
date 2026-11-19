@@ -3,25 +3,21 @@ import AllToolsContent from "./AllToolsContent";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "All Tools — Free Online File Conversion & Editing Suite",
+  title: "All Free File Tools",
   description:
-    "Browse free PDF, image, video, audio, downloader, OCR, QR, and file conversion tools. Each tool page lists supported formats and processing details.",
+    "Browse PDF, image, audio, and file tools. Compare PDFs, convert to WebP, resize images, scan a barcode, or encode Base64. Tool pages describe the real limits.",
   keywords: [
-    "free online tools",
-    "all tools",
-    "pdf converter",
-    "image compressor",
-    "video to mp3",
-    "youtube downloader",
-    "file tools",
-    "client-side tools",
-    "browser tools",
-    "no upload tools",
+    "free file tools",
+    "pdf tools",
+    "image tools",
+    "webp converter",
+    "compare pdf online",
+    "barcode scanner",
   ],
   openGraph: {
     title: `All Tools — ${SITE_NAME}`,
     description:
-      "Free file utilities with tool-specific processing details and no account required.",
+      "A directory of free PDF, image, audio, and file tools, with each page describing what that tool can and cannot do.",
     type: "website",
     url: "/all-tools",
     images: [
@@ -37,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `All Tools — ${SITE_NAME}`,
     description:
-      "Free file utilities with tool-specific processing details and no account required.",
+      "A directory of free PDF, image, audio, and file tools, with each page describing what that tool can and cannot do.",
     images: ["/images/all-tools-hero-banner.png"],
   },
   alternates: {

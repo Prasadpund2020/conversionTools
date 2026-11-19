@@ -130,7 +130,7 @@ export default function CategoryPageContent({
                 </h2>
               </div>
               <span className="text-xs font-medium text-stone-400">
-                {initialTools.length} utilities ready in browser
+                {initialTools.length} tools in this category
               </span>
             </div>
 

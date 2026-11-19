@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 
 import { ALL_TOOLS } from "@/data/tools";
 import { ToolItem } from "@/types/tools";
@@ -213,6 +214,32 @@ export default function AllToolsContent() {
         onSelectCategory={setActiveCategory}
         totalCount={ALL_TOOLS.length}
       />
+
+      <section className="mb-4 max-w-3xl">
+        <p className="text-sm text-stone-600 leading-relaxed">
+          Pick a tool by the job you need. PDF tools include{" "}
+          <Link href="/all-tools/pdf/compare-pdf" className="font-semibold text-stone-800 hover:underline">
+            compare PDF files
+          </Link>
+          ,{" "}
+          <Link href="/all-tools/pdf/redact-pdf" className="font-semibold text-stone-800 hover:underline">
+            visual PDF redaction
+          </Link>
+          , and{" "}
+          <Link href="/all-tools/pdf/watermark-pdf" className="font-semibold text-stone-800 hover:underline">
+            PDF stamps
+          </Link>
+          . Image tools include a{" "}
+          <Link href="/all-tools/image/convert-webp" className="font-semibold text-stone-800 hover:underline">
+            WebP converter
+          </Link>{" "}
+          and{" "}
+          <Link href="/all-tools/image/jpg-to-png" className="font-semibold text-stone-800 hover:underline">
+            JPG to PNG
+          </Link>
+          .
+        </p>
+      </section>
 
       {/* Main Workspace Area */}
       <div id="tools-workspace" className="scroll-mt-6">

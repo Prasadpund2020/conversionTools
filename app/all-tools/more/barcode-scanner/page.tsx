@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import BarcodeScannerTool from "@/components/tools/barcode-scanner/BarcodeScannerTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -22,22 +22,30 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Barcode Scanner & Maker — Free & Private | Free Converting Tools",
+      title: "Online Barcode Scanner Free",
       description:
-        "Scan barcodes using your camera or generate retail UPC, EAN, and Code128 barcodes online. Fast, clean vector barcode generator in your browser.",
+        "Scan a barcode with your camera in Chrome or Edge, with no app. You can also create CODE128, EAN-13, UPC-A, ISBN, and CODE39 barcodes as SVG.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
     metadataBase: new URL(SITE_URL),
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Online Barcode Scanner Free",
+    description:
+      "Free online barcode scanner. Use your camera in Chrome or Edge, with no app install. The same page can also draw a barcode and download an SVG.",
+    keywords: [
+      "online barcode scanner free",
+      "free barcode scanner online",
+      "barcode scanner online free",
+      "scan barcode online without app",
+      "barcode online scan",
+      "online barcode recognition",
+      "check barcode online",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Online Barcode Scanner Free",
+      description:
+        "Scan a barcode with your camera in Chrome or Edge. No app install. SVG barcode creation is on the same page.",
       type: "website",
       url: `/all-tools/more/barcode-scanner`,
       images: [
@@ -51,8 +59,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "Online Barcode Scanner Free",
+      description:
+        "Camera barcode scan in Chrome or Edge, plus SVG barcode creation.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -124,6 +133,10 @@ export default function BarcodeScannerPage() {
         />
       </div>
 
+      <ToolPageIntro
+        title="Online Barcode Scanner Free"
+        lede="Point your camera at a barcode in Chrome or Edge. No separate app is installed. The same page can also create a CODE128, EAN-13, UPC-A, ISBN, or CODE39 barcode and download it as SVG."
+      />
       <Suspense
         fallback={
           <div className="w-full min-h-[500px] flex items-center justify-center bg-[#faf8f5] rounded-3xl border border-stone-200">
@@ -141,48 +154,70 @@ export default function BarcodeScannerPage() {
         </div>
       </Suspense>
 
-      <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-sm">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title}
-        </h2>
-        <p className="text-sm text-stone-600 leading-relaxed mb-6">
-          Free Converting Tools Barcode Scanner & Maker runs entirely within your browser.
-          Generate CODE128, EAN-13, UPC-A, ISBN, and CODE39 barcodes with
-          customizable styling. Scan barcodes using your camera — all
-          processing is local, nothing is uploaded.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Zero Server Uploads
-            </div>
-            <p className="text-xs text-stone-500">
-              Barcodes are generated and scanned locally in browser memory.
-              Nothing is uploaded to any server.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              SVG Export
-            </div>
-            <p className="text-xs text-stone-500">
-              Download your barcode as a scalable SVG vector file for print and
-              digital use.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Multiple Formats
-            </div>
-            <p className="text-xs text-stone-500">
-              Supports CODE128, EAN-13, UPC-A, ISBN, and CODE39 barcode formats.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ToolPageGuide
+        explanationTitle="Scan a barcode online without an app"
+        explanation={
+          <p>
+            The scanner uses the browser BarcodeDetector API and your camera. It works in Chrome and Edge. If the browser does not provide that API, the page tells you and scanning will not start. There is no photo-upload scan on this page. Camera frames stay on the device.
+          </p>
+        }
+        stepsTitle="How to scan or create a barcode"
+        steps={[
+          "Allow the camera when the browser asks.",
+          "Choose Start Camera Scanner and hold the code inside the frame until a value appears.",
+          "To create a code instead, pick CODE128, EAN-13, UPC-A, ISBN, or CODE39, enter the value, and download the SVG.",
+        ]}
+        formats="Scanning reads barcodes the browser detector supports from the live camera. Creation writes an SVG for CODE128, EAN-13, UPC-A, ISBN, or CODE39. A value that does not fit the selected symbology will not produce a valid retail code."
+        details={[
+          {
+            title: "No app install",
+            body: "You stay on this page. The scan uses the device camera through the browser.",
+          },
+          {
+            title: "Chrome or Edge",
+            body: "Browsers without BarcodeDetector cannot scan. Generating an SVG does not depend on that API.",
+          },
+          {
+            title: "SVG download",
+            body: "Created barcodes download as SVG. The scanner result is the text value, not a product lookup.",
+          },
+        ]}
+        privacy="Camera frames and the barcode value are handled in the browser. The page does not upload the camera video."
+        useCases={[
+          "Read a code on a package when you do not want to install a scanner app.",
+          "Check that a CODE128 or EAN value renders as a barcode before you print it.",
+          "Copy a scanned value into the generator if you need an SVG of that code.",
+        ]}
+        faqs={[
+          {
+            question: "Is this an online barcode scanner free to use?",
+            answer:
+              "Yes. There is no account and no fee. Scanning needs a camera and a browser with BarcodeDetector, which Chrome and Edge provide.",
+          },
+          {
+            question: "Can I scan a barcode from a photo?",
+            answer:
+              "No. This page scans the live camera. It does not accept a barcode image upload.",
+          },
+          {
+            question: "Does a scan look up the product?",
+            answer:
+              "No. You get the raw value printed in the barcode. The page does not query a product database.",
+          },
+        ]}
+        links={[
+          {
+            href: "/all-tools/more/qr-generator",
+            title: "QR code generator",
+            description: "Make a QR code when you need a 2D code instead of a linear barcode.",
+          },
+          {
+            href: "/all-tools/more/base64-converter",
+            title: "Base64 encoder",
+            description: "Encode a file, including a PDF, when the job is text encoding rather than scanning.",
+          },
+        ]}
+      />
 
       {relatedTools.length > 0 && (
         <div className="mt-12">

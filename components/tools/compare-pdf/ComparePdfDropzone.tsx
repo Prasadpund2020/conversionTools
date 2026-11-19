@@ -44,7 +44,7 @@ export const ComparePdfDropzone: React.FC<Props> = ({
       <div className="text-center flex flex-col gap-1">
         <h3 className="text-2xl font-bold text-on-surface">Upload Documents to Compare</h3>
         <p className="text-sm text-on-surface-variant">
-          Select two PDF revisions to analyze side-by-side differences, text modifications, and layout shifts.
+          Select two PDFs to view side by side. Page scores use size, rotation, and a sample of file bytes.
         </p>
       </div>
 

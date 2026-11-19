@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import RemoveBackgroundTool from "@/components/tools/remove-background/RemoveBackgroundTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -24,21 +24,26 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Remove Background Studio — Free AI Image Cutout | Free Converting Tools",
+      title: "Remove Image Background Online",
       description:
-        "Isolate subjects automatically with client-side AI image processing. Preserve ultra-fine hair strands and edge details with zero server uploads.",
+        "Remove a plain background by matching colors at the edges, then download a PNG. Images longer than 2400 pixels are scaled down first.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Remove Image Background Online",
+    description:
+      "Cut out a subject that sits on a solid background and download a PNG. This is color matching plus a manual brush, not a hair-aware AI model.",
+    keywords: [
+      "remove background",
+      "remove image background",
+      "background remover",
+      "transparent png",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Remove Image Background Online",
+      description:
+        "Remove a solid background from a JPG, PNG, or WebP and download a PNG cutout.",
       type: "website",
       url: `/all-tools/image/remove-bg`,
       images: [
@@ -52,8 +57,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "Remove Image Background Online",
+      description:
+        "Color-match background removal with a PNG download. Best on plain backgrounds.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -148,16 +154,20 @@ export default function RemoveBackgroundPage() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="Remove Image Background"
+          lede="This cutout samples colors near the edges and clears similar pixels. It works best on a plain background. Hair, shadows, and busy scenes are often incomplete. You can paint details back with the erase and restore brushes. The download is a PNG, and images over 2400 pixels on the long side are reduced first."
+        />
         <RemoveBackgroundTool />
       </Suspense>
 
       {/* Tool Information & Security Guide */}
       <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
         <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title} &amp; Client-Side Neural Segmentation
+          How the background cutout works
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools Remove Background Studio empowers designers, e-commerce sellers, and creators to extract high-resolution portrait subjects, products, and graphics with pristine alpha transparency. All edge-matting and color clustering pipelines execute strictly inside your local browser sandbox with zero cloud uploads.
+          The tool estimates the background from pixels at the corners and edges, then clears colors that are close to that sample. A feather control softens the boundary. It is not a trained model, so fine hair and glass are not specially preserved. Use the brushes if the automatic pass removes too much or too little. Processing stays in the browser. For a JPG that only needs a new container, use <Link href="/all-tools/image/jpg-to-png" className="font-semibold text-slate-800 hover:underline">JPG to PNG</Link>.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
@@ -172,10 +182,10 @@ export default function RemoveBackgroundPage() {
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Hair Strand Fidelity
+              Plain backgrounds
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Edge-aware color dilation preserves wisps of hair, wool sweater textures, and transparent glasses frames.
+              A flat backdrop is the case this color match is built for. Patterned rooms and hair edges need the manual brushes.
             </p>
           </div>
 

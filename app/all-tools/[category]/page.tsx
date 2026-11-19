@@ -45,7 +45,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: `${seo.title} — 100% Free Client-Side Tools`,
+    title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
     openGraph: {

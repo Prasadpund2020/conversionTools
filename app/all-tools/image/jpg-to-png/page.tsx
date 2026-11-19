@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import JpgToPngTool from "@/components/tools/jpg-to-png/JpgToPngTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -22,21 +22,26 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "JPG to PNG Converter — Free & Lossless | Free Converting Tools",
+      title: "JPG to PNG Converter Online",
       description:
-        "Convert JPG and JPEG photos to lossless transparent PNG format online for free. Batch conversion with instant ZIP download. 100% in-browser processing.",
+        "Convert JPG and JPEG images to PNG in your browser. The PNG keeps the visible pixels and does not add transparency. Download one file or a ZIP.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "JPG to PNG Converter Online",
+    description:
+      "Convert JPG photos to PNG in the browser, one file or a ZIP. Existing JPEG compression stays in the picture. Transparency is not created.",
+    keywords: [
+      "jpg to png",
+      "jpeg to png",
+      "convert jpg to png online",
+      "jpg to png converter",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "JPG to PNG Converter Online",
+      description:
+        "Make a PNG copy of a JPG in the browser. The result is not a transparent cutout.",
       type: "website",
       url: `/all-tools/image/jpg-to-png`,
       images: [
@@ -50,8 +55,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "JPG to PNG Converter Online",
+      description:
+        "Convert JPG and JPEG files to PNG without uploading them.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -141,48 +147,82 @@ export default function JpgToPngPage() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="JPG to PNG Converter"
+          lede="Turn JPG and JPEG files into PNG files in the browser. The PNG stores the pixels the browser drew. It does not remove the background or undo JPEG compression."
+        />
         <JpgToPngTool />
       </Suspense>
 
-      {/* Educational & Architectural Feature Guide */}
-      <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">
-          About {tool.title} &amp; Lossless Raster Packaging
-        </h2>
-        <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools JPG to PNG Converter transposes lossy JPEG files into Portable Network Graphics (PNG) standard containers. Unlike online converters that queue your personal photos on third-party cloud machines, our engine decodes and re-encodes rasters purely in your device&apos;s browser sandbox, protecting confidential documents, receipts, and personal photography.
-        </p>
-
-        {/* Feature Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              No Generation Loss
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Lock in visual fidelity so future image edits won&apos;t compound compression artifacts.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Parallel Batch Encoding
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Process multiple files at the same time and download everything in a neat ZIP folder.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Zero Server Uploads
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Files are processed 100% in client-side memory without touching external servers.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ToolPageGuide
+        explanationTitle="What JPG to PNG changes"
+        explanation={
+          <p>
+            Each JPG is drawn onto a canvas and saved as PNG. PNG compression does not add another JPEG generation, but it also does not repair detail the JPG already lost. A normal photo stays opaque. Use background removal if you need a cutout.
+          </p>
+        }
+        stepsTitle="How to convert JPG to PNG"
+        steps={[
+          "Add one or more JPG or JPEG files.",
+          "Wait until each row shows a PNG size.",
+          "Download a single PNG, or download the set as a ZIP.",
+        ]}
+        formats="Input is JPG or JPEG. Output is PNG, or a ZIP of PNG files. There is no color-profile editor and no background removal."
+        details={[
+          {
+            title: "No new transparency",
+            body: "The converter does not detect a subject. White or colored backgrounds stay in the PNG.",
+          },
+          {
+            title: "Several files",
+            body: "Multiple JPGs can be converted in one visit and saved together.",
+          },
+          {
+            title: "File size",
+            body: "A PNG of a photo is often larger than the JPG. That is expected for this conversion.",
+          },
+        ]}
+        privacy="The canvas conversion runs in your browser. The images are not uploaded."
+        useCases={[
+          "Produce a PNG when a form or editor rejects JPG.",
+          "Keep a PNG working copy before you edit further.",
+          "Convert a folder of photos and take them away as one ZIP.",
+        ]}
+        faqs={[
+          {
+            question: "Will the PNG have a transparent background?",
+            answer:
+              "No. Transparency has to already exist, and JPEG does not store it. This page only changes the container.",
+          },
+          {
+            question: "Does this restore JPEG quality?",
+            answer:
+              "No. Softness or blockiness from the JPG remains visible in the PNG.",
+          },
+          {
+            question: "Can I convert a PNG back to JPG here?",
+            answer:
+              "No. This page writes PNG. The WebP converter writes WebP from several image types.",
+          },
+        ]}
+        links={[
+          {
+            href: "/all-tools/image/convert-webp",
+            title: "Convert to WebP",
+            description: "Write a WebP file when PNG is not the format you need.",
+          },
+          {
+            href: "/all-tools/image/resize-image",
+            title: "Resize image",
+            description: "Change the pixel size of a JPG, PNG, or WebP.",
+          },
+          {
+            href: "/all-tools/image/remove-bg",
+            title: "Remove background",
+            description: "Cut a solid-color background when you actually need transparency.",
+          },
+        ]}
+      />
 
       {/* Related Image Tools */}
       {relatedTools.length > 0 && (

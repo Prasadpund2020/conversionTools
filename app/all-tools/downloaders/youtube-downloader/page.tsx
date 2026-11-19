@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import YouTubeDownloaderTool from "@/components/tools/youtube-downloader/YouTubeDownloaderTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -23,13 +23,22 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "YouTube Downloader — Download Verified MP4 Video Online | Free Converting Tools",
+      title: "YouTube Video Details Lookup",
       description:
-        "Retrieve official YouTube metadata, high-resolution thumbnails, and download verified MP4 streams. Clean, fast, zero corrupt files, and compliant.",
+        "Look up a public YouTube title, channel, and thumbnail. Video download is not available.",
     };
   }
 
-  const seo = getToolSeo(tool);
+  const seo = {
+    title: "YouTube Video Details Lookup",
+    description:
+      "Look up a public YouTube video's title, channel, and thumbnail. This page does not download the video file.",
+    keywords: [
+      "youtube video title",
+      "youtube thumbnail lookup",
+      "youtube oembed",
+    ],
+  };
 
   return {
     title: seo.title,
@@ -147,16 +156,20 @@ export default function YouTubeDownloaderPage() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="YouTube video details"
+          lede="Paste a public YouTube link to read the title, channel, and thumbnail from YouTube's oEmbed response. Downloading the video is refused. A local sample file can be saved only for the built-in authorized test, not for a normal watch URL."
+        />
         <YouTubeDownloaderTool />
       </Suspense>
 
       {/* Tool Information & Security Guide */}
       <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
         <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title} &amp; Official Stream Dispatch
+          What this page can and cannot do
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools YouTube Downloader provides verified metadata retrieval via official YouTube APIs and validated MP4 stream downloads. Enjoy genuine downloads with strict container verification, zero dummy placeholders, and full platform compliance.
+          A normal YouTube link returns public details. The download route rejects youtube.com and youtu.be addresses, so this is not a video saver. If you already have a video file on your computer, use <Link href="/all-tools/video-audio/video-to-mp3" className="font-semibold text-slate-800 hover:underline">extract audio from video</Link> to make a WAV from a file the browser can decode.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
@@ -171,19 +184,19 @@ export default function YouTubeDownloaderPage() {
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Verified MP4 Validation
+              No YouTube file download
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Every media byte is checked for ISO Base Media signature (ftyp box) and Content-Length to prevent corrupted or placeholder files.
+              A youtube.com or youtu.be address is rejected when a file download is requested.
             </p>
           </div>
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              No Watermarks Added
+              Not a downloader
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Files are saved strictly in their original presentation with zero branding, sponsor banners, or visual watermarks.
+              Do not expect an MP4 or MP3 of the YouTube video. The useful result is the title, channel, and thumbnail.
             </p>
           </div>
         </div>

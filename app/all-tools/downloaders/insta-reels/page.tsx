@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import InstaReelsTool from "@/components/tools/insta-reels/InstaReelsTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -23,13 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Instagram Reels Downloader — Save Reels Video HD & MP3 | Free Converting Tools",
+      title: "Instagram Reel Link Preview",
       description:
-        "Download Instagram Reels, public video posts, and audio tracks in full 1080p HD without watermarks. Free and fast browser tool.",
+        "Preview an Instagram Reel link. The download does not save the real reel.",
     };
   }
 
-  const seo = getToolSeo(tool);
+  const seo = {
+    title: "Instagram Reel Link Preview",
+    description:
+      "Enter an Instagram Reel link to see a preview card. The download button does not save the real reel.",
+    keywords: ["instagram reel preview", "reel link preview"],
+  };
 
   return {
     title: seo.title,
@@ -141,33 +146,37 @@ export default function InstaReelsPage() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="Instagram Reel link preview"
+          lede="A Reel link can show a preview card. For a link that is not one of the built-in samples, the card is placeholder text and a stock image. The download writes a tiny stand-in file, not the reel."
+        />
         <InstaReelsTool />
       </Suspense>
 
       <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
         <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title} &amp; High-Definition Media Extraction
+          This page does not save the Reel
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools Instagram Reels Downloader provides high-speed, watermark-free downloads of public Instagram Reels, videos, and audio tracks. Enjoy direct access to 1080p video files and crisp 320 kbps MP3 extractions with zero account registration or third-party ads.
+          The download action creates a small placeholder file. It is not the Instagram video or its audio. Do not use this page when you need the real Reel. If you already have the video file, <Link href="/all-tools/video-audio/video-to-mp3" className="font-semibold text-slate-800 hover:underline">extract audio as WAV</Link> from a file the browser can decode.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Full 1080p Resolution
+              Preview only
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Videos are retrieved in their highest available bitrate directly from public content delivery networks.
+              Unknown Reel links do not load the real video. Sample links can show the built-in sample card.
             </p>
           </div>
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Audio Isolation
+              Placeholder download
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Extract trending viral audio bites and voiceovers directly into stereo MP3 format.
+              The saved file is a small stand-in, not the Reel or an MP3 of its audio.
             </p>
           </div>
 

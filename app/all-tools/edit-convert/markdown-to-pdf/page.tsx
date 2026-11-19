@@ -5,11 +5,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import { MarkdownToPdfTool } from "@/components/tools/markdown-to-pdf/MarkdownToPdfTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -27,7 +27,17 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   }
 
-  const seo = getToolSeo(tool);
+  const seo = {
+    title: "Markdown to PDF Online",
+    description:
+      "Turn Markdown into a PDF in your browser. The PDF includes headings, lists, quotes, fenced code, and rules on A4 or Letter, using standard PDF fonts.",
+    keywords: [
+      "markdown to pdf",
+      "md to pdf",
+      "convert markdown to pdf",
+      "markdown pdf converter",
+    ],
+  };
 
   return {
     title: seo.title,
@@ -113,19 +123,77 @@ export default async function MarkdownToPdfPage() {
         />
 
         <div className="mt-6">
+          <ToolPageIntro
+            title="Markdown to PDF"
+            lede="Paste Markdown or edit it in the box, check the preview, and download a PDF. The PDF uses Helvetica and Courier. It includes headings, lists, quotes, fenced code, and horizontal rules. Inline bold in the preview is not the same as a custom font in the PDF."
+          />
           <MarkdownToPdfTool />
         </div>
 
-        {/* Informational Section */}
         <div className="mt-16 max-w-4xl mx-auto space-y-12">
-          <section className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-              Why Convert Markdown to PDF in Free Converting Tools?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-              Markdown is the standard format for developer documentation, READMEs, technical specifications, and personal note-taking in apps like Obsidian and Notion. Free Converting Tools allows you to transform raw markdown files or text snippets into formatted, paginated PDF documents with headers, footers, code blocks, and customizable font scaling — all directly in your browser without uploading your notes to any remote servers.
-            </p>
-          </section>
+          <ToolPageGuide
+            explanationTitle="What the PDF includes"
+            explanation={
+              <p>
+                Page size is A4 or Letter. Font size is small, medium, or large. An optional header prints the document title. Characters outside the standard PDF fonts can be missing or replaced. Images in the Markdown are not embedded. The preview is a quick on-screen rendering so you can read the structure before you download.
+              </p>
+            }
+            stepsTitle="How to convert Markdown to PDF"
+            steps={[
+              "Type, paste, or drop a .md, .markdown, or .txt file.",
+              "Set the title, page size, and font size.",
+              "Read the preview, then download the PDF.",
+            ]}
+            formats="Input is Markdown text. Output is a PDF. Supported structures in the PDF are headings through level three, bullet and numbered lists, blockquotes, fenced code, horizontal rules, and paragraphs."
+            details={[
+              {
+                title: "Standard fonts",
+                body: "Body text is Helvetica, headings are Helvetica Bold, and code is Courier. There is no font upload.",
+              },
+              {
+                title: "Preview",
+                body: "The side preview helps you read the note. The downloaded PDF is produced by the PDF writer, not by printing that preview.",
+              },
+              {
+                title: "Limits",
+                body: "Tables, images, and most inline HTML are not laid out as they would be in a full Markdown engine.",
+              },
+            ]}
+            privacy="The note is converted in your browser. It is not uploaded."
+            useCases={[
+              "Turn a README excerpt into a PDF you can send.",
+              "Print meeting notes that are already in Markdown.",
+              "Check heading structure in the preview before you keep the file.",
+            ]}
+            faqs={[
+              {
+                question: "Will the PDF match the preview exactly?",
+                answer:
+                  "No. The preview is HTML in the page. The PDF uses the PDF writer and standard fonts, so spacing and emphasis can differ.",
+              },
+              {
+                question: "Can I include a screenshot?",
+                answer:
+                  "Not as an embedded image in the PDF. Add the image with the image tools, or refer to it in the text.",
+              },
+              {
+                question: "Which page sizes are available?",
+                answer: "A4 and US Letter.",
+              },
+            ]}
+            links={[
+              {
+                href: "/all-tools/edit-convert/word-to-pdf",
+                title: "Word to PDF",
+                description: "Convert a Word document when the source is not Markdown.",
+              },
+              {
+                href: "/all-tools/edit-convert/ocr-scanner",
+                title: "OCR scanner",
+                description: "Read text from a PNG, JPG, or WebP in Chrome or Edge.",
+              },
+            ]}
+          />
 
           {/* Related Tools */}
           {relatedTools.length > 0 && (

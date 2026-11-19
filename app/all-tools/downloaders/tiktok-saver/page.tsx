@@ -7,7 +7,6 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import TikTokSaverTool from "@/components/tools/tiktok-saver/TikTokSaverTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
@@ -23,13 +22,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "TikTok Saver No Watermark — Download HD Video & MP3 Audio | Free Converting Tools",
+      title: "TikTok Link Preview",
       description:
-        "Save high quality TikTok videos without platform watermarks. Extract viral audio tracks and cover posters in 1080p MP4. Free & fast.",
+        "Enter a TikTok link to see a preview card. The download does not save the real video.",
     };
   }
 
-  const seo = getToolSeo(tool);
+  const seo = {
+    title: "TikTok Link Preview",
+    description:
+      "Enter a TikTok link to see a preview card. The download does not save the real video.",
+    keywords: ["tiktok link preview"],
+  };
 
   return {
     title: seo.title,
@@ -72,7 +76,7 @@ export default function TikTokSaverPage() {
       title: "TikTok Saver No Watermark",
       category: "downloaders",
       description:
-        "Save high quality TikTok videos without platform watermarks.",
+        "Preview a TikTok link. The download does not save the real video.",
       clayColor: "clay-cyan",
       iconType: "music",
       badgeText: "No Watermark",
@@ -89,7 +93,7 @@ export default function TikTokSaverPage() {
   const softwareAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "TikTok Saver No Watermark — Free Converting Tools",
+    name: "TikTok Link Preview",
     description: tool.description,
     url: `${SITE_URL}/all-tools/downloaders/tiktok-saver`,
     applicationCategory: "MultimediaApplication",
@@ -101,10 +105,8 @@ export default function TikTokSaverPage() {
       priceCurrency: "USD",
     },
     featureList: [
-      "100% Watermark-free 1080p HD TikTok MP4 saving",
-      "Direct viral audio sound extraction in 320 kbps MP3",
-      "Clean original video stream with zero ads or third-party banners",
-      "Compatible with mobile devices (iOS/Android) and desktop browsers",
+      "Preview card for a TikTok link",
+      "Download does not save the platform video",
     ],
   };
 
@@ -149,7 +151,7 @@ export default function TikTokSaverPage() {
           About {tool.title} &amp; Clean Video Extraction
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools TikTok Saver allows you to extract full high-definition TikTok videos without the distracting bouncing logo watermark. Convert choreography clips, food recipes, educational tutorials, and viral sound tracks directly to MP4 and MP3 with fast, private client-side dispatch.
+          A TikTok link can show a preview card. The download writes a small placeholder file, not the video from TikTok. Do not use this page when you need the real clip.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">

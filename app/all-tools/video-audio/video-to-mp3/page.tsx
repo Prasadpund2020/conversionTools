@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import VideoToMp3Tool from "@/components/tools/video-to-mp3/VideoToMp3Tool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -22,21 +22,26 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Video to MP3 Converter — Extract Audio Online Free | Free Converting Tools",
+      title: "Extract Audio from Video Online",
       description:
-        "Extract high-bitrate MP3, WAV, or AAC audio from MP4, MKV, and MOV videos. 100% in-browser WebAudio & WebAssembly processing with zero server uploads.",
+        "Decode audio from a video your browser can play and download a WAV file. The MP3, AAC, FLAC, and M4A choices do not run a separate encoder.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Extract Audio from Video Online",
+    description:
+      "Extract audio from a video the browser can decode and download WAV. Choosing MP3, AAC, FLAC, or M4A does not encode that format.",
+    keywords: [
+      "extract audio from video",
+      "video to wav",
+      "video audio extractor",
+      "mp4 to wav",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Extract Audio from Video Online",
+      description:
+        "Decode a video in the browser and download the audio as WAV.",
       type: "website",
       url: `/all-tools/video-audio/video-to-mp3`,
       images: [
@@ -50,8 +55,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "Extract Audio from Video Online",
+      description:
+        "WAV download from a browser-decoded video. Other format labels are not separate encoders.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -144,18 +150,20 @@ export default function VideoToMp3Page() {
           </div>
         }
       >
+        <ToolPageIntro
+          title="Extract Audio from Video"
+          lede="The page decodes a video with the browser audio engine and can download a real WAV file. If you pick MP3, AAC, FLAC, or M4A, the download is still WAV audio with an ID3 header. It is not a separate MP3, AAC, FLAC, or M4A encoder. A file the browser cannot decode will not produce audio."
+        />
         <VideoToMp3Tool />
       </Suspense>
 
       {/* Tool Information & Security Guide */}
       <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
         <h2 className="text-xl font-bold text-slate-800 mb-4">
-          About {tool.title} &amp; Client-Side Audio Demuxing
+          What you can download
         </h2>
         <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Free Converting Tools Video to MP3 &amp; Audio Lab provides broadcast-grade audio extraction running entirely inside
-          your web browser. Using the Web Audio API and WebAssembly codecs, video containers are demuxed locally
-          without uploading sensitive interviews, presentations, or keynote recordings to remote servers.
+          Choose WAV when you need the file this page actually encodes. The other format names do not change the audio encoding. Decoding happens in the browser, so the video is not uploaded. A container the browser cannot play, which often includes some MKV files, will fail even if the file extension is listed.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
@@ -179,10 +187,10 @@ export default function VideoToMp3Page() {
 
           <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
             <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Studio Bitrates &amp; ID3 Tags
+              WAV is the real export
             </div>
             <p className="text-xs text-slate-500">
-              Export up to 320 kbps Extreme Studio fidelity with embedded artist, track, and album metadata tags.
+              Non-WAV choices add an ID3 tag in front of WAV data. They are not 320 kbps MP3 files. Use WAV if another app must open the audio.
             </p>
           </div>
         </div>

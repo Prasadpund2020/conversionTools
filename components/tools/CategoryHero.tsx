@@ -17,6 +17,7 @@ export default function CategoryHero({
   category,
   categoryName,
   departmentNumber,
+  description,
   searchQuery,
   onSearchChange,
   toolCount,
@@ -136,12 +137,14 @@ export default function CategoryHero({
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-xl sm:text-2xl lg:text-[26px] xl:text-[28px] font-black tracking-tight text-stone-900 leading-tight mb-2 sm:mb-2.5">
+            <h1 className="text-xl sm:text-2xl lg:text-[26px] xl:text-[28px] font-black tracking-tight text-stone-900 leading-tight mb-2">
               <span className={`${theme.titleAccent} font-black`}>
                 {categoryName}
-              </span>{" "}
-              Utilities
+              </span>
             </h1>
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-3 max-w-xl">
+              {description}
+            </p>
 
             {/* HERO SEARCH BAR with Glowing Ambient Aura & Round Arrow Button */}
             <form

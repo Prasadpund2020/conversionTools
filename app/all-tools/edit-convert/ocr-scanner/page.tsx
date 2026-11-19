@@ -6,11 +6,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import OcrScannerTool from "@/components/tools/ocr-scanner/OcrScannerTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -22,21 +22,26 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "OCR Text Extractor Online Free — Extract Text from Images & Scans | Free Converting Tools",
+      title: "OCR Scanner Online",
       description:
-        "Extract editable text, receipt totals, and code from photos and scanned documents directly in your browser with private client-side OCR.",
+        "Read text from a PNG, JPG, or WebP image when Chrome or Edge provides text detection. Other browsers do not decode the photo.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "OCR Scanner Online",
+    description:
+      "OCR reader for a PNG, JPG, or WebP image in Chrome or Edge. Copy the text or export TXT, JSON, or a PDF of that text. PDF files are not an input.",
+    keywords: [
+      "ocr scanner online",
+      "ocr reader online",
+      "text scanner online",
+      "extract text from image",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "OCR Scanner Online",
+      description:
+        "Read text from a PNG, JPG, or WebP photo in Chrome or Edge, then copy it or export TXT, JSON, or PDF.",
       type: "website",
       url: `/all-tools/edit-convert/ocr-scanner`,
       images: [
@@ -50,8 +55,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "OCR Scanner Online",
+      description:
+        "Image text reading in Chrome or Edge. PDF upload is not supported.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -98,10 +104,9 @@ export default function OcrScannerPage() {
       priceCurrency: "USD",
     },
     featureList: [
-      "100% Client-side optical character recognition",
-      "Zero server uploads",
-      "Visual bounding box inspection",
-      "Export as TXT, JSON, or PDF",
+      "PNG, JPG, and WebP input",
+      "Browser TextDetector in Chrome and Edge",
+      "Export TXT, JSON, or a PDF of the extracted text",
     ],
   };
 
@@ -161,54 +166,85 @@ export default function OcrScannerPage() {
         ]}
       />
 
-      {/* Main Interactive Tool */}
       <div className="mt-4">
+        <ToolPageIntro
+          title="OCR Scanner Online"
+          lede="Upload a PNG, JPG, or WebP image. In Chrome or Edge, the page uses the browser text detector and can export the words as text, JSON, or a simple PDF. It does not read PDF files, and other browsers do not decode the real text in the photo."
+        />
         <OcrScannerTool />
       </div>
 
-      {/* SEO & Feature Info Section */}
-      <div className="mt-16 bg-white/80 backdrop-blur-md rounded-3xl border border-stone-200/80 p-6 sm:p-10 shadow-sm">
-        <h2 className="text-xl sm:text-2xl font-black text-stone-900 mb-4 tracking-tight">
-          Privacy-First Optical Character Recognition (OCR) Scanner
-        </h2>
-        <p className="text-sm text-stone-600 leading-relaxed mb-8 max-w-4xl">
-          Instantly convert physical invoices, handwritten memos, contracts, and screenshots into editable, searchable digital text.
-          Because Free Converting Tools processes pixels directly inside your web browser’s RAM sandbox, you can extract confidential financial, legal,
-          and proprietary documents without risk of third-party telemetry or cloud leaks.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-stone-100">
-          <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/60">
-            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm mb-3">
-              👁️
-            </div>
-            <h3 className="text-sm font-bold text-stone-800 mb-1">Visual Bounding Boxes</h3>
-            <p className="text-xs text-stone-500 leading-relaxed">
-              Hover over highlighted regions on your original scan to see live character mappings and accuracy confidence levels.
-            </p>
-          </div>
-
-          <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/60">
-            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm mb-3">
-              ⚡
-            </div>
-            <h3 className="text-sm font-bold text-stone-800 mb-1">Sub-100ms Latency</h3>
-            <p className="text-xs text-stone-500 leading-relaxed">
-              Accelerated with modern web browser canvas APIs for rapid text extraction without network latency.
-            </p>
-          </div>
-
-          <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/60">
-            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm mb-3">
-              📑
-            </div>
-            <h3 className="text-sm font-bold text-stone-800 mb-1">Versatile Export Formats</h3>
-            <p className="text-xs text-stone-500 leading-relaxed">
-              Export your scanned characters as plain text (.txt), bounding coordinate JSON, or searchable PDF document.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ToolPageGuide
+        explanationTitle="What this OCR reader can read"
+        explanation={
+          <p>
+            Text comes from the browser TextDetector API. That API is available in Chromium browsers such as Chrome and Edge. When it is missing, the page does not read the words in your image. Handwriting, small type, and photos of glossy paper are often missed even when the detector runs. The image itself is not turned into a searchable PDF; the export PDF contains the extracted text in a standard font.
+          </p>
+        }
+        stepsTitle="How to use the text scanner"
+        steps={[
+          "Open the page in Chrome or Edge.",
+          "Upload a PNG, JPG, or WebP image. PDF files are not accepted.",
+          "Review the text beside the image. If the words do not match the photo, the detector missed them.",
+          "Copy the text, or export TXT, JSON, or a PDF of the text you see.",
+        ]}
+        formats="Input: PNG, JPG, JPEG, or WebP. Output: on-screen text, a TXT file, JSON of the detected blocks, or a PDF that reprints that text. There is no language pack selector."
+        details={[
+          {
+            title: "Chrome and Edge",
+            body: "Scanning depends on TextDetector. Firefox and Safari will not return the text that is actually in the picture.",
+          },
+          {
+            title: "Images only",
+            body: "A scanned PDF has to be exported as an image first. This page does not open PDF pages.",
+          },
+          {
+            title: "Exports",
+            body: "TXT, JSON, and PDF exports use the text the detector returned. They do not improve a bad read.",
+          },
+        ]}
+        privacy="The image is read in the browser. It is not uploaded to an OCR server."
+        useCases={[
+          "Copy a short line from a screenshot while you are already in Chrome.",
+          "Pull printed text from a photo when the type is large and clear.",
+          "Save the extracted words as a text file after you have checked them against the image.",
+        ]}
+        faqs={[
+          {
+            question: "Is this an OCR scanner online?",
+            answer:
+              "Yes, for PNG, JPG, and WebP images in Chrome or Edge. It is not a multi-language OCR engine and it does not accept PDF uploads.",
+          },
+          {
+            question: "Why did the text not match my photo?",
+            answer:
+              "The browser detector missed the glyphs, or you are in a browser without TextDetector. Compare the result with the image before you rely on it.",
+          },
+          {
+            question: "Can I read a scanned PDF?",
+            answer:
+              "Not on this page. Export a page as PNG or JPG first, then upload that image.",
+          },
+        ]}
+        linksTitle="Related image and document tools"
+        links={[
+          {
+            href: "/all-tools/image",
+            title: "Image tools",
+            description: "Resize, convert, or crop a photo before you try to read the text.",
+          },
+          {
+            href: "/all-tools/image/jpg-to-png",
+            title: "JPG to PNG",
+            description: "Make a PNG copy if you want that format before uploading it here.",
+          },
+          {
+            href: "/all-tools/edit-convert/markdown-to-pdf",
+            title: "Markdown to PDF",
+            description: "Turn notes you already have as text into a PDF, which is a different job from OCR.",
+          },
+        ]}
+      />
 
       {/* Related Tools Shelf */}
       {relatedTools.length > 0 && (

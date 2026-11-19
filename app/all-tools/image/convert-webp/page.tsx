@@ -7,11 +7,11 @@ import {
   getToolBySlug,
   getCategoryInfo,
   getToolsByCategory,
-  getToolSeo,
 } from "@/lib/tools";
 import ConvertWebpTool from "@/components/tools/convert-webp/ConvertWebpTool";
 import Breadcrumbs from "@/components/tools/Breadcrumbs";
 import ToolCard from "@/components/tools/ToolCard";
+import ToolPageGuide, { ToolPageIntro } from "@/components/tools/seo/ToolPageGuide";
 import { SITE_URL } from "@/lib/constants";
 
 export const instant = false;
@@ -24,19 +24,25 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: "Convert to WebP Online — Free JPG & PNG to WebP Converter | Free Converting Tools",
       description:
-        "Convert JPG, PNG, and GIF images to modern WebP format online for free. Reduce file size up to 85% with batch conversion and ZIP export. Zero server uploads.",
+        "Convert JPG, PNG, GIF, or BMP images to WebP in your browser, then download one file or a ZIP.",
     };
   }
 
-  const seo = getToolSeo(tool);
-
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    title: "Convert to WebP Online Free",
+    description:
+      "Convert JPG, PNG, GIF, or BMP images to WebP in your browser. Set a quality level or lossless mode, then download one image or a ZIP.",
+    keywords: [
+      "convert to webp",
+      "webp converter",
+      "to webp",
+      "converter to webp",
+      "webpconvert",
+    ],
     openGraph: {
-      title: `${tool.title} — Free Converting Tools`,
-      description: seo.description,
+      title: "Convert to WebP Online Free",
+      description:
+        "A free WebP converter for JPG, PNG, GIF, and BMP images, with quality, lossless mode, and ZIP download.",
       type: "website",
       url: `/all-tools/image/convert-webp`,
       images: [
@@ -50,8 +56,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: tool.title,
-      description: seo.description,
+      title: "Convert to WebP Online Free",
+      description:
+        "Convert images to WebP in the browser and download a single file or a ZIP.",
       images: ["/images/all-tools-hero-banner.png"],
     },
     alternates: {
@@ -87,7 +94,8 @@ export default function ConvertWebpPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: tool.title,
-    description: tool.description,
+    description:
+      "Convert JPG, PNG, GIF, and BMP images to WebP in the browser. Animated GIFs become a single still frame.",
     url: `${SITE_URL}/all-tools/image/convert-webp`,
     applicationCategory: "MultimediaApplication",
     operatingSystem: "All (Browser-based)",
@@ -98,11 +106,10 @@ export default function ConvertWebpPage() {
       priceCurrency: "USD",
     },
     featureList: [
-      "Batch parallel conversion of JPG, PNG, and GIF to modern Google WebP format",
-      "Lossless and lossy encoding profiles with dynamic quality adjustment slider",
-      "One-click combined ZIP archive bundling for mass website asset conversion",
-      "Bandwidth and mobile data savings telemetry before and after conversion",
-      "Zero server uploads - 100% private in-browser RAM execution",
+      "JPG, PNG, GIF, and BMP to WebP",
+      "Quality slider and lossless mode",
+      "ZIP download for multiple images",
+      "Browser-side canvas encoding",
     ],
   };
 
@@ -128,6 +135,10 @@ export default function ConvertWebpPage() {
           ]}
         />
       </div>
+      <ToolPageIntro
+        title="Convert to WebP"
+        lede="Turn JPG, PNG, GIF, or BMP images into WebP without leaving the browser. Use the quality slider, or switch on lossless mode when you want the canvas encoder to avoid the quality setting."
+      />
       <Suspense
         fallback={
           <div className="w-full min-h-[500px] flex items-center justify-center bg-[#faf8f5] rounded-3xl border border-stone-200">
@@ -143,45 +154,76 @@ export default function ConvertWebpPage() {
         <ConvertWebpTool />
       </Suspense>
 
-      {/* Educational & Architectural Feature Guide */}
-      <div className="mt-12 bg-white/80 rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs">
-        <h2 className="text-xl font-bold text-slate-800 mb-3">
-          About {tool.title} &amp; Next-Gen Web Optimization
-        </h2>
-        <p className="text-sm text-slate-600 leading-relaxed mb-6">
-          Google WebP is the modern web standard for high-speed image compression. Free Converting Tools Convert to WebP allows web designers, developers, and content creators to transcode legacy JPG, PNG, and GIF assets into lightweight WebP graphics in seconds. With zero server queues and 100% private in-browser encoding, your assets remain strictly confidential.
-        </p>
-
-        {/* Feature Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-stone-100">
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              80% File Weight Reduction
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Dramatically shrink storage footprint and bandwidth expenditure while retaining crisp photography details.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Batch ZIP Download
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Convert dozens of photos simultaneously and download a consolidated, organized ZIP archive with one click.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-stone-50/80 border border-stone-200/60">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-              Full Alpha Transparency
-            </div>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Preserves PNG cutouts and transparent logos with smooth anti-aliased edge blending.
-            </p>
-          </div>
-        </div>
-      </div>
+      <ToolPageGuide
+        explanationTitle="What this WebP converter does"
+        explanation={
+          <p>
+            This page converts images to WebP with the browser canvas. File size depends on the picture and the quality setting. There is no fixed percentage of savings. An animated GIF is flattened to the first frame the browser draws.
+          </p>
+        }
+        stepsTitle="How to convert to WebP"
+        steps={[
+          "Add one or more images. The picker accepts common image types, including JPG, PNG, GIF, and BMP.",
+          "Leave lossy mode on and move the quality slider, or turn on lossless mode.",
+          "Download a single WebP, or download every finished image as a ZIP.",
+          "If the browser cannot encode WebP, the conversion cannot produce a WebP file. Chrome, Edge, and Firefox are the browsers to use.",
+        ]}
+        formats="Input is an image file the browser can decode. Output is WebP, or a ZIP of WebP files. Transparency in a PNG can be kept when the browser's WebP encoder supports the alpha channel in that image."
+        details={[
+          {
+            title: "Quality or lossless",
+            body: "The default quality is 82. Lossless mode ignores the quality slider and asks the canvas encoder for a lossless WebP.",
+          },
+          {
+            title: "Several images",
+            body: "You can convert more than one image in the same session and save them together in a ZIP.",
+          },
+          {
+            title: "Still frames only",
+            body: "A GIF is not kept as an animation. You get one still WebP from the decoded frame.",
+          },
+        ]}
+        privacy="Images are encoded in your browser. They are not uploaded to a conversion server."
+        useCases={[
+          "Prepare website images when you specifically need a WebP file.",
+          "Make a lighter copy of a JPG or PNG before you upload it to a site that accepts WebP.",
+          "Convert a set of screenshots and download them as one ZIP.",
+        ]}
+        faqs={[
+          {
+            question: "How do I convert to WebP online?",
+            answer:
+              "Add the image, choose quality or lossless, and download the WebP. Repeat for more files, or download the ZIP.",
+          },
+          {
+            question: "Will every image get much smaller?",
+            answer:
+              "No. Size depends on the source and the quality you pick. Compare the before and after sizes shown for each file.",
+          },
+          {
+            question: "Can I turn a PNG into a JPG here?",
+            answer:
+              "No. This page writes WebP. Use JPG to PNG if you need a PNG file instead.",
+          },
+        ]}
+        links={[
+          {
+            href: "/all-tools/image/jpg-to-png",
+            title: "JPG to PNG",
+            description: "Make a PNG copy of a JPG when WebP is not the format you need.",
+          },
+          {
+            href: "/all-tools/image/resize-image",
+            title: "Resize image",
+            description: "Change pixel size before or after you convert the format.",
+          },
+          {
+            href: "/all-tools/image/compress-image",
+            title: "Compress image",
+            description: "Reduce an image when you want to stay in JPG, PNG, or WebP from that tool.",
+          },
+        ]}
+      />
 
       {/* Related Image Tools */}
       {relatedTools.length > 0 && (

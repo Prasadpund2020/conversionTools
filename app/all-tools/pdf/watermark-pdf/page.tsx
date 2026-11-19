@@ -6,15 +6,14 @@ import { WatermarkPdfTool } from "@/components/tools/watermark-pdf/WatermarkPdfT
 export const metadata: Metadata = {
   title: "Watermark PDF Online Free - Add Text & Image Stamps",
   description:
-    "Add custom text or image watermarks to PDF pages in seconds. Customize font, opacity, rotation, 3x3 placement grid, and tiled stamps with zero uploads.",
+    "Add a text or image PDF stamp to selected pages. Choose font, color, opacity, rotation, and a single position or a tiled pattern. The file stays in your browser.",
   keywords: [
     "watermark pdf",
+    "pdf stamp",
     "add watermark to pdf",
     "stamp pdf online",
-    "confidential stamp pdf",
-    "logo watermark pdf",
-    "free pdf watermarker",
-    "client-side pdf watermark",
+    "text watermark pdf",
+    "image watermark pdf",
   ],
   alternates: {
     canonical: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
     ],
     title: "Watermark PDF Online Free | Free Converting Tools",
     description:
-      "Stamp PDFs with custom confidential watermarks, corporate logos, and diagonal copyright notices 100% in your browser.",
+      "Place a text or image PDF stamp on selected pages, with opacity, rotation, and tiled placement, in your browser.",
     url: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
     siteName: "Free Converting Tools",
     type: "website",
@@ -43,7 +42,7 @@ const jsonLdWebapp = {
   name: "Free Converting Tools Watermark PDF Tool",
   url: "https://freeconvertingtools.co.in/all-tools/pdf/watermark-pdf",
   description:
-    "In-browser PDF watermarking suite. Stamp documents with custom typography, opacity, orientation, and logos without server uploads.",
+    "Add a text or image stamp to PDF pages in the browser. Supports Helvetica, Times, or Courier bold text, a JPG or PNG image, opacity, rotation, page ranges, and tiled placement.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "All",
   offers: {
@@ -85,14 +84,46 @@ export default function WatermarkPdfPage() {
             Watermark PDF Documents
           </h1>
           <p className="text-sm md:text-base text-on-surface-variant leading-relaxed">
-            Stamp confidential notices, copyright protection, and corporate logos across your PDF pages.
-            Fully customizable rotation, opacity, typography, and page targeting with zero file uploads.
+            Place a PDF stamp on the pages you choose. Use short text in Helvetica, Times, or Courier bold, or a JPG or PNG image. Set opacity, rotation, one position, or a tiled pattern. The stamp is drawn on top of the page.
           </p>
         </div>
 
         {/* Interactive Tool Orchestrator */}
         <section aria-label="PDF Watermark Tool">
           <WatermarkPdfTool />
+        </section>
+
+        <section className="rounded-3xl bg-surface-container-low p-6 md:p-8 border border-outline-variant/30 shadow-md flex flex-col gap-4">
+          <h2 className="text-2xl font-bold text-on-surface">How to add a PDF stamp</h2>
+          <ol className="list-decimal list-inside flex flex-col gap-3 text-sm text-on-surface-variant leading-relaxed">
+            <li>
+              <span className="font-semibold text-on-surface">Open the PDF</span>
+              {" — "}the page count is read in the browser.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Choose text or image</span>
+              {" — "}type the stamp, or supply a JPG or PNG. Other image types are not embedded.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Set placement</span>
+              {" — "}pick a position or tiling, then opacity, color, font, size, and rotation. Limit the page range if you do not want every page.
+            </li>
+            <li>
+              <span className="font-semibold text-on-surface">Download</span>
+              {" — "}the stamp is drawn onto the existing pages without turning the whole PDF into an image.
+            </li>
+          </ol>
+          <p className="text-sm text-on-surface-variant leading-relaxed">
+            Need to hide a sentence instead of labeling the page?{" "}
+            <Link href="/all-tools/pdf/redact-pdf" className="text-primary font-semibold hover:underline">
+              Cover it with a redaction box
+            </Link>
+            . To change page order before stamping,{" "}
+            <Link href="/all-tools/pdf/organize-pdf" className="text-primary font-semibold hover:underline">
+              organize the PDF
+            </Link>{" "}
+            first.
+          </p>
         </section>
 
         {/* Feature Cards Grid */}
@@ -136,15 +167,21 @@ export default function WatermarkPdfPage() {
           <h2 className="text-2xl font-bold text-on-surface">Frequently Asked Questions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <h3 className="text-sm font-bold text-on-surface">Will watermarking reduce the text sharpness of my original PDF?</h3>
+              <h3 className="text-sm font-bold text-on-surface">Will the stamp flatten my PDF into an image?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                No. Free Converting Tools injects native PDF text and vector objects directly into the existing PDF structure without rasterizing the underlying pages, maintaining crisp 300+ DPI print quality.
+                No. Text stamps are PDF text in Helvetica Bold, Times Bold, or Courier Bold. Image stamps are an embedded JPG or PNG. Existing page content is not re-rendered as a bitmap.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-sm font-bold text-on-surface">Can I place the watermark underneath existing text?</h3>
+              <h3 className="text-sm font-bold text-on-surface">Where does the PDF stamp sit?</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed">
-                Yes. Select &quot;Underneath&quot; in the Layer Depth settings to stamp your watermark behind existing page elements or &quot;Over Content&quot; for prominent stamps.
+                It is drawn on top of the page. Lower the opacity if you still need the page text to be readable. A page range such as 1-3 limits which pages receive the stamp.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-sm font-bold text-on-surface">Is the file uploaded?</h3>
+              <p className="text-xs text-on-surface-variant leading-relaxed">
+                No. The PDF and the optional stamp image are handled in your browser.
               </p>
             </div>
           </div>
